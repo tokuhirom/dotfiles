@@ -13,7 +13,7 @@ git config --global alias.delete-merged-branches '!git branch --merged | grep -v
 
 # ブランチ一覧を時刻順で
 # http://d.hatena.ne.jp/kazuhooku/20130205/1360039870
-git config --global alias.branch-list "!(for i in `git branch | colrm 1 2` ; do echo `git log --date=iso8601 -n 1 --pretty="format:[%ai] %h" $i` $i ; done) | sort -r"
+# git config --global alias.branch-list "!(for i in `git branch | colrm 1 2` ; do echo `git log --date=iso8601 -n 1 --pretty="format:[%ai] %h" $i` $i ; done) | sort -r"
 
 # git merge するときは常に --no-ff(1.7.6以降)
 git config --global merge.ff false
