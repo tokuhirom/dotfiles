@@ -17,4 +17,4 @@ sudo apt-get -y install adb
 # note. i can't install android-studio on pixelbook using linuxbrew.
 sudo apt autoremove
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+~/dotfiles/setup-vimplug.sh
