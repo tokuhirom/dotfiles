@@ -27,3 +27,4 @@ function connect_adb() {
     adb connect 100.115.92.2:5555
 }
 
+alias ls="ls -F --color"
