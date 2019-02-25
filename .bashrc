@@ -11,7 +11,7 @@ source ~/.git-prompt.sh
 alias kerb="ssh tokuhirom@igw1.linecorp.com"
 # export PATH=$HOME/.linuxbrew/bin:$PATH
 
-export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+export PS1='[\e[33m\u\e[0m@\e[32m\h\e[0m \e[34m\W\e[0m$(__git_ps1 " (\e[95m%s\e[0m)")\e[0m]\$ '
 
 # -----------------------------------------------
 #
