@@ -16,6 +16,9 @@ sudo apt-get -y install python3 iputils-ping tmux vim-nox silversearcher-ag
 sudo apt-get -y install cargo llvm libclang-dev
 cargo install bat
 
+# VPN
+sudo apt-get install -y libgnome-keyring0 libproxy1-plugin-webkit libwebkitgtk-1.0.0
+
 # sudo apt-get -y install linuxbrew-wrapper
 # note. i can't install android-studio on pixelbook using linuxbrew.
 sudo apt autoremove
