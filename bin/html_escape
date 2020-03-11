@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'cgi'
+
+ARGV.each do |a|
+    puts CGI.escapeHTML(a)
+end
+

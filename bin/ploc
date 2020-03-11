@@ -1,0 +1,45 @@
+#!/usr/bin/env perl
+use strict;
+
+&main; exit;
+
+sub main {
+    my %white = map { $_ => 1 } qw/
+        kt java pl js rb py
+    /;
+
+    my %result;
+
+    for my $file (split /\n/, `git ls-files`) {
+        my ($ext,) = ($file =~ m{\.([^./_-]{1,4}$)});
+        $ext //= '-';
+        my $lines = do {
+            open my $fh, '<', $file;
+            my $n = 0;
+            $n++ while <$fh>;
+            close $fh;
+            $n;
+        };
+        $result{$ext} += $lines;
+    }
+
+    my $total = 0;
+    for my $ext (sort { $result{$a} <=> $result{$b} } keys %result) {
+        if (%white) {
+            next unless $white{$ext};
+        }
+
+        my $r = $result{$ext};
+        printf("%5s %10s\n", $ext, commify($r));
+        $total += $r;
+    }
+    print "\n";
+    printf("%5s %10s\n", "Total", commify($total));
+}
+
+sub commify {
+    local $_ = shift;
+    1 while s/^([-+]?\d+)(\d{3})/$1,$2/;
+    return $_;
+}
+

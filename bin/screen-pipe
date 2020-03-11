@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use utf8;
+use 5.010000;
+use autodie;
+use File::Temp qw/tempfile/;
+
+my $window = shift @ARGV || 1;
+my ($tmpfh, $tmpfname) = tempfile(UNLINK => 1);
+warn $window;
+system(
+    qq{screen -X eval 'select $window' 'log off' 'logfile $tmpfname' 'logfile flush 1' 'log on'}
+  ) == 0
+  or die;
+
+system(qq!screen -X eval "select $ENV{WINDOW}"!);
+exec 'tail', '-F', $tmpfname;
+

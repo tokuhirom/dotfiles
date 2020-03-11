@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use LWP::UserAgent;
+
+my $body = join('', <>);
+
+my $ua = LWP::UserAgent->new();
+my $res = $ua->post(
+    'http://nopaste.64p.org/post' => [
+        body => $body,
+    ],
+);
+print $res->header('Location'), "\n";

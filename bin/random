@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'securerandom'
+
+n = ARGV.length == 1 ? ARGV.shift.to_i : 12
+base64 = SecureRandom.base64(n)
+shorten = base64[0, n]
+puts shorten

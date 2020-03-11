@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh tokuhirom@igw1.linecorp.com

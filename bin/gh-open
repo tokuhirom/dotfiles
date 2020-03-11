@@ -1,0 +1,2 @@
+#!/bin/sh
+open `git remote  -v | head -n 1 | awk '{print $2}' | perl -pe 's/git@//; s!:!/!; s/.git//; s!^!http://!'`

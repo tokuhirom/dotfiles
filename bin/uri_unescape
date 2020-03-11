@@ -1,0 +1,7 @@
+#!/usr/bin/env perl
+use URI::Escape qw(uri_unescape);
+if (@ARGV) {
+    print uri_unescape(shift @ARGV), $/;
+} else {
+    print uri_unescape(join('', <>)), $/;
+}

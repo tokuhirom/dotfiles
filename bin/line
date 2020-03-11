@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+# Show list of line servers... And select with peco.
+CMD=`line-hosts.pl | peco --null`
+/bin/sh -c $CMD
+

@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use v5.10.0;
+
+# git@git.linecorp.com:LineTaxi/line-taxi-channel.git
+my $remote = `git remote -v | awk '{print \$2}'|head -n 1`;
+$remote =~ s!:!/!g;
+$remote =~ s!git\@!http://!g;
+$remote =~ s!\.git$!!g;
+chomp($remote);
+
+my $current_branch = `git rev-parse --abbrev-ref HEAD`;
+chomp($current_branch);
+
+# Use latest develop-* branch, by default.
+my $target_branch = do {
+    if ($current_branch =~ m{^hotfix/}) {
+        'master';
+    } else {
+        my $t = `git branch | perl -pe 's/^..//' |egrep '(develop|beta|v[0-9]|overhaul[0-9]*)' | tail -n 1`;
+        chomp($t);
+        $t;
+    }
+};
+$target_branch ||= 'master';
+
+my $url = "${remote}/compare/${target_branch}...${current_branch}?expand=1";
+
+say $url;
+exec "open '$url'";
+

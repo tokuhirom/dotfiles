@@ -1,0 +1,7 @@
+#!/usr/bin/python
+from datetime import datetime
+import sys
+
+src = sys.argv[1]
+dt = datetime.strptime(src, '%Y-%m-%d %H:%M:%S %Z')
+print(dt)

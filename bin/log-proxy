@@ -1,0 +1,65 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use 5.010;
+use HTTP::Proxy;
+use JSON::PP;
+use Getopt::Long;
+use HTTP::Proxy::BodyFilter::simple;
+use HTTP::Proxy::HeaderFilter::simple;
+
+my $port = 3126;
+my $p = Getopt::Long::Parser->new(
+    config => [qw(posix_default no_ignore_case auto_help)]
+);
+$p->getoptions(
+    port => \$port,
+    'pretty!' => \my $pretty,
+);
+
+my $JSON = JSON::PP->new->ascii(0)->pretty(1);
+
+my $proxy = HTTP::Proxy->new(
+    port => $port,
+    max_clients => 10,
+);
+$proxy->push_filter(
+    mime    => undef,
+    request => HTTP::Proxy::HeaderFilter::simple->new(
+        sub {
+            my ( $self, $dataref, $message, $protocol, $buffer ) = @_;
+            say(('>' x 80) . ' REQUEST');
+            if ($pretty && $message->content_type =~ /json/) {
+                $message = $message->clone;
+                my $json = eval {
+                    $JSON->encode($JSON->decode($message->content));
+                };
+                if ($@) {
+                    warn "[JSON ERROR] $@: $$dataref";
+                }
+                $message->content($json);
+            }
+            say $message->as_string;
+        }
+    ),
+);
+$proxy->push_filter(
+    mime    => undef,
+    response => HTTP::Proxy::BodyFilter::simple->new(
+        sub {
+            my ( $self, $dataref, $message, $protocol, $buffer ) = @_;
+            say(('<' x 80) . ' RESPONSE');
+            say $message->as_string;
+            if ($pretty && $message->content_type =~ /json/) {
+                eval {
+                    $$dataref = $JSON->encode($JSON->decode($$dataref));
+                };
+                if ($@) {
+                    warn "[JSON ERROR] $@: $$dataref";
+                }
+            }
+            say $$dataref;
+        },
+    )
+);
+$proxy->start;

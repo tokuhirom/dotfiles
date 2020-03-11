@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+use strict;
+use 5.10.0;
+use Geo::Hash;
+use Pod::Usage;
+
+my ($lat, $lng, $precision) = @ARGV;
+pod2usage unless defined $lng;
+$precision ||= 12;
+my $geohash = Geo::Hash->new();
+my $geohash = $geohash->encode($lat, $lng, $precision);
+say($geohash);
+
+__END__
+
+=head1 SYNOPSIS
+
+    $ geohash lat lng [precision]
+

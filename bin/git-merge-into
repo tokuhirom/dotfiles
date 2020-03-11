@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+use strict;
+use Carp ();
+
+my $branches = `git branch --no-color`;
+my ($current_branch) = ($branches =~ /\*\s*(.+)/);
+die "Cannot get current branch name" unless $current_branch;
+
+for my $target (@ARGV) {
+    run("git checkout $target");
+    run("git merge ${current_branch}");
+    print "Merged ${current_branch} into ${target}\n";
+    run("git checkout $current_branch");
+}
+
+sub run {
+    my $cmd = shift;
+    print "[Run] $cmd\n";
+    system($cmd) == 0 or die "ABORT\n";
+}

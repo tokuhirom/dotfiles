@@ -1,0 +1,15 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+for my $filename (@ARGV){
+    my $perm = (stat($filename))[2] & 0777;
+    printf "begin %o $filename\n", $perm;
+    open my $rfh, '<', $filename or  die "$filename : $!";
+    my $buf;
+    while (read($rfh, $buf, 4500)) {
+        print pack("u", $_) while($_ = substr($buf, 0, 45, ''));
+    }
+    close $rfh;
+    print "`\nend\n";
+}

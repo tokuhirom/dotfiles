@@ -1,0 +1,32 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use Getopt::Long;
+use Pod::Usage;
+use Plack::App::Directory;
+use Plack::Loader;
+use Plack::Builder;
+
+my $port = 5000;
+GetOptions(
+    'p|port=i' => \$port,
+    'h|help' => \my $help,
+) or pod2usage();
+pod2usage(1) if $help;
+
+print "http://127.0.0.1:$port/\n";
+
+my $root = shift or pod2usage();
+my $app = builder {
+    enable 'AccessLog';
+
+    Plack::App::Directory->new({root => $root})->to_app;
+};
+Plack::Loader->load('Standalone', port => $port)->run($app);
+
+__END__
+
+=head1 SYNOPSIS
+
+    $ static_httpd.pl rootdir
+.

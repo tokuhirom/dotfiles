@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# merge current branch to master branch and develop branch.
+
+my $branch = `git branch | grep '*'`;
+$branch =~ s/\n//;
+
+my $master = `git config gitflow.branch.master`;
+$master =~ s/\n//;
+die "Please set gitflow.branch.master" unless $master =~ /\S/;
+
+my $develop = `git config gitflow.branch.develop`;
+$develop =~ s/\n//;
+die "Please set gitflow.branch.develop" unless $develop =~ /\S/;
+
+system("git checkout master") == 0 or die;
+system("git merge $branch") == 0 or die;
+system("git merge $branch") == 0 or die;
+

@@ -1,0 +1,7 @@
+#!/bin/sh
+WORK=$HOME/tmp
+DATE=`date +%Y%m%d`
+TODAY=$WORK/$DATE
+
+mkdir -p $TODAY
+cd $TODAY

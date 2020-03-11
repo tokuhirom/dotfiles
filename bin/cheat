@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+use Getopt::Long;
+use Pod::Usage;
+
+GetOptions(
+    'e|edit' => \my $edit,
+    'l|list' => \my $list,
+) or die pod2usage;
+
+my $base = "$ENV{HOME}/.cheat/";
+
+exec 'ls', $base if $list or @ARGV==0;
+
+my $cmd = shift @ARGV or pod2usage;
+if ($edit) {
+    exec 'vim', "$base/$cmd";
+} else {
+    my $pager = ($ENV{PAGER}//'less');
+    exec $pager, "$base/$cmd";
+}
+
+__END__
+
+=head1 SYNOPSIS
+
+    # edit
+    cheat -e presto
+
+    # view
+    cheat presto
+
+    # list of cheat pages
+    cheat -l
+

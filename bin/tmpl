@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+use strict;
+use autodie;
+use File::Basename;
+
+my $pattern = shift @ARGV;
+
+for my $fname (glob('~/Dropbox/tmpl/*.txt')) {
+    open my $fh, '<', $fname;
+    while (<$fh>) {
+        if (defined $pattern && !/$pattern/) {
+            next;
+        }
+        my $base = basename($fname);
+        $base =~ s/\.txt\z//;
+        printf "RT @%5s: %s", basename($base), $_;
+    }
+}
+

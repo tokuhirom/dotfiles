@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# LINE 踏み台経由でのログイン
+ssh -t login1.line.livedoor.net sudo ssh $*

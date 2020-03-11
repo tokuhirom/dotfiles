@@ -1,0 +1,2 @@
+#!/bin/sh
+perl -E 'use Path::Class;dir(".")->recurse(callback => sub { return if -f !$_[0] || $_[0] =~ /\.o$/;$f=file($_[0])->openr() or return;$f->read(my $buf, 4); say "$_[0]" if substr($buf,1,3) eq "ELF"; })' >> .gitignore

@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+if [[ "$#" -lt 1 ]]; then
+    echo "Usage: ss-login HOST args..."
+    exit 1
+fi
+
+host=$1
+passwd=$(security find-generic-password -gs kerberos -w)
+shift
+
+# login(i need cache for this)
+echo "$passwd" | ssh -t igw1.linecorp.com "cat /dev/stdin | kinit -f;"
+# run
+ssh igw1.linecorp.com -t "ssh 'irteamsu@$host'" $*
+
