@@ -1,17 +1,23 @@
-# if [ ! -d ~/.oh-my-zsh ]; then
-    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# fi
+# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+# source ~/.zplug/init.zsh
+
+# zplugin light zsh-users/zsh-autosuggestions
+# zplugin light zdharma/fast-syntax-highlighting
+# zplugin load zdharma/history-search-multi-word
+# zplugin ice pick"async.zsh" src"pure.zsh"
+# zplugin light sindresorhus/pure
 #
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+autoload -Uz compinit promptinit
+compinit
+promptinit
 
-source ~/.zplugin/bin/zplugin.zsh
+setopt prompt_subst
+. ~/dotfiles/zsh/git-prompt.sh
 
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
-zplugin load zdharma/history-search-multi-word
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+prompt fire
 
+export RPROMPT=$'$(__git_ps1 "%s")'
 
 # export ZSH="/Users/tokuhirom/.oh-my-zsh"
 
