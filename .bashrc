@@ -28,6 +28,8 @@ function connect_adb() {
 }
 
 alias ls="ls -F --color"
+alias s=ls
+alias l=ls
 
 # WSL2
 if [ -d /mnt/c/ ]; then
