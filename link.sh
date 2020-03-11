@@ -1,8 +1,33 @@
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/.screenrc ~/.screenrc
-ln -s ~/dotfiles/.git-prompt.sh ~/.git-prompt.sh
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.cheat ~/.cheat
+#!/bin/bash
+
+set -e
+
+# Mac.
+if [ -d /Users/ ]; then
+    [ ! -e $HOME/dotfiles ] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/dotfiles" $HOME/dotfiles
+    [ ! -e $HOME/howm ] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/howm" $HOME/howm
+fi
+
+function link {
+    local fname=$1
+    local src="$HOME/dotfiles/$fname"
+    local dst="$HOME/$fname"
+    if [ ! -e $dst ]; then
+        echo "Linking $src $dst"
+        ln -s "$src" "$dst"
+    else
+        echo "Exists $dst"
+    fi
+}
+
+link .screenrc
+link .bashrc
+link .pause
+link .itsc-servers
+link .emacs
+link .zshrc
+link .tmux.conf
+link .vimrc
+link .gitignore_global
+link .cheat
+
