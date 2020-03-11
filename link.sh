@@ -30,4 +30,6 @@ link .tmux.conf
 link .vimrc
 link .gitignore_global
 link .cheat
+link .zprofile
 
+mkdir -p ~/.vim/tmp/
