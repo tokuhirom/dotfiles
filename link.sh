@@ -5,3 +5,4 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.screenrc ~/.screenrc
 ln -s ~/dotfiles/.git-prompt.sh ~/.git-prompt.sh
 ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.cheat ~/.cheat
