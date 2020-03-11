@@ -28,3 +28,9 @@ function connect_adb() {
 }
 
 alias ls="ls -F --color"
+
+# WSL2
+if [ -d /mnt/c/ ]; then
+    export DISPLAY=172.17.112.1:0
+fi
+export EDITOR=vim
