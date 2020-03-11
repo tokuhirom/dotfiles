@@ -178,8 +178,9 @@ export PATH="$HOME/dotfiles/local/bin/:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export PATH="$HOME/.plenv/bin:$PATH"
+# PATH for rust tools
+export PATH="$HOME/.cargo/bin:$PATH"
 export CHEAT_EDITOR=vim
-export PATH="$HOME/.plenv/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
@@ -190,4 +191,6 @@ export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
 # Better `cat`
 # brew install bat.
 export BAT_STYLE="plain"
+
 export PAGER=bat
+
