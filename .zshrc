@@ -194,6 +194,9 @@ export BAT_STYLE="plain"
 
 export PAGER=bat
 
+[[ -d /usr/local/pulse ]] && export PATH="$PATH:/usr/local/pulse"
+[[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
+
 if [ -d /mnt/c/ ]; then
     export DISPLAY=172.17.112.1:0
 fi

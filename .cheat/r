@@ -10,6 +10,7 @@
         scale_x_date(date_labels = "%Y-%m-%d")
     )
 
+    r <- collect(sql(paste0("select to_date(dt, 'yyyy-MM-dd') from k")))
 
     facet_wrap(~advertiser, labeller=label_wrap_gen(width=15))
 
