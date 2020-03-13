@@ -7,7 +7,12 @@ if [[ "$#" -lt 1 ]]; then
 fi
 
 host=$1
-passwd=$(security find-generic-password -gs kerberos -w)
+if [ -e $HOME/.linepw ]; then
+    passwd=$(cat ~/.linepw | perl -pe 's/\n//g')
+else
+    passwd=$(security find-generic-password -gs kerberos -w)
+fi
+
 shift
 
 # login(i need cache for this)

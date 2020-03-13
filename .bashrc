@@ -64,3 +64,5 @@ if [ -e /git-bash.exe ]; then
     alias top=ntop
 fi
 
+[[ -d $HOME/dotfiles/bin/ ]] && export PATH=$PATH:$HOME/dotfiles/bin/
+

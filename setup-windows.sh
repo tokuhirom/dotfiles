@@ -1,1 +1,2 @@
-scoop bucket add mybucket $HOME/dotfiles/scoop
+#!/bin/bash
+
