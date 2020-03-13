@@ -7,4 +7,4 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export DefaultIMModule=fcitx
 # 半角/全角キーの暴走を防止
-xset -r 49
+# xset -r 49

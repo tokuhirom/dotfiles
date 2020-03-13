@@ -6,12 +6,29 @@ fi
 export GOPATH=$HOME/go/
 shopt -s globstar
 
-source ~/.git-prompt.sh
+
+# -----------------------------------------------
+# LINE
+# -----------------------------------------------
 
 alias kerb="ssh tokuhirom@igw1.linecorp.com"
-# export PATH=$HOME/.linuxbrew/bin:$PATH
 
+# -----------------------------------------------
+# Prompt
+# -----------------------------------------------
+
+source ~/dotfiles/zsh/git-prompt.sh
 export PS1='[\e[33m\u\e[0m@\e[32m\h\e[0m \e[34m\W\e[0m$(__git_ps1 " (\e[95m%s\e[0m)")\e[0m]\$ '
+
+# -----------------------------------------------
+# Basic
+# -----------------------------------------------
+
+export EDITOR=vim
+
+alias ls="ls -F --color"
+alias s=ls
+alias l=ls
 
 # -----------------------------------------------
 #
@@ -27,12 +44,10 @@ function connect_adb() {
     adb connect 100.115.92.2:5555
 }
 
-alias ls="ls -F --color"
-alias s=ls
-alias l=ls
-
+# -----------------------------------------------
 # WSL2
+# -----------------------------------------------
+
 if [ -d /mnt/c/ ]; then
     export DISPLAY=172.17.112.1:0
 fi
-export EDITOR=vim
