@@ -14,6 +14,12 @@ is_pre_spc = 0
 
 ; Applications you want to disable emacs-like keybindings
 ; (Please comment out applications you don't use)
+is_target_c_d()
+{
+  IfWinActive,ahk_class CASCADIA_HOSTING_WINDOW_CLASS ; Windows Terminal
+    Return 1 
+  Return 0
+}
 is_target()
 {
   IfWinActive,ahk_class ConsoleWindowClass ; Cygwin
@@ -248,7 +254,7 @@ scroll_down()
 ;   }
 ;   Return  
 ^d::
-  If is_target()
+  If is_target_c_d()
     Send %A_ThisHotkey%
   Else
     delete_char()
