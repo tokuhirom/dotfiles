@@ -3,12 +3,20 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-; Emacs like shortcuts
-; https://github.com/usi3/emacs.ahk/blob/master/emacs.ahk
-^a::
-
-^!t::Run, %windir%\system32\cmd.exe
-
 ; Dislabe Ins key
 Insert::Return
 
+;; Mac like keybinding
+;; M-a as "Select all"
+!a::
+    Send ^a
+    Return
+!c::
+    Send ^c
+    Return
+!x::
+    Send ^x
+    Return
+!v::
+    Send ^v
+    Return
