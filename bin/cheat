@@ -10,7 +10,7 @@ GetOptions(
     'l|list' => \my $list,
 ) or die pod2usage;
 
-my $base = "$ENV{HOME}/.cheat/";
+my $base = "$ENV{HOME}/dotfiles/.cheat/";
 
 exec 'ls', $base if $list or @ARGV==0;
 

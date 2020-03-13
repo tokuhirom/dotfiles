@@ -14,7 +14,12 @@ function link {
     local dst="$HOME/$fname"
     if [ ! -e $dst ]; then
         echo "Linking $src $dst"
-        ln -s "$src" "$dst"
+        if [ -e /git-bash.exe ]; then
+            # git-bash doesn't support symlink
+            ln "$src" "$dst"
+        else
+            ln -s "$src" "$dst"
+        fi
     else
         echo "Exists $dst"
     fi

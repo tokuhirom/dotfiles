@@ -51,3 +51,14 @@ function connect_adb() {
 if [ -d /mnt/c/ ]; then
     export DISPLAY=172.17.112.1:0
 fi
+
+# -----------------------------------------------
+# git-bash
+# -----------------------------------------------
+
+if [ -e /git-bash.exe ]; then
+    export PATH="$PATH:$HOME/scoop/shims/"
+    export JAVA_TOOL_OPTIONS=-Duser.language=en
+    alias pbcopy=clip
+fi
+
