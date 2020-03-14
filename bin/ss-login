@@ -16,7 +16,14 @@ fi
 shift
 
 # login(i need cache for this)
-echo "$passwd" | ssh -t igw1.linecorp.com "cat /dev/stdin | kinit -f;"
+echo "$passwd" | ssh -t igw1.linecorp.com "cat /dev/stdin | kinit -f;" > /dev/null
 # run
-ssh igw1.linecorp.com -t "ssh 'irteamsu@$host'" $*
+if [ -e /git-bash.exe ]; then
+    echo Maybe the pipe in git-bash was broken....
+    echo run following command:
+    echo
+    echo ssh igw1.linecorp.com -t "ssh 'irteamsu@$host'" $*
+else
+    exec ssh igw1.linecorp.com -t "ssh 'irteamsu@$host'" $*
+fi
 
