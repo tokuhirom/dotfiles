@@ -65,4 +65,4 @@ if [ -e /git-bash.exe ]; then
 fi
 
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH=$PATH:$HOME/dotfiles/bin/
-
+[[ -d /c/Strawberry/perl/bin/ ]] && export PATH=/c/Strawberry/perl/bin/:$PATH

@@ -15,11 +15,10 @@ function prompt {
         return " "
 }
 
-
+# ls shortcut
 function l {
     Get-ChildItem $args -Exclude .*  | Format-Wide Name -AutoSize
 }
 function s {
     l
 }
-
