@@ -6,6 +6,15 @@ set -e
 if [ -d /Users/ ]; then
     [ ! -e $HOME/dotfiles ] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/dotfiles" $HOME/dotfiles
     [ ! -e $HOME/howm ] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/howm" $HOME/howm
+
+    for service in me.geso.journalsync me.geso.dotfilessync
+    do
+        if [ ! -e $HOME/Library/LaunchAgents/$service.plist ]; then
+            echo "setup $service"
+            ln -s $HOME/dotfiles/launchd/$service.plist $HOME/Library/LaunchAgents/$service.plist
+            launchctl load ~/Library/LaunchAgents/$service.plist
+        fi
+    done
 fi
 
 function link {
