@@ -233,17 +233,17 @@ scroll_down()
   Else
     is_pre_x = 1
   Return 
-; ^f::
-;   If is_target()
-;     Send %A_ThisHotkey%
-;   Else
-;   {
-;     If is_pre_x
-;       find_file()
-;     Else
-;       forward_char()
-;   }
-;   Return  
+ ^f::
+   If is_target()
+     Send %A_ThisHotkey%
+   Else
+   {
+     If is_pre_x
+       find_file()
+     Else
+       forward_char()
+   }
+   Return  
 ; ^c::
 ;   If is_target()
 ;     Send %A_ThisHotkey%

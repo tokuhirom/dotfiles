@@ -20,3 +20,9 @@ Insert::Return
 !v::
     Send ^v
     Return
+!n::
+    Send ^n
+    Return
+!f::
+    Send ^f
+    Return

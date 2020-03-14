@@ -58,7 +58,7 @@ fi
 # -----------------------------------------------
 
 if [ -e /git-bash.exe ]; then
-    export PATH="$PATH:$HOME/scoop/shims/"
+    export PATH="$HOME/scoop/shims/:$PATH"
     export JAVA_TOOL_OPTIONS=-Duser.language=en
     alias pbcopy=clip
     alias top=ntop

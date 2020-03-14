@@ -1,0 +1,30 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Pod::Usage;
+use Getopt::Long;
+
+use Encode;
+use Encode::Guess qw/euc-jp shiftjis 7bit-jis/;
+
+GetOptions(
+    'h' => \my $help,
+) or pod2usage;
+
+pod2usage() if $help;
+
+my $outenc = 'utf-8';
+
+my $src = do { local $/; <> };
+my $decoded = decode('Guess', $src);
+print encode($outenc, $decoded);
+
+# へろー
+
+
+__END__
+
+=head1 SYNOPSIS
+
+    nkf -w src.txt
