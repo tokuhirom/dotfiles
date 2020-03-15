@@ -4,7 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ~^s::
-    ScriptName := "AutoHotkey.ahk"
+    ScriptName := "tokuhirom.ahk"
     IfWinActive, %ScriptName%
     {
         Reload
@@ -48,6 +48,14 @@ is_idea()
 	send {Alt down}{F3}{Alt up}
     } else {
         Send ^f
+    }
+    Return
+
+!p::
+    if WinActive("ahk_exe Code.exe") {
+        Send ^P
+    } else {
+        Send %A_ThisHotkey%
     }
     Return
 

@@ -16,9 +16,12 @@ function prompt {
 }
 
 # ls shortcut
+# Remove deafult Powershell's alias. It's too verbose and not useful.
+remove-item alias:ls
 function l {
-    Get-ChildItem $args -Exclude .*  | Format-Wide Name -AutoSize
+    ls
 }
 function s {
     l
 }
+
