@@ -12,16 +12,17 @@ GetOptions(
 
 # USERPROFILE=MSWin32
 my $home = ($ENV{HOME} // $ENV{USERPROFILE}) or die "Cannot get HOME directory";
-my $base = "$home/dotfiles/.cheat/";
+my $base = "$home/dotfiles/cheat/";
 
 exec 'ls', $base if $list or @ARGV==0;
 
 my $cmd = shift @ARGV or pod2usage;
 if ($edit) {
-    exec 'vim', "$base/$cmd";
+    my $editor = $ENV{EDITOR} // 'vim';
+    exec $editor, "$base/$cmd.md";
 } else {
     my $pager = ($ENV{PAGER}//'less');
-    exec $pager, "$base/$cmd";
+    exec $pager, "$base/$cmd.md";
 }
 
 __END__
