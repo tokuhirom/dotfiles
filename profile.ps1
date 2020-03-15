@@ -1,5 +1,8 @@
 # Init file for powershell
 
+# $Env:Path で環境変数確認可能
+
+
 # https://qiita.com/smicle/items/0ca4e6ae14ea92000d18
 Set-PSReadLineOption -EditMode Emacs -BellStyle None
 
@@ -25,3 +28,8 @@ function s {
     l
 }
 
+# invoke commands
+function cheat { perl $HOME/dotfiles/bin/cheat @Args }
+
+# Setup environment variable Path
+Set-Item Env:Path "$Env:Path;C:\Strawberry\perl\bin"
