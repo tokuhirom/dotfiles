@@ -3,6 +3,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# audio bell
+set bell-style visible
+
 export GOPATH=$HOME/go/
 shopt -s globstar
 
