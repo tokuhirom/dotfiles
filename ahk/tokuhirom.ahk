@@ -40,6 +40,9 @@ is_idea()
 !n::
     Send ^n
     Return
+!z::
+    Send ^z
+    Return
 
 ; chrome sets C-f as find in browser
 ; but IDEA wants Alt-F3 as a find in text
