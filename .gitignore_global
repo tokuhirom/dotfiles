@@ -78,3 +78,4 @@ bcg_sentmessages_transfer_log.ltsv
 /.ivy/
 *.class
 **/.settings/
+.settings/
