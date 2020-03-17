@@ -37,3 +37,6 @@ Set-Item Env:Path "$Env:Path;C:\Strawberry\perl\bin"
 # Set EDITOR and PAGER as code(Visual Studio Code)
 Set-Item Env:EDITOR "code"
 Set-Item Env:PAGER "code"
+
+# Login to LINE gateway
+function kerb { ssh igw1.linecorp.com @Args }
