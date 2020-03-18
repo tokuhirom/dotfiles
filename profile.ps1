@@ -35,8 +35,8 @@ function cheat { perl $HOME/dotfiles/bin/cheat @Args }
 Set-Item Env:Path "$Env:Path;C:\Strawberry\perl\bin"
 
 # Set EDITOR and PAGER as code(Visual Studio Code)
-Set-Item Env:EDITOR "code"
-Set-Item Env:PAGER "code"
+Set-Item Env:CHEAT_EDITOR "code"
+Set-Item Env:CHEAT_PAGER "code"
 
 # Login to LINE gateway
 function kerb { ssh igw1.linecorp.com @Args }

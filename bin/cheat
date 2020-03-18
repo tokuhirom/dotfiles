@@ -18,10 +18,10 @@ exec 'ls', $base if $list or @ARGV==0;
 
 my $cmd = shift @ARGV or pod2usage;
 if ($edit) {
-    my $editor = $ENV{EDITOR} // 'vim';
+    my $editor =  $ENV{CHEAT_EDITOR} // $ENV{EDITOR} // 'vim';
     exec $editor, "$base/$cmd.md";
 } else {
-    my $pager = ($ENV{PAGER}//'less');
+    my $pager = ($ENV{CHEAT_PAGER} // $ENV{PAGER}//'less');
     exec $pager, "$base/$cmd.md";
 }
 
