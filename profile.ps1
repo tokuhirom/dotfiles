@@ -9,7 +9,7 @@ Set-PSReadLineOption -EditMode Emacs -BellStyle None
 # https://qiita.com/smicle/items/0ca4e6ae14ea92000d18
 function prompt {
     $isRoot = (([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))
-        $color  = if ($isRoot) {"Red"} else {"Green"}
+    $color  = if ($isRoot) {"Red"} else {"Green"}
     $marker = if ($isRoot) {"#"}   else {"$"}
 
     Write-Host "$env:USERNAME " -ForegroundColor $color -NoNewline
@@ -40,3 +40,26 @@ Set-Item Env:CHEAT_PAGER "code"
 
 # Login to LINE gateway
 function kerb { ssh igw1.linecorp.com @Args }
+
+
+# -----------------------------------------------------------------------------
+#
+# Prompt configuration
+#
+# -----------------------------------------------------------------------------
+
+# Install:
+#
+#   Install-Module -Name posh-git
+
+Import-Module posh-git
+
+function prompt {
+    $prompt = & $GitPromptScriptBlock
+    if ($prompt) { "$prompt " } else { " " }
+}
+
+$global:GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+# $global:GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
+# $global:GitPromptSettings.DefaultPromptWriteStatusFirst = $true
+$global:GitPromptSettings.EnableFileStatus = $false
