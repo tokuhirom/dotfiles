@@ -46,19 +46,17 @@ is_idea()
 
 ; chrome sets C-f as find in browser
 ; but IDEA wants Alt-F3 as a find in text
+#IFWinActive, ahk_exe idea64.exe
 !f::
-    if WinActive("ahk_exe idea64.exe") {
-	send {Alt down}{F3}{Alt up}
-    } else {
-        Send ^f
-    }
+    send {Alt down}{F3}{Alt up}
     Return
+#IfWinActive
 
+#IFWinActive, ahk_exe Code.exe
 !p::
-    if WinActive("ahk_exe Code.exe") {
-        Send ^P
-    } else {
-        Send %A_ThisHotkey%
-    }
+    Send ^P
     Return
+#IfWinActive
 
+; ! = Alt
+; ^ = Ctrl
