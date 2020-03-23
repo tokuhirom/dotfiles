@@ -51,7 +51,13 @@ is_idea()
     send {Alt down}{F3}{Alt up}
     Return
 #IfWinActive
+#IfWinNotActive, ahk_exe idea64.exe
+!f::
+    send ^f
+    Return
+#IfWinNotActive
 
+; on visual studio code, M-p should work as command pallet.
 #IFWinActive, ahk_exe Code.exe
 !p::
     Send ^P
@@ -60,3 +66,5 @@ is_idea()
 
 ; ! = Alt
 ; ^ = Ctrl
+; # = win key
+; + = shift
