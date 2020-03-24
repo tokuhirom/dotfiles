@@ -81,9 +81,7 @@ function ss-farm-list() {
 
 function ss-login() {
     $hostname = $args[0]
-    $passwd = (Get-Content ~/.linepw).Replace("\n", "")
-    echo($hostanme)
-    echo "$passwd" | ssh -t tokuhirom@igw1.linecorp.com "cat /dev/stdin | kinit -f;" > /dev/null
+    ssh -t tokuhirom@igw1.linecorp.com ssline $hostname
 }
 
 function ssline() {
@@ -92,7 +90,7 @@ function ssline() {
     } else {
         $local = perl -ale 'print $F[0], q/ /, $F[0]' $HOME\.itsc-servers
         $pmc = ss-farm-list | egrep 'cms|dmp|taxi|jrr|biz|connector|ansible|sticker|poi|bot-dispatcher|notify|switcher|adp|redirect|lad|lass|lasm|kakyoin'
-        $hostname = $local + "\n" + $pmc | peco | perl -lane 'print $F[1]'
+        $hostname = $local + $pmc | peco | perl -lane 'print $F[1]'
         ss-login $hostname
     }
 }
