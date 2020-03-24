@@ -15,14 +15,6 @@ return
 ; Dislabe Ins key
 Insert::Return
 
-
-is_idea()
-{
-  IfWinActive,ahk_exe idea64.exe
-    Return 1
-  Return 0
-}
-
 ;; Mac like keybinding
 ;; M-a as "Select all"
 !a::
@@ -37,9 +29,11 @@ is_idea()
 !v::
     Send ^v
     Return
-!n::
-    Send ^n
-    Return
+
+; !n::
+;     Send ^n
+;    Return
+
 !z::
     Send ^z
     Return
