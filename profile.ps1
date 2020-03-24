@@ -2,6 +2,9 @@
 
 # $Env:Path で環境変数確認可能
 
+# Reload powershell profile:
+#
+#   & $profile
 
 # https://qiita.com/smicle/items/0ca4e6ae14ea92000d18
 Set-PSReadLineOption -EditMode Emacs -BellStyle None
@@ -20,7 +23,8 @@ function prompt {
 
 # ls shortcut
 # Remove deafult Powershell's alias. It's too verbose and not useful.
-remove-item alias:ls
+remove-item alias:ls  -Recurse -ErrorAction Ignore
+
 function l {
     ls
 }
@@ -63,3 +67,35 @@ $global:GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
 # $global:GitPromptSettings.DefaultPromptPath.ForegroundColor = 0xFFA500
 # $global:GitPromptSettings.DefaultPromptWriteStatusFirst = $true
 $global:GitPromptSettings.EnableFileStatus = $false
+
+# -----------------------------------------------------------------------------
+#
+# ssline for powershell
+#
+# -----------------------------------------------------------------------------
+
+function ss-farm-list() {
+    $url = 'http://dav.navercorp.jp/data/facility/pmc.farm.active.info'
+    return (Invoke-WebRequest $url).Content
+}
+
+function ss-login() {
+    echo($args[0])
+}
+
+function ssline() {
+    if ($args.Count -eq 1) {
+        ss-login $args[0]
+    } else {
+        $local = perl -ale 'print $F[0], q/ /, $F[0]' $HOME\.itsc-servers
+        $pmc = ss-farm-list | egrep 'cms|dmp|taxi|jrr|biz|connector|ansible|sticker|poi|bot-dispatcher|notify|switcher|adp|redirect|lad|lass|lasm|kakyoin'
+        $host = $local + "\n" + $pmc | peco | perl -lane 'print $F[1]'
+    }
+#    if [[ $# -eq 1 ]]; then
+#        local host=$1
+#    else
+#        local host=$(cat =(awk '{print $1 " " $1}' < ~/.itsc-servers) =(ss-farm-list | egrep 'cms|dmp|taxi|jrr|biz|connector|ansible|sticker|poi|bot-dispatcher|notify|switcher|adp|redirect|lad|lass|lasm|kakyoin') | peco | awk '{print $2}')
+#    fi
+
+#    ss-login $host
+}
