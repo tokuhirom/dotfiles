@@ -246,13 +246,18 @@ scroll_down()
 ;     If is_pre_x
 ;       kill_emacs()
 ;   }
-;   Return  
+;   Return
+
+;; Run debugger on IDEA.
+#IfWinNotActive, ahk_exe idea64.exe
 ^d::
   If is_target_c_d()
     Send %A_ThisHotkey%
   Else
     delete_char()
   Return
+#IfWinNotActive
+
 ^h::
   If is_target()
     Send %A_ThisHotkey%
