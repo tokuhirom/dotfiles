@@ -36,16 +36,7 @@ is_target()
   IfWinActive,ahk_class Vim ; GVIM
     Return 1
   IfWinActive,ahk_exe RLogin.exe
-;  IfWinActive,ahk_class SWT_Window0 ; Eclipse
-;    Return 1
-;   IfWinActive,ahk_class Xming X
-;     Return 1
-;   IfWinActive,ahk_class SunAwtFrame
-;     Return 1
-;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1  
-;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
-;     Return 1
+    Return 1
   Return 0
 }
 
@@ -203,7 +194,7 @@ backward_char()
 {
   global
   if is_pre_spc
-    Send +{Left} 
+    Send +{Left}
   Else
     Send {Left}
   Return
@@ -239,15 +230,6 @@ scroll_down()
       forward_char()
   }
   Return
-; ^c::
-;   If is_target()
-;     Send %A_ThisHotkey%
-;   Else
-;   {
-;     If is_pre_x
-;       kill_emacs()
-;   }
-;   Return
 
 ;; Run debugger on IDEA.
 #IfWinNotActive, ahk_exe idea64.exe
