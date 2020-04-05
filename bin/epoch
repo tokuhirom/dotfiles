@@ -12,12 +12,7 @@ use POSIX;
 
 sub show($) {
     my $time = shift;
-    warn "---$time--";
-    warn ref $time;
-    warn $time->epoch;
-    warn $time->strftime("%Y-%m-%d %H:%M:%S%z");
     printf "%s %s\n", $time->strftime("%Y-%m-%d %H:%M:%S%z"), $time->epoch;
-    warn "---$time--";
 }
 
 sub main {
@@ -39,9 +34,13 @@ sub main {
         # 26/Feb/2019:15:36:20
         show(localtime()->strptime($stuff, '%d/%b/%Y:%H:%M:%S'));
     } elsif ($stuff =~ /^\d+$/) {
-    warn "---$stuff--";
-        show(Time::Piece::localtime($stuff));
-    warn "---$stuff--";
+        if ($stuff > 1586127053) {
+            say "$stuff is maybe epoch millis.";
+            show(Time::Piece::localtime($stuff/1000.0));
+        } else {
+            say "$stuff is maybe epoch seconds.";
+            show(Time::Piece::localtime($stuff));
+        }
     } else {
         pod2usage(1);
     }
