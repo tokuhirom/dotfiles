@@ -1,16 +1,23 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use autodie;
 use v5.10.0;
 use Time::Piece;
 use Time::HiRes qw/gettimeofday/;
 use Pod::Usage;
+use POSIX;
 
 &main; exit;
 
 sub show($) {
     my $time = shift;
+    warn "---$time--";
+    warn ref $time;
+    warn $time->epoch;
+    warn $time->strftime("%Y-%m-%d %H:%M:%S%z");
     printf "%s %s\n", $time->strftime("%Y-%m-%d %H:%M:%S%z"), $time->epoch;
+    warn "---$time--";
 }
 
 sub main {
@@ -32,7 +39,9 @@ sub main {
         # 26/Feb/2019:15:36:20
         show(localtime()->strptime($stuff, '%d/%b/%Y:%H:%M:%S'));
     } elsif ($stuff =~ /^\d+$/) {
-        show(localtime($stuff));
+    warn "---$stuff--";
+        show(Time::Piece::localtime($stuff));
+    warn "---$stuff--";
     } else {
         pod2usage(1);
     }
@@ -44,5 +53,5 @@ __END__
 =head1 SYNOPSIS
 
     % epoch 2013-05
-    % epoch 
+    % epoch
 
