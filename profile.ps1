@@ -2,6 +2,8 @@
 
 # $Env:Path で環境変数確認可能
 
+Import-Module PSReadline
+
 # Reload powershell profile:
 #
 #   & $profile
