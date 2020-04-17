@@ -18,6 +18,10 @@
         cross join UNNEST(CAST(json_extract(s3_ad.extras, '$.ads') AS array<json>)) as x (s3_ad_ads)
         inner join mtburn.ads on (ads.dt='20170906' and cast(ads.id as varchar)=json_extract_scalar(s3_ad_ads, '$.ad_id'))
 
+# map
+
+    element_at(m, key) -> v
+
 # GROUP_CONCAT
 
     array_join(array_agg(b), ',')
