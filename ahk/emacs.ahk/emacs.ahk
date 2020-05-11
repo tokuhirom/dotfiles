@@ -224,9 +224,6 @@ scroll_down()
     Send %A_ThisHotkey%
   Else
   {
-    If is_pre_x
-      find_file()
-    Else
       forward_char()
   }
   Return
@@ -323,21 +320,8 @@ scroll_down()
     Send %A_ThisHotkey%
   Else
     undo()
-  Return  
-  
-;$^{Space}::
-;^vk20sc039::
-; ^vk20::
-;   If is_target()
-;     Send {CtrlDown}{Space}{CtrlUp}
-;   Else
-;   {
-;     If is_pre_spc
-;       is_pre_spc = 0
-;     Else
-;       is_pre_spc = 1
-;   }
-;   Return
+  Return 
+
 ^@::
   If is_target()
     Send %A_ThisHotkey%
@@ -349,46 +333,39 @@ scroll_down()
       is_pre_spc = 1
   }
   Return
+
 ^a::
   If is_target()
     Send %A_ThisHotkey%
   Else
     move_beginning_of_line()
   Return
+
 ^e::
   If is_target()
     Send %A_ThisHotkey%
   Else
     move_end_of_line()
   Return
+
 ^p::
   If is_target()
     Send %A_ThisHotkey%
   Else
     previous_line()
   Return
+
 ^n::
   If is_target()
     Send %A_ThisHotkey%
   Else
     next_line()
   Return
+
 ^b::
   If is_target()
     Send %A_ThisHotkey%
   Else
     backward_char()
   Return
-; ^v::
-;   If is_target()
-;     Send %A_ThisHotkey%
-;   Else
-;     scroll_down()
-;   Return
-; !v::
-;   If is_target()
-;     Send %A_ThisHotkey%
-;   Else
-;     scroll_up()
-;   Return
 

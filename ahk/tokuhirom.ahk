@@ -40,16 +40,16 @@ Insert::Return
 
 ; chrome sets C-f as find in browser
 ; but IDEA wants Alt-F3 as a find in text
-#IFWinActive, ahk_exe idea64.exe
-!f::
-    send {Alt down}{F3}{Alt up}
-    Return
-#IfWinActive
-#IfWinNotActive, ahk_exe idea64.exe
+;#IFWinActive, ahk_exe idea64.exe
+;!f::
+;    send {Alt down}{F3}{Alt up}
+;    Return
+;#IfWinActive
+;#IfWinNotActive, ahk_exe idea64.exe
 !f::
     send ^f
     Return
-#IfWinNotActive
+;#IfWinNotActive
 
 ; on visual studio code, M-p should work as command pallet.
 #IFWinActive, ahk_exe Code.exe
