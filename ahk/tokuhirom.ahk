@@ -72,14 +72,12 @@ Insert::Return
 ;    Return
 ;#IfWinActive
 #IfWinNotActive, ahk_exe idea64.exe
-    !f::^f
+    !f::Send ^f
 #IfWinNotActive
 
 ; on visual studio code, M-p should work as command pallet.
 #IFWinActive, ahk_exe Code.exe
-    !p::
-        Send ^P
-        Return
+    !p::Send ^p
 #IfWinActive
 
 ; ! = Alt
