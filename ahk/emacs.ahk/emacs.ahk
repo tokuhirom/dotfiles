@@ -1,6 +1,37 @@
 ;;
 ;; An autohotkey script that provides emacs-like keybinding on Windows
 ;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; DEPRECATED FILE. USE tokuhirom.ahk instead.
+;;;;;;;;;;;;;;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #InstallKeybdHook
 #UseHook
 
@@ -29,16 +60,10 @@ is_windows_terminal()
     ^p::Send {Up}
     ^n::Send {Down}
     ^b::Send {Left}
-    ^f::
-        Send {Right}
-        Return
-    ^h::BS
-    ^a::
-        Send {HOME}
-        Return
-    ^e::
-        Send {END}
-        Return
+    ^f::Send {Right}
+    ^h::Send {BS}
+    ^a::Send {HOME}
+    ^e::Send {END}
 
     ^k::
         Send {ShiftDown}{END}{SHIFTUP}
@@ -50,5 +75,5 @@ is_windows_terminal()
 
 ;; Remap C-d to DEL. But run debugger on IDEA.
 #If !(WinActive("ahk_exe idea64.exe") or is_windows_terminal())
-    ^d::Del
+    ^d::Send {Del}
 #If

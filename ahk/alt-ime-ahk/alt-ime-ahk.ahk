@@ -6,7 +6,7 @@
 ;
 ; Author:     karakaram   http://www.karakaram.com/alt-ime-on-off
 
-#Include IME.ahk
+#Include %A_WorkingDir%/alt-ime-ahk/IME.ahk
 
 ; Razer Synapseなど、キーカスタマイズ系のツールを併用しているときのエラー対策
 #MaxHotkeysPerInterval 350
