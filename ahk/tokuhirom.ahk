@@ -30,7 +30,7 @@ is_windows_terminal()
 return
 
 ;; Basic emacs-like cursor operation
-#If !(WinActive("ahk_exe RLogin.exe") or is_windows_terminal())
+#If !(WinActive("ahk_exe RLogin.exe") or WinActive("ahk_exe emacs.exe") or is_windows_terminal())
 
     ^p::Send {Up}
     ^n::Send {Down}
