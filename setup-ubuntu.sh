@@ -3,11 +3,11 @@
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get -y install w3m
+sudo apt-get -y install w3m curl
 sudo apt-get -y install build-essential
 sudo apt-get -y install cpanminus perl-doc
 sudo apt-get -y install openjdk-11-jdk-headless
-sudo apt-get -y install python3 iputils-ping tmux vim-nox silversearcher-ag
+sudo apt -y install python3 iputils-ping tmux vim-nox silversearcher-ag
 
 # cargo for building bat...
 # Ubuntu 19.x has bat deb package...but latest LINE doesn't have it.

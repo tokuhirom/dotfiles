@@ -60,19 +60,19 @@
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
-(global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+;; (global-set-key (kbd "M-x") 'counsel-M-x)
+; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+; (global-set-key (kbd "<f1> l") 'counsel-find-library)
+; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+; (global-set-key (kbd "C-c g") 'counsel-git)
+; (global-set-key (kbd "C-c j") 'counsel-git-grep)
+; (global-set-key (kbd "C-c k") 'counsel-ag)
+; (global-set-key (kbd "C-x l") 'counsel-locate)
+; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+; (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
 
 ;; ------------------------------------------------------
@@ -141,10 +141,10 @@
 (howm-menu)
 
 ;; ------------------------------------------------------
-;; calfw
+;; calfw - nice calendar view
 ;; ------------------------------------------------------
 
-(require 'calfw)
+; (require 'calfw)
 
 (server-start) ;; for emacsclient
 
@@ -165,19 +165,19 @@
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
-(global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+; (global-set-key (kbd "M-x") 'counsel-M-x)
+; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+; (global-set-key (kbd "<f1> l") 'counsel-find-library)
+; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+; (global-set-key (kbd "C-c g") 'counsel-git)
+; (global-set-key (kbd "C-c j") 'counsel-git-grep)
+; (global-set-key (kbd "C-c k") 'counsel-ag)
+; (global-set-key (kbd "C-x l") 'counsel-locate)
+; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+; (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
 
 
 (package-initialize)
@@ -187,12 +187,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(package-selected-packages
    (quote
-    (ivy-dired-history calfw solarized-theme swiper counsel ivy auto-save-buffers-enhanced markdown-mode howm evil))))
+    (ivy solarized-theme auto-save-buffers-enhanced howm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
