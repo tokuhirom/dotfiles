@@ -45,6 +45,7 @@ link .vimrc
 link .gitignore_global
 link .zprofile
 link .inputrc
+link ChangeLog
 
 mkdir -p ~/.vim/tmp/
 

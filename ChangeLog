@@ -1,5 +1,158 @@
+2020-08-05  tokuhirom  <tokuhirom@tokuhirom-XF>
+
+	* howm の設定。。：
+
+	うーん？？howm のショートカットキー、覚えきれないな。
+	M-t でTODO入力できるようにしてあったっぽい。ぞ。
+
 2020-08-04  tokuhirom  <tokuhirom@tokuhirom-XF>
 
-	* setup-ubuntu-gui.sh: 
-	
+	* howm/2020/08/2020-08-04-172155.md (https):
+
+	うーん。。
+
+	* emacs: keyboard shortcut
+
+	alt 単押ししたときに、ちゃんといけるようにしたい。
+
+	https://qiita.com/Maizu/items/fee34328f559c7dc59d8
+
+	これをベースに、emacs の日本語入力をいい感じにできるようにしたい。
+
+	よっしゃ。emacs-mozc 入れたぞ！！
+
+	日本語入力、圧倒的にマシになったぞ！楽しい〜。
+	この、ちょっとずつ環境整っていく感じ、楽しいよなー。純粋に。
+
+	日本語入力、最低限、Emacs上ではぶっ壊れなくなったので、安心感ある。
+
+	* HDD access is too slow:
+
+	why??
+
+	I don't know why i seem the disk was slow.. but, emacs' file saving is too slow....
+	and so, it may caused by the ivy's configuration. once i removed duplicated configuration around ivy. the file saving is faster than before.
+
+	* zoom:
+
+	zoom はちょっと諦め気味……。。
+	うまくいくかんじがあんましてない。
+	またしばらくしてから挑戦でもいいかも。
+	ほかにもっと先にやるべきことがありそう。
+
+	* talk with sasaki kun:
+
+	クロスレポート、BU やってからのほうがいいんじゃん？みたいな話。
+
+	step message, 最小の手間で最大の効果をあげてほしいよって話。
+
+	などなど。
+
+	* a~
+
+	tura.
+
+	* vpn:
+
+	i installed the vpn connection script by dayflower ojisan.
+	it works well. but it depends on python2 :(
+
+	and i add the file to ~/dotfiles/bin/. i can use it very easy at the next time!
+
+	* xubuntu?:
+
+	i'll install xubuntu at next time, maybe!
+	xfce4 is a good enough solution for me. but so, i can't use IME on xfce4~ why~???
+
+	* TODO: Find an synergy like solution?
+
+	* DONE: additional desktop environment:
+
+	i guess, the desktop environment is too slwo.
+
+	installed xfce4. It's the awesome desktop environment!
+
+	* additional resources:
+
+	openconnect?
+
+	* remaining issues:
+
+	- zoom can't work on my ubuntu box.
+	- IME switching is not so smooth.
+	- IME doesn't work on slack app.
+	  - install from the official site.
+
+	* woke up;
+
+	at 08:04.
+
+	* next step:
+
+	zoom!!
+
+	* hahah:
+
+	ok. .emacs was born again.
+	- auto-save was enabled.
+	- howm was enabled.
+
+	* install dotfiles:
+
+	- done! i ran setup.sh and other utils...
+
+	* emacs configuration:
+
+	I really need an automatic saving feature on emacs.
+
+	* register my key to the github:
+
+	i set it.
+
+	* after that:
+
+	- install the ubuntu code. and so, skk ime?
+
+	i want to create the new .emacs from scratch :)
+
+	* ibus-mozc:
+
+	apt install ibus-mozc.
+
+	it works well.
+
+2020-08-03  tokuhirom  <tokuhirom@tokuhirom-XF>
+
+	* nsa:
+
+	i'm setting up the vpn for line corp.
+	https://nsasupport.navercorp.com/vfront.do?cmd=getView&view=agent
+
+	ubuntu is the supported platform by our company.
+
+	dayflower's script works well, maybe.
+
+	* ubuntu, again:
+
+	- uninstalled chromium. I'll use chrome!
+
+	* installed ubuntu...:
+
+	so, the ubuntu is a good operating system to solve the problems.. :)
+
+	good size of issues are the good puzzle. I enjoied  ubuntu installing...
+
+	resolved issues:
+
+	- nvidia drivers
+	sudo apt install gnome-tweaks
+
+	https://linux.just4fun.biz/?Ubuntu/Caps-Lock%E3%82%AD%E3%83%BC%E3%82%92Ctrl%E3%82%AD%E3%83%BC%E3%81%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95
+
+
+	unresolved issues:
+
+	- japanese IME
+	- swap ctrl and caps
+	  - install gnome-tweaks. and run it!
 
