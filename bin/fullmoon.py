@@ -1,15 +1,17 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # -*- encoding: utf-8 -*-
+
+# apt install python3-keyring python3-keyrings.alt openconnect
 
 import os
 import os.path
 from getpass import getpass
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
+from os.path import expanduser
 import logging
 import urllib
-import urllib2
-import cookielib
-from HTMLParser import HTMLParser
+import http.cookiejar as cookiejar
+from html.parser import HTMLParser
 
 
 class FormParser(HTMLParser):
@@ -29,16 +31,16 @@ class FormParser(HTMLParser):
 class Fullmoon:
     def __init__(self):
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.configfile = 'fullmoon.ini'
+        self.configfile = expanduser("~/.fullmoon.ini")
         self.config = SafeConfigParser()
         self.config.read(self.configfile)
 
         self.headers = {
             'User-Agent': 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686 on x86_64; rv:32.0) Gecko/20100101 Firefox/32.0',
         }
-        self.cookiejar = cookielib.LWPCookieJar()
-        self.http_handler = urllib2.HTTPCookieProcessor(self.cookiejar)
-        self.urlopen = urllib2.build_opener(self.http_handler)
+        self.cookiejar = cookiejar.LWPCookieJar()
+        self.http_handler = urllib.request.HTTPCookieProcessor(self.cookiejar)
+        self.urlopen = urllib.request.build_opener(self.http_handler)
 
         # bypass determination of browser step
         self.set_cookie('DSCheckBrowser', 'none')
@@ -52,7 +54,7 @@ class Fullmoon:
         (username, password) = self.username_and_password()
         self.login(username, password)
 
-        otp = raw_input('OTP Number: ')
+        otp = input('OTP Number: ')
         dsid = self.send_otp(otp)
 
         args = ["sudo", "openconnect",
@@ -66,7 +68,7 @@ class Fullmoon:
 
     def top(self):
         url = 'https://nsa.navercorp.com/fullmoon'
-        req = urllib2.Request(url, headers=self.headers)
+        req = urllib.request.Request(url, headers=self.headers)
         res = self.urlopen.open(req)
         self.headers['Referer'] = res.geturl()
 
@@ -79,8 +81,8 @@ class Fullmoon:
         }
         # TODO: construct url from action of <form> and last url
         url = 'https://nsa.navercorp.com/dana-na/auth/url_1/login.cgi'
-        req = urllib2.Request(url,
-                              data=urllib.urlencode(form),
+        req = urllib.request.Request(url,
+                              data=urllib.parse.urlencode(form).encode('utf-8'),
                               headers=self.headers)
         self.logger.debug('will %s %s', req.get_method(), req.get_full_url())
         res = self.urlopen.open(req)
@@ -88,7 +90,7 @@ class Fullmoon:
         self.logger.debug('=> %s', res.geturl())
 
         parser = FormParser()
-        parser.feed(res.read())
+        parser.feed(res.read().decode('utf-8'))
 
         if 'key' not in parser.field:
             raise StandardError('wrong password (or user name)')
@@ -107,8 +109,8 @@ class Fullmoon:
         }
         # TODO: construct url from action of <form> and last url
         url = 'https://nsa.navercorp.com/dana-na/auth/url_1/login.cgi'
-        req = urllib2.Request(url,
-                              data=urllib.urlencode(form),
+        req = urllib.request.Request(url,
+                              data=urllib.parse.urlencode(form).encode('utf-8'),
                               headers=self.headers)
 
         for i in range(1, 3):
@@ -127,7 +129,7 @@ class Fullmoon:
                 return self.dsid
 
             # retry with DSPREAUTH
-            req = urllib2.Request(res.geturl(), headers=self.headers)
+            req = urllib.request.Request(res.geturl(), headers=self.headers)
 
         self.logger.warn('Could not retrieve DSID. Gave up!')
         raise StandardError('Could not retrieve DSID')
@@ -140,11 +142,11 @@ class Fullmoon:
     def get_username(self):
         if self.config.has_option('DEFAULT', 'user'):
             user = self.config.get('DEFAULT', 'user')
-            res = raw_input('User name (default: %s): ' % user)
+            res = input('User name (default: %s): ' % user)
             if res:
                 user = res
         else:
-            user = raw_input('User name: ')
+            user = input('User name: ')
         self.config.set('DEFAULT', 'user', user)
         with open(self.configfile, 'w') as configfile:
             self.config.write(configfile)
@@ -178,7 +180,7 @@ class Fullmoon:
         return password
 
     def set_cookie(self, name, value):
-        c = cookielib.Cookie(name=name, value=value,
+        c = cookiejar.Cookie(name=name, value=value,
                              domain='nsa.navercorp.com',
                              domain_specified=True,
                              domain_initial_dot=False,
@@ -186,7 +188,7 @@ class Fullmoon:
                              path='/', path_specified=True,
                              secure=False, expires=None, discard=False,
                              comment=None, comment_url=None,
-                             version=None, rest={})
+                             version=0, rest={})
         self.http_handler.cookiejar.set_cookie(c)
 
     def find_cookie(self, name):
@@ -194,9 +196,6 @@ class Fullmoon:
             if cookie.name == name:
                 return cookie
         return None
-
-    def save_cookie(self, filename='cookie.txt'):
-        self.http_handler.cookiejar.save(filename, ignore_discard=True)
 
 
 if __name__ == '__main__':

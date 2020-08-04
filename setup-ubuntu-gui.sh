@@ -13,7 +13,7 @@ sudo apt install -y ibus-mozc
 # for dayflower's LINE vpn script
 # PulseSecure/NSA
 sudo apt install -y openconnect python3-metaconfig
-sudo apt install -y python2
+sudo apt install -y python2 python-keyring
 
 # xfce4
 sudo apt install xfce4

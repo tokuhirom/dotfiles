@@ -46,6 +46,7 @@ link .gitignore_global
 link .zprofile
 link .inputrc
 link ChangeLog
+link .fullmoon.ini
 
 mkdir -p ~/.vim/tmp/
 
