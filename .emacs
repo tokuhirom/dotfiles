@@ -40,6 +40,11 @@
 (when (eq system-type 'darwin)
   (setq ns-command-modifier (quote meta)))
 
+;; Disable "Symbolic link to Git-controlled source file; follow link? (y or n)"
+;; https://stackoverflow.com/questions/15390178/emacs-and-symbolic-links
+(setq vc-follow-symlinks t)
+
+
 ;; ------------------------------------------------------
 ;; helm
 ;; ------------------------------------------------------
@@ -76,7 +81,7 @@
 
 
 ;; ------------------------------------------------------
-;; evil
+;; evil - vi layer for emacs
 ;; ------------------------------------------------------
 
     ;(require 'evil)
@@ -156,28 +161,21 @@
     (auto-save-buffers-enhanced t)
 
 ;; ------------------------------------------------------
-;; ivy
+;; mozc
+;; https://qiita.com/Maizu/items/fee34328f559c7dc59d8
+;; Note : C-\ to enable mozc.
 ;; ------------------------------------------------------
 
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "<f6>") 'ivy-resume)
-; (global-set-key (kbd "M-x") 'counsel-M-x)
-; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-; (global-set-key (kbd "<f1> l") 'counsel-find-library)
-; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-; (global-set-key (kbd "C-c g") 'counsel-git)
-; (global-set-key (kbd "C-c j") 'counsel-git-grep)
-; (global-set-key (kbd "C-c k") 'counsel-ag)
-; (global-set-key (kbd "C-x l") 'counsel-locate)
-; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-; (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+(require 'mozc)                                 ; mozcの読み込み
+(set-language-environment "Japanese")           ; 言語環境を"japanese"に
+(setq default-input-method "japanese-mozc")     ; IMEをjapanes-mozcに
+(prefer-coding-system 'utf-8)                   ; デフォルトの文字コードをUTF-8に
+
+
+
+;; ------------------------------------------------------
+;; ------------------------------------------------------
+
 
 
 (package-initialize)
@@ -189,7 +187,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ivy solarized-theme auto-save-buffers-enhanced howm))))
+    (mozc ivy solarized-theme auto-save-buffers-enhanced howm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

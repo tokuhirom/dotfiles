@@ -8,6 +8,7 @@ sudo apt-get -y install build-essential
 sudo apt-get -y install cpanminus perl-doc
 sudo apt-get -y install openjdk-11-jdk-headless
 sudo apt -y install python3 iputils-ping tmux vim-nox silversearcher-ag
+sudo apt -y install zsh
 
 # cargo for building bat...
 # Ubuntu 19.x has bat deb package...but latest LINE doesn't have it.
