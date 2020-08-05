@@ -201,3 +201,9 @@ if [ -d /mnt/c/ ]; then
     export DISPLAY=172.17.112.1:0
 fi
 
+
+if [ -d ~/.wine ]; then
+    function line_wine() {
+        wine ~/.wine/drive_c/users/tokuhirom/Local\ Settings/Application\ Data/LINE/bin/current/LINE.exe
+    }
+fi

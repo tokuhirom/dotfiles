@@ -29,3 +29,12 @@ echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbunt
 sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
 sudo apt update
 sudo apt install albert
+
+
+# --------------------------------------------------------------
+# wine for LINE app
+# --------------------------------------------------------------
+sudo apt install wine winbind winetricks
+# install IME
+winetricks allfonts
+
