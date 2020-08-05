@@ -192,7 +192,7 @@ export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
 # brew install bat.
 export BAT_STYLE="plain"
 
-export PAGER=bat
+export PAGER=lv
 
 [[ -d /usr/local/pulse ]] && export PATH="$PATH:/usr/local/pulse"
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
