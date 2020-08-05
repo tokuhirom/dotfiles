@@ -1,5 +1,9 @@
 2020-08-05  tokuhirom  <tokuhirom@tokuhirom-XF>
 
+	* rewrote fullmoon.py:
+
+	using python3.
+
 	* 起床：
 
 	07:04.
