@@ -13,6 +13,9 @@ sudo apt install -y xfce4-goodies
 # shohex san said, fcitx is better than ibus.
 sudo apt install fcitx fcitx-mozc --install-recommends
 
+# java... benri
+sudo apt install -y visualvm
+
 # sudo apt install -y ibus-mozc
 
 # for dayflower's LINE vpn script
