@@ -1,14 +1,17 @@
 #!/bin/bash
 
 # sudo apt install -y firefox-esr
-# fcitx-mozc
 
 sudo apt install -y locales-all
 sudo apt install -y fonts-ipafont fonts-noto
 sudo apt install -y fonts-noto-cjk fonts-noto-cjk-extra
 sudo apt install -y language-pack-ja
 
-sudo apt install -y ibus-mozc
+
+# shohex san said, fcitx is better than ibus.
+sudo apt install fcitx fcitx-mozc --install-recommends
+
+# sudo apt install -y ibus-mozc
 
 # for dayflower's LINE vpn script
 # PulseSecure/NSA
