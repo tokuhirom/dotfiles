@@ -16,6 +16,11 @@ sudo apt install fcitx fcitx-mozc --install-recommends
 # java... benri
 sudo apt install -y visualvm
 
+# inkdrop
+sudo snap install inkdrop
+sudo snap connect inkdrop:password-manager-service
+
+
 # sudo apt install -y ibus-mozc
 
 # for dayflower's LINE vpn script
