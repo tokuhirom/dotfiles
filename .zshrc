@@ -177,7 +177,7 @@ export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
 export PATH="$HOME/dotfiles/local/bin/:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-export PATH="$HOME/.plenv/bin:$PATH"
+export PATH="$HOME/.plenv/bin:$HOME/.plenv/shims:$PATH"
 # PATH for rust tools
 export PATH="$HOME/.cargo/bin:$PATH"
 export CHEAT_EDITOR=vim
