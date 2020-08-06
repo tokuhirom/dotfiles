@@ -207,3 +207,8 @@ if [ -d ~/.wine ]; then
         wine ~/.wine/drive_c/users/tokuhirom/Local\ Settings/Application\ Data/LINE/bin/current/LINE.exe
     }
 fi
+
+if [ -e /usr/bin/xsel ]; then
+    alias pbcopy='xsel --clipboard --input'
+fi
+
