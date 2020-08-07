@@ -212,3 +212,9 @@ if [ -e /usr/bin/xsel ]; then
     alias pbcopy='xsel --clipboard --input'
 fi
 
+# add alias for xfce4's open
+# https://ubuntuforums.org/showthread.php?t=1340719
+if [ -e /usr/bin/exo-open ]; then
+    alias open=exo-open
+fi
+
