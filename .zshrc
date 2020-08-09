@@ -218,3 +218,6 @@ if [ -e /usr/bin/exo-open ]; then
     alias open=exo-open
 fi
 
+function weather() {
+    curl https://wttr.in/suginami
+}
