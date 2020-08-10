@@ -6,4 +6,3 @@ sudo yum install -y git vim python-pip zsh rubygem-bundler
 sudo yum install -y openssl-devel ruby-devel
 sudo yum install -y java-11-openjdk tree
 sudo yum groupinstall -y 'Development tools'
-

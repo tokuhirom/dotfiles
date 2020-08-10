@@ -2,6 +2,6 @@
 
 This is my dotfiles repo.
 
-## 目指す姿
+## Vision
 
 Windows でも使える dotfiles

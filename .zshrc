@@ -1,13 +1,3 @@
-# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-
-# source ~/.zplug/init.zsh
-
-# zplugin light zsh-users/zsh-autosuggestions
-# zplugin light zdharma/fast-syntax-highlighting
-# zplugin load zdharma/history-search-multi-word
-# zplugin ice pick"async.zsh" src"pure.zsh"
-# zplugin light sindresorhus/pure
-#
 autoload -Uz compinit promptinit
 compinit
 promptinit
@@ -19,14 +9,6 @@ prompt fire
 
 export RPROMPT=$'$(__git_ps1 "%s")'
 
-# export ZSH="/Users/tokuhirom/.oh-my-zsh"
-
-# ZSH_THEME="robbyrussell"
-
-# plugins=(git)
-
-# source $ZSH/oh-my-zsh.sh
-#
 bindkey -e
 
 # -------------------------------------------------------------------------
@@ -64,35 +46,39 @@ export PERL_BADLANG=0
 export PERL_CPANM_OPT="--no-man-pages --no-prompt --no-interactive"
 export PERL_AUTOINSTALL="--defaultdeps"
 
-
 # -------------------------------------------------------------------------
 # Java
 # -------------------------------------------------------------------------
 
-# export JAVA_VERSION=1.8
-export JAVA_VERSION=11
-# export JAVA_VERSION=11.0.2
 if [[ -e /usr/libexec/java_home ]]; then
-    export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-    export PATH=$JAVA_HOME/bin:$PATH
+    function use_java14() {
+        export JAVA_VERSION=14
+        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
+        export PATH=$JAVA_HOME/bin:$PATH
+    }
+
+    function use_java11() {
+        export JAVA_VERSION=11
+        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
+        export PATH=$JAVA_HOME/bin:$PATH
+    }
+
+    function use_java8() {
+        export JAVA_VERSION=1.8
+        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
+        export PATH=$JAVA_HOME/bin:$PATH
+    }
+
+    use_java11
 fi
 
-function use_java14() {
-    export JAVA_VERSION=14
-    export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-    export PATH=$JAVA_HOME/bin:$PATH
-}
-
-function use_java11() {
-    export JAVA_VERSION=11
-    export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-    export PATH=$JAVA_HOME/bin:$PATH
-}
-
-function use_java8() {
-    export JAVA_VERSION=1.8
-    export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-    export PATH=$JAVA_HOME/bin:$PATH
+# -------------------------------------------------------------------------
+# today
+# -------------------------------------------------------------------------
+function today() {
+    _path=`date +$HOME/tmp/%Y%m%d/`
+    mkdir -p $_path
+    cd $_path
 }
 
 # -------------------------------------------------------------------------
@@ -103,12 +89,6 @@ if [ -d '/Users/' ]; then
     export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
     export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 fi
-
-function today() {
-    _path=`date +$HOME/tmp/%Y%m%d/`
-    mkdir -p $_path
-    cd $_path
-}
 
 export HOMEBREW_GITHUB_API_TOKEN=aa088a98f596b0a7679303672d503977343eaba5
 
@@ -125,6 +105,10 @@ export PATH=$PATH:$GOPATH/bin
 if [ -d $HOME/.rbenv ]; then
     PATH=$HOME/.rbenv/shims:$PATH
 fi
+
+# -------------------------------------------------------------------------
+# LINE
+# -------------------------------------------------------------------------
 
 FARM_INFO_URL=http://dav.navercorp.jp/data/facility/pmc.farm.active.info
 
@@ -152,9 +136,9 @@ function ssline() {
     ss-login $host
 }
 
-function agenda() {
-    ical2howm.py tokuhirom | peco --null | invoke-emacsclient-for-howm.pl --json
-}
+# function agenda() {
+#     ical2howm.py tokuhirom | peco --null | invoke-emacsclient-for-howm.pl --json
+# }
 
 # security add-generic-password -s kerberos -a JP11283 -w 'PASSWORD HERE'
 
