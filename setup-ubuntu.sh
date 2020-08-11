@@ -10,6 +10,8 @@ sudo apt -y install openjdk-11-jdk-headless
 sudo apt -y install python3 iputils-ping tmux vim-nox silversearcher-ag
 sudo apt -y install zsh
 sudo apt -y install peco bat
+# netstat
+sudo apt -y install net-tools
 
 sudo apt autoremove
 
