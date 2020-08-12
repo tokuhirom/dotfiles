@@ -47,5 +47,6 @@ link .zprofile
 link .inputrc
 link ChangeLog
 link .fullmoon.ini
+link .npmrc
 
 mkdir -p ~/.vim/tmp/
