@@ -49,5 +49,15 @@ link ChangeLog
 link .fullmoon.ini
 link .npmrc
 link .xprofile
+link .xinitrc
+link .profile
+
+mkdir -p ~/.config/polybar/
+link .config/polybar/config
+link .config/polybar/launch.sh
+
+mkdir -p ~/.config/i3/
+link .config/i3/config
 
 mkdir -p ~/.vim/tmp/
+
