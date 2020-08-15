@@ -14,7 +14,6 @@ fcitx-configtool
 fcitx-mozc
 fcitx-qt5
 firefox
-fish
 flex
 gcc
 git
@@ -70,3 +69,4 @@ xorg-xrdb
 xterm
 yay
 zoom
+zsh
