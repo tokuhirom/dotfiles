@@ -44,4 +44,5 @@ joplin-desktop &
 
 setxkbmap -option ctrl:nocaps
 
-exec i3
+exec stumpwm
+# exec i3

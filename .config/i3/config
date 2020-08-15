@@ -51,6 +51,8 @@ bindsym $mod+Return exec terminator
 
 bindsym $mod+F2 exec google-chrome-stable
 
+bindsym $mod+l exec i3lock
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -67,7 +69,7 @@ bindsym $mod+e exec rofi -show window
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-bindsym $mod+l focus right
+# bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

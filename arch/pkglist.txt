@@ -16,6 +16,7 @@ fcitx-mozc
 fcitx-qt5
 firefox
 flex
+fzf
 gcc
 git
 gnu-netcat
@@ -23,6 +24,7 @@ google-chrome
 groff
 grub
 gvim
+i3lock
 iw
 jdk11-openjdk
 jetbrains-toolbox
@@ -38,6 +40,7 @@ man-pages
 mlocate
 netctl
 networkmanager
+ngrep
 noto-fonts-cjk
 nvidia
 openconnect
@@ -46,6 +49,7 @@ otf-ipafont
 pacman-contrib
 patch
 pavucontrol
+peco
 pinta
 pkgconf
 polybar
@@ -54,9 +58,11 @@ python
 rofi
 rxvt-unicode
 slack-desktop
+stumpwm
 sudo
 terminator
 texinfo
+the_silver_searcher
 tmux
 tree
 ttf-dejavu

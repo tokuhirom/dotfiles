@@ -130,7 +130,7 @@ function ssline() {
     if [[ $# -eq 1 ]]; then
         local host=$1
     else
-        local host=$(cat =(awk '{print $1 " " $1}' < ~/.itsc-servers) =(ss-farm-list | egrep 'cms|dmp|taxi|jrr|biz|connector|ansible|sticker|poi|bot-dispatcher|notify|switcher|adp|redirect|lad|lass|lasm|kakyoin') | peco | awk '{print $2}')
+        local host=$(cat =(awk '{print $1 " " $1}' < ~/.itsc-servers) =(ss-farm-list | egrep 'cms|dmp|taxi|jrr|biz|connector|ansible|sticker|poi|bot-dispatcher|notify|switcher|adp|redirect|lad|lass|lasm|kakyoin') | fzf | awk '{print $2}')
     fi
 
     ss-login $host
@@ -204,4 +204,7 @@ fi
 
 function weather() {
     curl https://wttr.in/suginami
+}
+function nocaps() {
+    setxkbmap -option ctrl:nocaps
 }
