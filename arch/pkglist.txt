@@ -1,6 +1,7 @@
 alsa-utils
 autoconf
 automake
+barrier
 base
 binutils
 bison
@@ -17,6 +18,7 @@ firefox
 flex
 gcc
 git
+gnu-netcat
 google-chrome
 groff
 grub
@@ -28,6 +30,7 @@ joplin
 libreoffice-fresh
 linux
 linux-firmware
+lv
 m4
 make
 man-db
@@ -37,6 +40,7 @@ netctl
 networkmanager
 noto-fonts-cjk
 nvidia
+openconnect
 openssh
 otf-ipafont
 pacman-contrib
@@ -50,10 +54,10 @@ python
 rofi
 rxvt-unicode
 slack-desktop
-st
 sudo
 terminator
 texinfo
+tmux
 tree
 ttf-dejavu
 ttf-fantasque-sans-mono
@@ -61,7 +65,10 @@ ttf-ms-fonts
 unzip
 vi
 w3m
+wget
 which
+wine
+winetricks
 wpa_supplicant
 xorg-xinit
 xorg-xmodmap
