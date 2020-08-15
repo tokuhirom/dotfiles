@@ -53,6 +53,7 @@ python
 rofi
 rxvt-unicode
 slack-desktop
+st
 sudo
 terminator
 texinfo
