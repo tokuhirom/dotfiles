@@ -1,0 +1,21 @@
+[global_config]
+  scroll_tabbar = True
+  homogeneous_tabbar = False
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.46
+    cursor_color = "#aaaaaa"
+    font = Source Code Variable Semi-Bold 18
+    show_titlebar = False
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]

@@ -1,7 +1,6 @@
 alsa-utils
 autoconf
 automake
-awesome
 base
 binutils
 bison
@@ -39,7 +38,6 @@ netctl
 networkmanager
 noto-fonts-cjk
 nvidia
-openbox
 openssh
 otf-ipafont
 pacman-contrib

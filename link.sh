@@ -22,6 +22,7 @@ function link {
     local src="$HOME/dotfiles/$fname"
     local dst="$HOME/$fname"
     if [ ! -e $dst ]; then
+        mkdir -p $(dirname $dst)
         echo "Linking $src $dst"
         if [ -e /git-bash.exe ]; then
             # git-bash doesn't support symlink
@@ -52,12 +53,10 @@ link .xprofile
 link .xinitrc
 link .profile
 
-mkdir -p ~/.config/polybar/
 link .config/polybar/config
 link .config/polybar/launch.sh
-
-mkdir -p ~/.config/i3/
 link .config/i3/config
+link .config/terminator/config
 
 mkdir -p ~/.vim/tmp/
 
