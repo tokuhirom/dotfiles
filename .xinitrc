@@ -42,6 +42,7 @@ fcitx &
 
 joplin-desktop &
 
+~/.config/polybar/launch.sh
 setxkbmap -option ctrl:nocaps
 
 exec stumpwm

@@ -52,6 +52,7 @@ link .npmrc
 link .xprofile
 link .xinitrc
 link .profile
+link .stumpwmrc
 
 link .config/polybar/config
 link .config/polybar/launch.sh

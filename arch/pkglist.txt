@@ -12,7 +12,7 @@ efibootmgr
 fakeroot
 fcitx
 fcitx-configtool
-fcitx-mozc
+fcitx-mozc-ut-unified
 fcitx-qt5
 firefox
 flex
@@ -57,6 +57,7 @@ pulseaudio
 python
 rofi
 rxvt-unicode
+siji-git
 slack-desktop
 stumpwm
 sudo
