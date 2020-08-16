@@ -3,5 +3,6 @@
 set -ex
 
 BASEDIR=$(dirname "$0")
-sudo pacman -S --needed - < $BASEDIR/arch/pkglist.txt
+pacman -S --needed - < $BASEDIR/arch/pkglist.txt
+yay -S --needed - < $BASEDIR/arch/yaylist.txt
 

@@ -2,6 +2,7 @@
 # -*- encoding: utf-8 -*-
 
 # apt install python3-keyring python3-keyrings.alt openconnect
+# pacman -S python-keyring python-keyrings-alt
 
 import os
 import os.path

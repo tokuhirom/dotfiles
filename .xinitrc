@@ -42,8 +42,19 @@ fcitx &
 
 joplin-desktop &
 
-~/.config/polybar/launch.sh
+
 setxkbmap -option ctrl:nocaps
 
-exec stumpwm
+# set keyboard repeat rate.
+# first number=initial delay
+# second number=freq
+xset r rate 200 30
+
+# run polybar(DO NOT RUN IF YOU ARE USING *awesome*)
+# ~/.config/polybar/launch.sh
+
+# stumpwm, `C-3` based screen like operation.
+# exec stumpwm
 # exec i3
+exec awesome
+

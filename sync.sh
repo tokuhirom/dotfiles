@@ -4,7 +4,8 @@ set -ex
 cd $HOME/dotfiles
 
 if [ -e /etc/arch-release ]; then
-    yay -Qqe > arch/pkglist.txt
+    pacman -Qqen > arch/pkglist.txt
+    pacman -Qqem > arch/yaylist.txt
 fi
 
 git add .

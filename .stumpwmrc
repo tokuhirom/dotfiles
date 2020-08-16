@@ -1,4 +1,4 @@
-;; `C-t ; loadrc` to reload.
+;; `C-3 ; loadrc` to reload.
 
 (set-prefix-key (kbd "C-3"))
 
@@ -7,16 +7,50 @@
 (define-key *root-map* (kbd "l") "move-focus right")
 (define-key *root-map* (kbd "h") "move-focus left")
 
-(define-key *root-map* (kbd "C-c") "exec google-chrome-stable")
-(define-key *root-map* (kbd "c") "exec terminator")
+(define-key *root-map* (kbd "C-c") "chrome")
+(define-key *root-map* (kbd "C-j") "joplin")
+(define-key *root-map* (kbd "C-t") "terminator")
+(define-key *root-map* (kbd "C-s") "slack")
+(define-key *root-map* (kbd "C-i") "idea")
+
 (define-key *root-map* (kbd "!") "exec rofi -show run")
 
 ;; alt-tab to next frame
-(define-key *top-map* (kbd "M-TAB") "fnext")
+(define-key *top-map* (kbd "M-TAB") "next")
 
 ;; input windowを中央に出す。
 (setq *input-window-gravity* :center)
 
 (defcommand lock() ()
     (run-shell-command "i3lock"))
+
+(defcommand nocaps() ()
+    (run-shell-command "setxkbmap -option ctrl:nocaps"))
+
+(defcommand chrome() ()
+    (run-or-raise "google-chrome-stable" '(:instance "chrome")))
+(defcommand terminator() ()
+    (run-or-raise "terminator" '(:instance "terminator")))
+(defcommand joplin() ()
+    (run-or-raise "joplin" '(:instance "joplin")))
+(defcommand slack() ()
+    (run-or-raise "slack" '(:instance "slack")))
+(defcommand idea() ()
+    (run-or-raise "intellij-idea-ultimate-edition" '(:instance "intellij-idea-ultimate-edition")))
+
+;; ## xmodmap result is here:
+;;
+;;     xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
+;;     
+;;     shift       Shift_L (0x32),  Shift_R (0x3e)
+;;     lock
+;;     control     Control_L (0x25),  Control_L (0x42),  Control_R (0x69)
+;;     mod1        Alt_L (0x40),  Alt_R (0x6c),  Meta_L (0xcd)
+;;     mod2        Num_Lock (0x4d)
+;;     mod3
+;;     mod4        Super_L (0x85),  Super_R (0x86),  Super_L (0xce),  Hyper_L (0xcf)
+;;     mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
+;;
+;; mod1=M- modirfier.
+;; Super_L(0x85)=Win key
 

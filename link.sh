@@ -58,6 +58,7 @@ link .config/polybar/config
 link .config/polybar/launch.sh
 link .config/i3/config
 link .config/terminator/config
+link .config/awesome/rc.lua
 
 mkdir -p ~/.vim/tmp/
 

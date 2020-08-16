@@ -208,3 +208,8 @@ function weather() {
 function nocaps() {
     setxkbmap -option ctrl:nocaps
 }
+
+if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
+        source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
+
