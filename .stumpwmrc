@@ -7,9 +7,9 @@
 (define-key *root-map* (kbd "l") "move-focus right")
 (define-key *root-map* (kbd "h") "move-focus left")
 
-(define-key *root-map* (kbd "C-c") "chrome")
+(define-key *root-map* (kbd "C-c") "terminator")
 (define-key *root-map* (kbd "C-j") "joplin")
-(define-key *root-map* (kbd "C-t") "terminator")
+(define-key *root-map* (kbd "C-f") "firefox")
 (define-key *root-map* (kbd "C-s") "slack")
 (define-key *root-map* (kbd "C-i") "idea")
 
@@ -29,6 +29,8 @@
 
 (defcommand chrome() ()
     (run-or-raise "google-chrome-stable" '(:instance "chrome")))
+(defcommand firefox() ()
+    (run-or-raise "firefox" '(:instance "firefox")))
 (defcommand terminator() ()
     (run-or-raise "terminator" '(:instance "terminator")))
 (defcommand joplin() ()

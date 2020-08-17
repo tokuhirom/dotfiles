@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use v5.10.0;
 
 use Getopt::Long;
 use Pod::Usage;
@@ -14,7 +15,15 @@ GetOptions(
 my $home = ($ENV{HOME} // $ENV{USERPROFILE}) or die "Cannot get HOME directory";
 my $base = "$home/dotfiles/cheat/";
 
-exec 'ls', $base if $list or @ARGV==0;
+if ($list or @ARGV==0) {
+    my @files = <$base/*.md>;
+    for (@files) {
+        s!.*/!!;
+        s/\.md//;
+        say $_;
+    }
+    exit 0;
+}
 
 my $cmd = shift @ARGV or pod2usage;
 if ($edit) {

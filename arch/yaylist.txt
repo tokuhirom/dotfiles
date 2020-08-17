@@ -4,9 +4,12 @@ intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
 joplin
 lv
+mecab
+nkf
 peco
 pinta
 polybar
+scrcpy
 siji-git
 slack-desktop
 stumpwm
@@ -14,6 +17,9 @@ ttf-koruri
 ttf-monapo
 ttf-mplus
 ttf-ms-fonts
+ttf-unifont
 ttf-vlgothic
+visual-studio-code-bin
 yay
+ytop-bin
 zoom

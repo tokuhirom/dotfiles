@@ -42,7 +42,6 @@ fcitx &
 
 joplin-desktop &
 
-
 setxkbmap -option ctrl:nocaps
 
 # set keyboard repeat rate.
@@ -51,10 +50,17 @@ setxkbmap -option ctrl:nocaps
 xset r rate 200 30
 
 # run polybar(DO NOT RUN IF YOU ARE USING *awesome*)
-# ~/.config/polybar/launch.sh
+~/.config/polybar/launch.sh
+
+barrier &
 
 # stumpwm, `C-3` based screen like operation.
-# exec stumpwm
+exec stumpwm
 # exec i3
-exec awesome
+
+# win+enter -> run terminal
+# win+C-r   -> restart awesome
+# win+S-q   -> quit awesome
+# win+s     -> show help
+# exec awesome
 
