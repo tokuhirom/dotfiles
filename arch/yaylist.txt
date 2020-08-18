@@ -10,6 +10,7 @@ nkf
 peco
 pinta
 polybar
+python-jaconv
 python-mecab
 scrcpy
 siji-git

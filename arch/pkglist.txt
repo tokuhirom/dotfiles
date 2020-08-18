@@ -101,6 +101,7 @@ which
 wine
 winetricks
 wpa_supplicant
+xbindkeys
 xfburn
 xfce4-appfinder
 xfce4-artwork

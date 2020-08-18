@@ -53,6 +53,7 @@ link .xprofile
 link .xinitrc
 link .profile
 link .stumpwmrc
+link .xbindkeysrc
 
 link .config/polybar/config
 link .config/polybar/launch.sh
