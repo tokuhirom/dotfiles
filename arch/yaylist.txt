@@ -3,12 +3,14 @@ google-chrome
 intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
 joplin
+jumpapp
 lv
 mecab
 nkf
 peco
 pinta
 polybar
+python-mecab
 scrcpy
 siji-git
 slack-desktop

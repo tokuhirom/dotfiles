@@ -30,7 +30,7 @@
 (defcommand chrome() ()
     (run-or-raise "google-chrome-stable" '(:instance "chrome")))
 (defcommand firefox() ()
-    (run-or-raise "firefox" '(:instance "firefox")))
+    (run-shell-command "jumpapp firefox"))
 (defcommand terminator() ()
     (run-or-raise "terminator" '(:instance "terminator")))
 (defcommand joplin() ()

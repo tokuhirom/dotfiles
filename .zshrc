@@ -225,3 +225,18 @@ if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
         source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
+# support ANSI color in less
+export LESS=-R
+
+# -------------------------------------------------------------------------
+# auto pushd
+#
+# -------------------------------------------------------------------------
+DIRSTACKSIZE=100
+setopt AUTO_PUSHD
+
+autoload -Uz compinit && compinit
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'

@@ -5,6 +5,7 @@
 "
 "
 " :e ++enc=cp932
+" :e ++enc=euc-jp
 "
 " *************************************************************************
 
@@ -72,6 +73,9 @@
     call plug#begin('~/.vim/plugged')
 
     Plug 'bling/vim-airline'
+
+    " for kkc
+    Plug 'arrufat/vala.vim'
 
     " mattn-san recommend to use this. This plugin enables c/c++ completions.
     Plug 'justmao945/vim-clang'

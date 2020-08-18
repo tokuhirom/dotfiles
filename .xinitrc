@@ -54,6 +54,9 @@ xset r rate 200 30
 
 barrier &
 
+# change 解像度
+xrandr --output HDMI-0 --mode 1920x1080
+
 # stumpwm, `C-3` based screen like operation.
 exec stumpwm
 # exec i3

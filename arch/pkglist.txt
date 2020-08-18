@@ -11,6 +11,7 @@ bison
 cronie
 dialog
 efibootmgr
+emacs
 exo
 fakeroot
 fcitx
@@ -25,9 +26,11 @@ gcc
 gdb
 git
 gnu-netcat
+gobject-introspection
 groff
 grub
 gvim
+hub
 i3lock
 iw
 jdk11-openjdk
@@ -40,6 +43,8 @@ man-db
 man-pages
 mlocate
 mousepad
+mutt
+mysql-workbench
 netctl
 networkmanager
 ngrep
@@ -60,6 +65,7 @@ pulseaudio
 python
 python-keyring
 python-keyrings-alt
+python-marisa
 python-pip
 ristretto
 rofi
@@ -67,7 +73,9 @@ ruby
 rust
 rxvt-unicode
 skktools
+strace
 sudo
+swig
 terminator
 texinfo
 the_silver_searcher
@@ -84,6 +92,8 @@ ttf-sazanami
 tumbler
 unzip
 usbutils
+vala
+valgrind
 vi
 w3m
 wget
@@ -137,6 +147,7 @@ xorg-fonts-misc
 xorg-xev
 xorg-xinit
 xorg-xmodmap
+xorg-xrandr
 xorg-xrdb
 xscreensaver
 xterm
