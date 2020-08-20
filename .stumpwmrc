@@ -7,12 +7,20 @@
 (define-key *root-map* (kbd "l") "move-focus right")
 (define-key *root-map* (kbd "h") "move-focus left")
 
+;; launch apps by one stroke!
 (define-key *root-map* (kbd "C-c") "terminator")
 (define-key *root-map* (kbd "C-j") "joplin")
-(define-key *root-map* (kbd "C-f") "firefox")
+(define-key *root-map* (kbd "C-f") "chrome")
 (define-key *root-map* (kbd "C-s") "slack")
 (define-key *root-map* (kbd "C-i") "idea")
+(define-key *root-map* (kbd "C-z") "run-zoom")
 
+(define-key *root-map* (kbd "Down") "pull-hidden-next")
+(define-key *root-map* (kbd "Up") "pull-hidden-previous")
+
+(define-key *root-map* (kbd "C-m") "refresh-mode-line")
+
+(define-key *root-map* (kbd "w") "exec rofi -show window")
 (define-key *root-map* (kbd "!") "exec rofi -show run")
 
 ;; alt-tab to next frame
@@ -27,10 +35,17 @@
 (defcommand nocaps() ()
     (run-shell-command "setxkbmap -option ctrl:nocaps"))
 
+(defcommand refresh-mode-line() ()
+    (stumpwm:toggle-mode-line (stumpwm:current-screen)
+                            (stumpwm:current-head))
+    )
+
 (defcommand chrome() ()
-    (run-or-raise "google-chrome-stable" '(:instance "chrome")))
+    (run-or-raise "google-chrome-stable" '(:instance "google-chrome")))
 (defcommand firefox() ()
     (run-shell-command "jumpapp firefox"))
+(defcommand run-zoom() ()
+    (run-shell-command "jumpapp zoom"))
 (defcommand terminator() ()
     (run-or-raise "terminator" '(:instance "terminator")))
 (defcommand joplin() ()

@@ -6,7 +6,9 @@ joplin
 jumpapp
 lv
 mecab
+ngrok
 nkf
+palmkit
 peco
 pinta
 polybar
@@ -16,6 +18,7 @@ scrcpy
 siji-git
 slack-desktop
 stumpwm
+stumpwm-contrib-git
 ttf-koruri
 ttf-monapo
 ttf-mplus
@@ -23,6 +26,7 @@ ttf-ms-fonts
 ttf-unifont
 ttf-vlgothic
 visual-studio-code-bin
+xkeysnail-git
 yay
 ytop-bin
 zoom

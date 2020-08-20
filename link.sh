@@ -54,12 +54,15 @@ link .xinitrc
 link .profile
 link .stumpwmrc
 link .xbindkeysrc
+link .Xmodmap
 
+link .config/mimeapps.list
 link .config/polybar/config
 link .config/polybar/launch.sh
 link .config/i3/config
 link .config/terminator/config
 link .config/awesome/rc.lua
+link .config/fcitx/config
 
 mkdir -p ~/.vim/tmp/
 

@@ -1,0 +1,13 @@
+! 133=windows key on Logitech G915 TKL
+! keycode 133 = Meta_L
+! Super_L is already mod4 on my system, but Super_R is not
+! add mod4 = Meta_L
+
+! https://superuser.com/questions/277990/how-do-i-swap-alt-and-windows-keys-with-xmodmap
+! remove mod1 = Alt_L
+! remove mod4 = Super_L
+keycode 133 = Alt_L
+keycode 64 = Meta_L
+! add mod1 = Alt_L  
+! add mod4 = Meta_L
+

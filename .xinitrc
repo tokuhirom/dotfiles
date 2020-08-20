@@ -19,7 +19,7 @@ if [ -f "$userresources" ]; then
 fi
 
 if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
+    xmodmap $HOME/.Xmodmap
 fi
 
 # start some nice programs
@@ -56,6 +56,15 @@ barrier &
 
 # change 解像度
 xrandr --output HDMI-0 --mode 1920x1080
+
+# enable shortcut keys in ~/.xbindkeysrc
+xbindkeys
+
+# run keyboard shortcuts
+xhost +SI:localuser:xkeysnail
+# /etc/xkeysnail.py is link of ~/dotfiles/xkeysnail/config.py
+sudo -u xkeysnail DISPLAY=:0 /usr/bin/xkeysnail /etc/xkeysnail.py &
+# sudo xkeysnail --quiet ~/dotfiles/xkeysnail/config.py &
 
 # stumpwm, `C-3` based screen like operation.
 exec stumpwm

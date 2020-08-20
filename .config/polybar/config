@@ -15,6 +15,9 @@
 ;   The README contains a lot of information
 ;
 ;==========================================================
+;
+
+; polybar-msg cmd restart でリスタート可能。
 
 [colors]
 ;background = ${xrdb:color0:#222}
@@ -35,6 +38,9 @@ height = 27
 ;offset-y = 1%
 radius = 6.0
 fixed-center = false
+
+; support optional IPC feature
+enable-ipc = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -57,7 +63,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = pulseaudio
 # modules-center = mpd
-modules-right = filesystem memory cpu wlan temperature date
+modules-right = filesystem memory cpu wlan vpn date
 
 tray-position = right
 tray-padding = 2
@@ -299,24 +305,13 @@ animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+[module/vpn]
+type = custom/script
+interval = 60
+exec = "pgrep -f openconnect | perl -pe 's/.+/ON/'"
+format-prefix = "VPN "
+format-underline = #789239
+format-prefix-foreground = ${colors.foreground}
 
 [settings]
 screenchange-reload = true
