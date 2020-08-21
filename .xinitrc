@@ -50,21 +50,37 @@ setxkbmap -option ctrl:nocaps
 xset r rate 200 30
 
 # run polybar(DO NOT RUN IF YOU ARE USING *awesome*)
-~/.config/polybar/launch.sh
+# ~/.config/polybar/launch.sh
+
+# -------------------------------------------------------------------------
+# barrier - fork of synergy
+# -------------------------------------------------------------------------
 
 barrier &
 
 # change 解像度
 xrandr --output HDMI-0 --mode 1920x1080
 
+# -------------------------------------------------------------------------
+# xbindkeys - keyremapper
+# -------------------------------------------------------------------------
+
 # enable shortcut keys in ~/.xbindkeysrc
 xbindkeys
+
+# -------------------------------------------------------------------------
+# xkeysnail - key remapper like karabiner, autohotkey
+# ------------------------------------------------------------------------- 
 
 # run keyboard shortcuts
 xhost +SI:localuser:xkeysnail
 # /etc/xkeysnail.py is link of ~/dotfiles/xkeysnail/config.py
 sudo -u xkeysnail DISPLAY=:0 /usr/bin/xkeysnail /etc/xkeysnail.py &
 # sudo xkeysnail --quiet ~/dotfiles/xkeysnail/config.py &
+
+# -------------------------------------------------------------------------
+# Run window manager
+# -------------------------------------------------------------------------
 
 # stumpwm, `C-3` based screen like operation.
 exec stumpwm

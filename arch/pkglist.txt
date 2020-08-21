@@ -31,6 +31,7 @@ grub
 gvim
 hub
 i3lock
+imagemagick
 iw
 jdk11-openjdk
 libreoffice-fresh

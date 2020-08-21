@@ -16,25 +16,13 @@ define_modmap({
     Key.CAPSLOCK: Key.LEFT_CTRL
 })
 
-# 変換キー
-#  単体で押すと変換、修飾キーとして使うとCtrl
-# 無変換キー
-#  単体で押すと無変換、修飾キーとして使うとAlt
+#   変換キー
+#    単体で押すと変換、修飾キーとして使うとAlt
+#   無変換キー
+#    単体で押すと無変換、修飾キーとして使うとAlt
 define_multipurpose_modmap({
-    Key.LEFT_ALT: [Key.MUHENKAN, Key.LEFT_ALT],
-    Key.RIGHT_ALT: [Key.HENKAN, Key.RIGHT_ALT]
-})
-
-# IDEA 以外。
-define_conditional_multipurpose_modmap(lambda wm_class: wm_class not in ("jetbrains-idea"), {
     Key.LEFT_ALT:  [Key.MUHENKAN, Key.LEFT_ALT],
     Key.RIGHT_ALT: [Key.HENKAN,   Key.RIGHT_ALT]
-})
-
-# IDEA
-define_conditional_multipurpose_modmap(lambda wm_class: wm_class in ("jetbrains-idea"), {
-    Key.LEFT_ALT:  [Key.MUHENKAN, Key.LEFT_META],
-    Key.RIGHT_ALT: [Key.HENKAN,   Key.RIGHT_META]
 })
 
 define_keymap(re.compile("Firefox|Google-chrome"), {
