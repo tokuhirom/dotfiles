@@ -25,7 +25,7 @@ define_multipurpose_modmap({
     Key.RIGHT_ALT: [Key.HENKAN,   Key.RIGHT_ALT]
 })
 
-define_keymap(re.compile("Firefox|Google-chrome"), {
+define_keymap(lambda wm_class: wm_class in ('Firefox', 'Google-chrome'), {
     # Ctrl+Alt+j/k to switch next/previous tab
     # S-M-}
     K("Shift-M-RIGHT_BRACE"): K("C-TAB"),
@@ -35,6 +35,8 @@ define_keymap(re.compile("Firefox|Google-chrome"), {
     K("M-l"): K("C-l"),
     # M-f to find in page
     K("M-f"): K("C-f"),
+    # M-w to close tab
+    K("M-w"): K("C-w"),
 }, "Firefox and Chrome")
 
 
@@ -52,6 +54,17 @@ define_keymap(lambda wm_class: wm_class not in ("Terminator", 'jetbrains-idea'),
     K("C-n"): K("DOWN"),
 
     K("M-n"): K("C-n"),
+    K("M-z"): K("C-z"),
+
+    122: K("C-z"),
+    123: K("C-z"),
+
+    # stumpwm 用の設定いれようとしたが、うまく動かない。
+    # K("C-KEY_3"): pass_through_key,
+#   K("C-KEY_3"): {
+#       K('C-n'): pass_through_key,
+#       K('C-f'): pass_through_key,
+#   },
 }, "Not Terminator")
 
 

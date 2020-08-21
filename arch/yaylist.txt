@@ -29,4 +29,5 @@ visual-studio-code-bin
 xkeysnail-git
 yay
 ytop-bin
+zeal
 zoom

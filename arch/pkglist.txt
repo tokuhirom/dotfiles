@@ -1,10 +1,11 @@
 adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
+albert
 alsa-utils
+at
 autoconf
 automake
 awesome
-barrier
 base
 binutils
 bison
@@ -72,7 +73,9 @@ rxvt-unicode
 skktools
 strace
 sudo
+sway
 swig
+synergy
 terminator
 texinfo
 the_silver_searcher

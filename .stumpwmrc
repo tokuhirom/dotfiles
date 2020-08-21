@@ -10,11 +10,13 @@
 ;; launch apps by one stroke!
 (define-key *root-map* (kbd "C-c") "terminator")
 (define-key *root-map* (kbd "C-j") "joplin")
-(define-key *root-map* (kbd "C-f") "chrome")
+(define-key *root-map* (kbd "C-f") "run-chrome")
+(define-key *root-map* (kbd "Right") "run-chrome") ;; xkeysnail
 (define-key *root-map* (kbd "C-s") "slack")
 (define-key *root-map* (kbd "C-i") "idea")
 (define-key *root-map* (kbd "C-z") "run-zoom")
 
+;; for xkeysnail
 (define-key *root-map* (kbd "Down") "pull-hidden-next")
 (define-key *root-map* (kbd "Up") "pull-hidden-previous")
 
@@ -44,8 +46,9 @@
     (run-shell-command "jumpapp firefox"))
 (defcommand run-zoom() ()
     (run-shell-command "jumpapp zoom"))
-(defcommand chrome() ()
-    (run-or-raise "google-chrome-stable" '(:instance "google-chrome-stable")))
+(defcommand run-chrome() ()
+    (run-shell-command "jumpapp -c google-chrome google-chrome-stable"))
+    ; (run-or-raise "google-chrome-stable" '(:instance "google-chrome-stable")))
 (defcommand terminator() ()
     (run-or-raise "terminator" '(:instance "terminator")))
 (defcommand joplin() ()

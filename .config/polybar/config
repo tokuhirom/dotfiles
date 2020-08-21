@@ -62,7 +62,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = pulseaudio
-# modules-center = mpd
+modules-center = title
 modules-right = filesystem memory cpu wlan vpn date
 
 tray-position = right
@@ -307,11 +307,16 @@ animation-discharging-framerate = 750
 
 [module/vpn]
 type = custom/script
-interval = 60
-exec = "pgrep -f openconnect | perl -pe 's/.+/ON/'"
+interval = 10
+exec = "~/dotfiles/bin/vpnstatus"
 format-prefix = "VPN "
 format-underline = #789239
 format-prefix-foreground = ${colors.foreground}
+
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
 
 [settings]
 screenchange-reload = true
