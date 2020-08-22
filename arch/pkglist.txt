@@ -14,10 +14,7 @@ dialog
 efibootmgr
 emacs
 fakeroot
-fcitx
-fcitx-configtool
 fcitx-kkc
-fcitx-qt5
 firefox
 flex
 fzf
@@ -35,6 +32,7 @@ i3lock
 imagemagick
 iw
 jdk11-openjdk
+libkkc
 libreoffice-fresh
 linux
 linux-firmware
@@ -70,6 +68,7 @@ rofi
 ruby
 rust
 rxvt-unicode
+screen
 skktools
 strace
 sudo
@@ -92,6 +91,7 @@ vala
 valgrind
 vi
 w3m
+weston
 wget
 which
 wine
@@ -100,6 +100,7 @@ wpa_supplicant
 xbindkeys
 xdo
 xorg-fonts-misc
+xorg-server-xwayland
 xorg-xev
 xorg-xhost
 xorg-xinit

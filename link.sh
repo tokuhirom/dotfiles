@@ -55,6 +55,7 @@ link .profile
 link .stumpwmrc
 link .xbindkeysrc
 link .Xmodmap
+link .pam_environment
 
 link .config/mimeapps.list
 link .config/polybar/config
@@ -63,6 +64,8 @@ link .config/i3/config
 link .config/terminator/config
 link .config/awesome/rc.lua
 link .config/fcitx/config
+link .config/weston.ini
+link .config/cagebreak/config
 
 mkdir -p ~/.vim/tmp/
 

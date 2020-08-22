@@ -1,4 +1,4 @@
-fcitx-mozc-ut-unified
+cagebreak-bin
 google-chrome
 intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
