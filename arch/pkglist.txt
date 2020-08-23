@@ -27,6 +27,7 @@ gobject-introspection
 groff
 grub
 gvim
+htop
 hub
 i3lock
 imagemagick
