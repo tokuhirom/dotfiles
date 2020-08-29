@@ -64,6 +64,9 @@
     match WhitespaceEOL /\s\+$/
     autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
+    set list
+    set listchars=tab:»--,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
 " -------------------------------------------------------------------------
 " vim plugins
 " -------------------------------------------------------------------------
@@ -93,7 +96,8 @@
     Plug 'ctrlpvim/ctrlp.vim'
 
     " color scheme
-    Plug 'w0ng/vim-hybrid'
+    " Plug 'w0ng/vim-hybrid'
+    Plug 'morhetz/gruvbox' 
 
     Plug 'rhysd/clever-f.vim'
 
@@ -146,7 +150,8 @@
     set t_Co=256
     set background=dark
 
-    colorscheme hybrid
+    " colorscheme hybrid
+    colorscheme gruvbox
 
 "---------------------------------------------------------------------------
 " vim-anzu
@@ -314,11 +319,12 @@
     " Open new file in current window
     let g:ctrlp_open_new_file = 'r'
 
-    let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
+    " let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
     let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
 
     nnoremap bg :<C-u>CtrlPMixed<CR>
     nnoremap bt :<C-u>CtrlPTag<CR>
+    nnoremap be :CtrlPMRU<CR>
 
 " -------------------------------------------------------------------------
 " golang

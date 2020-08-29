@@ -1,3 +1,4 @@
+bfg
 cagebreak-bin
 google-chrome
 intellij-idea-ultimate-edition
@@ -13,7 +14,9 @@ peco
 pinta
 polybar
 python-jaconv
+python-janome
 python-mecab
+python-romkan
 scrcpy
 siji-git
 slack-desktop

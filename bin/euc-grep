@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use utf8;
+use autodie;
+use Encode;
+
+binmode STDOUT, ":utf8";
+
+my $keyword = decode_utf8(shift @ARGV);
+my $re = qr/$keyword/;
+my $show_header = @ARGV>1 ? 1 : 0;
+
+for my $fname (@ARGV) {
+    open my $fh, '<', $fname;
+    while (<$fh>) {
+        my $line = decode('euc-jp', $_, Encode::FB_QUIET);
+        if ($line =~ $re) {
+            print(($show_header ? "$fname: " : '') . $line);
+        }
+    }
+}
+

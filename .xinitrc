@@ -69,6 +69,8 @@ xrandr --output HDMI-0 --mode 1920x1080
 # xkeysnail - key remapper like karabiner, autohotkey
 # ------------------------------------------------------------------------- 
 
+gnome-keyring-daemon &
+
 # run keyboard shortcuts
 xhost +SI:localuser:xkeysnail
 # /etc/xkeysnail.py is link of ~/dotfiles/xkeysnail/config.py

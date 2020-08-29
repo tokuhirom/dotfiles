@@ -48,6 +48,7 @@ alias vi=vim
 alias ls="ls -lF --color"
 alias s=ls
 alias l=ls
+alias sl=ls
 alias ll="ls -l"
 
 # -------------------------------------------------------------------------
@@ -240,3 +241,11 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+
+function jgrep() {
+    keyword=shift
+    LANG=ja_JP.utf-8 grep `echo "$keyword" | nkf -u`  $*  | nkf -w
+    LANG=ja_JP.sjis grep `echo "$keyword" | nkf -s`  $*  | nkf -w
+    LANG=ja_JP.eucjp grep `echo "$keyword" | nkf -e`  $*  | nkf -w
+}
+

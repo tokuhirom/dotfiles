@@ -58,6 +58,9 @@
 (defcommand idea() ()
     (run-or-raise "intellij-idea-ultimate-edition" '(:instance "intellij-idea-ultimate-edition")))
 
+(defcommand calc() ()
+    (run-shell-command "rofi -show calc -modi calc -no-show-match -no-sort"))
+
 ;; ## xmodmap result is here:
 ;;
 ;;     xmodmap:  up to 4 keys per modifier, (keycodes in parentheses):
@@ -71,6 +74,6 @@
 ;;     mod4        Super_L (0x85),  Super_R (0x86),  Super_L (0xce),  Hyper_L (0xcf)
 ;;     mod5        ISO_Level3_Shift (0x5c),  Mode_switch (0xcb)
 ;;
-;; mod1=M- modirfier.
+;; mod1=M- modifier.
 ;; Super_L(0x85)=Win key
 
