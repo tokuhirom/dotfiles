@@ -34,6 +34,8 @@ grub
 htop
 hub
 i3lock
+ibus-kkc
+ibus-skk
 imagemagick
 ipython
 iw

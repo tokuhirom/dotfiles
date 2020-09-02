@@ -50,6 +50,15 @@
 "pactl set-sink-volume @DEFAULT_SINK@ +1000"
     m:0x0 + c:123
 
+"(ibus engine xkb:us::eng)"
+    m:0x0 + c:102
+    Muhenkan
+
+"(ibus engine kkc)"
+    m:0x0 + c:100
+    Henkan_Mode
+
+
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
 #
