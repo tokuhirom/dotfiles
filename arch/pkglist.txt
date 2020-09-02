@@ -8,6 +8,7 @@ automake
 autopep8
 awesome
 base
+bashtop
 binutils
 bison
 cronie

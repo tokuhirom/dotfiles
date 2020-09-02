@@ -58,7 +58,7 @@ class Fullmoon:
         otp = input('OTP Number: ')
         dsid = self.send_otp(otp)
 
-        args = ["sudo", "openconnect",
+        args = ["sudo", "/usr/bin/openconnect",
                 "--protocol=nc",
                 "-C", "DSID=%s" % (dsid),
                 "nsa.navercorp.com"]

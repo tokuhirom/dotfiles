@@ -105,7 +105,7 @@
 
     Plug 'kien/rainbow_parentheses.vim'
 
-    Plug 'fuenor/qfixhowm'
+    " Plug 'fuenor/qfixhowm'
 
     " language support
     Plug 'fatih/vim-go'

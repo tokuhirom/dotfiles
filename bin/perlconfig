@@ -1,2 +1,4 @@
 #!/bin/sh
+
+# Dump Perl config
 perl -e 'use Config; use Data::Dumper; $Data::Dumper::Terse=1; $Data::Dumper::Indent=1; print Dumper(\%Config)' | less
