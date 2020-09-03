@@ -16,6 +16,7 @@ polybar
 python-jaconv
 python-janome
 python-mecab
+python-pygobject-stubs
 python-romkan
 scrcpy
 siji-git
