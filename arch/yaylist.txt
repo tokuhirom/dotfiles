@@ -18,6 +18,7 @@ python-janome
 python-marisa-trie
 python-mecab
 python-pygobject-stubs
+python-pygtrie
 python-romkan
 scrcpy
 siji-git
