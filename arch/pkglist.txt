@@ -34,6 +34,7 @@ grub
 htop
 hub
 i3lock
+ibus-anthy
 ibus-kkc
 ibus-skk
 imagemagick
