@@ -49,6 +49,7 @@ m4
 make
 man-db
 man-pages
+maven
 mlocate
 mutt
 mysql-workbench
