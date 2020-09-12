@@ -70,6 +70,7 @@ pkgconf
 pkgfile
 pulseaudio
 python
+python-atomicwrites
 python-keyring
 python-keyrings-alt
 python-levenshtein
