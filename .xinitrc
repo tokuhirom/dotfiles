@@ -42,6 +42,9 @@ export XMODIFIERS="@im=ibus"
 
 export BROWSER=/usr/bin/google-chrome-stable
 
+# -d: daemonize
+# -r: replace
+# -x: xim
 ibus-daemon -drx
 # fcitx &
 
