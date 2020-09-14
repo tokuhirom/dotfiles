@@ -35,6 +35,7 @@ fi
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS="@im=fcitx"
 
+export XIM=ibus
 export DefaultImModule=ibus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
