@@ -192,6 +192,7 @@ export BAT_STYLE="plain"
 export PAGER=lv
 
 [[ -d /usr/local/pulse ]] && export PATH="$PATH:/usr/local/pulse"
+[[ -d $HOME/.local/bin/ ]] && export PATH="$PATH:$HOME/.local/bin/"
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
 
 if [ -d /mnt/c/ ]; then
