@@ -9,6 +9,7 @@ lv
 mecab
 ngrok
 nkf
+obsidian-appimage
 palmkit
 peco
 polybar
