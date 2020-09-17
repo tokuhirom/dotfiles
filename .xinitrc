@@ -94,8 +94,8 @@ sudo -u xkeysnail DISPLAY=:0 /usr/bin/xkeysnail /etc/xkeysnail.py &
 # -------------------------------------------------------------------------
 
 # stumpwm, `C-3` based screen like operation.
-exec stumpwm
-# exec i3
+# exec stumpwm
+exec i3
 
 # win+enter -> run terminal
 # win+C-r   -> restart awesome
