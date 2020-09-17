@@ -51,7 +51,7 @@ bindsym $mod+Return exec terminator
 
 bindsym $mod+F2 exec google-chrome-stable
 
-bindsym $mod+l exec i3lock
+# bindsym $mod+l exec i3lock
 
 # kill focused window
 bindsym $mod+Shift+q kill
