@@ -87,7 +87,7 @@ sudo -u xkeysnail DISPLAY=:0 /usr/bin/xkeysnail /etc/xkeysnail.py &
 # sudo xkeysnail --quiet ~/dotfiles/xkeysnail/config.py &
 
 # run polybar(DO NOT RUN IF YOU ARE USING *awesome*)
-~/.config/polybar/launch.sh
+# ~/.config/polybar/launch.sh
 
 # -------------------------------------------------------------------------
 # Run window manager
@@ -95,11 +95,11 @@ sudo -u xkeysnail DISPLAY=:0 /usr/bin/xkeysnail /etc/xkeysnail.py &
 
 # stumpwm, `C-3` based screen like operation.
 # exec stumpwm
-exec i3
+# exec i3
 
 # win+enter -> run terminal
 # win+C-r   -> restart awesome
 # win+S-q   -> quit awesome
 # win+s     -> show help
-# exec awesome
+exec awesome
 

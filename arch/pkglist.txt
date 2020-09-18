@@ -27,6 +27,7 @@ gauche
 gcc
 gdb
 git
+glade
 gnome-keyring
 gnu-netcat
 gobject-introspection
