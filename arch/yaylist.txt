@@ -1,9 +1,11 @@
 bfg
 google-chrome
+ibus-mozc-ut2
 intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
 joplin
 jumpapp
+kasumi-git
 kytea-git
 lv
 mecab
