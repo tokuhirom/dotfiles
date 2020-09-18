@@ -31,7 +31,6 @@ ttf-mplus
 ttf-ms-fonts
 ttf-unifont
 ttf-vlgothic
-visual-studio-code-bin
 xkeysnail-git
 yay
 ytop-bin
