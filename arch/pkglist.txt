@@ -27,6 +27,7 @@ gauche
 gcc
 gdb
 git
+github-cli
 glade
 gnome-keyring
 gnu-netcat
