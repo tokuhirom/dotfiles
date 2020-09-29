@@ -81,6 +81,7 @@ python-levenshtein
 python-marisa
 python-nose
 python-pip
+python-plyvel
 python-pyflakes
 python-pytest
 python-regex
