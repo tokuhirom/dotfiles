@@ -22,6 +22,7 @@ python-mecab
 python-pygobject-stubs
 python-pygtrie
 python-romkan
+python-unqlite
 scrcpy
 siji-git
 slack-desktop
