@@ -17,6 +17,7 @@ peco
 polybar
 python-jaconv
 python-janome
+python-line_profiler
 python-marisa-trie
 python-mecab
 python-pygobject-stubs
