@@ -21,6 +21,7 @@ fcitx-configtool
 fcitx-kkc
 firefox
 flake8
+flameshot
 flex
 fzf
 gauche
