@@ -74,6 +74,7 @@ pinta
 pkgconf
 pkgfile
 pulseaudio
+pybind11
 python
 python-atomicwrites
 python-keyring
