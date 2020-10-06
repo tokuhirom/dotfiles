@@ -1,4 +1,8 @@
 bfg
+clion
+clion-cmake
+clion-gdb
+clion-lldb
 google-chrome
 ibus-mozc-ut2
 intellij-idea-ultimate-edition
