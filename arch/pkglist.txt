@@ -46,6 +46,7 @@ imagemagick
 ipython
 iw
 jdk11-openjdk
+kcachegrind
 libkkc
 libreoffice-fresh
 linux
@@ -71,6 +72,7 @@ otf-ipafont
 pacman-contrib
 patch
 pavucontrol
+perf
 perl-lwp-protocol-https
 pinta
 pkgconf
