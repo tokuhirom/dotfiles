@@ -48,7 +48,7 @@ export BROWSER=/usr/bin/google-chrome-stable
 # -d: daemonize
 # -r: replace
 # -x: xim
-ibus-daemon -rx >> ~/.ibus.log &
+ibus-daemon --verbose -rx &> ~/.ibus.log &
 # fcitx &
 
 joplin-desktop &
