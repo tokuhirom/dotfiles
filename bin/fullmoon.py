@@ -30,8 +30,7 @@ class FormParser(HTMLParser):
 
 
 class Fullmoon:
-    def __init__(self, duo=False):
-        self.duo = duo
+    def __init__(self):
         self.logger = logging.getLogger(self.__class__.__name__)
         self.configfile = expanduser("~/.fullmoon.ini")
         self.config = SafeConfigParser()
@@ -202,4 +201,4 @@ class Fullmoon:
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
-    Fullmoon(duo=True).run()
+    Fullmoon().run()
