@@ -13,7 +13,7 @@ kasumi-git
 kytea-git
 lv
 mecab
-ngrok
+ngrok-bin
 nkf
 palmkit
 peco
