@@ -39,6 +39,7 @@ ttf-ms-fonts
 ttf-unifont
 ttf-vlgothic
 xkeysnail-git
+xorg-server-xwayland
 yay
 ytop-bin
 zeal

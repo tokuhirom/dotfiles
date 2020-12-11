@@ -130,7 +130,6 @@ wpa_supplicant
 xbindkeys
 xdo
 xorg-fonts-misc
-xorg-server-xwayland
 xorg-xev
 xorg-xhost
 xorg-xinit
