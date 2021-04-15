@@ -30,7 +30,7 @@ is_windows_terminal()
 return
 
 ;; Basic emacs-like cursor operation
-#If !(WinActive("ahk_exe RLogin.exe") or WinActive("ahk_exe emacs.exe") or is_windows_terminal())
+#If !(WinActive("ahk_exe RLogin.exe") or WinActive("ahk_exe emacs.exe") or is_windows_terminal() or WinActive("ahk_exe putty.exe"))
 
     ^p::Send {Up}
     ^n::Send {Down}
@@ -64,15 +64,17 @@ Insert::Return
     !v::^v
     !z::^z
 
-; chrome sets C-f as find in browser
 ; but IDEA wants Alt-F3 as a find in text
 ;#IFWinActive, ahk_exe idea64.exe
 ;!f::
 ;    send {Alt down}{F3}{Alt up}
 ;    Return
 ;#IfWinActive
+
+
+; chrome sets C-f as find in browser
 #IfWinNotActive, ahk_exe idea64.exe
-    !f::Send ^f
+   !f::Send ^f
 #IfWinNotActive
 
 ; on visual studio code, M-p should work as command pallet.
