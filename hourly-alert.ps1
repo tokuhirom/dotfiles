@@ -25,7 +25,7 @@ $WorkingDirectory = "C:\toaster"
 
 # 毎時分のタスクスケジューラに登録する
 $TriggerArray = @()
-0..23 |
+9..20 |
 ForEach-Object {
     $Hour = $_
     @(0, 30) |

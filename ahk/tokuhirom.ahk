@@ -73,7 +73,8 @@ Insert::Return
 
 
 ; chrome sets C-f as find in browser
-#IfWinNotActive, ahk_exe idea64.exe
+#IfWinNotActive, ahk_exe
+	; idea64.exe
    !f::Send ^f
 #IfWinNotActive
 
