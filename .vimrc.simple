@@ -1,0 +1,3 @@
+" .vimrc for working... be simple.
+set ai
+set ts=4
