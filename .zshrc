@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 autoload -Uz compinit promptinit
 compinit
 promptinit
@@ -78,6 +80,11 @@ if [[ -e /usr/libexec/java_home ]]; then
 
     function use_java8() {
         export JAVA_VERSION=1.8
+        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
+        export PATH=$JAVA_HOME/bin:$PATH
+    }
+    function use_java17() {
+        export JAVA_VERSION=17
         export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
         export PATH=$JAVA_HOME/bin:$PATH
     }
@@ -193,6 +200,7 @@ export PAGER=lv
 
 [[ -d /usr/local/pulse ]] && export PATH="$PATH:/usr/local/pulse"
 [[ -d $HOME/.local/bin/ ]] && export PATH="$PATH:$HOME/.local/bin/"
+[[ -d $HOME/bin/ ]] && export PATH="$PATH:$HOME/bin/"
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
 
 if [ -d /mnt/c/ ]; then
@@ -250,3 +258,20 @@ function jgrep() {
     LANG=ja_JP.eucjp grep `echo "$keyword" | nkf -e`  $*  | nkf -w
 }
 
+
+# -------------------------------------------------------------------------
+# set path to homebrew
+#
+# -------------------------------------------------------------------------
+if [[ -d /opt/homebrew/bin ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
+# -------------------------------------------------------------------------
+# misc
+#
+# -------------------------------------------------------------------------
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"

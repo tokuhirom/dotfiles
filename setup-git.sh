@@ -50,3 +50,4 @@ git config --global alias.fetch-pulls 'fetch origin +refs/pull/*:refs/remotes/pu
 # I'm vimmer
 git config --global core.editor vim
 
+git config --global init.defaultBranch main
