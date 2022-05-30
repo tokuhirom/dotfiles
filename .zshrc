@@ -9,7 +9,7 @@ setopt prompt_subst
 
 prompt fire
 
-export RPROMPT=$'$(__git_ps1 "%s")'
+# export RPROMPT=$'$(__git_ps1 "%s")'
 
 bindkey -e
 
@@ -64,6 +64,10 @@ export PERL_AUTOINSTALL="--defaultdeps"
 # -------------------------------------------------------------------------
 # Java
 # -------------------------------------------------------------------------
+
+# export JAVA_VERSION=1.8
+export JAVA_VERSION=11
+# export JAVA_VERSION=11.0.2
 
 if [[ -e /usr/libexec/java_home ]]; then
     function use_java14() {
@@ -187,8 +191,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export CHEAT_EDITOR=vim
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 
 
@@ -197,6 +201,7 @@ export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
 export BAT_STYLE="plain"
 
 export PAGER=lv
+# export PAGER=bat
 
 [[ -d /usr/local/pulse ]] && export PATH="$PATH:/usr/local/pulse"
 [[ -d $HOME/.local/bin/ ]] && export PATH="$PATH:$HOME/.local/bin/"
@@ -275,3 +280,23 @@ fi
 
 # Fig post block. Keep at the bottom of this file.
 . "$HOME/.fig/shell/zshrc.post.zsh"
+
+function dependencyReport() {
+    ./gradlew dependencyReport --no-daemon --refresh-dependencies --no-build-cache --no-parallel
+}
+
+mkdir -p ~/.vim/tmp
+
+# use brew's ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+# https://michimani.net/post/develop-zsh-prompt-remove-last-line/
+setopt prompt_cr
+setopt prompt_sp
+
+eval "$(nodenv init -)"
+
