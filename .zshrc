@@ -277,7 +277,7 @@ fi
 # -------------------------------------------------------------------------
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+# . "$HOME/.fig/shell/zshrc.post.zsh"
 
 function dependencyReport() {
     ./gradlew dependencyReport --no-daemon --refresh-dependencies --no-build-cache --no-parallel
@@ -297,4 +297,6 @@ setopt prompt_cr
 setopt prompt_sp
 
 eval "$(nodenv init -)"
+
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
