@@ -56,6 +56,8 @@ link .stumpwmrc
 link .xbindkeysrc
 link .Xmodmap
 link .pam_environment
+link .yabairc
+link .skhdrc
 
 link .config/mimeapps.list
 link .config/polybar/config

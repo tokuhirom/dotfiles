@@ -981,7 +981,7 @@
 	<key>description</key>
 	<string>Package Repo Search</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Package Managers</string>
 	<key>objects</key>
@@ -1629,8 +1629,6 @@ open $url</string>
 			<integer>2</integer>
 		</dict>
 		<dict>
-			<key>config</key>
-			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -2128,8 +2126,6 @@ echo $id</string>
 			<integer>3</integer>
 		</dict>
 		<dict>
-			<key>config</key>
-			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -2431,8 +2427,6 @@ echo $pkgstr</string>
 			<integer>3</integer>
 		</dict>
 		<dict>
-			<key>config</key>
-			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>

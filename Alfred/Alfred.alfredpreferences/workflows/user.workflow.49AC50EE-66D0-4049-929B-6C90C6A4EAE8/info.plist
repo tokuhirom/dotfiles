@@ -4149,6 +4149,8 @@ return "{query}"</string>
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -7939,6 +7941,8 @@ tell application "Obsidian" to activate</string>
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -9118,6 +9122,8 @@ echo | git pull</string>
 			<integer>3</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -11723,7 +11729,7 @@ DOUBLE CLICK THIS to set Hotkey. Suggested Hotkey: cmd + shift + 1</string>
 		<string>daily_note_append_prefix</string>
 	</array>
 	<key>version</key>
-	<string>2.22.8</string>
+	<string>2.22.10</string>
 	<key>webaddress</key>
 	<string>https://chris-grieser.de/</string>
 </dict>
