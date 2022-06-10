@@ -35,7 +35,8 @@ git config --global branch.autosetuprebase always
 
 # ref. http://stackoverflow.com/questions/15915430/what-exactly-does-gits-rebase-preserve-merges-do-and-why
 # 1.8.5 or later
-git config --global pull.rebase preserve
+# これはなんか動かなくなった。
+# git config --global pull.rebase preserve
 
 # exclude files
 git config --global core.excludesfile ~/.gitignore_global
