@@ -50,5 +50,6 @@ yabai -m rule --add app="^Skitch$" manage=off
 yabai -m rule --add app="^Zoom.*$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^LINE$" title!="^LINE$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
 
 echo "yabai configuration loaded.."

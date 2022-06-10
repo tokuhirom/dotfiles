@@ -2,6 +2,14 @@
 # set -x
 # set -e
 
+if [[ -d /Users/ ]] ; then
+    if [[ ! -e /usr/local/bin/git-lfs ]] ; then
+        brew install git-lfs
+    fi
+fi
+
+git lfs install
+
 git config --global user.email "tokuhirom@gmail.com"
 git config --global user.name "Tokuhiro Matsuno"
 
