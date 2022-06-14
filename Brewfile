@@ -11,6 +11,7 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
 brew "mas"
+brew "R"
 
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
@@ -30,3 +31,4 @@ brew "koekeishiya/formulae/yabai"
 mas "LINE", id: 539883307
 mas "MindNode", id: 1289197285
 mas "Pixelmator Pro", id: 1289583905
+mas "Skitch", id: 425955336
