@@ -16,6 +16,9 @@ brew "R"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 
+cask "visual-studio-code"
+cask "firefox"
+
 #   cask "1password"
 #   cask "alfred"
 #   cask "docker"
@@ -23,7 +26,6 @@ brew "koekeishiya/formulae/yabai"
 #   cask "google-japanese-ime"
 #   cask "iterm2"
 #   cask "karabiner-elements"
-#   cask "visual-studio-code"
 
 # mas "Slack", id: 803453959
 
