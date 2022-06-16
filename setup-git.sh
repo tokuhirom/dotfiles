@@ -2,6 +2,14 @@
 # set -x
 # set -e
 
+if [[ -d /Users/ ]] ; then
+    if [[ ! -e /usr/local/bin/git-lfs ]] ; then
+        brew install git-lfs
+    fi
+fi
+
+git lfs install
+
 git config --global user.email "tokuhirom@gmail.com"
 git config --global user.name "Tokuhiro Matsuno"
 
@@ -27,7 +35,8 @@ git config --global branch.autosetuprebase always
 
 # ref. http://stackoverflow.com/questions/15915430/what-exactly-does-gits-rebase-preserve-merges-do-and-why
 # 1.8.5 or later
-git config --global pull.rebase preserve
+# これはなんか動かなくなった。
+# git config --global pull.rebase preserve
 
 # exclude files
 git config --global core.excludesfile ~/.gitignore_global

@@ -60,41 +60,6 @@ export PERL_CPANM_OPT="--no-man-pages --no-prompt --no-interactive"
 export PERL_AUTOINSTALL="--defaultdeps"
 
 # -------------------------------------------------------------------------
-# Java
-# -------------------------------------------------------------------------
-
-# export JAVA_VERSION=1.8
-export JAVA_VERSION=11
-# export JAVA_VERSION=11.0.2
-
-if [[ -e /usr/libexec/java_home ]]; then
-    function use_java14() {
-        export JAVA_VERSION=14
-        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-        export PATH=$JAVA_HOME/bin:$PATH
-    }
-
-    function use_java11() {
-        export JAVA_VERSION=11
-        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-        export PATH=$JAVA_HOME/bin:$PATH
-    }
-
-    function use_java8() {
-        export JAVA_VERSION=1.8
-        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-        export PATH=$JAVA_HOME/bin:$PATH
-    }
-    function use_java17() {
-        export JAVA_VERSION=17
-        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-        export PATH=$JAVA_HOME/bin:$PATH
-    }
-
-    use_java11
-fi
-
-# -------------------------------------------------------------------------
 # today
 # -------------------------------------------------------------------------
 function today() {
@@ -169,12 +134,6 @@ if [ -f /Users/JP11283/Downloads/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/JP11283/Downloads/google-cloud-sdk/path.zsh.inc'
 fi
 
-if [ -d /usr/local/Cellar/perl/5.26.1/bin/ ]; then
-    export PATH="/usr/local/Cellar/perl/5.26.1/bin/:$PATH"
-fi
-# added by Miniconda3 4.3.21 installer
-# export PATH="$HOME/miniconda3/bin:$HOME/.plenv/bin/:$PATH"
-
 if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
@@ -187,10 +146,6 @@ export PATH="$HOME/.plenv/bin:$HOME/.plenv/shims:$PATH"
 # PATH for rust tools
 export PATH="$HOME/.cargo/bin:$PATH"
 export CHEAT_EDITOR=vim
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 
 
@@ -277,7 +232,7 @@ fi
 # -------------------------------------------------------------------------
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+# . "$HOME/.fig/shell/zshrc.post.zsh"
 
 function dependencyReport() {
     ./gradlew dependencyReport --no-daemon --refresh-dependencies --no-build-cache --no-parallel
@@ -297,4 +252,10 @@ setopt prompt_cr
 setopt prompt_sp
 
 eval "$(nodenv init -)"
+
+# -------------------------------------------------------------------------
+# Java
+# -------------------------------------------------------------------------
+
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
