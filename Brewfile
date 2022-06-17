@@ -1,23 +1,27 @@
 # `brew bundle` to install apps.
 
+brew "R"
 brew "autoconf"
 brew "coreutils"
 brew "git"
 brew "git-lfs"
+brew "gnupg"
 brew "jq"
 brew "lv"
+brew "mas"
+brew "ngrep"
+brew "nkf"
 brew "nodenv"
 brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
-brew "mas"
-brew "R"
 
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 
 cask "visual-studio-code"
 cask "firefox"
+cask "1password"
 
 #   cask "1password"
 #   cask "alfred"

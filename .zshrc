@@ -77,7 +77,6 @@ if [ -d '/Users/' ]; then
     export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 fi
 
-export HOMEBREW_GITHUB_API_TOKEN=aa088a98f596b0a7679303672d503977343eaba5
 
 # ndenv
 if [ -e $HOME/.ndenv ]; then
@@ -218,9 +217,12 @@ function jgrep() {
 
 
 # -------------------------------------------------------------------------
+# homebrew
+# ------------------------------------------------------------------------- 
+# https://gist.github.com/willgarcia/7347306870779bfa664e
+export HOMEBREW_GITHUB_API_TOKEN=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
+
 # set path to homebrew
-#
-# -------------------------------------------------------------------------
 if [[ -d /opt/homebrew/bin ]]; then
     export PATH=/opt/homebrew/bin:$PATH
     export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"

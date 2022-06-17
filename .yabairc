@@ -51,5 +51,8 @@ yabai -m rule --add app="^Zoom.*$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^LINE$" title!="^LINE$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" title="( – )"  manage=on
+
 
 echo "yabai configuration loaded.."
