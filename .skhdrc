@@ -1,0 +1,69 @@
+# focus window
+
+# focus 関連。BSP用
+#   alt - x : yabai -m window --focus recent
+#   alt - h : yabai -m window --focus west
+#   alt - j : yabai -m window --focus south
+#   alt - k : yabai -m window --focus north
+#   alt - l : yabai -m window --focus east
+
+alt - j : ~/dotfiles/bin/yabai-focus.pl
+alt - k : ~/dotfiles/bin/yabai-focus.pl -r
+
+# 画面を大きく３つのfloating window で占めて表示させる。
+# 一番左に LINE アプリを表示。LINE アプリで本文が表示されるギリギリの横幅がこれ。
+alt - 1: yabai -m window --toggle float && yabai -m window --grid 1:10:0:0:3:1
+alt - 2: yabai -m window --toggle float && yabai -m window --grid 1:10:3:0:4:1
+alt - 3: yabai -m window --toggle float && yabai -m window --grid 1:10:7:0:3:1
+
+# 2 pane モード
+alt - 9: yabai -m window --toggle float && yabai -m window --grid 1:10:0:0:5:1
+alt - 0: yabai -m window --toggle float && yabai -m window --grid 1:10:5:0:5:1
+
+
+# swap window(よく使う)
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+# move window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+# move window
+shift + ctrl - a : yabai -m window --move rel:-20:0
+shift + ctrl - s : yabai -m window --move rel:0:20
+shift + ctrl - w : yabai -m window --move rel:0:-20
+shift + ctrl - d : yabai -m window --move rel:20:0
+# increase window size(よく使う)
+shift + alt - a : yabai -m window --resize left:-20:0
+shift + alt - s : yabai -m window --resize bottom:0:20
+shift + alt - w : yabai -m window --resize top:0:-20
+shift + alt - d : yabai -m window --resize right:20:0
+# decrease window size
+shift + cmd - a : yabai -m window --resize left:20:0
+shift + cmd - s : yabai -m window --resize bottom:0:-20
+shift + cmd - w : yabai -m window --resize top:0:20
+shift + cmd - d : yabai -m window --resize right:-20:0
+# rotate tree
+alt - r : yabai -m space --rotate 90
+# mirror tree y-axis
+alt - y : yabai -m space --mirror y-axis
+# mirror tree x-axis
+alt - x : yabai -m space --mirror x-axis
+# toggle desktop offset
+alt - a : yabai -m space --toggle padding && yabai -m space --toggle gap
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+# toggle window native fullscreen
+shift + alt - f : yabai -m window --toggle float
+# toggle window split type
+alt - e : yabai -m window --toggle split
+
+alt - o : yabai -m space --focus 2
+alt - i : yabai -m space --move 2
+
+
+
+# https://iter01.com/667321.html

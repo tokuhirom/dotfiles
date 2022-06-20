@@ -7,7 +7,7 @@ setopt prompt_subst
 
 prompt fire
 
-export RPROMPT=$'$(__git_ps1 "%s")'
+# export RPROMPT=$'$(__git_ps1 "%s")'
 
 bindkey -e
 
@@ -60,32 +60,6 @@ export PERL_CPANM_OPT="--no-man-pages --no-prompt --no-interactive"
 export PERL_AUTOINSTALL="--defaultdeps"
 
 # -------------------------------------------------------------------------
-# Java
-# -------------------------------------------------------------------------
-
-if [[ -e /usr/libexec/java_home ]]; then
-    function use_java14() {
-        export JAVA_VERSION=14
-        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-        export PATH=$JAVA_HOME/bin:$PATH
-    }
-
-    function use_java11() {
-        export JAVA_VERSION=11
-        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-        export PATH=$JAVA_HOME/bin:$PATH
-    }
-
-    function use_java8() {
-        export JAVA_VERSION=1.8
-        export JAVA_HOME=`/usr/libexec/java_home -v $JAVA_VERSION`
-        export PATH=$JAVA_HOME/bin:$PATH
-    }
-
-    use_java11
-fi
-
-# -------------------------------------------------------------------------
 # today
 # -------------------------------------------------------------------------
 function today() {
@@ -103,7 +77,6 @@ if [ -d '/Users/' ]; then
     export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 fi
 
-export HOMEBREW_GITHUB_API_TOKEN=aa088a98f596b0a7679303672d503977343eaba5
 
 # ndenv
 if [ -e $HOME/.ndenv ]; then
@@ -160,12 +133,6 @@ if [ -f /Users/JP11283/Downloads/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/JP11283/Downloads/google-cloud-sdk/path.zsh.inc'
 fi
 
-if [ -d /usr/local/Cellar/perl/5.26.1/bin/ ]; then
-    export PATH="/usr/local/Cellar/perl/5.26.1/bin/:$PATH"
-fi
-# added by Miniconda3 4.3.21 installer
-# export PATH="$HOME/miniconda3/bin:$HOME/.plenv/bin/:$PATH"
-
 if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
@@ -179,10 +146,6 @@ export PATH="$HOME/.plenv/bin:$HOME/.plenv/shims:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export CHEAT_EDITOR=vim
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 
 
 # Better `cat`
@@ -190,9 +153,11 @@ export SDKMAN_DIR="/Users/tokuhirom/.sdkman"
 export BAT_STYLE="plain"
 
 export PAGER=lv
+# export PAGER=bat
 
 [[ -d /usr/local/pulse ]] && export PATH="$PATH:/usr/local/pulse"
 [[ -d $HOME/.local/bin/ ]] && export PATH="$PATH:$HOME/.local/bin/"
+[[ -d $HOME/bin/ ]] && export PATH="$PATH:$HOME/bin/"
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
 
 if [ -d /mnt/c/ ]; then
@@ -249,4 +214,50 @@ function jgrep() {
     LANG=ja_JP.sjis grep `echo "$keyword" | nkf -s`  $*  | nkf -w
     LANG=ja_JP.eucjp grep `echo "$keyword" | nkf -e`  $*  | nkf -w
 }
+
+
+# -------------------------------------------------------------------------
+# homebrew
+# ------------------------------------------------------------------------- 
+# https://gist.github.com/willgarcia/7347306870779bfa664e
+export HOMEBREW_GITHUB_API_TOKEN=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
+
+# set path to homebrew
+if [[ -d /opt/homebrew/bin ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
+# -------------------------------------------------------------------------
+# misc
+#
+# -------------------------------------------------------------------------
+
+# Fig post block. Keep at the bottom of this file.
+# . "$HOME/.fig/shell/zshrc.post.zsh"
+
+function dependencyReport() {
+    ./gradlew dependencyReport --no-daemon --refresh-dependencies --no-build-cache --no-parallel
+}
+
+mkdir -p ~/.vim/tmp
+
+# use brew's ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+# https://michimani.net/post/develop-zsh-prompt-remove-last-line/
+setopt prompt_cr
+setopt prompt_sp
+
+eval "$(nodenv init -)"
+
+# -------------------------------------------------------------------------
+# Java
+# -------------------------------------------------------------------------
+
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 

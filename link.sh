@@ -4,8 +4,8 @@ set -e
 
 # Mac.
 if [ -d /Users/ ]; then
-    [ ! -e $HOME/dotfiles ] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/dotfiles" $HOME/dotfiles
-    [ ! -e $HOME/howm ] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/howm" $HOME/howm
+    [[ ! -e $HOME/dotfiles ]] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/dotfiles" $HOME/dotfiles
+    # [[ ! -e $HOME/howm ]] && ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/howm" $HOME/howm
 
     for service in me.geso.journalsync me.geso.dotfilessync
     do
@@ -56,6 +56,8 @@ link .stumpwmrc
 link .xbindkeysrc
 link .Xmodmap
 link .pam_environment
+link .yabairc
+link .skhdrc
 
 link .config/mimeapps.list
 link .config/polybar/config
@@ -69,3 +71,5 @@ link .config/cagebreak/config
 
 mkdir -p ~/.vim/tmp/
 
+
+[[ ! -e $HOME/Documents/Alfred ]] && ln -s $HOME/dotfiles/Alfred $HOME/Documents/Alfred

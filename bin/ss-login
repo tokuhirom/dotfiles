@@ -10,6 +10,7 @@ host=$1
 if [ -e $HOME/.linepw ]; then
     passwd=$(cat ~/.linepw | perl -pe 's/\n//g')
 else
+    # security add-generic-password -s kerberos -a JP11283 -w 'PASSWORD HERE'
     passwd=$(security find-generic-password -gs kerberos -w)
 fi
 
