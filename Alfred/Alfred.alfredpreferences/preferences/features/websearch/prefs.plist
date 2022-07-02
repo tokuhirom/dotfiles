@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>4C37A46A-1512-4285-ADD7-8F6FC8ED3319</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>wiki</string>
+			<key>text</key>
+			<string>wiki</string>
+			<key>url</key>
+			<string>https://search-wiki.linecorp.com/esearch?query={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>95FFB2CA-DD7E-4092-B969-DFF572E3CF4D</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ama</string>
+			<key>text</key>
+			<string>amazon</string>
+			<key>url</key>
+			<string>https://www.amazon.co.jp/s?k={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>BDFF1956-6062-48A7-B187-3C0DD775FA85</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>yodo</string>
+			<key>text</key>
+			<string>Yodobashi</string>
+			<key>url</key>
+			<string>https://www.yodobashi.com/?word={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

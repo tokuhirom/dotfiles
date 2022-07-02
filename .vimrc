@@ -86,7 +86,7 @@
     Plug 'rhysd/vim-clang-format'
 
     " snippets
-    Plug 'SirVer/ultisnips'
+    "Plug 'SirVer/ultisnips'
     " vim-snippets repo contains snipMate & UltiSnip Snippets.
     Plug 'honza/vim-snippets'
 

@@ -79,3 +79,4 @@ bcg_sentmessages_transfer_log.ltsv
 *.class
 **/.settings/
 .settings/
+.settings

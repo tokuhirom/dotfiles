@@ -4,7 +4,12 @@
 
     (require 'package)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-    (package-initialize)
+;;    (package-initialize)
+
+(package-install 'counsel)
+(package-install 'calfw)
+(package-install 'howm)
+(package-install 'auto-save-buffers-enhanced)
 
     ;   M-x package-refresh-contents
     ;   M-x package-install RET evil
@@ -146,7 +151,7 @@
     (setq howm-file-name-format "%Y/%m/%Y-%m-%d-%H%M%S.md")
 
 (require 'howm-mode)
-(howm-menu)
+;; (howm-menu)
 
 ;; ------------------------------------------------------
 ;; calfw - nice calendar view
@@ -188,9 +193,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))
  '(package-selected-packages
-   (quote
-    (mozc ivy solarized-theme auto-save-buffers-enhanced howm))))
+   '(ivy-dired-history calfw solarized-theme swiper counsel ivy auto-save-buffers-enhanced markdown-mode howm evil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

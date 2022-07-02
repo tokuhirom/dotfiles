@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => '4.1.0',
+        'version' => '4.1.0.0',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => NULL,
+        'name' => 'willfarrell/alfred-pkgman-workflow',
+        'dev' => false,
+    ),
+    'versions' => array(
+        'joetannenbaum/alfred-workflow' => array(
+            'pretty_version' => '0.1.2',
+            'version' => '0.1.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../joetannenbaum/alfred-workflow',
+            'aliases' => array(),
+            'reference' => '88e042db9cad0c95ab80e87c69d7f1e15340e7ac',
+            'dev_requirement' => false,
+        ),
+        'samdark/hydrator' => array(
+            'pretty_version' => '1.0.4',
+            'version' => '1.0.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../samdark/hydrator',
+            'aliases' => array(),
+            'reference' => '8c9f84bbb31f48a09832ed4d30289e929cb00e53',
+            'dev_requirement' => false,
+        ),
+        'willfarrell/alfred-pkgman-workflow' => array(
+            'pretty_version' => '4.1.0',
+            'version' => '4.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => NULL,
+            'dev_requirement' => false,
+        ),
+    ),
+);

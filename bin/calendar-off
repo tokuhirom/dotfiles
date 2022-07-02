@@ -1,0 +1,12 @@
+#!/bin/zsh
+# カレンダーをおふにするよ
+
+. $HOME/.zshrc
+
+PW=$(security find-generic-password -gs kerberos -w)
+echo $PATH >> /tmp/calendar-off 2>&1
+echo $JAVA_HOME >> /tmp/calendar-off 2>&1
+date >> /tmp/calendar-off 2>&1
+which java >> /tmp/calendar-off 2>&1
+/Users/jp11283/Library/Java/JavaVirtualMachines/temurin-11.0.14.1/Contents/Home/bin/java -jar -DdryRun=false -Dusername=jp11283 "-Dpassword=$PW" $HOME/work/calendar-off/build/libs/calendar-off-1.0-SNAPSHOT.jar >> /tmp/calendar-off 2>&1
+
