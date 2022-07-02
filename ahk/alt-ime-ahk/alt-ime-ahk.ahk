@@ -103,9 +103,10 @@
 *~Delete::
 *~Home::
 *~End::
-*~PgUp::
-*~PgDn::
     Return
+;; PgDn/PgUp は、ボリューム調整に使うので除外。
+;; *~PgUp::
+;; *~PgDn::
 
 ; 上部メニューがアクティブになるのを抑制
 *~LAlt::Send {Blind}{vk07}
