@@ -15,6 +15,7 @@ brew "nodenv"
 brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
+brew "vim"
 
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
@@ -22,13 +23,12 @@ brew "koekeishiya/formulae/yabai"
 cask "visual-studio-code"
 cask "firefox"
 cask "1password"
-
-#   cask "1password"
+cask "iterm2"
+cask "ticktick"
 #   cask "alfred"
 #   cask "docker"
 #   cask "google-chrome"
 #   cask "google-japanese-ime"
-#   cask "iterm2"
 #   cask "karabiner-elements"
 
 # mas "Slack", id: 803453959

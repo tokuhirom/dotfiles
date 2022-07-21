@@ -30,7 +30,7 @@ is_windows_terminal()
 return
 
 ;; Basic emacs-like cursor operation
-#If !(WinActive("ahk_exe RLogin.exe") or WinActive("ahk_exe emacs.exe") or is_windows_terminal() or WinActive("ahk_exe putty.exe"))
+#If !(WinActive("ahk_exe RLogin.exe") or WinActive("ahk_exe emacs.exe") or is_windows_terminal() or WinActive("ahk_exe putty.exe") or WinActive("ahk_class ConsoleWindowClass"))
 
     ^p::Send {Up}
     ^n::Send {Down}
@@ -49,20 +49,34 @@ return
 #If
 
 ;; Remap C-d to DEL. But run debugger on IDEA.
-#If !(WinActive("ahk_exe idea64.exe") or is_windows_terminal())
+#If !(WinActive("ahk_exe idea64.exe") or is_windows_terminal() or WinActive("ahk_exe putty.exe") or WinActive("ahk_class ConsoleWindowClass"))
     ^d::Send {Del}
 #If
 
 ; Disable Ins key
 Insert::Return
 
+
+;; Shift＋マウスホイールで水平スクロール
+;; https://www.naporitansushi.com/ahk-horizontal-scroll/
++WheelDown::WheelRight
++WheelUp::WheelLeft
+Return
+
+
+;; PageDown/PageUp で音量調整できるようにする
+PgUp::Volume_Up
+PgDn::Volume_Down
+
 ;; Mac like keybinding
 ;; M-a as "Select all"
+#If !(WinActive("ahk_exe RLogin.exe") or WinActive("ahk_exe emacs.exe") or is_windows_terminal() or WinActive("ahk_exe putty.exe") or WinActive("ahk_class ConsoleWindowClass"))
     !a::^a
     !c::^c
     !x::^x
     !v::^v
     !z::^z
+#If
 
 ; but IDEA wants Alt-F3 as a find in text
 ;#IFWinActive, ahk_exe idea64.exe
