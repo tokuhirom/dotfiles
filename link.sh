@@ -58,6 +58,7 @@ link .Xmodmap
 link .pam_environment
 link .yabairc
 link .skhdrc
+link .Rprofile
 
 link .config/mimeapps.list
 link .config/polybar/config
