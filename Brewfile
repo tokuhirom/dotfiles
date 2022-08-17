@@ -16,6 +16,7 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
 brew "vim"
+brew "graphviz"
 
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"

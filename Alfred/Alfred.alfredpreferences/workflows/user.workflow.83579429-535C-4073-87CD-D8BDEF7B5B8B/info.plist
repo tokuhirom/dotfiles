@@ -273,7 +273,7 @@
 	<key>description</key>
 	<string>Switch between windows &amp; tabs on the same desktop</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Swift Window Switcher</string>
 	<key>objects</key>
@@ -377,6 +377,8 @@ on extract_argv(source_string, new_delimiter)	set backup to AppleScript's text 
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -415,7 +417,7 @@ on extract_argv(source_string, new_delimiter)	set backup to AppleScript's text 
 			<key>uid</key>
 			<string>DE26058B-66D8-464C-B116-3C36FC69D3FA</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -459,8 +461,6 @@ on extract_argv(source_string, new_delimiter)	set backup to AppleScript's text 
 			<integer>1</integer>
 		</dict>
 		<dict>
-			<key>config</key>
-			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -524,6 +524,10 @@ on extract_argv(source_string, new_delimiter)	set backup to AppleScript's text 
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -564,6 +568,8 @@ on extract_argv(source_string, new_delimiter)	set backup to AppleScript's text 
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -602,7 +608,7 @@ on extract_argv(source_string, new_delimiter)	set backup to AppleScript's text 
 			<key>uid</key>
 			<string>BBE27144-1C88-4DB4-BCF3-B4E7CCE3A14B</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1128,6 +1134,8 @@ Inspration is taken from "Windows Switcher" workflow from Emanuele Munafò (kudo
 			<integer>610</integer>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>version</key>
 	<string>0.3.6</string>
 	<key>webaddress</key>
