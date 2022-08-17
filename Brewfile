@@ -39,3 +39,5 @@ mas "LINE", id: 539883307
 mas "MindNode", id: 1289197285
 mas "Pixelmator Pro", id: 1289583905
 mas "Skitch", id: 425955336
+mas "MeetingBar", id: 1532419400
+
