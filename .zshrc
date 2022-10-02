@@ -233,13 +233,6 @@ fi
 #
 # -------------------------------------------------------------------------
 
-# Fig post block. Keep at the bottom of this file.
-# . "$HOME/.fig/shell/zshrc.post.zsh"
-
-function dependencyReport() {
-    ./gradlew dependencyReport --no-daemon --refresh-dependencies --no-build-cache --no-parallel
-}
-
 mkdir -p ~/.vim/tmp
 
 # use brew's ruby
