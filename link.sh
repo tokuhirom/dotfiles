@@ -70,6 +70,7 @@ link .config/fcitx/config
 link .config/weston.ini
 link .config/cagebreak/config
 link .config/wezterm
+link .config/fish
 
 mkdir -p ~/.vim/tmp/
 
