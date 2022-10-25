@@ -19,6 +19,7 @@ brew "vim"
 brew "graphviz"
 brew "wezterm"
 brew "jenv"
+brew "fish"
 
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
