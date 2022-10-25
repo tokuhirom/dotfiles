@@ -18,6 +18,7 @@ brew "tree"
 brew "vim"
 brew "graphviz"
 brew "wezterm"
+brew "jenv"
 
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
