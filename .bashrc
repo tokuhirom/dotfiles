@@ -70,3 +70,5 @@ fi
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH=$PATH:$HOME/dotfiles/bin/
 [[ -d /c/Strawberry/perl/bin/ ]] && export PATH=/c/Strawberry/perl/bin/:$PATH
 [[ -d '/c/Program Files/AdoptOpenJDK/jdk-11.0.6.10-hotspot' ]] && export JAVA_HOME=/c/Program\ Files/AdoptOpenJDK/jdk-11.0.6.10-hotspot
+
+[ -s "/Users/jp11283/.jabba/jabba.sh" ] && source "/Users/jp11283/.jabba/jabba.sh"

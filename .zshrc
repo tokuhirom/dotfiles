@@ -252,5 +252,7 @@ eval "$(nodenv init -)"
 # Java
 # -------------------------------------------------------------------------
 
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+eval "$(jenv init -)"
 
+#  jenv add ~/Library/Java/JavaVirtualMachines/temurin-11.0.16.1/Contents/Home
+#  jenv global temurin-11.0.16.1
