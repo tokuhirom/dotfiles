@@ -14,4 +14,6 @@ if [[ ! -e /usr/local/bin/brew ]]; then
 fi
 brew bundle
 
+brew tap homebrew/autoupdate
+brew autoupdate start --upgrade --clean
 
