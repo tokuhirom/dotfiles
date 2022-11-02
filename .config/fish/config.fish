@@ -3,6 +3,9 @@ alias s=ls
 
 
 if status --is-interactive
+    # PATH
+    fish_add_path ~/dotfiles/bin/
+
     # jenv
     jenv init - | source
 
