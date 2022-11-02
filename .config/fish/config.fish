@@ -1,12 +1,16 @@
 alias l=ls
 alias s=ls
 
-# jenv
-status --is-interactive; and jenv init - | source
+
+if status --is-interactive
+    # jenv
+    jenv init - | source
+
+    # plenv
+    ~/.plenv/bin/plenv init - | source
+end
 
 # ctrl+r は使えない。
 # キーワードいれてから ctrl+p 
 
-# plenv
-status --is-interactive; and source (~/.plenv/bin/plenv init - | psub)
 
