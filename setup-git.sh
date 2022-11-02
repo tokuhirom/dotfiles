@@ -63,3 +63,5 @@ git config --global init.defaultBranch main
 
 git config --global submodule.recurse true
 
+git config --global --add --bool push.autoSetupRemote true
+
