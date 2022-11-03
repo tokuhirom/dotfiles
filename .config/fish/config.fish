@@ -11,7 +11,9 @@ if status --is-interactive
     fish_add_path -m ~/dotfiles/bin/
 
     # homebrew
-    eval (/opt/homebrew/bin/brew shellenv)
+    if test -f /opt/homebrew/bin/brew
+        eval (/opt/homebrew/bin/brew shellenv)
+    end
 
     # jenv
     jenv init - | source
