@@ -1,5 +1,6 @@
 # Mac でいう Cmd の位置に alt key をアサインしている。
 # ctrl キーは小指の位置。
+
 keymap:
   - name: Emacs
     application:
@@ -32,6 +33,7 @@ keymap:
       Shift-Alt-rightbrace: C-tab
       Shift-Alt-leftbrace: Shift-C-tab
       Alt-leftbrace: Alt-Left
+      M-BTN_LEFT: C-BTN_LEFT
 
   # remap alt-key to control
   - name: Cmd key mapping
