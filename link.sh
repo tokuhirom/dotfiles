@@ -20,7 +20,9 @@ function link {
     fi
 }
 
+link .bashrc
 link .vimrc
+link .tmux.conf
 link .gitignore_global
 
 link .config/i3/config
