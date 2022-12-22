@@ -20,15 +20,25 @@ function link {
     fi
 }
 
+# all platforms
 link .bashrc
 link .vimrc
 link .tmux.conf
 link .gitignore_global
 link .zshrc
 
-link .config/i3/config
-link .config/fcitx5
-link .config/polybar/
+# mac only
+if [ -d /Users ]; then
+    link .yabairc
+    link .skhdrc
+fi
+
+# linux only
+if [ -d /home ]; then
+    link .config/i3/config
+    link .config/fcitx5
+    link .config/polybar/
+fi
 
 mkdir -p ~/.vim/tmp/
 
