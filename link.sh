@@ -24,6 +24,7 @@ link .bashrc
 link .vimrc
 link .tmux.conf
 link .gitignore_global
+link .zshrc
 
 link .config/i3/config
 
