@@ -59,7 +59,7 @@ sudo pacman -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock
 
 # Japanese
 sudo pacman -S --needed --noconfirm adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-unifont siji-ng
-yay -S --needed --noconfirm ttf-mona ttf-monapo ttf-ipa-mona ttf-vlgothic ttf-mplus ttf-koruri ttf-mplus ttf-sazanami ttf-hanazono
+yay -S --needed --noconfirm ttf-mona ttf-monapo ttf-ipa-mona ttf-vlgothic ttf-mplus ttf-koruri ttf-sazanami ttf-hanazono ttf-ms-fonts
 # shohex san said, fcitx is better than ibus.
 sudo pacman -S --needed --noconfirm fcitx5-mozc fcitx5-configtool fitx5-gtk fcitx5-qt fcitx5-im
 
@@ -71,6 +71,15 @@ yay -S --noconfirm jetbrains-fleet
 yay -S --noconfirm uhk-agent-appimage
 
 ./setup-vimplug.sh
+
+# perl
+yay -S --noconfirm perl-lwp-protocol-https
+
+# ruby
+yay -S --noconfirm ruby
+
+# development
+sudo pacman -S --needed --noconfirm valgrind
 
 # Enable multilib
 yay -S --noconfirm steam
