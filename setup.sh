@@ -12,3 +12,4 @@ fi
 ./setup/setup-git.sh
 ./setup/setup-R.sh
 ./setup/setup-plenv.sh
+./setup/setup-vimplug.sh
