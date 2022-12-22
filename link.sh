@@ -21,6 +21,7 @@ function link {
 }
 
 link .vimrc
+link .gitignore_global
 
 link .config/i3/config
 
