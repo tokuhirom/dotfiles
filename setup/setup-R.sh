@@ -1,2 +1,2 @@
 #!/bin/bash
-Rscript -e 'install.packages("tidyverse")'
+sudo Rscript -e 'install.packages("tidyverse")'

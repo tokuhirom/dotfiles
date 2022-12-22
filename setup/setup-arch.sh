@@ -78,6 +78,9 @@ yay -S --noconfirm perl-lwp-protocol-https
 # ruby
 yay -S --noconfirm ruby
 
+# r
+yay -S --noconfirm r
+
 # development
 sudo pacman -S --needed --noconfirm valgrind
 

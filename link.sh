@@ -26,6 +26,7 @@ link .vimrc
 link .tmux.conf
 link .gitignore_global
 link .zshrc
+link .Rprofile
 
 # mac only
 if [ -d /Users ]; then
@@ -37,7 +38,8 @@ fi
 if [ -d /home ]; then
     link .config/i3/config
     link .config/fcitx5
-    link .config/polybar/
+    link .config/polybar/config
+    link .config/polybar/launch.sh
 fi
 
 mkdir -p ~/.vim/tmp/
