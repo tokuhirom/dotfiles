@@ -4,7 +4,7 @@ set -e
 
 function link {
     local fname=$1
-    local src="$HOME/dotfiles/$fname"
+    local src="$HOME/dotfiles/config/$fname"
     local dst="$HOME/$fname"
     if [ ! -e $dst ]; then
         mkdir -p $(dirname $dst)
@@ -19,6 +19,8 @@ function link {
         echo "Exists $dst"
     fi
 }
+
+link .vimrc
 
 link .config/i3/config
 
