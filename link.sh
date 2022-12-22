@@ -38,6 +38,7 @@ fi
 if [ -d /home ]; then
     link .xinitrc
 
+    link .config/mimeapps.list
     link .config/i3/config
     link .config/fcitx5
     link .config/polybar/config

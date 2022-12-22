@@ -10,6 +10,7 @@ for_window [class="[.]*"] floating enable
 
 # you can check the window class by `xprop` command.
 for_window [class="org.wezfurlong.wezterm"] floating enable, resize set 30 ppt 97 ppt, move position 0 ppt 3 ppt
+for_window [class="moderndeck"] floating enable, resize set 30 ppt 97 ppt, move position 0 ppt 3 ppt
 for_window [class="google-chrome"] floating enable, resize set 40 ppt 97 ppt, move position 30 ppt 3 ppt
 for_window [class="obsidian"] floating enable, resize set 30 ppt 97 ppt, move position 70 ppt 3 ppt
 
@@ -32,9 +33,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx5
-exec --no-startup-id sleep 1 && wezterm
-exec --no-startup-id sleep 1 && google-chrome-stable
-exec --no-startup-id sleep 1 && obsidian
+exec --no-startup-id wezterm
+exec --no-startup-id google-chrome-stable
+exec --no-startup-id obsidian
+exec --no-startup-id moderndeck
+exec --no-startup-id franz
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
