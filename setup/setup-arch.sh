@@ -74,8 +74,6 @@ yay -S --needed --noconfirm jetbrains-fleet
 # Ultimate hacking keyboard
 yay -S --needed --noconfirm uhk-agent-appimage
 
-./setup-vimplug.sh
-
 # perl
 yay -S --needed --noconfirm perl-lwp-protocol-https
 
