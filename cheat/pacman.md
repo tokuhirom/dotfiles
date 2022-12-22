@@ -1,0 +1,4 @@
+- install: `pacman -S name`
+- search: `packman -Ss keyword`
+- remove: `pacman -Rs name`
+- list of installed: `pacman -Qqe`
