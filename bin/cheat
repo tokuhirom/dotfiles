@@ -1,0 +1,49 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use v5.10.0;
+
+use Getopt::Long;
+use Pod::Usage;
+
+GetOptions(
+    'e|edit' => \my $edit,
+    'l|list' => \my $list,
+) or die pod2usage;
+
+# USERPROFILE=MSWin32
+my $home = ($ENV{HOME} // $ENV{USERPROFILE}) or die "Cannot get HOME directory";
+my $base = "$home/dotfiles/cheat/";
+
+if ($list or @ARGV==0) {
+    my @files = <$base/*.md>;
+    for (@files) {
+        s!.*/!!;
+        s/\.md//;
+        say $_;
+    }
+    exit 0;
+}
+
+my $cmd = shift @ARGV or pod2usage;
+if ($edit) {
+    my $editor =  $ENV{CHEAT_EDITOR} // $ENV{EDITOR} // 'vim';
+    exec $editor, "$base/$cmd.md";
+} else {
+    my $pager = ($ENV{CHEAT_PAGER} // $ENV{PAGER}//'less');
+    exec $pager, "$base/$cmd.md";
+}
+
+__END__
+
+=head1 SYNOPSIS
+
+    # edit
+    cheat -e presto
+
+    # view
+    cheat presto
+
+    # list of cheat pages
+    cheat -l
+

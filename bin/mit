@@ -1,0 +1,2 @@
+#!/bin/sh
+curl http://tokuhirom.mit-license.org/license.txt
