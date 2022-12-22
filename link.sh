@@ -36,6 +36,8 @@ fi
 
 # linux only
 if [ -d /home ]; then
+    link .xinitrc
+
     link .config/i3/config
     link .config/fcitx5
     link .config/polybar/config
