@@ -27,6 +27,7 @@ link .gitignore_global
 link .zshrc
 
 link .config/i3/config
+link .config/fcitx5
 
 mkdir -p ~/.vim/tmp/
 
