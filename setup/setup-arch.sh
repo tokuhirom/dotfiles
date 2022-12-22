@@ -58,7 +58,7 @@ yay -S --needed --noconfirm code
 sudo pacman -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock
 
 # Japanese
-sudo pacman -S --needed --noconfirm adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont noto-fonts noto-fonts-cjk noto-fonts-emoji
+sudo pacman -S --needed --noconfirm adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-unifont siji-ng
 yay -S --needed --noconfirm ttf-mona ttf-monapo ttf-ipa-mona ttf-vlgothic ttf-mplus ttf-koruri ttf-mplus ttf-sazanami ttf-hanazono
 # shohex san said, fcitx is better than ibus.
 sudo pacman -S --needed --noconfirm fcitx5-mozc fcitx5-configtool fitx5-gtk fcitx5-qt fcitx5-im

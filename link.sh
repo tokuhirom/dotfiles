@@ -28,6 +28,7 @@ link .zshrc
 
 link .config/i3/config
 link .config/fcitx5
+link .config/polybar/
 
 mkdir -p ~/.vim/tmp/
 
