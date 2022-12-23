@@ -43,6 +43,7 @@ if [ -d /home ]; then
     link .config/fcitx5
     link .config/polybar/config
     link .config/polybar/launch.sh
+    link .config/wezterm/wezterm.lua
 fi
 
 mkdir -p ~/.vim/tmp/
