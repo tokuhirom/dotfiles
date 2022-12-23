@@ -78,7 +78,7 @@ gnome-keyring-daemon &
 # -------------------------------------------------------------------------
 # xremap - key remapper like karabiner, autohotkey
 # ------------------------------------------------------------------------- 
-xremap ~/dotfiles/config/xremap.yml &
+xremap --watch ~/dotfiles/config/xremap.yml &
 
 # -------------------------------------------------------------------------
 # Run window manager
