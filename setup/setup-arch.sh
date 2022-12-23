@@ -65,7 +65,7 @@ yay -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock
 yay -S --needed --noconfirm adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-unifont siji-ng
 yay -S --needed --noconfirm ttf-mona ttf-monapo ttf-ipa-mona ttf-vlgothic ttf-mplus ttf-koruri ttf-sazanami ttf-hanazono ttf-ms-fonts ttf-twemoji
 # shohex san said, fcitx is better than ibus.
-yay -S --needed --noconfirm fcitx5-mozc fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-im
+yay -S --needed --noconfirm fcitx5-mozc-ut fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-im
 
 # IDEA
 yay -S --needed --noconfirm intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre
