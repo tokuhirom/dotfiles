@@ -48,6 +48,7 @@ export LANG=en_US.UTF-8
 # -------------------------------------------------------------------------
 # vim
 # -------------------------------------------------------------------------
+
 export EDITOR=vim
 alias vi=vim
 
@@ -77,7 +78,10 @@ if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-export CHEAT_EDITOR=vim
+if command -v bat &> /dev/null
+then
+    export CHEAT_PAGER=bat
+fi
 export PAGER=less
 # support ANSI color in less
 export LESS=-R
