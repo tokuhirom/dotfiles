@@ -133,3 +133,10 @@ bindsym $mod+Ctrl+9 floating enable, resize set 50 ppt 97 ppt, move position 0 p
 bindsym $mod+Ctrl+0 floating enable, resize set 50 ppt 97 ppt, move position 50 ppt 3 ppt
 
 
+# jumpapp
+bindsym $mod+Ctrl+Shift+o exec "jumpapp obsidian"
+bindsym $mod+Ctrl+Shift+c exec "jumpapp -c google-chrome google-chrome-stable"
+bindsym $mod+Ctrl+Shift+t exec "jumpapp moderndeck"
+bindsym $mod+Ctrl+Shift+w exec "jumpapp wezterm"
+bindsym $mod+Ctrl+Shift+f exec "jumpapp -c franz franz"
+
