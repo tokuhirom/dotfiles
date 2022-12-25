@@ -49,8 +49,14 @@ export LANG=en_US.UTF-8
 # vim
 # -------------------------------------------------------------------------
 
-export EDITOR=vim
-alias vi=vim
+if which nvim &> /dev/null; then
+    export EDITOR=nvim
+    alias vi=nvim
+    alias vim=nvim
+else
+    export EDITOR=vim
+    alias vi=vim
+fi
 
 # -------------------------------------------------------------------------
 # Alias

@@ -25,7 +25,8 @@ sudo reflector --country 'Japan' --age 24 --protocol https --sort rate --save /e
 yay -Syyu
 
 # core
-sudo pacman -S --needed --noconfirm openssh vim git tmux sudo git-lfs gcc base-devel go the_silver_searcher zsh w3m curl wget
+sudo pacman -S --needed --noconfirm openssh vim git tmux sudo git-lfs gcc base-devel go the_silver_searcher zsh w3m curl wget jq tree
+sudo pacman -S --needed --noconfirm man-db man-pages
 
 # nvidia driver(if needed)
 sudo pacman -S --needed --noconfirm nvidia
@@ -63,9 +64,12 @@ yay -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock
 
 # Japanese
 yay -S --needed --noconfirm adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-unifont siji-ng
-yay -S --needed --noconfirm ttf-mona ttf-monapo ttf-ipa-mona ttf-vlgothic ttf-mplus ttf-koruri ttf-sazanami ttf-hanazono ttf-ms-fonts ttf-twemoji
-# shohex san said, fcitx is better than ibus.
+yay -S --needed --noconfirm ttf-mona ttf-monapo ttf-ipa-mona ttf-vlgothic ttf-mplus ttf-koruri ttf-sazanami ttf-hanazono ttf-ms-fonts ttf-twemoji ttf-hack-nerd
+
+# shohex san said, fcitx is better than ibus.@2020
 yay -S --needed --noconfirm fcitx5-mozc-ut fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-im
+# shohex san said, ibus is better than fcitx...@2022
+yay -S --needed --noconfirm ibus-gtk ibus-qt ibus-anthy
 
 # IDEA
 yay -S --needed --noconfirm intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre
@@ -83,8 +87,14 @@ yay -S --needed --noconfirm ruby
 # r
 yay -S --needed --noconfirm r
 
+# rust
+yay -S --needed --noconfirm rustup rust-analyzer
+
+# python
+yay -S --needed --noconfirm python-pip python-pytest python-jaconv
+
 # development
-sudo pacman -S --needed --noconfirm valgrind
+sudo pacman -S --needed --noconfirm valgrind cmake clang strace
 
 # Enable multilib
 yay -S --needed --noconfirm steam
@@ -97,5 +107,8 @@ yay -S --needed --noconfirm sway
 
 # twitter
 yay -S --needed --noconfirm moderndeck
+
+# neovim
+yay -S --needed --noconfirm neovim
 
 

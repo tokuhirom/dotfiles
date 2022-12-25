@@ -27,6 +27,7 @@ link .tmux.conf
 link .gitignore_global
 link .zshrc
 link .Rprofile
+link .config/nvim
 
 # mac only
 if [ -d /Users ]; then

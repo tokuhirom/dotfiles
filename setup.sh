@@ -13,3 +13,5 @@ fi
 ./setup/setup-R.sh
 ./setup/setup-plenv.sh
 ./setup/setup-vimplug.sh
+./setup/setup-nvim.sh
+./setup/setup-tmux.sh

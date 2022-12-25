@@ -24,19 +24,22 @@ keymap:
       C-k: [Shift-end, C-x, { set_mark: false }]
       C-leftbrace: esc
 
+      # tab switching for chrome, obsidian
+      Shift-Alt-rightbrace: C-tab
+      Shift-Alt-leftbrace: Shift-C-tab
 
-  # Chrome tab switching
+
   - name: Chrome
     application:
       only: Google-chrome
     remap:
-      Shift-Alt-rightbrace: C-tab
-      Shift-Alt-leftbrace: Shift-C-tab
       Alt-leftbrace: Alt-Left
       M-BTN_LEFT: C-BTN_LEFT
 
   # remap alt-key to control
   - name: Cmd key mapping
+    application:
+      not: wezterm
     remap:
       Alt-a: C-a
       Alt-b: C-b
@@ -64,5 +67,6 @@ keymap:
       Alt-x: C-x
       Alt-y: C-y
       Alt-z: C-z
+      Alt-COMMA: C-COMMA
 
   # find the app name by `wmctrl -x -l` on X

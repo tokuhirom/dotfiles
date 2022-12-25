@@ -32,16 +32,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-export DefaultImModule=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
+IM=fcitx
+# IM=ibus
 
-# export XIM=ibus
-# export DefaultImModule=ibus
-# export GTK_IM_MODULE=ibus
-# export QT_IM_MODULE=ibus
-# export XMODIFIERS="@im=ibus"
+export DefaultImModule=$IM
+export GTK_IM_MODULE=$IM
+export QT_IM_MODULE=$IM
+export XMODIFIERS="@im=$IM"
+
 
 export BROWSER=/usr/bin/google-chrome-stable
 
@@ -49,7 +47,10 @@ export BROWSER=/usr/bin/google-chrome-stable
 # -r: replace
 # -x: xim
 # ibus-daemon --verbose -rx &> ~/.ibus.log &
-fcitx5 &
+case "$IM" in
+    "fcitx" ) fcitx5 & ;;
+    "ibus" ) ibus-daemon -drxrR & ;;
+esac
 
 setxkbmap -option ctrl:nocaps
 
