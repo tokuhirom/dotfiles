@@ -29,16 +29,20 @@ return require('packer').startup(function(use)
 
     -- LSP server installer
     -- https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
-    use 'williamboman/mason.nvim'    
-    use 'williamboman/mason-lspconfig.nvim'
+--  use 'williamboman/mason.nvim'    
+--  use 'williamboman/mason-lspconfig.nvim'
 
     -- lsp
-    use 'neovim/nvim-lspconfig' 
+--  use 'neovim/nvim-lspconfig' 
+    use {
+        'neoclide/coc.nvim' ,
+        branch = "release"
+    }
 
     -- rust
     use {
         'simrat39/rust-tools.nvim',
-        ft = { 'rs' },
+        ft = { 'rust' },
         config = function ()
             local rt = require("rust-tools")
 

@@ -13,6 +13,9 @@ for_window [class="org.wezfurlong.wezterm"] floating enable, resize set 30 ppt 9
 for_window [class="moderndeck"] floating enable, resize set 30 ppt 97 ppt, move position 0 ppt 3 ppt
 for_window [class="google-chrome"] floating enable, resize set 40 ppt 97 ppt, move position 30 ppt 3 ppt
 for_window [class="obsidian"] floating enable, resize set 30 ppt 97 ppt, move position 70 ppt 3 ppt
+for_window [class="ModernDeck"] floating enable, resize set 50 ppt 97 ppt, move position 0 ppt 3 ppt, move container to workspace number "2"
+for_window [title="Franz"] floating enable, resize set 50 ppt 97 ppt, move position 50 ppt 3 ppt, move container to workspace number "2"
+# for_window [class="Franz"] floating enable, resize set 50 ppt 97 ppt, move position 50 ppt 3 ppt, move container to workspace number "2"
 
 # -------------------------------------------------------------------------
 # basic configuration
@@ -30,7 +33,8 @@ font pango:monospace 8
 
 # polybar is the configurable status bar.
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- xsecurelock
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx5
 exec --no-startup-id wezterm
@@ -53,8 +57,6 @@ floating_modifier $mod
 bindsym $mod+Return exec wezterm
 
 bindsym $mod+F2 exec google-chrome-stable
-
-# bindsym $mod+l exec i3lock
 
 # kill focused window
 bindsym $mod+Shift+q kill

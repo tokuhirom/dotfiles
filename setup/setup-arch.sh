@@ -25,7 +25,7 @@ sudo reflector --country 'Japan' --age 24 --protocol https --sort rate --save /e
 yay -Syyu
 
 # core
-sudo pacman -S --needed --noconfirm openssh vim git tmux sudo git-lfs gcc base-devel go the_silver_searcher zsh w3m curl wget jq tree
+sudo pacman -S --needed --noconfirm openssh vim git tmux sudo git-lfs gcc base-devel go the_silver_searcher zsh w3m curl wget jq tree bvi
 sudo pacman -S --needed --noconfirm man-db man-pages
 
 # nvidia driver(if needed)
@@ -38,7 +38,8 @@ sudo systemctl enable NetworkManager
 
 
 # X
-yay -S --needed --noconfirm wezterm firefox i3lock xdg-utils xsel
+yay -S --needed --noconfirm wezterm firefox xsecurelock xdg-utils xsel
+# yay -S --needed --noconfirm wezterm firefox i3lock xdg-utils xsel
 yay -S --needed --noconfirm google-chrome
 yay -S --needed --noconfirm obsidian
 # xremap
@@ -60,7 +61,7 @@ yay -S --needed --noconfirm code
 # sudo pacman -S --needed --noconfirm awesome
 
 # i3
-yay -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock
+yay -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock jgmenu
 
 # Japanese
 yay -S --needed --noconfirm adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-unifont siji-ng
@@ -110,5 +111,11 @@ yay -S --needed --noconfirm moderndeck
 
 # neovim
 yay -S --needed --noconfirm neovim
+
+# node
+yay -S --needed --noconfirm nodejs npm
+
+# node
+yay -S --needed --noconfirm mpd
 
 

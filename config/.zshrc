@@ -131,3 +131,6 @@ for file in ~/dotfiles/config/zsh/init/*/*.sh; do
     [ -r $file ] && source $file
 done
 
+function nvim-conf() {
+    vim ~/.config/nvim
+}

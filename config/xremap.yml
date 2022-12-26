@@ -4,7 +4,9 @@
 keymap:
   - name: Emacs
     application:
-      not: wezterm
+      not:
+        - wezterm
+        - jetbrains-idea
     remap:
       C-b: { with_mark: left }
       C-f: { with_mark: right }
@@ -36,10 +38,19 @@ keymap:
       Alt-leftbrace: Alt-Left
       M-BTN_LEFT: C-BTN_LEFT
 
+  - name: remap Command-[cxv] to clipboard operation
+    application:
+      only: wezterm
+    remap:
+      M-C: Super-C
+      M-V: Super-V
+
   # remap alt-key to control
   - name: Cmd key mapping
     application:
-      not: wezterm
+      not:
+        - wezterm
+          # - jetbrains-idea
     remap:
       Alt-a: C-a
       Alt-b: C-b

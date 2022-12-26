@@ -13,7 +13,7 @@ require('plugins/telescope')
 require('plugins/bufferline')
 require('plugins/nvim-tree')
 require('plugins/lualine')
-require('plugins/mason')
+-- require('plugins/mason')
 require('plugins/cmp')
 vim.cmd('colorscheme tokyonight')
 
