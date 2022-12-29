@@ -36,6 +36,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- xsecurelock
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+exec --no-startup-id alttab
 exec --no-startup-id fcitx5
 exec --no-startup-id wezterm
 exec --no-startup-id google-chrome-stable
@@ -69,8 +70,8 @@ bindsym $mod+e exec rofi -show window
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus right
-bindsym Mod1+Tab        focus right
-bindsym Mod1+Shift+Tab  focus left
+# bindsym Mod1+Tab        focus right
+# bindsym Mod1+Shift+Tab  focus left
 
 # move focused window
 bindsym $mod+Shift+h move left

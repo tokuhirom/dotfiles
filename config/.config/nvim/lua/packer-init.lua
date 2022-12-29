@@ -12,10 +12,10 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-tree/nvim-web-devicons' } }
     }
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+--  use {
+--      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+--      requires = { {'nvim-lua/plenary.nvim'} }
+--  }
 
     use {
         'nvim-tree/nvim-tree.lua',
@@ -60,6 +60,10 @@ return require('packer').startup(function(use)
     }
 
     use {
+        'ctrlpvim/ctrlp.vim',
+    }
+
+    use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
@@ -85,6 +89,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-path'                              
     use 'hrsh7th/cmp-buffer'                            
     use 'hrsh7th/vim-vsnip'         
+
+    -- filer
+    use 'lambdalisue/fern.vim'
 end)
 
 

@@ -6,7 +6,6 @@ keymap:
     application:
       not:
         - wezterm
-        - jetbrains-idea
     remap:
       C-b: { with_mark: left }
       C-f: { with_mark: right }
@@ -23,13 +22,19 @@ keymap:
 
       C-d: [delete, { set_mark: false }]
 
-      C-k: [Shift-end, C-x, { set_mark: false }]
       C-leftbrace: esc
 
       # tab switching for chrome, obsidian
       Shift-Alt-rightbrace: C-tab
       Shift-Alt-leftbrace: Shift-C-tab
 
+  - name: Emacs-extra
+    application:
+      not:
+        - wezterm
+        - jetbrains-idea
+    remap:
+      C-k: [Shift-end, C-x, { set_mark: false }]
 
   - name: Chrome
     application:

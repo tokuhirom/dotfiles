@@ -13,12 +13,30 @@ function project_files()
   end
 end
 
+-- https://zenn.dev/kawarimidoll/articles/36b1cc92d00453
+vim.api.nvim_create_user_command(
+    'NvimConfig',
+    function (opts)
+        vim.cmd(":Telescope find_files search_dirs=~/.config/nvim/")
+    end,
+    {
+        nargs = 0
+    }
+)
+vim.api.nvim_create_user_command(
+    'OldFiles',
+    function (opts)
+        builtin.oldfiles({
+            path_display = {"shorten"}
+        })
+    end,
+    {
+        nargs = 0
+    }
+)
+
 vim.keymap.set('n', '<C-p>', project_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fn', ":Telescope find_files search_dirs=~/.config/nvim/", {})
 
--- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
--- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
--- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
--- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})

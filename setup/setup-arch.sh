@@ -61,7 +61,7 @@ yay -S --needed --noconfirm code
 # sudo pacman -S --needed --noconfirm awesome
 
 # i3
-yay -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock jgmenu
+yay -S --needed --noconfirm rofi i3-wm polybar xss-lock dunst i3lock jgmenu alttab
 
 # Japanese
 yay -S --needed --noconfirm adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts otf-ipafont noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-unifont siji-ng
@@ -111,6 +111,8 @@ yay -S --needed --noconfirm moderndeck
 
 # neovim
 yay -S --needed --noconfirm neovim
+# fd, ripgrep for ctrlp.vim
+yay -S --needed --noconfirm ripgrep fd
 
 # node
 yay -S --needed --noconfirm nodejs npm

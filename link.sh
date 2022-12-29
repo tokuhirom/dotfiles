@@ -28,6 +28,7 @@ link .gitignore_global
 link .zshrc
 link .Rprofile
 link .config/nvim
+link .config/bat/config
 
 # mac only
 if [ -d /Users ]; then
