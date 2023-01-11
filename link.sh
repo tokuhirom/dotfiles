@@ -29,6 +29,7 @@ link .zshrc
 link .Rprofile
 link .config/nvim
 link .config/bat/config
+link .screenrc
 
 # mac only
 if [ -d /Users ]; then

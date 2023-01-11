@@ -79,3 +79,5 @@ tktktktk/
 **/.settings/
 .settings/
 .settings
+perf.data
+perf.data.old

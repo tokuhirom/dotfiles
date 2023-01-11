@@ -1,0 +1,36 @@
+# =========================================================================
+# GNU Screen
+#
+# =========================================================================
+
+escape ^Ta
+vbell off
+autodetach on
+
+defhstatus screen@$HOSTNAME
+msgminwait 0
+
+startup_message off
+markkeys h=^B:l=^F:$=^E:^U=^Z:^D=^V
+
+hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+
+# hardstatus tips:
+#   %{Gk} green
+#   %H    host name
+#   %n Window number
+#   %f flag
+#   %t Window name
+#   %0c time
+#   -Lw +Lw Window list
+#
+hardstatus alwayslastline "%{Gk}%H: %`%-w%{=b bw}%n %t%{-}%+w"
+
+defutf8 on
+defscrollback 999
+
+# 256 colors
+attrcolor b ".I" 
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+defbce "on" 
+
