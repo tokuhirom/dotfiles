@@ -47,6 +47,7 @@ if [ -d /home ]; then
     link .config/polybar/config
     link .config/polybar/launch.sh
     link .config/wezterm/wezterm.lua
+    link .config/akaza/config.yml
 fi
 
 mkdir -p ~/.vim/tmp/

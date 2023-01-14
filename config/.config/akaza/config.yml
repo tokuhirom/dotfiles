@@ -1,0 +1,6 @@
+---
+dicts:
+  - path: /usr/share/skk/SKK-JISYO.okinawa
+    encoding: euc-jp
+    dict_type: skk
+
