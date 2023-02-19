@@ -1,11 +1,11 @@
-autoload -Uz compinit promptinit
-compinit
-promptinit
+# autoload -Uz compinit promptinit
+# compinit
+# promptinit
 
-setopt prompt_subst
-. ~/dotfiles/config/zsh/git-prompt.sh
+# setopt prompt_subst
+# . ~/dotfiles/config/zsh/git-prompt.sh
 
-prompt fire
+# prompt adam1
 
 # export RPROMPT=$'$(__git_ps1 "%s")'
 
@@ -134,3 +134,8 @@ done
 function nvim-conf() {
     vim ~/.config/nvim
 }
+
+if [ -e /usr/bin/starship ]; then
+    eval "$(starship init zsh)"
+fi
+

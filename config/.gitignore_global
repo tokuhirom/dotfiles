@@ -81,3 +81,4 @@ tktktktk/
 .settings
 perf.data
 perf.data.old
+heaptrack.*

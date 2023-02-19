@@ -49,7 +49,7 @@ export BROWSER=/usr/bin/google-chrome-stable
 # ibus-daemon --verbose -rx &> ~/.ibus.log &
 case "$IM" in
     "fcitx" ) fcitx5 &> ~/.fcitx5.log & ;;
-    "ibus" ) ibus-daemon -drxrR &> ~/.ibus.log & ;;
+    "ibus" ) ibus-daemon --verbose -rxrR &> ~/.ibus.log & ;;
 esac
 
 setxkbmap -option ctrl:nocaps
@@ -75,6 +75,8 @@ xset r rate 200 30
 
 
 gnome-keyring-daemon &
+
+caffeine &
 
 # -------------------------------------------------------------------------
 # xremap - key remapper like karabiner, autohotkey

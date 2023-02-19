@@ -1,6 +1,23 @@
----
-dicts:
-  - path: /usr/share/skk/SKK-JISYO.okinawa
-    encoding: euc-jp
-    dict_type: skk
-
+romkan: /usr/share/akaza/romkan/default.yml
+keymap: /usr/share/akaza/keymap/default.yml
+engine:
+  dicts:
+  - path: /usr/share/skk/SKK-JISYO.L
+    encoding: EucJp
+    dict_type: SKK
+    usage: Normal
+  - path: /usr/share/skk/SKK-JISYO.jinmei
+    encoding: EucJp
+    dict_type: SKK
+    usage: Disabled
+  - path: /home/tokuhirom/dev/jawiki-kana-kanji-dict/SKK-JISYO.jawiki
+    encoding: Utf8
+    dict_type: SKK
+    usage: Normal
+  - path: /usr/share/skk-emoji-jisyo-ja/SKK-JISYO.emoji-ja.utf8
+    encoding: Utf8
+    dict_type: SKK
+    usage: SingleTerm
+  dict_cache: true
+  model: /usr/share/akaza/model/default
+live_conversion: true

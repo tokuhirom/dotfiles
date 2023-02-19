@@ -4,11 +4,29 @@ Name=Default
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=keyboard-us
+DefaultIM=akaza
 
 [Groups/0/Items/0]
 # Name
 Name=keyboard-us
+# Layout
+Layout=
+
+[Groups/0/Items/1]
+# Name
+Name=mozc
+# Layout
+Layout=
+
+[Groups/0/Items/2]
+# Name
+Name=anthy
+# Layout
+Layout=
+
+[Groups/0/Items/3]
+# Name
+Name=akaza
 # Layout
 Layout=
 
