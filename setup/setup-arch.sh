@@ -4,6 +4,10 @@ set -ex
 
 # install: pacman -S pkgname
 # search:  pacman -Ss keyword
+#
+# core
+sudo pacman -S --needed --noconfirm openssh vim git tmux sudo git-lfs gcc base-devel go the_silver_searcher zsh w3m curl wget jq tree
+sudo pacman -S --needed --noconfirm man-db man-pages
 
 # yay
 # yay is the wrapper for AUR and pacman.
@@ -19,14 +23,11 @@ sudo pacman -Syu
 
 # manage mirror site
 yes | sudo pacman -S reflector
-sudo reflector --country 'Japan' --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+# sudo reflector --country 'Japan' --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # update list
 yay -Syyu
 
-# core
-sudo pacman -S --needed --noconfirm openssh vim git tmux sudo git-lfs gcc base-devel go the_silver_searcher zsh w3m curl wget jq tree bvi
-sudo pacman -S --needed --noconfirm man-db man-pages
 
 # nvidia driver(if needed)
 sudo pacman -S --needed --noconfirm nvidia
@@ -119,5 +120,7 @@ yay -S --needed --noconfirm nodejs npm
 
 # node
 yay -S --needed --noconfirm mpd
+
+yay -S --needed --noconfirm bvi
 
 
