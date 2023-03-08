@@ -41,7 +41,7 @@ exec --no-startup-id fcitx5
 exec --no-startup-id wezterm
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id obsidian
-exec --no-startup-id moderndeck
+# exec --no-startup-id moderndeck
 exec --no-startup-id franz
 
 # Use pactl to adjust volume in PulseAudio.
