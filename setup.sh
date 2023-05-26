@@ -4,6 +4,10 @@ if [ -e /etc/arch-release ]; then
     ./setup/setup-arch.sh
 fi
 
+if [ -e /etc/pop-os/lsb-release ]; then
+    ./setup/setup-popos-desktop.sh
+fi
+
 if [ -e /Users ]; then
     ./setup/setup-mac-settings.sh
     ./setup/setup-mac.sh

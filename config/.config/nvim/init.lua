@@ -5,10 +5,9 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+require('packer-init')
 
 require('opts')
-require('keys')
-require('packer-init')
 -- require('plugins/telescope')
 require('plugins/ctrlp')
 require('plugins/bufferline')
@@ -18,3 +17,4 @@ require('plugins/lualine')
 require('plugins/cmp')
 vim.cmd('colorscheme tokyonight')
 
+require('keys')
