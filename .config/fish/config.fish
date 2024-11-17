@@ -26,3 +26,6 @@ end
 # キーワードいれてから ctrl+p 
 
 
+
+# Added by `rbenv init` on Sun Nov 17 13:47:08 JST 2024
+status --is-interactive; and rbenv init - --no-rehash fish | source

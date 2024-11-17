@@ -256,3 +256,6 @@ eval "$(jenv init -)"
 
 #  jenv add ~/Library/Java/JavaVirtualMachines/temurin-11.0.16.1/Contents/Home
 #  jenv global temurin-11.0.16.1
+
+# Added by `rbenv init` on Sun Nov 17 13:48:10 JST 2024
+eval "$(rbenv init - --no-rehash zsh)"
