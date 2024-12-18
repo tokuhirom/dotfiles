@@ -259,3 +259,12 @@ eval "$(jenv init -)"
 
 # Added by `rbenv init` on Sun Nov 17 13:48:10 JST 2024
 eval "$(rbenv init - --no-rehash zsh)"
+
+
+if [ -d '/usr/local/opt/mysql@8.4/' ]; then
+    export PATH="/usr/local/opt/mysql@8.4/bin:$PATH"
+    export LDFLAGS="-L/usr/local/opt/mysql@8.4/lib"
+    export CPPFLAGS="-I/usr/local/opt/mysql@8.4/include"
+    export PKG_CONFIG_PATH="/usr/local/opt/mysql@8.4/lib/pkgconfig"
+fi
+
