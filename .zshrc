@@ -268,3 +268,10 @@ if [ -d '/usr/local/opt/mysql@8.4/' ]; then
     export PKG_CONFIG_PATH="/usr/local/opt/mysql@8.4/lib/pkgconfig"
 fi
 
+
+# bun completions
+[ -s "/Users/tokuhirom/.bun/_bun" ] && source "/Users/tokuhirom/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
