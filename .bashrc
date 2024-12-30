@@ -7,6 +7,8 @@ fi
 set bell-style visible
 
 export GOPATH=$HOME/go/
+
+# Required bash 4.0+. If you got an error, try to upgrade the bash.
 shopt -s globstar
 
 
@@ -71,4 +73,4 @@ fi
 [[ -d /c/Strawberry/perl/bin/ ]] && export PATH=/c/Strawberry/perl/bin/:$PATH
 [[ -d '/c/Program Files/AdoptOpenJDK/jdk-11.0.6.10-hotspot' ]] && export JAVA_HOME=/c/Program\ Files/AdoptOpenJDK/jdk-11.0.6.10-hotspot
 
-[ -s "/Users/jp11283/.jabba/jabba.sh" ] && source "/Users/jp11283/.jabba/jabba.sh"
+alias sed='gsed'
