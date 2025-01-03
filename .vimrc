@@ -78,18 +78,10 @@
 
     Plug 'bling/vim-airline'
 
-    " for kkc
-    Plug 'arrufat/vala.vim'
-
-    " mattn-san recommend to use this. This plugin enables c/c++ completions.
-    Plug 'justmao945/vim-clang'
-    " auto format c/c++ code.
-    Plug 'rhysd/vim-clang-format'
-
     " snippets
     "Plug 'SirVer/ultisnips'
     " vim-snippets repo contains snipMate & UltiSnip Snippets.
-    Plug 'honza/vim-snippets'
+    " Plug 'honza/vim-snippets'
 
     Plug 'LeafCage/yankround.vim'
 
@@ -98,15 +90,12 @@
 
     " color scheme
     " Plug 'w0ng/vim-hybrid'
-    Plug 'morhetz/gruvbox' 
+    Plug 'morhetz/gruvbox'
 
-    Plug 'rhysd/clever-f.vim'
+    " Plug 'rhysd/clever-f.vim'
 
-    Plug 'osyo-manga/vim-anzu'
-
+    " Plug 'osyo-manga/vim-anzu'
     Plug 'kien/rainbow_parentheses.vim'
-
-    " Plug 'fuenor/qfixhowm'
 
     " language support
     Plug 'fatih/vim-go'
@@ -124,12 +113,17 @@
     Plug 'aklt/plantuml-syntax'
     Plug 'derekwyatt/vim-scala'
     Plug 'pearofducks/ansible-vim'
+    " mattn-san recommend to use this. This plugin enables c/c++ completions.
+    Plug 'justmao945/vim-clang'
+    " auto format c/c++ code.
+    Plug 'rhysd/vim-clang-format'
+    Plug 'arrufat/vala.vim'
+    " Perl thing
+    Plug 'y-uuki/perl-local-lib-path.vim'
 
     " quickfix の該当箇所にカーソルを移動させるとエラー内容がコマンドウィンドウに出力される
     Plug 'dannyob/quickfixstatus'
 
-    " Perl thing
-    Plug 'y-uuki/perl-local-lib-path.vim'
 
     Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
