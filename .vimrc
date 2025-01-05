@@ -94,7 +94,7 @@
 
     " Plug 'rhysd/clever-f.vim'
 
-    " Plug 'osyo-manga/vim-anzu'
+    Plug 'osyo-manga/vim-anzu'
     Plug 'kien/rainbow_parentheses.vim'
 
     " language support
