@@ -100,6 +100,9 @@ brew 'lv'
 # Mac App Store command-line interface
 brew 'mas'
 
+# Ambitious Vim-fork focused on extensibility and agility
+brew 'neovim'
+
 # Network grep
 brew 'ngrep'
 
@@ -117,6 +120,9 @@ brew 'rust'
 
 # Rust toolchain installer
 brew 'rustup'
+
+# Cross-shell prompt for astronauts
+brew 'starship'
 
 # Code-search similar to ack
 brew 'the_silver_searcher'
