@@ -11,6 +11,9 @@ cask 'atok'
 # Utility that prevents the system from going to sleep
 cask 'caffeine'
 
+# OpenAI's official ChatGPT desktop app
+cask 'chatgpt'
+
 # Screen capturing tool
 cask 'cleanshot'
 
@@ -57,6 +60,9 @@ cask 'wezterm'
 # -----------------------------------'
 # Installing formulae...
 # -----------------------------------'
+
+# Clone of cat(1) with syntax highlighting and Git integration
+brew 'bat'
 
 # Yet another cross-platform graphical process/system monitor
 brew 'bottom'
