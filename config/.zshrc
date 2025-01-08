@@ -131,10 +131,6 @@ for file in ~/dotfiles/config/zsh/init/*/*.sh; do
     [ -r $file ] && source $file
 done
 
-function nvim-conf() {
-    vim ~/.config/nvim
-}
-
 if command -v starship >/dev/null 2>&1; then
         eval "$(starship init zsh)"
 fi
