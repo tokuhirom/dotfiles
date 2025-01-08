@@ -56,7 +56,7 @@ def generate_cask(script):
     cask_info = get_cask_info(cask_list)
     for name, desc in cask_info:
         script.write(f"# {desc}\n")
-        script.write(f"brew '{name}'\n\n")
+        script.write(f"cask '{name}'\n\n")
     script.write("\n")
 
 def generate_formula(script):
@@ -67,7 +67,7 @@ def generate_formula(script):
         formula_info = get_formula_info(formula_list)
         for name, desc in formula_info:
             script.write(f"# {desc}\n")
-            script.write(f"cask '{name}'\n\n")
+            script.write(f"brew '{name}'\n\n")
 
 def generate_mas(script):
         script.write("# -----------------------------------'\n")

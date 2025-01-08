@@ -3,52 +3,52 @@
 # -----------------------------------'
 
 # Enable Windows-like alt-tab
-brew 'alt-tab'
+cask 'alt-tab'
 
 # Japanese input method editor (IME) produced by JustSystems
-brew 'atok'
+cask 'atok'
 
 # Utility that prevents the system from going to sleep
-brew 'caffeine'
+cask 'caffeine'
 
 # Screen capturing tool
-brew 'cleanshot'
+cask 'cleanshot'
 
 # Plain-text editor for web pages, program source codes and more
-brew 'coteditor'
+cask 'coteditor'
 
 # App to build and share containerised applications and microservices
-brew 'docker'
+cask 'docker'
 
 # Web browser
-brew 'firefox'
+cask 'firefox'
 
 # Web browser
-brew 'google-chrome'
+cask 'google-chrome'
 
 # Keyboard shortcuts for every button on your screen
-brew 'homerow'
+cask 'homerow'
 
 # Keyboard customiser
-brew 'karabiner-elements'
+cask 'karabiner-elements'
 
 # Control your tools with a few keystrokes
-brew 'raycast'
+cask 'raycast'
 
 # Team communication and collaboration software
-brew 'slack'
+cask 'slack'
 
 # Configuration application for the Ultimate Hacking Keyboard
-brew 'uhk-agent'
+cask 'uhk-agent'
 
 # Open-source code editor
-brew 'visual-studio-code'
+cask 'visual-studio-code'
 
 # Web browser with built-in email client focusing on customization and control
-brew 'vivaldi'
+cask 'vivaldi'
 
 # GPU-accelerated cross-platform terminal emulator and multiplexer
-brew 'wezterm'
+cask 'wezterm'
 
 
 # -----------------------------------'
@@ -56,85 +56,85 @@ brew 'wezterm'
 # -----------------------------------'
 
 # Yet another cross-platform graphical process/system monitor
-cask 'bottom'
+brew 'bottom'
 
 # GNU File, Shell, and Text utilities
-cask 'coreutils'
+brew 'coreutils'
 
 # Get, unpack, build, and install modules from CPAN
-cask 'cpanminus'
+brew 'cpanminus'
 
 # Cryptographic recipes and primitives for Python
-cask 'cryptography'
+brew 'cryptography'
 
 # User-friendly command-line shell for UNIX-like operating systems
-cask 'fish'
+brew 'fish'
 
 # Distributed revision control system
-cask 'git'
+brew 'git'
 
 # Git extension for versioning large files
-cask 'git-lfs'
+brew 'git-lfs'
 
 # GNU Pretty Good Privacy (PGP) package
-cask 'gnupg'
+brew 'gnupg'
 
 # Graph visualization software from AT&T and Bell Labs
-cask 'graphviz'
+brew 'graphviz'
 
 # Tools and libraries to manipulate images in many formats
-cask 'imagemagick'
+brew 'imagemagick'
 
 # Interactive computing in Python
-cask 'ipython'
+brew 'ipython'
 
 # Manage your Java environment
-cask 'jenv'
+brew 'jenv'
 
 # Lightweight and flexible command-line JSON processor
-cask 'jq'
+brew 'jq'
 
 # Powerful multi-lingual file viewer/grep
-cask 'lv'
+brew 'lv'
 
 # Mac App Store command-line interface
-cask 'mas'
+brew 'mas'
 
 # Network grep
-cask 'ngrep'
+brew 'ngrep'
 
 # Network Kanji code conversion Filter (NKF)
-cask 'nkf'
+brew 'nkf'
 
 # Platform built on V8 to build network applications
-cask 'node'
+brew 'node'
 
 # Manage multiple NodeJS versions
-cask 'nodenv'
+brew 'nodenv'
 
 # Safe, concurrent, practical language
-cask 'rust'
+brew 'rust'
 
 # Rust toolchain installer
-cask 'rustup'
+brew 'rustup'
 
 # Code-search similar to ack
-cask 'the_silver_searcher'
+brew 'the_silver_searcher'
 
 # Terminal multiplexer
-cask 'tmux'
+brew 'tmux'
 
 # Display directories as trees (with optional color/HTML output)
-cask 'tree'
+brew 'tree'
 
 # Vi 'workalike' with many additional features
-cask 'vim'
+brew 'vim'
 
 # Pager/text based browser
-cask 'w3m'
+brew 'w3m'
 
 # UNIX shell (command interpreter)
-cask 'zsh'
+brew 'zsh'
 
 # -----------------------------------'
 # Installing mas(Mac app store)...
