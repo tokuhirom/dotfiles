@@ -23,6 +23,9 @@ cask 'docker'
 # Web browser
 cask 'firefox'
 
+# None
+cask 'font-hack-nerd-font'
+
 # Web browser
 cask 'google-chrome'
 
