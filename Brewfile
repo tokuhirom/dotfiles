@@ -61,6 +61,9 @@ cask 'wezterm'
 # Yet another cross-platform graphical process/system monitor
 brew 'bottom'
 
+# Vi-like binary file (hex) editor
+brew 'bvi'
+
 # GNU File, Shell, and Text utilities
 brew 'coreutils'
 
@@ -117,6 +120,9 @@ brew 'node'
 
 # Manage multiple NodeJS versions
 brew 'nodenv'
+
+# Search tool like grep and The Silver Searcher
+brew 'ripgrep'
 
 # Safe, concurrent, practical language
 brew 'rust'
