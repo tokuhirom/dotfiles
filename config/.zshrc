@@ -1,47 +1,48 @@
-# autoload -Uz compinit promptinit
-# compinit
-# promptinit
+# profiling の方法
+#
+# 先頭行に
+#   zmodload zsh/zprof
+# を追加｡最後に
+#   zprof
+# を追加｡
+zmodload zsh/zprof
 
-# setopt prompt_subst
-# . ~/dotfiles/config/zsh/git-prompt.sh
+# -------------------------------------------------------------------------
+# Key binding
+# -------------------------------------------------------------------------
 
-# prompt adam1
-
-# export RPROMPT=$'$(__git_ps1 "%s")'
-
+# Emacs like keybinding
 bindkey -e
 
+# Home, End, Del key
+# https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat
+bindkey "^[[3~" delete-char
+bindkey "^[[H"  beginning-of-line
+bindkey "^[[F"  end-of-line
+
 # -------------------------------------------------------------------------
-# history
+# History
 # 履歴マニア - http://0xcc.net/unimag/3/
 # -------------------------------------------------------------------------
+
 HISTFILE=$HOME/.zsh-history           # 履歴をファイルに保存する
 HISTSIZE=100000                       # メモリ内の履歴の数
 SAVEHIST=100000                       # 保存される履歴の数
 setopt extended_history               # 履歴ファイルに時刻を記録
-function history-all { history -E 1 } # 全履歴の一覧を出力する
-# inter process history sharing
-setopt share_history
+setopt share_history                  # inter process history sharing
 
 # -------------------------------------------------------------------------
-# Home, End, Del key
-# https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat
-# ------------------------------------------------------------------------- 
-bindkey "^[[3~" delete-char
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-
-
-# -------------------------------------------------------------------------
-# User configuration
+# Completion
 # -------------------------------------------------------------------------
 
 # completion settings.
+# 大文字小文字を無視し、部分一致でマッチングして補完する設定
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # -------------------------------------------------------------------------
 # Locale
 # -------------------------------------------------------------------------
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -59,8 +60,9 @@ else
 fi
 
 # -------------------------------------------------------------------------
-# Alias
+# Alias - ls
 # -------------------------------------------------------------------------
+
 alias ls="ls -lF --color"
 alias s=ls
 alias l=ls
@@ -70,6 +72,7 @@ alias ll="ls -l"
 # -------------------------------------------------------------------------
 # today
 # -------------------------------------------------------------------------
+
 function today() {
     _path=`date +$HOME/tmp/%Y%m%d/`
     mkdir -p $_path
@@ -96,15 +99,17 @@ export LESS=-R
 
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
 
-if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
-        source /usr/share/doc/pkgfile/command-not-found.zsh
-fi
+# なんのスクリプトかまったく思い出せないので一旦コメントアウト
+#   if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
+#           source /usr/share/doc/pkgfile/command-not-found.zsh
+#   fi
 
 
 # -------------------------------------------------------------------------
 # auto pushd
 #
 # -------------------------------------------------------------------------
+
 DIRSTACKSIZE=100
 setopt AUTO_PUSHD
 
@@ -119,7 +124,7 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 #
 # -------------------------------------------------------------------------
 
-# https://michimani.net/post/develop-zsh-prompt-remove-last-line/
+# httpx://michimani.net/post/develop-zsh-prompt-remove-last-line/
 setopt prompt_cr
 setopt prompt_sp
 
@@ -128,7 +133,7 @@ setopt prompt_sp
 #
 # https://zenn.dev/nokogiri/articles/ec99e40df54555
 # -------------------------------------------------------------------------
-#
+
 if which fzf &> /dev/null; then
 
     # fzf history
@@ -171,7 +176,7 @@ if which fzf &> /dev/null; then
 fi
 
 # -------------------------------------------------------------------------
-# Java
+# load other sources
 # -------------------------------------------------------------------------
 
 for file in ~/dotfiles/config/zsh/init/*/*.sh; do
@@ -184,3 +189,4 @@ fi
 
 
 
+zprof
