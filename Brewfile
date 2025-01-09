@@ -82,6 +82,9 @@ brew 'cryptography'
 # User-friendly command-line shell for UNIX-like operating systems
 brew 'fish'
 
+# Command-line fuzzy finder written in Go
+brew 'fzf'
+
 # Distributed revision control system
 brew 'git'
 
