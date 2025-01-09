@@ -53,6 +53,9 @@ cask 'visual-studio-code'
 # Web browser with built-in email client focusing on customization and control
 cask 'vivaldi'
 
+# Rust-based terminal
+cask 'warp'
+
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask 'wezterm'
 
@@ -93,6 +96,9 @@ brew 'git-lfs'
 
 # GNU Pretty Good Privacy (PGP) package
 brew 'gnupg'
+
+# Open source programming language to build simple/reliable/efficient software
+brew 'go'
 
 # Graph visualization software from AT&T and Bell Labs
 brew 'graphviz'
