@@ -2,11 +2,20 @@
 # Installing casks...
 # -----------------------------------'
 
+# Password manager that keeps all passwords secure behind one password
+cask '1password'
+
+# Command-line interface for 1Password
+cask '1password-cli'
+
 # GPU-accelerated terminal emulator
 cask 'alacritty'
 
 # Enable Windows-like alt-tab
 cask 'alt-tab'
+
+# Chromium based browser
+cask 'arc'
 
 # Japanese input method editor (IME) produced by JustSystems
 cask 'atok'
@@ -50,6 +59,9 @@ cask 'homerow'
 # Keyboard customiser
 cask 'karabiner-elements'
 
+# Used to access context-specific actions when text is selected
+cask 'popclip'
+
 # Control your tools with a few keystrokes
 cask 'raycast'
 
@@ -61,9 +73,6 @@ cask 'uhk-agent'
 
 # Open-source code editor
 cask 'visual-studio-code'
-
-# Web browser with built-in email client focusing on customization and control
-cask 'vivaldi'
 
 # Rust-based terminal
 cask 'warp'
