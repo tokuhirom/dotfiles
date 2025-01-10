@@ -30,6 +30,9 @@ cask 'docker'
 cask 'firefox'
 
 # None
+cask 'font-fira-code-nerd-font'
+
+# None
 cask 'font-hack-nerd-font'
 
 # None
