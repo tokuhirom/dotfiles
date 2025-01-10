@@ -2,6 +2,9 @@
 # Installing casks...
 # -----------------------------------'
 
+# GPU-accelerated terminal emulator
+cask 'alacritty'
+
 # Enable Windows-like alt-tab
 cask 'alt-tab'
 
@@ -28,6 +31,15 @@ cask 'firefox'
 
 # None
 cask 'font-hack-nerd-font'
+
+# None
+cask 'font-jetbrains-mono'
+
+# None
+cask 'font-jetbrains-mono-nerd-font'
+
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask 'ghostty'
 
 # Web browser
 cask 'google-chrome'

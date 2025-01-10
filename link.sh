@@ -30,6 +30,9 @@ link .Rprofile
 link .config/nvim
 link .config/bat/config
 link .screenrc
+link .config/ghostty
+link .config/starship.toml
+link .config/alacritty
 
 # mac only
 if [ -d /Users ]; then
@@ -48,7 +51,6 @@ if [ -d /home ]; then
     link .config/polybar/launch.sh
     link .config/wezterm/wezterm.lua
     link .config/akaza/config.yml
-    link .config/starship.toml
 fi
 
 mkdir -p ~/.vim/tmp/

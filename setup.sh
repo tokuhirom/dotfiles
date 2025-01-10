@@ -14,4 +14,6 @@ fi
 ./setup/setup-plenv.sh
 ./setup/setup-vimplug.sh
 ./setup/setup-tmux.sh
+./setup/setup-alacritty.sh
+
 

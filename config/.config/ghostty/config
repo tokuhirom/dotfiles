@@ -1,0 +1,20 @@
+shell-integration = zsh
+
+# theme = 3024 Day
+# theme = Aurora
+theme = zenburn
+
+
+font-feature = -calt
+font-feature = -dlig
+
+cursor-style = block
+cursor-style-blink = false
+
+mouse-hide-while-typing = true
+
+link-url = true
+
+keybind = "global:ctrl+cmd+`=toggle_quick_terminal"
+
+# see https://zenn.dev/koya_iwamura/articles/65e4fbb747bcd2
