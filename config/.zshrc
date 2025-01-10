@@ -134,10 +134,13 @@ setopt prompt_sp
 for file in ~/dotfiles/config/zsh/init/os/*.sh; do
     [ -r $file ] && source $file
 done
-for file in ~/dotfiles/config/zsh/init/lang/*.sh; do
-    [ -r $file ] && source $file
-done
-for file in ~/dotfiles/config/zsh/init/cmd/*.sh; do
-    [ -r $file ] && source $file
-done
 
+source ~/dotfiles/config/zsh/init/lang/go.sh
+source ~/dotfiles/config/zsh/init/lang/java-jenv.sh
+source ~/dotfiles/config/zsh/init/lang/perl.sh
+source ~/dotfiles/config/zsh/init/lang/python-rye.sh
+source ~/dotfiles/config/zsh/init/lang/ruby-rbenv.sh
+source ~/dotfiles/config/zsh/init/lang/rust.sh
+
+source ~/dotfiles/config/zsh/init/cmd/fzf.sh
+source ~/dotfiles/config/zsh/init/cmd/pure.sh
