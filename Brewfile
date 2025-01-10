@@ -41,9 +41,6 @@ cask 'font-jetbrains-mono'
 # None
 cask 'font-jetbrains-mono-nerd-font'
 
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask 'ghostty'
-
 # Web browser
 cask 'google-chrome'
 
