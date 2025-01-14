@@ -59,8 +59,11 @@ cask 'homerow'
 # Keyboard customiser
 cask 'karabiner-elements'
 
-# Used to access context-specific actions when text is selected
-cask 'popclip'
+# Full TeX Live distribution with GUI applications
+cask 'mactex'
+
+# App to write, plan, collaborate, and get organised
+cask 'notion'
 
 # Control your tools with a few keystrokes
 cask 'raycast'
@@ -76,9 +79,6 @@ cask 'visual-studio-code'
 
 # Rust-based terminal
 cask 'warp'
-
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask 'wezterm'
 
 
 # -----------------------------------'
@@ -136,11 +136,17 @@ brew 'jenv'
 # Lightweight and flexible command-line JSON processor
 brew 'jq'
 
+# Handy way to save and run project-specific commands
+brew 'just'
+
 # Powerful multi-lingual file viewer/grep
 brew 'lv'
 
 # Mac App Store command-line interface
 brew 'mas'
+
+# Open source relational database management system
+brew 'mysql'
 
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
@@ -157,6 +163,9 @@ brew 'node'
 # Manage multiple NodeJS versions
 brew 'nodenv'
 
+# Pretty, minimal and fast ZSH prompt
+brew 'pure'
+
 # Search tool like grep and The Silver Searcher
 brew 'ripgrep'
 
@@ -165,6 +174,9 @@ brew 'rust'
 
 # Rust toolchain installer
 brew 'rustup'
+
+# Experimental Package Management Solution for Python
+brew 'rye'
 
 # Cross-shell prompt for astronauts
 brew 'starship'
