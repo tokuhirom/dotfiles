@@ -9,7 +9,8 @@ if which fzf &> /dev/null; then
     # fzf history
     function fzf-select-history() {
         # BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
-        BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+        # -e: exact match
+        BUFFER=$(history -n -r 1 | fzf --no-sort +m -e --query "$LBUFFER" --prompt="History > ")
         CURSOR=$#BUFFER
         zle reset-prompt
     }
