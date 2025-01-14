@@ -23,9 +23,6 @@ cask 'atok'
 # Utility that prevents the system from going to sleep
 cask 'caffeine'
 
-# OpenAI's official ChatGPT desktop app
-cask 'chatgpt'
-
 # Screen capturing tool
 cask 'cleanshot'
 
@@ -76,9 +73,6 @@ cask 'uhk-agent'
 
 # Open-source code editor
 cask 'visual-studio-code'
-
-# Rust-based terminal
-cask 'warp'
 
 
 # -----------------------------------'
@@ -177,9 +171,6 @@ brew 'rustup'
 
 # Experimental Package Management Solution for Python
 brew 'rye'
-
-# Cross-shell prompt for astronauts
-brew 'starship'
 
 # Code-search similar to ack
 brew 'the_silver_searcher'
