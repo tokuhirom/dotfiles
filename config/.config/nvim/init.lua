@@ -23,3 +23,5 @@ vim.cmd('colorscheme tokyonight')
 
 vim.api.nvim_set_keymap('i', '.#', '# -------------------------------------------------------------------------', { noremap = true, silent = true })
 
+require'lspconfig'.gopls.setup{}
+

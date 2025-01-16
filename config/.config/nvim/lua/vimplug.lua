@@ -13,8 +13,9 @@ vim.call('plug#begin')
     Plug 'nvim-tree/nvim-tree.lua'
     Plug 'nvim-tree/nvim-web-devicons' -- optional, for file icons
 
-    -- LSP support
-    -- Plug 'neoclide/coc.nvim'
+    -- " LSPクライアント
+    Plug 'neovim/nvim-lspconfig'
+
 
     -- like airline
     Plug 'nvim-lualine/lualine.nvim'
