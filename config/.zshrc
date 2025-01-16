@@ -144,3 +144,6 @@ source ~/dotfiles/config/zsh/init/lang/rust.sh
 
 source ~/dotfiles/config/zsh/init/cmd/fzf.sh
 source ~/dotfiles/config/zsh/init/cmd/pure.sh
+
+export PATH="$HOME/.tiup/bin:$PATH"
+
