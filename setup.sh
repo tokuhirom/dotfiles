@@ -14,5 +14,6 @@ fi
 ./setup/setup-vimplug.sh
 ./setup/setup-tmux.sh
 ./setup/setup-alacritty.sh
+./setup/setup-go.sh
 
 
