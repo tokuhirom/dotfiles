@@ -1,0 +1,94 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use JSON::PP qw/decode_json encode_json/;
+use Time::Piece ();
+use Term::ANSIColor;
+
+my $json = JSON::PP->new->canonical;
+
+# Read from standard input
+while (my $line = <STDIN>) {
+    chomp $line;
+
+    if ($line =~ /^\{/) {
+        # Decode the JSON
+        my $data = decode_json($line);
+        
+        # Convert time to a more readable format
+        # time: 2025-01-22T14:01:40.900723+09:00
+        my $time = $data->{time};
+        $time =~ s/.*T//;
+        $time =~ s/\..*//;
+
+        my %extras = %$data;
+        delete $extras{$_} for qw/time level msg process_name/;
+
+        # Print the formatted log
+        print colored(['grey23'], $time);
+        print ' [';
+        print colored(['blue'], $data->{level});
+        print '] ';
+        if ($data->{URL}) {
+            printf("%s %s %-6s %s ",
+               $data->{process_name},
+               $data->{req_id},
+               $data->{method},
+               $data->{URL},
+            );
+            print $data->{msg};
+            if ($data->{latency}) {
+                print(" ");
+                print $data->{latency}
+            }
+            if ($data->{status_code}) {
+                print(" ");
+                my $color = {
+                    200 => ['blue'],
+                }->{$data->{status_code}} // ['red'];
+                print colored($color, $data->{status_code});
+            }
+            print "\n";
+
+            delete $extras{$_} for qw/method msg req_id URL latency status_code/;
+        } else {
+            print("[");
+            print $data->{process_name};
+            print("] ");
+            print colored(['bold bright_red on_black'], $data->{msg});
+            print "\n";
+        }
+
+        if (%extras) {
+            print "                ";
+            print $json->encode(\%extras);
+            print "\n";
+        }
+    } else {
+        print("$line\n");
+    }
+}
+
+__END__
+
+=head1 NAME
+
+slog - slog formatter
+
+=head1 SYNOPSIS
+
+    ./mycmd 2>&1 | slog
+
+=head1 DESCRIPTION
+
+This script reads slog-formatted JSON logs from standard input and prints them in a more human-readable format.
+
+=head1 LICENSE
+
+This script is licensed under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+Tokuhiro Matsuno
+
+=cut
