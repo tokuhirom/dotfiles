@@ -33,6 +33,8 @@ link .screenrc
 link .config/ghostty
 link .config/starship.toml
 link .config/alacritty
+link .config/fish/config.fish
+link .config/fish/fish_plugins
 
 # mac only
 if [ -d /Users ]; then
