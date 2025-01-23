@@ -16,6 +16,7 @@ vim.call('plug#begin')
     -- " LSPクライアント
     Plug 'neovim/nvim-lspconfig'
 
+    Plug "NoahTheDuke/vim-just"
 
     -- like airline
     Plug 'nvim-lualine/lualine.nvim'
