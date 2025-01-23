@@ -147,3 +147,8 @@ source ~/dotfiles/config/zsh/init/cmd/pure.sh
 
 export PATH="$HOME/.tiup/bin:$PATH"
 
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -29,8 +29,14 @@ cask 'cleanshot'
 # Plain-text editor for web pages, program source codes and more
 cask 'coteditor'
 
+# Write, edit, and chat about your code with AI
+cask 'cursor'
+
 # App to build and share containerised applications and microservices
 cask 'docker'
+
+# Text editor
+cask 'emacs'
 
 # Web browser
 cask 'firefox'
@@ -46,6 +52,15 @@ cask 'font-jetbrains-mono'
 
 # None
 cask 'font-jetbrains-mono-nerd-font'
+
+# None
+cask 'font-noto-sans-cjk-jp'
+
+# None
+cask 'font-noto-sans-mono'
+
+# None
+cask 'font-noto-serif-cjk-jp'
 
 # Web browser
 cask 'google-chrome'
@@ -79,6 +94,12 @@ cask 'visual-studio-code'
 # Installing formulae...
 # -----------------------------------'
 
+# Static checker for GitHub Actions workflow files
+brew 'actionlint'
+
+# Bourne-Again SHell, a UNIX command interpreter
+brew 'bash'
+
 # Clone of cat(1) with syntax highlighting and Git integration
 brew 'bat'
 
@@ -97,11 +118,14 @@ brew 'cpanminus'
 # Cryptographic recipes and primitives for Python
 brew 'cryptography'
 
-# User-friendly command-line shell for UNIX-like operating systems
-brew 'fish'
+# Plugin manager for the Fish shell
+brew 'fisher'
 
 # Command-line fuzzy finder written in Go
 brew 'fzf'
+
+# GitHub command-line tool
+brew 'gh'
 
 # Distributed revision control system
 brew 'git'
@@ -118,8 +142,14 @@ brew 'go'
 # Graph visualization software from AT&T and Bell Labs
 brew 'graphviz'
 
+# Simple zero-configuration command-line HTTP server
+brew 'http-server'
+
 # Tools and libraries to manipulate images in many formats
 brew 'imagemagick'
+
+# Top clone for MySQL
+brew 'innotop'
 
 # Interactive computing in Python
 brew 'ipython'
@@ -142,6 +172,9 @@ brew 'mas'
 # Open source relational database management system
 brew 'mysql'
 
+# Open source relational database management system
+brew 'mysql@8.4'
+
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
 
@@ -151,11 +184,11 @@ brew 'ngrep'
 # Network Kanji code conversion Filter (NKF)
 brew 'nkf'
 
-# Platform built on V8 to build network applications
-brew 'node'
-
 # Manage multiple NodeJS versions
 brew 'nodenv'
+
+# Simplistic interactive filtering tool
+brew 'peco'
 
 # Pretty, minimal and fast ZSH prompt
 brew 'pure'
@@ -172,6 +205,12 @@ brew 'rustup'
 # Experimental Package Management Solution for Python
 brew 'rye'
 
+# Tool to create intelligent and beautiful documentation
+brew 'sphinx-doc'
+
+# Send macOS User Notifications from the command-line
+brew 'terminal-notifier'
+
 # Code-search similar to ack
 brew 'the_silver_searcher'
 
@@ -187,8 +226,17 @@ brew 'vim'
 # Pager/text based browser
 brew 'w3m'
 
+# Internet file retriever
+brew 'wget'
+
+# Yet another elegant Go interpreter
+brew 'yaegi'
+
 # UNIX shell (command interpreter)
 brew 'zsh'
+
+# Tool for writing better scripts
+brew 'zx'
 
 # -----------------------------------'
 # Installing mas(Mac app store)...
