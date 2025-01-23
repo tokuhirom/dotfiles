@@ -28,4 +28,17 @@ if status is-interactive
     function fish_user_key_bindings
         bind \cq fzf_z # Bind to Ctrl-Q
     end 
+
+    function prco
+        gh pr list | fzf | awk '{print $1}' | xargs gh co
+    end
+
+    function prview
+        gh pr list | fzf | awk '{print $1}' | xargs gh pr view --web
+    end
+
+    abbr -a s ls
+    abbr -a l ls
+    abbr -a ll ls -l
 end
+
