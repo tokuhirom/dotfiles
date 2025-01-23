@@ -1,0 +1,61 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use Plack::Request;
+use Plack::Runner;
+use Pod::Usage;
+use Getopt::Long;
+
+my $port = 5000;
+my $help = 0;
+
+GetOptions(
+    'port|p=i' => \$port,
+    'help|h'   => \$help,
+) or pod2usage(2);
+
+pod2usage(1) if $help;
+
+my $app = sub {
+    my $env = shift;
+    my $req = Plack::Request->new($env);
+    my $body = $req->content; # リクエストボディを取得
+
+    # PSGI関連のキーを除外してダンプ
+    my %filtered_env = map { $_ => $env->{$_} } grep { $_ !~ /^psgi/ } keys %$env;
+    for my $key (sort keys %filtered_env) {
+        print("$key: @{[ $filtered_env{$key} ]}\n");
+    }
+    print("\n\n$body\n\n");
+
+    return [200, ['Content-Type' => 'text/plain'], ["OK"]];
+};
+
+# Plack::Runnerを使ってアプリケーションを実行
+my $runner = Plack::Runner->new;
+$runner->parse_options('-p', $port); # ポート番号を指定
+$runner->run($app);
+
+__END__
+
+=head1 NAME
+
+httpdumpd - Simple HTTP server to dump request details
+
+=head1 SYNOPSIS
+
+    httpdumpd [options]
+
+    Options:
+
+       -p --port       Port to listen on (default: 4318)
+       -? --help       Display this help message
+
+=head1 DESCRIPTION
+
+This script starts a simple HTTP server that listens on the specified port
+and dumps the details of incoming HTTP requests, excluding 'psgi' prefixed
+environment variables, to the standard error.
+
+=cut
+
