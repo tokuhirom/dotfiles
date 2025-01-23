@@ -1,0 +1,68 @@
+#!/usr/bin/env yaegi
+package main
+// vim: set filetype=go noexpandtab tabstop=4 shiftwidth=4:
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+)
+
+func main() {
+	if len(os.Args) <= 2 {
+		// No arguments provided, output current epoch seconds
+		fmt.Println(time.Now().Unix())
+		return
+	}
+
+	input := os.Args[2]
+	length := len(input)
+
+	switch {
+	case isInteger(input) && length <= 10:
+		// Epoch seconds
+		epochSeconds, _ := strconv.ParseInt(input, 10, 64)
+		t := time.Unix(epochSeconds, 0)
+		fmt.Println(t.Format(time.RFC3339))
+	case isInteger(input) && length <= 13:
+		// Epoch milliseconds
+		epochMilliseconds, _ := strconv.ParseInt(input, 10, 64)
+		t := time.Unix(0, epochMilliseconds*int64(time.Millisecond))
+		fmt.Println(t.Format(time.RFC3339))
+	case length == 8 && isDate(input):
+		// YYYYMMDD
+		t, err := time.Parse("20060102", input)
+		if err == nil {
+			fmt.Println(t.Unix())
+		} else {
+			fmt.Println("Invalid date format.")
+		}
+	case length == 12 && isDateTime(input):
+		// YYYYMMDDhhmm
+		t, err := time.Parse("200601021504", input)
+		if err == nil {
+			fmt.Println(t.Unix())
+		} else {
+			fmt.Println("Invalid date-time format.")
+		}
+	default:
+		fmt.Println("Invalid input format.")
+	}
+}
+
+func isInteger(s string) bool {
+	_, err := strconv.Atoi(s)
+	return err == nil
+}
+
+func isDate(s string) bool {
+	_, err := time.Parse("20060102", s)
+	return err == nil
+}
+
+func isDateTime(s string) bool {
+	_, err := time.Parse("200601021504", s)
+	return err == nil
+}
