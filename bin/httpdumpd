@@ -1,61 +1,66 @@
-#!/usr/bin/env perl
-use strict;
-use warnings;
-use Plack::Request;
-use Plack::Runner;
-use Pod::Usage;
-use Getopt::Long;
+#!/usr/bin/env yaegi
+package main
 
-my $port = 5000;
-my $help = 0;
+import (
+	"flag"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"strings"
+)
 
-GetOptions(
-    'port|p=i' => \$port,
-    'help|h'   => \$help,
-) or pod2usage(2);
+func main() {
+	// Define command-line flags
+	port := flag.Int("port", 5000, "Port to listen on")
+	help := flag.Bool("help", false, "Display this help message")
+	flag.Parse()
 
-pod2usage(1) if $help;
+	// Show help message if requested
+	if *help {
+		fmt.Println("httpdumpd - Simple HTTP server to dump request details")
+		fmt.Println("\nUsage:\n")
+		fmt.Println("  httpdumpd [options]")
+		fmt.Println("\nOptions:\n")
+		fmt.Println("  -port      Port to listen on (default: 5000)")
+		fmt.Println("  -help      Display this help message")
+		os.Exit(0)
+	}
 
-my $app = sub {
-    my $env = shift;
-    my $req = Plack::Request->new($env);
-    my $body = $req->content; # リクエストボディを取得
+	// Define HTTP handler function
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Println("------------------------------------------------>>")
+		requestLine := fmt.Sprintf("%s %s%s %s", r.Method, r.URL.Path, formatQueryString(r.URL.RawQuery), r.Proto)
+		fmt.Println(requestLine)
 
-    # PSGI関連のキーを除外してダンプ
-    my %filtered_env = map { $_ => $env->{$_} } grep { $_ !~ /^psgi/ } keys %$env;
-    for my $key (sort keys %filtered_env) {
-        print("$key: @{[ $filtered_env{$key} ]}\n");
-    }
-    print("\n\n$body\n\n");
+		fmt.Println("Request Headers:")
+		for name, values := range r.Header {
+            for _, value := range values {
+                fmt.Printf("%s: %s\n", name, value)
+            }
+		}
 
-    return [200, ['Content-Type' => 'text/plain'], ["OK"]];
-};
+		// Print the request body
+		fmt.Println("\n")
+		body := make([]byte, r.ContentLength)
+		r.Body.Read(body)
+		fmt.Println(string(body))
 
-# Plack::Runnerを使ってアプリケーションを実行
-my $runner = Plack::Runner->new;
-$runner->parse_options('-p', $port); # ポート番号を指定
-$runner->run($app);
+		// Respond with "OK"
+		w.Header().Set("Content-Type", "text/plain")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+        fmt.Println("<<------------------------------------------------")
+	})
 
-__END__
+	// Start the server
+	log.Printf("Listening on port %d...\n", *port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
+}
 
-=head1 NAME
-
-httpdumpd - Simple HTTP server to dump request details
-
-=head1 SYNOPSIS
-
-    httpdumpd [options]
-
-    Options:
-
-       -p --port       Port to listen on (default: 4318)
-       -? --help       Display this help message
-
-=head1 DESCRIPTION
-
-This script starts a simple HTTP server that listens on the specified port
-and dumps the details of incoming HTTP requests, excluding 'psgi' prefixed
-environment variables, to the standard error.
-
-=cut
-
+func formatQueryString(query string) string {
+	if query != "" {
+		return "?" + query
+	}
+	return ""
+}
