@@ -1,5 +1,6 @@
 #!/usr/bin/env yaegi
 package main
+// vim: set filetype=go noexpandtab tabstop=4 shiftwidth=4:
 
 import (
 	"flag"
@@ -35,9 +36,9 @@ func main() {
 
 		fmt.Println("Request Headers:")
 		for name, values := range r.Header {
-            for _, value := range values {
-                fmt.Printf("%s: %s\n", name, value)
-            }
+			for _, value := range values {
+				fmt.Printf("%s: %s\n", name, value)
+			}
 		}
 
 		// Print the request body

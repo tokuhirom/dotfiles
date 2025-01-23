@@ -1,94 +1,102 @@
-#!/usr/bin/env perl
-use strict;
-use warnings;
-use JSON::PP qw/decode_json encode_json/;
-use Time::Piece ();
-use Term::ANSIColor;
+#!/usr/bin/env yaegi
+package main
+// vim: set filetype=go noexpandtab tabstop=4 shiftwidth=4:
 
-my $json = JSON::PP->new->canonical;
+import (
+	"bufio"
+	"encoding/json"
+	"fmt"
+	"os"
+	"strings"
+	"time"
+)
 
-# Read from standard input
-while (my $line = <STDIN>) {
-    chomp $line;
+// ANSI color codes
+const (
+	Reset       = "\033[0m"
+	Grey23      = "\033[38;5;59m"
+	Blue        = "\033[34m"
+	Red         = "\033[31m"
+	Bold        = "\033[1m"
+	BrightRed   = "\033[91m"
+	OnBlack     = "\033[40m"
+)
 
-    if ($line =~ /^\{/) {
-        # Decode the JSON
-        my $data = decode_json($line);
-        
-        # Convert time to a more readable format
-        # time: 2025-01-22T14:01:40.900723+09:00
-        my $time = $data->{time};
-        $time =~ s/.*T//;
-        $time =~ s/\..*//;
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
 
-        my %extras = %$data;
-        delete $extras{$_} for qw/time level msg process_name/;
+	for scanner.Scan() {
+		line := scanner.Text()
 
-        # Print the formatted log
-        print colored(['grey23'], $time);
-        print ' [';
-        print colored(['blue'], $data->{level});
-        print '] ';
-        if ($data->{URL}) {
-            printf("%s %s %-6s %s ",
-               $data->{process_name},
-               $data->{req_id},
-               $data->{method},
-               $data->{URL},
-            );
-            print $data->{msg};
-            if ($data->{latency}) {
-                print(" ");
-                print $data->{latency}
-            }
-            if ($data->{status_code}) {
-                print(" ");
-                my $color = {
-                    200 => ['blue'],
-                }->{$data->{status_code}} // ['red'];
-                print colored($color, $data->{status_code});
-            }
-            print "\n";
+		if strings.HasPrefix(line, "{") {
+			var data map[string]interface{}
+			if err := json.Unmarshal([]byte(line), &data); err != nil {
+				fmt.Println(line)
+				continue
+			}
 
-            delete $extras{$_} for qw/method msg req_id URL latency status_code/;
-        } else {
-            print("[");
-            print $data->{process_name};
-            print("] ");
-            print colored(['bold bright_red on_black'], $data->{msg});
-            print "\n";
-        }
+			// Convert time to a more readable format
+			timeStr, _ := data["time"].(string)
+			t, err := time.Parse(time.RFC3339, timeStr)
+			if err == nil {
+				timeStr = t.Format("15:04:05")
+			}
 
-        if (%extras) {
-            print "                ";
-            print $json->encode(\%extras);
-            print "\n";
-        }
-    } else {
-        print("$line\n");
-    }
+			// Print the formatted log
+			fmt.Print(Grey23, timeStr, Reset)
+			fmt.Print(" [")
+			fmt.Print(Blue, data["level"].(string), Reset)
+			fmt.Print("] ")
+
+			// Remove used keys
+			for _, key := range []string{"time", "level"} {
+				delete(data, key)
+			}
+
+			if url, ok := data["URL"]; ok {
+				fmt.Printf("%s %s %-6s %s ", data["process_name"], data["req_id"], data["method"], url)
+				fmt.Print(data["msg"])
+
+				if latency, ok := data["latency"]; ok {
+					fmt.Print(" ", latency)
+				}
+				if statusCode, ok := data["status_code"]; ok {
+					code := int(statusCode.(float64))
+					if code == 200 {
+						fmt.Print(" ", Blue, code, Reset)
+					} else {
+						fmt.Print(" ", Red, code, Reset)
+					}
+				}
+				fmt.Println()
+
+				// Remove used keys
+				for _, key := range []string{"method", "msg", "req_id", "URL", "latency", "status_code"} {
+					delete(data, key)
+				}
+			} else {
+				fmt.Print("[")
+				fmt.Print(data["process_name"])
+				fmt.Print("] ")
+				fmt.Print(Bold, BrightRed, OnBlack, data["msg"], Reset)
+				fmt.Println()
+
+				// Remove used keys
+				for _, key := range []string{"process_name", "msg"} {
+					delete(data, key)
+				}
+			}
+
+			if len(data) > 0 {
+				extras, _ := json.MarshalIndent(data, "                ", "  ")
+				fmt.Println("                ", string(extras))
+			}
+		} else {
+			fmt.Println(line)
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		fmt.Fprintln(os.Stderr, "reading standard input:", err)
+	}
 }
-
-__END__
-
-=head1 NAME
-
-slog - slog formatter
-
-=head1 SYNOPSIS
-
-    ./mycmd 2>&1 | slog
-
-=head1 DESCRIPTION
-
-This script reads slog-formatted JSON logs from standard input and prints them in a more human-readable format.
-
-=head1 LICENSE
-
-This script is licensed under the same terms as Perl itself.
-
-=head1 AUTHOR
-
-Tokuhiro Matsuno
-
-=cut
