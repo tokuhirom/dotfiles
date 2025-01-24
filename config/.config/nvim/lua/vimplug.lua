@@ -10,6 +10,7 @@ vim.call('plug#begin')
 
     Plug 'ctrlpvim/ctrlp.vim'
 
+    -- nvim-tree を有効にしていると起動がめちゃくちゃ遅くなる
 --  Plug 'nvim-tree/nvim-tree.lua'
 --  Plug 'nvim-tree/nvim-web-devicons' -- optional, for file icons
 
