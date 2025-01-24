@@ -27,6 +27,8 @@ defaults write com.apple.menuextra.battery ShowPercent -bool true
 # Show volume in the menu bar
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -int 0
 
+# k 連打したら特殊な k をいれようとしてくるやつをオフにする
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 # ------------------------------------------------------------------------- 
 # Key shortcuts
@@ -41,7 +43,6 @@ defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextr
 /usr/libexec/PlistBuddy -c "Set AppleSymbolicHotKeys:61:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
 # Disable spotlight
 /usr/libexec/PlistBuddy -c "Set AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
-
 
 
 # ------------------------------------------------------------------------- 
