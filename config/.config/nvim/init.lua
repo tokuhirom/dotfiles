@@ -15,7 +15,7 @@ require('vimplug')
 require('plugins/bufferline')
 
 require('plugins/ctrlp')
-require('plugins/nvim-tree')
+-- require('plugins/nvim-tree')
 require('plugins/lualine')
 --  require('plugins/cmp')
 

@@ -10,8 +10,8 @@ vim.call('plug#begin')
 
     Plug 'ctrlpvim/ctrlp.vim'
 
-    Plug 'nvim-tree/nvim-tree.lua'
-    Plug 'nvim-tree/nvim-web-devicons' -- optional, for file icons
+--  Plug 'nvim-tree/nvim-tree.lua'
+--  Plug 'nvim-tree/nvim-web-devicons' -- optional, for file icons
 
     -- " LSPクライアント
     Plug 'neovim/nvim-lspconfig'
