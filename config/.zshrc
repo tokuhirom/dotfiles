@@ -1,47 +1,47 @@
-# autoload -Uz compinit promptinit
-# compinit
-# promptinit
+# profiling の方法
+#
+# 先頭行に
+#   zmodload zsh/zprof
+# を追加｡最後に
+#   zprof
+# を追加｡
 
-# setopt prompt_subst
-# . ~/dotfiles/config/zsh/git-prompt.sh
+# -------------------------------------------------------------------------
+# Key binding
+# -------------------------------------------------------------------------
 
-# prompt adam1
-
-# export RPROMPT=$'$(__git_ps1 "%s")'
-
+# Emacs like keybinding
 bindkey -e
 
+# Home, End, Del key
+# https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat
+bindkey "^[[3~" delete-char
+bindkey "^[[H"  beginning-of-line
+bindkey "^[[F"  end-of-line
+
 # -------------------------------------------------------------------------
-# history
+# History
 # 履歴マニア - http://0xcc.net/unimag/3/
 # -------------------------------------------------------------------------
+
 HISTFILE=$HOME/.zsh-history           # 履歴をファイルに保存する
 HISTSIZE=100000                       # メモリ内の履歴の数
 SAVEHIST=100000                       # 保存される履歴の数
 setopt extended_history               # 履歴ファイルに時刻を記録
-function history-all { history -E 1 } # 全履歴の一覧を出力する
-# inter process history sharing
-setopt share_history
+setopt share_history                  # inter process history sharing
 
 # -------------------------------------------------------------------------
-# Home, End, Del key
-# https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat
-# ------------------------------------------------------------------------- 
-bindkey "^[[3~" delete-char
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-
-
-# -------------------------------------------------------------------------
-# User configuration
+# Completion
 # -------------------------------------------------------------------------
 
 # completion settings.
+# 大文字小文字を無視し、部分一致でマッチングして補完する設定
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # -------------------------------------------------------------------------
 # Locale
 # -------------------------------------------------------------------------
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -59,8 +59,9 @@ else
 fi
 
 # -------------------------------------------------------------------------
-# Alias
+# Alias - ls
 # -------------------------------------------------------------------------
+
 alias ls="ls -lF --color"
 alias s=ls
 alias l=ls
@@ -70,6 +71,7 @@ alias ll="ls -l"
 # -------------------------------------------------------------------------
 # today
 # -------------------------------------------------------------------------
+
 function today() {
     _path=`date +$HOME/tmp/%Y%m%d/`
     mkdir -p $_path
@@ -96,15 +98,17 @@ export LESS=-R
 
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
 
-if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
-        source /usr/share/doc/pkgfile/command-not-found.zsh
-fi
+# なんのスクリプトかまったく思い出せないので一旦コメントアウト
+#   if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
+#           source /usr/share/doc/pkgfile/command-not-found.zsh
+#   fi
 
 
 # -------------------------------------------------------------------------
 # auto pushd
 #
 # -------------------------------------------------------------------------
+
 DIRSTACKSIZE=100
 setopt AUTO_PUSHD
 
@@ -119,27 +123,36 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 #
 # -------------------------------------------------------------------------
 
-# https://michimani.net/post/develop-zsh-prompt-remove-last-line/
+# httpx://michimani.net/post/develop-zsh-prompt-remove-last-line/
 setopt prompt_cr
 setopt prompt_sp
 
 # -------------------------------------------------------------------------
-# Java
+# load other sources
 # -------------------------------------------------------------------------
 
-for file in ~/dotfiles/config/zsh/init/*/*.sh; do
+for file in ~/dotfiles/config/zsh/init/os/*.sh; do
     [ -r $file ] && source $file
 done
 
-function nvim-conf() {
-    vim ~/.config/nvim
-}
+source ~/dotfiles/config/zsh/init/lang/go.sh
+source ~/dotfiles/config/zsh/init/lang/java-jenv.sh
+source ~/dotfiles/config/zsh/init/lang/perl.sh
+source ~/dotfiles/config/zsh/init/lang/python-rye.sh
+source ~/dotfiles/config/zsh/init/lang/ruby-rbenv.sh
+source ~/dotfiles/config/zsh/init/lang/rust.sh
 
-if [ -e /usr/bin/starship ]; then
-    eval "$(starship init zsh)"
-fi
-
+source ~/dotfiles/config/zsh/init/cmd/fzf.sh
+source ~/dotfiles/config/zsh/init/cmd/pure.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export PATH="$HOME/.tiup/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

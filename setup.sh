@@ -14,8 +14,10 @@ if [ -e /Users ]; then
 fi
 
 ./setup/setup-git.sh
-./setup/setup-R.sh
 ./setup/setup-plenv.sh
 ./setup/setup-vimplug.sh
-./setup/setup-nvim.sh
 ./setup/setup-tmux.sh
+./setup/setup-alacritty.sh
+./setup/setup-go.sh
+
+

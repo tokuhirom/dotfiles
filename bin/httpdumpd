@@ -1,0 +1,67 @@
+#!/usr/bin/env yaegi
+package main
+// vim: set filetype=go noexpandtab tabstop=4 shiftwidth=4:
+
+import (
+	"flag"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"strings"
+)
+
+func main() {
+	// Define command-line flags
+	port := flag.Int("port", 5000, "Port to listen on")
+	help := flag.Bool("help", false, "Display this help message")
+	flag.Parse()
+
+	// Show help message if requested
+	if *help {
+		fmt.Println("httpdumpd - Simple HTTP server to dump request details")
+		fmt.Println("\nUsage:\n")
+		fmt.Println("  httpdumpd [options]")
+		fmt.Println("\nOptions:\n")
+		fmt.Println("  -port      Port to listen on (default: 5000)")
+		fmt.Println("  -help      Display this help message")
+		os.Exit(0)
+	}
+
+	// Define HTTP handler function
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Println("------------------------------------------------>>")
+		requestLine := fmt.Sprintf("%s %s%s %s", r.Method, r.URL.Path, formatQueryString(r.URL.RawQuery), r.Proto)
+		fmt.Println(requestLine)
+
+		fmt.Println("Request Headers:")
+		for name, values := range r.Header {
+			for _, value := range values {
+				fmt.Printf("%s: %s\n", name, value)
+			}
+		}
+
+		// Print the request body
+		fmt.Println("\n")
+		body := make([]byte, r.ContentLength)
+		r.Body.Read(body)
+		fmt.Println(string(body))
+
+		// Respond with "OK"
+		w.Header().Set("Content-Type", "text/plain")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+        fmt.Println("<<------------------------------------------------")
+	})
+
+	// Start the server
+	log.Printf("Listening on port %d...\n", *port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
+}
+
+func formatQueryString(query string) string {
+	if query != "" {
+		return "?" + query
+	}
+	return ""
+}

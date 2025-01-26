@@ -21,6 +21,15 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Set CapsLock to Control (1452-628-0 is your product ID)
 defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-628-0 -array "<dict><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer><key>HIDKeyboardModifierMappingDst</key><integer>30064771296</integer></dict>"
 
+# show batter percentage
+defaults write com.apple.menuextra.battery ShowPercent -bool true
+
+# Show volume in the menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -int 0
+
+# k 連打したら特殊な k をいれようとしてくるやつをオフにする
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 # ------------------------------------------------------------------------- 
 # Key shortcuts
 # https://superuser.com/questions/1211108/remove-osx-spotlight-keyboard-shortcut-from-command-line
@@ -34,7 +43,6 @@ defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-628-0 -ar
 /usr/libexec/PlistBuddy -c "Set AppleSymbolicHotKeys:61:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
 # Disable spotlight
 /usr/libexec/PlistBuddy -c "Set AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
-
 
 
 # ------------------------------------------------------------------------- 

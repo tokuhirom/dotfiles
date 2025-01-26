@@ -1,20 +1,28 @@
--- :PackerInstall to install plugins.
+-- install vim-plug by following command.
+-- curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
--- https://github.com/nvim-tree/nvim-tree.lua
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- :PlugInstall to install plugins.
+
 
 require('packer-init')
 
 require('opts')
--- require('plugins/telescope')
-require('plugins/ctrlp')
+require('keys')
+require('vimplug')
+
+----- plugins ---
+
+-- buffer tabs
 require('plugins/bufferline')
-require('plugins/nvim-tree')
+
+require('plugins/ctrlp')
+-- require('plugins/nvim-tree')
 require('plugins/lualine')
--- require('plugins/mason')
-require('plugins/cmp')
+--  require('plugins/cmp')
+
 vim.cmd('colorscheme tokyonight')
 
-require('keys')
+vim.api.nvim_set_keymap('i', '.#', '# -------------------------------------------------------------------------', { noremap = true, silent = true })
+
+require'lspconfig'.gopls.setup{}
+

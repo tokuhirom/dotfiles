@@ -6,7 +6,7 @@
 
 # read 80 port
 
-    ngrep -d any port 80 -W byline
+    ngrep -W byline -d any port 80
 
 # grep
 

@@ -13,8 +13,8 @@ shopt -s globstar
 # Prompt
 # -----------------------------------------------
 
-source ~/dotfiles/config/zsh/git-prompt.sh
-export PS1='\u@\h $(__git_ps1 " (\e[95m%s\e[0m)") \$ '
+# source ~/dotfiles/config/zsh/git-prompt.sh
+# export PS1='\u@\h $(__git_ps1 " (\e[95m%s\e[0m)") \$ '
 
 # -----------------------------------------------
 # Basic
