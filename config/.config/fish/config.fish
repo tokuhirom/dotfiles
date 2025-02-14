@@ -52,9 +52,9 @@ if status is-interactive
     abbr -a ll ls -l
     abbr -a popd prevd
 
-    if type -q nvim
-        abbr -a vim nvim
-    end
+    # jif type -q nvim
+    # abbr -a vim nvim
+    # end
 
     if test -d ~/.plenv
         fish_add_path ~/.plenv/bin
@@ -69,6 +69,11 @@ if status is-interactive
 
     if test -d /opt/homebrew/opt/mysql@8.4/bin/
         fish_add_path /opt/homebrew/opt/mysql@8.4/bin/
+    end
+
+    set jetbrains "$HOME/Library/Application Support/JetBrains/Toolbox/scripts/"
+    if test -d "$jetbrains"
+        fish_add_path "$jetbrains"
     end
 end
 
