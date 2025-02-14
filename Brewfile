@@ -35,6 +35,9 @@ cask 'cursor'
 # App to build and share containerised applications and microservices
 cask 'docker'
 
+# API documentation viewer
+cask 'dteoh-devdocs'
+
 # Text editor
 cask 'emacs'
 
@@ -62,14 +65,26 @@ cask 'font-noto-sans-mono'
 # None
 cask 'font-noto-serif-cjk-jp'
 
+# GitHub notifications on your menu bar
+cask 'gitify'
+
 # Web browser
 cask 'google-chrome'
 
-# Keyboard shortcuts for every button on your screen
-cask 'homerow'
+# Issue reader for GitHub
+cask 'jasper'
+
+# JetBrains tools manager
+cask 'jetbrains-toolbox'
+
+# Menu bar manager
+cask 'jordanbaird-ice'
 
 # Keyboard customiser
 cask 'karabiner-elements'
+
+# Privacy-first, open-source platform for knowledge sharing and management
+cask 'logseq'
 
 # Full TeX Live distribution with GUI applications
 cask 'mactex'
@@ -89,6 +104,9 @@ cask 'uhk-agent'
 # Open-source code editor
 cask 'visual-studio-code'
 
+# Web browser with built-in email client focusing on customization and control
+cask 'vivaldi'
+
 
 # -----------------------------------'
 # Installing formulae...
@@ -97,11 +115,20 @@ cask 'visual-studio-code'
 # Static checker for GitHub Actions workflow files
 brew 'actionlint'
 
+# Automate deployment, configuration, and upgrading
+brew 'ansible'
+
+# Automatic configure script builder
+brew 'autoconf'
+
 # Bourne-Again SHell, a UNIX command interpreter
 brew 'bash'
 
 # Clone of cat(1) with syntax highlighting and Git integration
 brew 'bat'
+
+# Parser generator
+brew 'bison'
 
 # Yet another cross-platform graphical process/system monitor
 brew 'bottom'
@@ -115,8 +142,8 @@ brew 'coreutils'
 # Get, unpack, build, and install modules from CPAN
 brew 'cpanminus'
 
-# Cryptographic recipes and primitives for Python
-brew 'cryptography'
+# Run arbitrary commands when files change
+brew 'entr'
 
 # Plugin manager for the Fish shell
 brew 'fisher'
@@ -136,8 +163,8 @@ brew 'git-lfs'
 # GNU Pretty Good Privacy (PGP) package
 brew 'gnupg'
 
-# Open source programming language to build simple/reliable/efficient software
-brew 'go'
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew 'go-task'
 
 # Graph visualization software from AT&T and Bell Labs
 brew 'graphviz'
@@ -169,8 +196,11 @@ brew 'lv'
 # Mac App Store command-line interface
 brew 'mas'
 
-# Open source relational database management system
-brew 'mysql'
+# MinIO Client for object storage and filesystems
+brew 'mc'
+
+# Polyglot runtime manager (asdf rust clone)
+brew 'mise'
 
 # Open source relational database management system
 brew 'mysql@8.4'
@@ -184,29 +214,38 @@ brew 'ngrep'
 # Network Kanji code conversion Filter (NKF)
 brew 'nkf'
 
-# Manage multiple NodeJS versions
-brew 'nodenv'
+# Port scanning utility for large networks
+brew 'nmap'
 
-# Simplistic interactive filtering tool
-brew 'peco'
+# Drop-in replacement for Terraform. Infrastructure as Code Tool
+brew 'opentofu'
+
+# Swiss-army knife of markup format conversion
+brew 'pandoc'
 
 # Pretty, minimal and fast ZSH prompt
 brew 'pure'
 
+# Generate C-based recognizers from regular expressions
+brew 're2c'
+
 # Search tool like grep and The Silver Searcher
 brew 'ripgrep'
 
-# Safe, concurrent, practical language
-brew 'rust'
+# Command-line tool for the Amazon S3 service
+brew 's3cmd'
 
-# Rust toolchain installer
-brew 'rustup'
+# Parallel S3 and local filesystem execution tool
+brew 's5cmd'
 
-# Experimental Package Management Solution for Python
-brew 'rye'
+# 
+brew 'usacloud'
 
 # Tool to create intelligent and beautiful documentation
 brew 'sphinx-doc'
+
+# User interface to the TELNET protocol
+brew 'telnet'
 
 # Send macOS User Notifications from the command-line
 brew 'terminal-notifier'
@@ -220,8 +259,8 @@ brew 'tmux'
 # Display directories as trees (with optional color/HTML output)
 brew 'tree'
 
-# Vi 'workalike' with many additional features
-brew 'vim'
+# High-performance data structure server that primarily serves key/value workloads
+brew 'valkey'
 
 # Pager/text based browser
 brew 'w3m'
