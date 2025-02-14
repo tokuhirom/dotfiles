@@ -1,0 +1,11 @@
+[tools]
+
+go = 'latest'
+node = 'latest'
+python = 'latest'
+perl = 'latest'
+rust = "latest"
+ruby = "latest"
+php = "latest"
+java = "latest"
+vim = "latest"
