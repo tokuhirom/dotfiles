@@ -2,10 +2,13 @@
 
 go = 'latest'
 node = 'latest'
-python = 'latest'
+python = '3.13.1'
 perl = 'latest'
 rust = "latest"
 ruby = "latest"
-php = "latest"
-java = "latest"
+php = "8.3.17"
+# gradle が問題起こしがちなので最新の LTS をつかう
+java = "21.0.2"
 vim = "latest"
+watchexec = "latest"
+bun = "latest"
