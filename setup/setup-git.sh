@@ -30,26 +30,15 @@ git config --global merge.ff false
 # setup rebase for every tracking branch
 git config --global branch.autosetuprebase always
 
-# git pull するときは常に rebase(1.7.9以降)
-# git config --global pull.rebase true
-
-# ref. http://stackoverflow.com/questions/15915430/what-exactly-does-gits-rebase-preserve-merges-do-and-why
-# 1.8.5 or later
-# これはなんか動かなくなった。
-# git config --global pull.rebase preserve
-
 # exclude files
 git config --global core.excludesfile ~/.gitignore_global
 
-# git commit -v by default
-git config --global alias.ci 'commit --verbose'
+git config --global alias.ci 'commit'
 
 git config --global alias.co 'checkout'
 git config --global alias.st 'status --short --branch'
 git config --global alias.br 'branch'
 git config --global alias.tree 'log --graph --pretty=oneline --abbrev-commit'
-
-git config --global push.default simple
 
 # http://stackoverflow.com/questions/6764953/what-is-the-reason-for-the-a-b-prefixes-of-git-diff
 git config --global diff.noprefix true
@@ -63,9 +52,45 @@ git config --global init.defaultBranch main
 
 git config --global submodule.recurse true
 
-git config --global --add --bool push.autoSetupRemote true
-
 # https://github.blog/2022-06-29-improve-git-monorepo-performance-with-a-file-system-monitor/
 git config --global core.fsmonitor true
 git config --global core.untrackedcache true
+
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+git config --global column.ui auto
+git config --global branch.sort -committerdate
+
+# タグのソート順をスマートにする
+git config --global tag.sort version:refname
+
+
+# よりよい diff
+git config --global diff.algorithm histogram
+git config --global diff.colorMoved plain
+git config --global diff.mnemonicPrefix true
+git config --global diff.renames true
+
+git config --global push.default simple # (default since 2.0)
+git config --global push.autoSetupRemote true
+git config --global push.followTags true
+
+git config --global fetch.prune true
+git config --global fetch.pruneTags true
+git config --global fetch.all true
+
+git config --global help.autocorrect prompt
+
+git config --global commit.verbose true
+
+git config --global rerere.enabled true
+git config --global rerere.autoupdate true
+
+git config --global rebase.autoSquash true
+git config --global rebase.autoStash true
+git config --global rebase.updateRefs true
+
+git config --global merge.conflictstyle zdiff3
+
+git config --global pull.rebase true
 
