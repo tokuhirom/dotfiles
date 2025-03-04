@@ -75,6 +75,8 @@ if status is-interactive
     if test -d "$jetbrains"
         fish_add_path "$jetbrains"
     end
+
+    set EDITOR vim
 end
 
 
