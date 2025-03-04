@@ -92,6 +92,9 @@ cask 'mactex'
 # App to write, plan, collaborate, and get organised
 cask 'notion'
 
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask 'obsidian'
+
 # Control your tools with a few keystrokes
 cask 'raycast'
 
@@ -118,8 +121,8 @@ brew 'actionlint'
 # Automate deployment, configuration, and upgrading
 brew 'ansible'
 
-# Automatic configure script builder
-brew 'autoconf'
+# Tool for generating GNU Standards-compliant Makefiles
+brew 'automake'
 
 # Bourne-Again SHell, a UNIX command interpreter
 brew 'bash'
@@ -133,6 +136,12 @@ brew 'bison'
 # Yet another cross-platform graphical process/system monitor
 brew 'bottom'
 
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew 'btop'
+
+# A CLI for building apps using Cloud Native Buildpacks
+brew 'pack'
+
 # Vi-like binary file (hex) editor
 brew 'bvi'
 
@@ -141,6 +150,9 @@ brew 'coreutils'
 
 # Get, unpack, build, and install modules from CPAN
 brew 'cpanminus'
+
+# Get a file from an HTTP, HTTPS or FTP server
+brew 'curl'
 
 # Run arbitrary commands when files change
 brew 'entr'
@@ -184,11 +196,29 @@ brew 'ipython'
 # Manage your Java environment
 brew 'jenv'
 
+# Image manipulation library
+brew 'jpeg'
+
 # Lightweight and flexible command-line JSON processor
 brew 'jq'
 
 # Handy way to save and run project-specific commands
 brew 'just'
+
+# Network authentication protocol
+brew 'krb5'
+
+# BSD-style licensed readline alternative
+brew 'libedit'
+
+# Conversion library
+brew 'libiconv'
+
+# GNOME XML library
+brew 'libxml2'
+
+# C library for reading, creating, and modifying zip archives
+brew 'libzip'
 
 # Powerful multi-lingual file viewer/grep
 brew 'lv'
@@ -222,6 +252,9 @@ brew 'opentofu'
 
 # Swiss-army knife of markup format conversion
 brew 'pandoc'
+
+# Package compiler and linker metadata toolkit
+brew 'pkgconf'
 
 # Pretty, minimal and fast ZSH prompt
 brew 'pure'
