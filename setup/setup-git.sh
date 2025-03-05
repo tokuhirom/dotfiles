@@ -18,7 +18,7 @@ git config --global color.ui true
 
 # merge 済ブランチの削除
 # http://qiita.com/items/10a57a4f1d2806e3a3b8
-git config --global alias.delete-merged-branches '!git branch --merged | grep -v \* | xargs -I % git branch -d %'
+git config --global alias.br-cleanup '!git branch --merged | egrep -v "main|master|develop" | grep -v \* | xargs -I % git branch -d %'
 
 # ブランチ一覧を時刻順で
 # http://d.hatena.ne.jp/kazuhooku/20130205/1360039870
