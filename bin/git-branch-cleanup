@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+import subprocess
+
+protected_branches = ["master", "main", "develop"]
+
+def run_command(command):
+    """Run a shell command and return its output."""
+    result = subprocess.run(command, shell=True, capture_output=True, text=True, check=True)
+    return result.stdout.strip()
+
+def main():
+    # Get the current branch
+    current_branch = run_command("git rev-parse --abbrev-ref HEAD")
+    
+    # Check if the current branch is not master/main/develop
+    if current_branch not in protected_branches:
+        print(f"You are currently on branch: {current_branch}")
+        print("This is not the master, main, or develop branch.")
+        return
+
+    # Get merged branches
+    merged_branches = run_command("git branch --merged").split('\n')
+    merged_branches = [branch.strip() for branch in merged_branches if branch.strip() and branch.strip() not in protected_branches + [current_branch]]
+    merged_branches = [b for b in merged_branches if not b.startswith('*')]
+
+    # Display current directory and merged branches
+    current_directory = run_command("pwd")
+    print(f"Current directory: {current_directory}")
+    print(f"Current branch: {current_branch}")
+    print("Merged branches:")
+    for branch in merged_branches:
+        print(f"  {branch}")
+    print("")
+
+    # Prompt to delete branches
+    if merged_branches:
+        delete_prompt = input("Do you want to delete these branches? [y/N]: ").strip().lower()
+        if delete_prompt == 'y':
+            for branch in merged_branches:
+                print(f"git branch -D {branch}")
+                run_command(f"git branch -D {branch}")
+        else:
+            print("No branches were deleted.")
+    else:
+        print("No merged branches to delete.")
+
+if __name__ == "__main__":
+    main()
+
