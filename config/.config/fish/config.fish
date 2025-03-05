@@ -49,6 +49,7 @@ if status is-interactive
 
     abbr -a s ls
     abbr -a l ls
+    abbr -a sl ls
     abbr -a ll ls -l
     abbr -a popd prevd
 
