@@ -259,6 +259,9 @@ brew 'pkgconf'
 # Pretty, minimal and fast ZSH prompt
 brew 'pure'
 
+# File browser
+brew 'ranger'
+
 # Generate C-based recognizers from regular expressions
 brew 're2c'
 
@@ -303,6 +306,9 @@ brew 'wget'
 
 # Yet another elegant Go interpreter
 brew 'yaegi'
+
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew 'yq'
 
 # UNIX shell (command interpreter)
 brew 'zsh'
