@@ -77,6 +77,9 @@ if status is-interactive
         fish_add_path "$jetbrains"
     end
 
+      fish_add_path /opt/homebrew/opt/mariadb@10.11/bin
+
+
     set EDITOR vim
 end
 
