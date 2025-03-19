@@ -83,3 +83,4 @@ perf.data
 perf.data.old
 heaptrack.*
 __pycache__
+.ruffcache
