@@ -83,6 +83,9 @@ cask 'jordanbaird-ice'
 # Keyboard customiser
 cask 'karabiner-elements'
 
+# GPU-based terminal emulator
+cask 'kitty'
+
 # Privacy-first, open-source platform for knowledge sharing and management
 cask 'logseq'
 
@@ -110,6 +113,9 @@ cask 'visual-studio-code'
 # Web browser with built-in email client focusing on customization and control
 cask 'vivaldi'
 
+# Network protocol analyzer
+cask 'wireshark'
+
 
 # -----------------------------------'
 # Installing formulae...
@@ -123,6 +129,9 @@ brew 'ansible'
 
 # Tool for generating GNU Standards-compliant Makefiles
 brew 'automake'
+
+# Official Amazon AWS command-line interface
+brew 'awscli'
 
 # Bourne-Again SHell, a UNIX command interpreter
 brew 'bash'
@@ -184,6 +193,9 @@ brew 'graphviz'
 # Simple zero-configuration command-line HTTP server
 brew 'http-server'
 
+# Terminal-based textual UI for Terraform
+brew 'tftui'
+
 # Tools and libraries to manipulate images in many formats
 brew 'imagemagick'
 
@@ -205,8 +217,14 @@ brew 'jq'
 # Handy way to save and run project-specific commands
 brew 'just'
 
-# Network authentication protocol
-brew 'krb5'
+# None
+brew 'func'
+
+# None
+brew 'quickstart'
+
+# None
+brew 'kn'
 
 # BSD-style licensed readline alternative
 brew 'libedit'
@@ -223,8 +241,14 @@ brew 'libzip'
 # Powerful multi-lingual file viewer/grep
 brew 'lv'
 
+# Drop-in replacement for MySQL
+brew 'mariadb@10.11'
+
 # Mac App Store command-line interface
 brew 'mas'
+
+# Run a Kubernetes cluster locally
+brew 'minikube'
 
 # MinIO Client for object storage and filesystems
 brew 'mc'
@@ -255,6 +279,9 @@ brew 'pandoc'
 
 # Package compiler and linker metadata toolkit
 brew 'pkgconf'
+
+# Object-relational database system
+brew 'postgresql@17'
 
 # Pretty, minimal and fast ZSH prompt
 brew 'pure'
