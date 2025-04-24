@@ -1,15 +1,15 @@
 [tools]
 
-go = 'latest'
-node = 'latest'
+go = '1.24.2'
+node = '22.14.0'
 python = '3.13.1'
-perl = 'latest'
-rust = "latest"
-ruby = "latest"
+perl = '5.40.2'
+rust = "1.85.0"
+ruby = "3.4.3"
 php = "8.3.17"
 # gradle が問題起こしがちなので最新の LTS をつかう
 java = "21.0.2"
-vim = "latest"
-watchexec = "latest"
-bun = "latest"
+vim = "9.1.0"
+watchexec = "2.3.0"
+bun = "1.2.10"
 terraform = "1.9.6"
