@@ -79,6 +79,7 @@ if status is-interactive
     end
 
       fish_add_path /opt/homebrew/opt/mariadb@10.11/bin
+      fish_add_path /opt/homebrew/opt/postgresql@13/bin
 
 
     set EDITOR vim
@@ -86,5 +87,17 @@ end
 
 
 # Setting PATH for Python 3.12
-# The original version is saved in /Users/to-matsuno/.config/fish/config.fish.pysave
+# The original version is saved in $HOME/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" "$PATH"
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH $HOME/.lmstudio/bin
+# End of LM Studio CLI section
+
+
+# pnpm
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
