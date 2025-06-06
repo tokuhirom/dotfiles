@@ -14,8 +14,8 @@ cask 'alacritty'
 # Enable Windows-like alt-tab
 cask 'alt-tab'
 
-# Chromium based browser
-cask 'arc'
+# Redis desktop manager
+cask 'another-redis-desktop-manager'
 
 # Japanese input method editor (IME) produced by JustSystems
 cask 'atok'
@@ -28,9 +28,6 @@ cask 'cleanshot'
 
 # Plain-text editor for web pages, program source codes and more
 cask 'coteditor'
-
-# Write, edit, and chat about your code with AI
-cask 'cursor'
 
 # App to build and share containerised applications and microservices
 cask 'docker'
@@ -65,9 +62,6 @@ cask 'font-noto-sans-mono'
 # None
 cask 'font-noto-serif-cjk-jp'
 
-# GitHub notifications on your menu bar
-cask 'gitify'
-
 # Web browser
 cask 'google-chrome'
 
@@ -86,11 +80,14 @@ cask 'karabiner-elements'
 # GPU-based terminal emulator
 cask 'kitty'
 
+# Discover, download, and run local LLMs
+cask 'lm-studio'
+
 # Privacy-first, open-source platform for knowledge sharing and management
 cask 'logseq'
 
-# Full TeX Live distribution with GUI applications
-cask 'mactex'
+# Shows the next meeting in the menu bar
+cask 'meetingbar'
 
 # App to write, plan, collaborate, and get organised
 cask 'notion'
@@ -127,6 +124,9 @@ brew 'actionlint'
 # Automate deployment, configuration, and upgrading
 brew 'ansible'
 
+# A database toolkit
+brew 'atlas'
+
 # Tool for generating GNU Standards-compliant Makefiles
 brew 'automake'
 
@@ -160,14 +160,23 @@ brew 'coreutils'
 # Get, unpack, build, and install modules from CPAN
 brew 'cpanminus'
 
+# Tool for interacting with remote images and registries
+brew 'crane'
+
 # Get a file from an HTTP, HTTPS or FTP server
 brew 'curl'
 
 # Run arbitrary commands when files change
 brew 'entr'
 
+# Simple, fast and user-friendly alternative to find
+brew 'fd'
+
 # Plugin manager for the Fish shell
 brew 'fisher'
+
+# Fast and Lightweight Logs and Metrics processor
+brew 'fluent-bit'
 
 # Command-line fuzzy finder written in Go
 brew 'fzf'
@@ -181,17 +190,14 @@ brew 'git'
 # Git extension for versioning large files
 brew 'git-lfs'
 
-# GNU Pretty Good Privacy (PGP) package
-brew 'gnupg'
-
 # Task is a task runner/build tool that aims to be simpler and easier to use
 brew 'go-task'
 
 # Graph visualization software from AT&T and Bell Labs
 brew 'graphviz'
 
-# Simple zero-configuration command-line HTTP server
-brew 'http-server'
+# Packer
+brew 'packer'
 
 # Terminal-based textual UI for Terraform
 brew 'tftui'
@@ -217,6 +223,12 @@ brew 'jq'
 # Handy way to save and run project-specific commands
 brew 'just'
 
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew 'k9s'
+
+# Run local Kubernetes cluster in Docker
+brew 'kind'
+
 # None
 brew 'func'
 
@@ -225,6 +237,12 @@ brew 'quickstart'
 
 # None
 brew 'kn'
+
+# Tool that can switch between kubectl contexts easily and create aliases
+brew 'kubectx'
+
+# Fast and powerful Git hooks manager for any type of projects
+brew 'lefthook'
 
 # BSD-style licensed readline alternative
 brew 'libedit'
@@ -244,6 +262,9 @@ brew 'lv'
 # Drop-in replacement for MySQL
 brew 'mariadb@10.11'
 
+# Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
+brew 'marp-cli'
+
 # Mac App Store command-line interface
 brew 'mas'
 
@@ -255,9 +276,6 @@ brew 'mc'
 
 # Polyglot runtime manager (asdf rust clone)
 brew 'mise'
-
-# Open source relational database management system
-brew 'mysql@8.4'
 
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
@@ -271,6 +289,9 @@ brew 'nkf'
 # Port scanning utility for large networks
 brew 'nmap'
 
+# Prometheus exporter for machine metrics
+brew 'node_exporter'
+
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew 'opentofu'
 
@@ -281,7 +302,10 @@ brew 'pandoc'
 brew 'pkgconf'
 
 # Object-relational database system
-brew 'postgresql@17'
+brew 'postgresql@13'
+
+# Service monitoring system and time series database
+brew 'prometheus'
 
 # Pretty, minimal and fast ZSH prompt
 brew 'pure'
@@ -304,8 +328,17 @@ brew 's5cmd'
 # 
 brew 'usacloud'
 
+# Work with remote images registries
+brew 'skopeo'
+
 # Tool to create intelligent and beautiful documentation
 brew 'sphinx-doc'
+
+# Compressed read-only file system for Linux
+brew 'squashfs'
+
+# Stress test a computer system in various selectable ways
+brew 'stress-ng'
 
 # User interface to the TELNET protocol
 brew 'telnet'
@@ -331,6 +364,9 @@ brew 'w3m'
 # Internet file retriever
 brew 'wget'
 
+# ISO9660+RR manipulation tool
+brew 'xorriso'
+
 # Yet another elegant Go interpreter
 brew 'yaegi'
 
@@ -340,16 +376,23 @@ brew 'yq'
 # UNIX shell (command interpreter)
 brew 'zsh'
 
-# Tool for writing better scripts
-brew 'zx'
-
 # -----------------------------------'
 # Installing mas(Mac app store)...
 # -----------------------------------'
 
-mas 'MindNode', id: 1289197285
+mas 'Get Plain Text', id: 508368068
+
+mas 'iMovie', id: 408981434
+
+mas 'Keynote', id: 409183694
 
 mas 'LINE', id: 539883307
+
+mas 'MindNode', id: 1289197285
+
+mas 'Numbers', id: 409203825
+
+mas 'Pages', id: 409201541
 
 mas 'Pixelmator Pro', id: 1289583905
 
