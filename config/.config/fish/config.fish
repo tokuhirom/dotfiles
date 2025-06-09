@@ -101,3 +101,18 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+
+
+# TypeSpec
+set TYPESPEC_PATH "$HOME/.tsp/bin"
+if [ -d "$TYPESPEC_PATH" ]
+  set PATH "$TYPESPEC_PATH" $PATH
+end
+
+
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH $HOME/.lmstudio/bin
+# End of LM Studio CLI section
+
