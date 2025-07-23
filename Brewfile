@@ -17,6 +17,9 @@ cask 'alt-tab'
 # Redis desktop manager
 cask 'another-redis-desktop-manager'
 
+# Speech-to-text system
+cask 'aqua-voice'
+
 # Japanese input method editor (IME) produced by JustSystems
 cask 'atok'
 
@@ -30,13 +33,13 @@ cask 'cleanshot'
 cask 'coteditor'
 
 # App to build and share containerised applications and microservices
-cask 'docker'
+cask 'docker-desktop'
+
+# Online diagram software
+cask 'drawio'
 
 # API documentation viewer
 cask 'dteoh-devdocs'
-
-# Text editor
-cask 'emacs'
 
 # Web browser
 cask 'firefox'
@@ -66,7 +69,7 @@ cask 'font-noto-serif-cjk-jp'
 cask 'google-chrome'
 
 # Issue reader for GitHub
-cask 'jasper'
+cask 'jasper-app'
 
 # JetBrains tools manager
 cask 'jetbrains-toolbox'
@@ -79,9 +82,6 @@ cask 'karabiner-elements'
 
 # GPU-based terminal emulator
 cask 'kitty'
-
-# Discover, download, and run local LLMs
-cask 'lm-studio'
 
 # Privacy-first, open-source platform for knowledge sharing and management
 cask 'logseq'
@@ -107,16 +107,22 @@ cask 'uhk-agent'
 # Open-source code editor
 cask 'visual-studio-code'
 
+# Open-source code editor
+cask 'visual-studio-code@insiders'
+
 # Web browser with built-in email client focusing on customization and control
 cask 'vivaldi'
 
 # Network protocol analyzer
-cask 'wireshark'
+cask 'wireshark-app'
 
 
 # -----------------------------------'
 # Installing formulae...
 # -----------------------------------'
+
+# Run your GitHub Actions locally
+brew 'act'
 
 # Static checker for GitHub Actions workflow files
 brew 'actionlint'
@@ -199,6 +205,9 @@ brew 'graphviz'
 # Packer
 brew 'packer'
 
+# C/C++ and Java libraries for Unicode and globalization
+brew 'icu4c@76'
+
 # Terminal-based textual UI for Terraform
 brew 'tftui'
 
@@ -223,6 +232,12 @@ brew 'jq'
 # Handy way to save and run project-specific commands
 brew 'just'
 
+# runn is a tool for running operations following a scenario.
+brew 'runn'
+
+# tbls is a CI-Friendly tool for document a database, written in Go.
+brew 'tbls'
+
 # Kubernetes CLI To Manage Your Clusters In Style!
 brew 'k9s'
 
@@ -243,6 +258,9 @@ brew 'kubectx'
 
 # Fast and powerful Git hooks manager for any type of projects
 brew 'lefthook'
+
+# Multi-format archive and compression library
+brew 'libarchive'
 
 # BSD-style licensed readline alternative
 brew 'libedit'
@@ -307,6 +325,9 @@ brew 'postgresql@13'
 # Service monitoring system and time series database
 brew 'prometheus'
 
+# Protocol buffers (Google's data interchange format)
+brew 'protobuf'
+
 # Pretty, minimal and fast ZSH prompt
 brew 'pure'
 
@@ -337,8 +358,8 @@ brew 'sphinx-doc'
 # Compressed read-only file system for Linux
 brew 'squashfs'
 
-# Stress test a computer system in various selectable ways
-brew 'stress-ng'
+# Tool to enforce Swift style and conventions
+brew 'swiftlint'
 
 # User interface to the TELNET protocol
 brew 'telnet'
@@ -354,6 +375,9 @@ brew 'tmux'
 
 # Display directories as trees (with optional color/HTML output)
 brew 'tree'
+
+# Extremely fast Python package installer and resolver, written in Rust
+brew 'uv'
 
 # High-performance data structure server that primarily serves key/value workloads
 brew 'valkey'
@@ -395,4 +419,6 @@ mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 
 mas 'Pixelmator Pro', id: 1289583905
+
+mas 'Xcode', id: 497799835
 
