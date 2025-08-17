@@ -90,7 +90,14 @@ git config --global rebase.autoSquash true
 git config --global rebase.autoStash true
 git config --global rebase.updateRefs true
 
-git config --global merge.conflictstyle zdiff3
+# Git help でzdiff3のサポートを確認
+if git help config | grep -q "zdiff3" 2>/dev/null; then
+    echo "Setting merge.conflictstyle to zdiff3"
+    git config --global merge.conflictstyle zdiff3
+else
+    echo "zdiff3 not supported, using diff3"
+    git config --global merge.conflictstyle diff3
+fi
 
 git config --global pull.rebase true
 
