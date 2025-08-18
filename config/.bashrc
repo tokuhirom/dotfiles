@@ -57,3 +57,8 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export PATH=$PATH:$HOME/.local/bin
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/to-matsuno/.lmstudio/bin"
+# End of LM Studio CLI section
+

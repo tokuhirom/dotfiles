@@ -30,6 +30,7 @@ link .Rprofile
 link .config/nvim
 link .config/bat/config
 link .screenrc
+link .ideavimrc
 link .config/ghostty
 link .config/starship.toml
 link .config/alacritty

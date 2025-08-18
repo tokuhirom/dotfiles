@@ -65,10 +65,6 @@ if status is-interactive
 
     fish_add_path ~/dotfiles/bin/
 
-    if test -d ~/.tiup/bin
-        fish_add_path ~/.tiup/bin/
-    end
-
     if test -d /opt/homebrew/opt/mysql@8.4/bin/
         fish_add_path /opt/homebrew/opt/mysql@8.4/bin/
     end
@@ -114,5 +110,12 @@ end
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH $HOME/.lmstudio/bin
+# End of LM Studio CLI section
+
+mise activate fish | source
+
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/to-matsuno/.lmstudio/bin
 # End of LM Studio CLI section
 

@@ -167,6 +167,7 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
+<<<<<<< HEAD
 if [ -d /usr/local/go ]; then
     export GOROOT=/usr/local/go
     export GOPATH=$HOME/go
