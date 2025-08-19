@@ -53,6 +53,7 @@ if status is-interactive
     abbr -a ll ls -l
     abbr -a popd prevd
     abbr -a k kubectl
+    abbr -a t topydo
 
     # jif type -q nvim
     # abbr -a vim nvim
@@ -118,4 +119,7 @@ mise activate fish | source
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/to-matsuno/.lmstudio/bin
 # End of LM Studio CLI section
+
+set -x TODO_FILE ~/todo.txt
+
 

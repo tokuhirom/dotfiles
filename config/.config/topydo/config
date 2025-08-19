@@ -1,0 +1,5 @@
+[topydo]
+filename = ~/todo.txt
+archive_filename = ~/done.txt
+
+

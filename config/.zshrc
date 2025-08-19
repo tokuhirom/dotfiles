@@ -167,7 +167,6 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
-<<<<<<< HEAD
 if [ -d /usr/local/go ]; then
     export GOROOT=/usr/local/go
     export GOPATH=$HOME/go
@@ -175,3 +174,6 @@ if [ -d /usr/local/go ]; then
 fi
 
 [[ -e "$HOME/.local/bin/mise" ]] && eval "$(~/.local/bin/mise activate zsh)"
+
+export TODO_FILE="$HOME/todo.txt"
+

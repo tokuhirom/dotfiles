@@ -38,6 +38,7 @@ link .config/fish/config.fish
 link .config/fish/fish_plugins
 link .config/mise/config.toml
 link .config/ranger
+link .config/topydo
 
 # mac only
 if [ -d /Users ]; then
