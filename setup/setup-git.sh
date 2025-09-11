@@ -20,6 +20,9 @@ git config --global color.ui true
 # http://qiita.com/items/10a57a4f1d2806e3a3b8
 git config --global alias.br-cleanup '!git branch --merged | egrep -v "main|master|develop" | grep -v \* | xargs -I % git branch -d %'
 
+# https://zenn.dev/kmtym1998/articles/202412160900
+git config --global alias.prowl '!gh prowl'
+
 # ブランチ一覧を時刻順で
 # http://d.hatena.ne.jp/kazuhooku/20130205/1360039870
 # git config --global alias.branch-list "!(for i in `git branch | colrm 1 2` ; do echo `git log --date=iso8601 -n 1 --pretty="format:[%ai] %h" $i` $i ; done) | sort -r"
