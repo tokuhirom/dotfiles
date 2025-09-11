@@ -53,7 +53,7 @@ if status is-interactive
     abbr -a ll ls -l
     abbr -a popd prevd
     abbr -a k kubectl
-    abbr -a t topydo
+    alias docker-stop-all='docker stop $(docker ps -q)'
 
     # jif type -q nvim
     # abbr -a vim nvim
@@ -123,3 +123,6 @@ set -gx PATH $PATH /Users/to-matsuno/.lmstudio/bin
 set -x TODO_FILE ~/todo.txt
 
 
+
+# uv
+fish_add_path "/Users/to-matsuno/.local/bin"
