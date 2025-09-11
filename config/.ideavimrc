@@ -24,12 +24,11 @@ Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
 
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 
 let mapleader = ","
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :action GotoFile<CR>
-nnoremap <Leader>r :<C-u> action RefactoringMenu<CR>
 " nnoremap <Leader>r :source ~/.ideavimrc<CR>
 nnoremap <Leader>ev :<C-u>vsplit ~/.ideavimrc<CR>
 nnoremap <Leader>sv :<C-u>source ~/.ideavimrc<CR>
@@ -81,6 +80,7 @@ nmap <leader>fa <Action>(GotoAction)
 nmap <leader>ff <Action>(SearchEverywhere)
 nmap <leader>fw <Action>(FindInPath)
 nmap <leader>c <Action>(CloseContent)
+nmap <leader>d <Action>(Debug)
 nmap <leader>bc <Action>(CloseAllEditorsButActive)
 nmap <leader>bC <Action>(CloseAllEditors)
 nmap <leader>e <Action>(ActivateProjectToolWindow)
@@ -88,6 +88,8 @@ nmap <leader>la <Action>(ShowIntentionActions)
 nmap <leader>ls <Action>(ActivateStructureToolWindow)
 nmap <leader>lr <Action>(RenameElement)
 nmap <leader>o <Action>(EditorEscape)
+nmap <Leader>r <Action>(Run)
+nmap <Leader>R <Action>(RefactoringMenu)
 nmap <leader>th <Action>(ActivateTerminalToolWindow)
 nmap <leader>q <Action>(HideAllWindows)
 nmap <leader>/ <Action>(CommentByLineComment)
