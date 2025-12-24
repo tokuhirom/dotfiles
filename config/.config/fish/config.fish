@@ -53,7 +53,6 @@ if status is-interactive
     abbr -a ll ls -l
     abbr -a popd prevd
     abbr -a k kubectl
-    alias docker-stop-all='docker stop $(docker ps -q)'
 
     # jif type -q nvim
     # abbr -a vim nvim
