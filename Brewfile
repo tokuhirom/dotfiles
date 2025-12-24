@@ -26,20 +26,26 @@ cask 'atok'
 # Utility that prevents the system from going to sleep
 cask 'caffeine'
 
+# Terminal-based AI coding assistant
+cask 'claude-code'
+
 # Screen capturing tool
 cask 'cleanshot'
 
 # Plain-text editor for web pages, program source codes and more
 cask 'coteditor'
 
+# Server and cloud storage browser
+cask 'cyberduck'
+
+# Monitors and peripherals manager
+cask 'ddpm'
+
+# Voice and text chat software
+cask 'discord'
+
 # App to build and share containerised applications and microservices
 cask 'docker-desktop'
-
-# Online diagram software
-cask 'drawio'
-
-# API documentation viewer
-cask 'dteoh-devdocs'
 
 # Web browser
 cask 'firefox'
@@ -89,6 +95,9 @@ cask 'logseq'
 # Shows the next meeting in the menu bar
 cask 'meetingbar'
 
+# Orchestrates virtual Ubuntu instances
+cask 'multipass'
+
 # App to write, plan, collaborate, and get organised
 cask 'notion'
 
@@ -106,9 +115,6 @@ cask 'uhk-agent'
 
 # Open-source code editor
 cask 'visual-studio-code'
-
-# Open-source code editor
-cask 'visual-studio-code@insiders'
 
 # Web browser with built-in email client focusing on customization and control
 cask 'vivaldi'
@@ -129,6 +135,9 @@ brew 'actionlint'
 
 # Automate deployment, configuration, and upgrading
 brew 'ansible'
+
+# Java build tool
+brew 'ant'
 
 # A database toolkit
 brew 'atlas'
@@ -160,6 +169,9 @@ brew 'pack'
 # Vi-like binary file (hex) editor
 brew 'bvi'
 
+# Cross-platform make
+brew 'cmake'
+
 # GNU File, Shell, and Text utilities
 brew 'coreutils'
 
@@ -172,6 +184,21 @@ brew 'crane'
 # Get a file from an HTTP, HTTPS or FTP server
 brew 'curl'
 
+# Compiler for writing C extensions for the Python language
+brew 'cython'
+
+# Convert ASCII diagrams into proper bitmap graphics
+brew 'ditaa'
+
+# Generate documentation for several programming languages
+brew 'doxygen'
+
+# Embeddable SQL OLAP Database Management System
+brew 'duckdb'
+
+# GNU Emacs text editor
+brew 'emacs'
+
 # Run arbitrary commands when files change
 brew 'entr'
 
@@ -183,6 +210,9 @@ brew 'fisher'
 
 # Fast and Lightweight Logs and Metrics processor
 brew 'fluent-bit'
+
+# None
+brew 'sops-sakura-kms'
 
 # Command-line fuzzy finder written in Go
 brew 'fzf'
@@ -253,9 +283,6 @@ brew 'quickstart'
 # None
 brew 'kn'
 
-# Tool that can switch between kubectl contexts easily and create aliases
-brew 'kubectx'
-
 # Fast and powerful Git hooks manager for any type of projects
 brew 'lefthook'
 
@@ -265,35 +292,35 @@ brew 'libarchive'
 # BSD-style licensed readline alternative
 brew 'libedit'
 
-# Conversion library
-brew 'libiconv'
-
 # GNOME XML library
 brew 'libxml2'
-
-# C library for reading, creating, and modifying zip archives
-brew 'libzip'
 
 # Powerful multi-lingual file viewer/grep
 brew 'lv'
 
-# Drop-in replacement for MySQL
-brew 'mariadb@10.11'
-
-# Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
-brew 'marp-cli'
+# None
+brew 'mkr'
 
 # Mac App Store command-line interface
 brew 'mas'
 
-# Run a Kubernetes cluster locally
-brew 'minikube'
+# Bulk replace GitHub Actions references from version tags to commit hashes for locked, reproducible workflows.
+brew 'actionspin'
+
+# Scalable distributed version control system
+brew 'mercurial'
 
 # MinIO Client for object storage and filesystems
 brew 'mc'
 
 # Polyglot runtime manager (asdf rust clone)
 brew 'mise'
+
+# Simple tool to make locally trusted development certificates
+brew 'mkcert'
+
+# Tail multiple files in one terminal simultaneously
+brew 'multitail'
 
 # Ambitious Vim-fork focused on extensibility and agility
 brew 'neovim'
@@ -310,11 +337,20 @@ brew 'nmap'
 # Prometheus exporter for machine metrics
 brew 'node_exporter'
 
+# Libraries for security-enabled client and server applications
+brew 'nss'
+
+# AI coding agent, built for the terminal
+brew 'opencode'
+
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew 'opentofu'
 
 # Swiss-army knife of markup format conversion
 brew 'pandoc'
+
+# Monitor PostgreSQL processes
+brew 'pg_top'
 
 # Package compiler and linker metadata toolkit
 brew 'pkgconf'
@@ -337,9 +373,6 @@ brew 'ranger'
 # Generate C-based recognizers from regular expressions
 brew 're2c'
 
-# Search tool like grep and The Silver Searcher
-brew 'ripgrep'
-
 # Command-line tool for the Amazon S3 service
 brew 's3cmd'
 
@@ -351,6 +384,9 @@ brew 'usacloud'
 
 # Work with remote images registries
 brew 'skopeo'
+
+# Editor of encrypted files
+brew 'sops'
 
 # Tool to create intelligent and beautiful documentation
 brew 'sphinx-doc'
@@ -373,20 +409,29 @@ brew 'the_silver_searcher'
 # Terminal multiplexer
 brew 'tmux'
 
-# Display directories as trees (with optional color/HTML output)
-brew 'tree'
+# Minimal, todo.txt-focused editor
+brew 'todo-txt'
+
+# Docker Compose Viewer - A TUI tool for monitoring Docker Compose applications
+brew 'dcv'
+
+# Taskeru - task management tool
+brew 'taskeru'
+
+# Find and verify credentials
+brew 'trufflehog'
 
 # Extremely fast Python package installer and resolver, written in Rust
 brew 'uv'
-
-# High-performance data structure server that primarily serves key/value workloads
-brew 'valkey'
 
 # Pager/text based browser
 brew 'w3m'
 
 # Internet file retriever
 brew 'wget'
+
+# Lookup tool for domain names and other internet resources
+brew 'whois'
 
 # ISO9660+RR manipulation tool
 brew 'xorriso'
@@ -397,12 +442,17 @@ brew 'yaegi'
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew 'yq'
 
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew 'zellij'
+
 # UNIX shell (command interpreter)
 brew 'zsh'
 
 # -----------------------------------'
 # Installing mas(Mac app store)...
 # -----------------------------------'
+
+mas 'Cybozu Desktop', id: 905155357
 
 mas 'Get Plain Text', id: 508368068
 
@@ -412,7 +462,7 @@ mas 'Keynote', id: 409183694
 
 mas 'LINE', id: 539883307
 
-mas 'MindNode', id: 1289197285
+mas 'MindNode Classic', id: 1289197285
 
 mas 'Numbers', id: 409203825
 
