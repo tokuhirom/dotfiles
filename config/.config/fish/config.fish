@@ -35,6 +35,25 @@ if status is-interactive
       end
     end
 
+    # zellij の起動を良い感じにする
+    function zj
+        # 1. カレントディレクトリのベース名を取得
+        set -l sess_name (basename (pwd))
+
+        # 2. 同名のセッションが何個あるか取得
+        #    -x は「行全体が完全一致」だけを抽出（正規表現の $ が邪魔にならない）
+        set -l matches (zellij list-sessions | grep -x $sess_name)
+
+        # 3. 複数ヒットしたら fzf で選択させる
+        if test (count $matches) -gt 1
+            set -l sess_name (printf '%s\n' $matches | fzf --prompt='Select Zellij session> ')
+        end
+
+        # 4. attach –c で「無ければ作成、あれば attach」する
+        zellij attach $sess_name -c
+    end
+
+
     function fish_user_key_bindings
         bind \cq fzf_z # Bind to Ctrl-Q
     end 
@@ -74,9 +93,7 @@ if status is-interactive
         fish_add_path "$jetbrains"
     end
 
-      fish_add_path /opt/homebrew/opt/mariadb@10.11/bin
       fish_add_path /opt/homebrew/opt/postgresql@13/bin
-
 
     set EDITOR vim
 end
@@ -85,10 +102,6 @@ end
 # Setting PATH for Python 3.12
 # The original version is saved in $HOME/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" "$PATH"
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH $HOME/.lmstudio/bin
-# End of LM Studio CLI section
 
 
 # pnpm
@@ -108,20 +121,11 @@ end
 
 
 
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH $HOME/.lmstudio/bin
-# End of LM Studio CLI section
-
 mise activate fish | source
 
 
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/to-matsuno/.lmstudio/bin
-# End of LM Studio CLI section
-
 set -x TODO_FILE ~/todo.txt
-
-
 
 # uv
 fish_add_path "/Users/to-matsuno/.local/bin"
+

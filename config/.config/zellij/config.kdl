@@ -105,8 +105,9 @@ keybinds clear-defaults=true {
     search {
         bind "c" { SearchToggleOption "CaseSensitivity"; }
         bind "n" { Search "down"; }
+        bind "N" { Search "up"; }
         bind "o" { SearchToggleOption "WholeWord"; }
-        bind "p" { Search "up"; }
+        // bind "p" { Search "up"; }
         bind "w" { SearchToggleOption "Wrap"; }
     }
     session {
@@ -375,6 +376,7 @@ default_mode "locked"
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
 // scrollback_editor "/usr/bin/vim"
+scrollback_editor "nvim"
  
 // A fixed name to always give the Zellij session.
 // Consider also setting `attach_to_session true,`
