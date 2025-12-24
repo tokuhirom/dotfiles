@@ -14,6 +14,11 @@ set scrolloff=5
 " Do incremental searching.
 set incsearch
 
+nnoremap d "_d
+" d, dd, x をブラックホールレジスタに送る｡d や x でクリップボードにコピーしない
+nnoremap dd "_dd
+nnoremap x "_x
+
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
@@ -99,5 +104,10 @@ nmap gd <Action>(CloseContent)
 nmap u <Action>($Undo)
 nmap <C-l> <Action>(NextSplitter)
 nmap <C-h> <Action>(PrevSplitter)
+
+map <Leader>pf <action>(com.mituuz.fuzzier.Fuzzier)
+map <Leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
+map <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
+map <Leader>ff <action>(com.mituuz.fuzzier.FuzzyGrep)
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
