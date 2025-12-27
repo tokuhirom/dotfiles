@@ -6,7 +6,9 @@ python = '3.14.2'
 perl = '5.42.0'
 rust = "1.92.0"
 ruby = "4.0.0"
-php = "8.5.1"
+# https://github.com/asdf-community/asdf-php?tab=readme-ov-file#macos
+# brew install gmp libsodium imagemagick
+php = "8.3.17"
 # gradle が問題起こしがちなので最新の LTS をつかうこと
 java = "25.0.1"
 vim = "9.1.1825"
