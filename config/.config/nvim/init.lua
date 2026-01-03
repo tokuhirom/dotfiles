@@ -4,8 +4,6 @@
 -- :PlugInstall to install plugins.
 
 
-require('packer-init')
-
 require('opts')
 require('keys')
 require('vimplug')
@@ -24,5 +22,5 @@ vim.cmd('colorscheme tokyonight')
 
 vim.api.nvim_set_keymap('i', '.#', '# -------------------------------------------------------------------------', { noremap = true, silent = true })
 
-require'lspconfig'.gopls.setup{}
+-- require'lspconfig'.gopls.setup{}
 
