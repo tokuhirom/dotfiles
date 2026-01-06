@@ -40,6 +40,7 @@ link .config/mise/config.toml
 link .config/zellij/config.kdl
 link .config/ranger
 link .config/topydo
+link .config/aerospace/aerospace.toml
 
 # mac only
 if [ -d /Users ]; then
