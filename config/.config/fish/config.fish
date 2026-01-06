@@ -96,7 +96,7 @@ if status is-interactive
 
       fish_add_path /opt/homebrew/opt/postgresql@13/bin
 
-    set EDITOR vim
+    set EDITOR nvim
 end
 
 
