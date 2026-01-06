@@ -1,9 +1,16 @@
-shell-integration = zsh
+shell-integration = fish
 
 # theme = 3024 Day
-# theme = Aurora
-theme = zenburn
+theme = Aurora
+# theme = zenburn
+# theme = ayu
 
+# font-family = "SF Mono"
+# font-family = "Hiragino Kaku Gothic ProN"
+font-family = JetBrainsMonoNL Nerd Font Mono
+
+font-thicken = true
+font-thicken-strength = 1
 
 font-feature = -calt
 font-feature = -dlig
