@@ -72,6 +72,7 @@ if status is-interactive
     abbr -a ll ls -l
     abbr -a popd prevd
     abbr -a k kubectl
+    abbr -a vim nvim
 
     # jif type -q nvim
     # abbr -a vim nvim
