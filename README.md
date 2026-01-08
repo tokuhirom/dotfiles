@@ -16,6 +16,13 @@ This is my dotfiles repo.
   - (plenv, nodeenv etc...) -> mise(2025)
   - :o: mise
 - main ide
-  - :o: goland
+- :o: goland
 - neovim environment
   - see config/.config/neovim/README.md
+- terminal multiplexer
+  - screen -> tmux -> zellij(2026) -> tmux(2026)
+  - :o: tmux
+    - copy mode is so good
+  - :x: zellij
+    - tmux's copy mode is better than zellij's
+    - `C-t p l` is longer than `C-t l`
