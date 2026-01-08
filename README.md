@@ -2,3 +2,20 @@
 
 This is my dotfiles repo.
 
+## My environment
+
+- Terminal
+  - Terminal.app -> iTerm2 -> wezterm -> alacritty -> wezterm(2026)
+  - :o: wezterm
+    - it's the best choice with aerospace
+  - :x: alacritty
+    - not good with aerospace
+  - :x: ghostty
+    - not good with aerospace
+- programming language dependency manager
+  - (plenv, nodeenv etc...) -> mise(2025)
+  - :o: mise
+- main ide
+  - :o: goland
+- neovim environment
+  - see config/.config/neovim/README.md
