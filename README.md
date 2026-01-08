@@ -15,6 +15,8 @@ This is my dotfiles repo.
 - programming language dependency manager
   - (plenv, nodeenv etc...) -> mise(2025)
   - :o: mise
+    - だいたいなんでも mise で管理できるので便利すぎる。
+    - PHP だけ管理しにくい問題あり。
 - main ide
 - :o: goland
 - neovim environment
@@ -26,3 +28,18 @@ This is my dotfiles repo.
   - :x: zellij
     - tmux's copy mode is better than zellij's
     - `C-t p l` is longer than `C-t l`
+- shell
+  - bash -> zsh -> fish(2025)
+  - :o: fish
+    - good interactive shell
+    - :( not compatible with bash
+    - しばらく使ったけど、特にメリットないので、zsh に戻したい気もする
+  - zsh
+  - bash
+    - mac に入ってるBashはライセンスの関係上絶妙に古いので、そのへん考えるのがめんどくさい。
+ - mac package management
+   - macports -> brew
+- web browser
+  - chrome -> vivaldi -> chrome
+  - :x: vivaldi
+    - そんなにすごく便利っていう感じの機能が特になかった。
