@@ -7,7 +7,16 @@ config-version = 2
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+    'exec-and-forget sketchybar'
+]
+
+# Sync state when workspace changes (e.g. clicking dock icons, monitor changes)
+exec-on-workspace-change = [
+    '/bin/bash',
+    '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 
 # Start AeroSpace at login
 start-at-login = false
@@ -72,7 +81,7 @@ on-mode-changed = []
     inner.vertical =   0
     outer.left =       0
     outer.bottom =     0
-    outer.top =        0
+    outer.top =        35
     outer.right =      0
 
 # 'main' binding mode declaration
