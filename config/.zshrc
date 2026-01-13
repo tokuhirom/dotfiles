@@ -144,10 +144,14 @@ source ~/dotfiles/config/zsh/init/lang/rust.sh
 
 source ~/dotfiles/config/zsh/init/cmd/fzf.sh
 source ~/dotfiles/config/zsh/init/cmd/pure.sh
+source ~/dotfiles/config/zsh/init/cmd/zellij.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# JetBrains Toolbox scripts (goland, idea, etc.)
+export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
 
 export PATH="$HOME/.tiup/bin:$PATH"
 
@@ -174,6 +178,7 @@ if [ -d /usr/local/go ]; then
 fi
 
 [[ -e "$HOME/.local/bin/mise" ]] && eval "$(~/.local/bin/mise activate zsh)"
+[[ -e /opt/homebrew/bin/mise ]] && eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 export TODO_FILE="$HOME/todo.txt"
 
