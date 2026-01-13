@@ -34,6 +34,26 @@ return {
             mods = 'CTRL|SHIFT',
             action = wezterm.action.PasteFrom 'Clipboard',
         },
+        -- Copy Mode (vim-like selection)
+        {
+            key = '[',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.ActivateCopyMode,
+        },
+        -- QuickSelect (highlight and select text patterns)
+        {
+            key = 'Space',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.QuickSelect,
+        },
+    },
+
+    -- QuickSelect patterns (URLs, paths, hashes, etc.)
+    quick_select_patterns = {
+        -- Git short hash
+        '[0-9a-f]{7,40}',
+        -- IPv4
+        '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}',
     },
 
     -- show underline for link
