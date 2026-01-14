@@ -8,6 +8,10 @@ RESULT=$(osascript -e "
 set now to current date
 set endTime to now + (24 * 60 * 60) -- 24 hours from now
 
+-- Get today's date (midnight)
+set todayStart to now - (time of now)
+set tomorrowStart to todayStart + (24 * 60 * 60)
+
 tell application \"Calendar\"
     set targetCal to first calendar whose name is \"$CALENDAR_NAME\"
 
@@ -53,7 +57,13 @@ tell application \"Calendar\"
     if length of h < 2 then set h to \"0\" & h
     if length of m < 2 then set m to \"0\" & m
 
-    return \"UPCOMING|\" & h & \":\" & m & \" \" & eventTitle
+    -- Check if event is tomorrow
+    set prefix to \"\"
+    if eventStart >= tomorrowStart then
+        set prefix to \"明日 \"
+    end if
+
+    return \"UPCOMING|\" & prefix & h & \":\" & m & \" \" & eventTitle
 end tell
 " 2>/dev/null)
 
