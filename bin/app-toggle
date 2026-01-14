@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# アプリを指定ワークスペースと 9 の間でトグル
+# Usage: app-toggle <app-bundle-id> <app-name> [visible-workspace]
+#
+# 動作:
+# - 起動していない → 起動して指定 workspace に配置
+# - 起動中でフォーカスあり → workspace 9 に移動（非表示）
+# - 起動中でフォーカスなし → 指定 workspace に移動してフォーカス
+
+APP_BUNDLE_ID="$1"
+APP_NAME="$2"
+VISIBLE_WS="${3:-1}"  # デフォルトは workspace 1
+HIDDEN_WS="0"
+
+if [ -z "$APP_BUNDLE_ID" ] || [ -z "$APP_NAME" ]; then
+    echo "Usage: app-toggle <app-bundle-id> <app-name> [visible-workspace]"
+    echo "Example: app-toggle com.github.wez.wezterm WezTerm"
+    echo "Example: app-toggle com.tinyspeck.slackmacgap Slack 2"
+    exit 1
+fi
+
+# アプリのウィンドウを検索（全モニターから）
+APP_WINDOW=$(aerospace list-windows --monitor all --app-bundle-id "$APP_BUNDLE_ID" --json | jq -r '.[0]["window-id"] // empty')
+
+if [ -z "$APP_WINDOW" ]; then
+    # 起動していない → 起動して指定 workspace に配置
+    open -a "$APP_NAME"
+    sleep 0.5
+    APP_WINDOW=$(aerospace list-windows --monitor all --app-bundle-id "$APP_BUNDLE_ID" --json | jq -r '.[0]["window-id"] // empty')
+    if [ -n "$APP_WINDOW" ]; then
+        aerospace move-node-to-workspace --window-id "$APP_WINDOW" "$VISIBLE_WS"
+        aerospace workspace "$VISIBLE_WS"
+        aerospace focus --window-id "$APP_WINDOW"
+    fi
+else
+    # 起動している → フォーカス状態をチェック
+    FOCUSED_WINDOW=$(aerospace list-windows --focused --json | jq -r '.[0]["window-id"] // empty')
+
+    if [ "$APP_WINDOW" = "$FOCUSED_WINDOW" ]; then
+        # フォーカスあり → workspace 9 に移動（非表示）
+        aerospace move-node-to-workspace --window-id "$APP_WINDOW" "$HIDDEN_WS"
+    else
+        # フォーカスなし → 指定 workspace に移動してフォーカス
+        aerospace move-node-to-workspace --window-id "$APP_WINDOW" "$VISIBLE_WS"
+        aerospace workspace "$VISIBLE_WS"
+        aerospace focus --window-id "$APP_WINDOW"
+    fi
+fi

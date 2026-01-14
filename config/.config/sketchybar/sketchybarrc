@@ -39,49 +39,30 @@ sketchybar --default "${default[@]}"
 # to indicate active and available mission control spaces.
 
 sketchybar --add event aerospace_workspace_change
-sketchybar --add event aerotag_change
 
-##### Adding Aerotag Items (per monitor) #####
-# Tag indicators: R(esearch), C(ommunication), D(evelopment), Z(oom), G(logseq), A(jasper), E(calendar)
-# Each monitor shows its own tag state
-TAG_NAMES=("R" "C" "D" "Z" "G" "A" "E")
-TAG_IDS=(1 2 3 4 5 6 7)
-
-# Get monitor count from aerospace
-MONITOR_COUNT=$(aerospace list-monitors | wc -l | tr -d ' ')
-
-for monitor_id in $(seq 1 $MONITOR_COUNT); do
-    for i in "${!TAG_IDS[@]}"; do
-        tag_id="${TAG_IDS[$i]}"
-        tag_name="${TAG_NAMES[$i]}"
-        sketchybar --add item aerotag.m${monitor_id}.${tag_id} left \
-                   --subscribe aerotag.m${monitor_id}.${tag_id} aerotag_change aerospace_workspace_change \
-                   --set aerotag.m${monitor_id}.${tag_id} \
-                   associated_display=${monitor_id} \
-                   background.color=0x44ffffff \
-                   background.corner_radius=5 \
-                   background.height=20 \
-                   background.drawing=off \
-                   label="$tag_name" \
-                   label.color=0x66ffffff \
-                   click_script="aerotag tag-view $tag_id" \
-                   script="$CONFIG_DIR/plugins/aerotag.sh $monitor_id"
-    done
+# Show workspace indicators (excluding hidden workspace 9)
+for sid in 1 2; do
+    sketchybar --add item space.$sid left \
+    --subscribe space.$sid aerospace_workspace_change \
+    --set space.$sid \
+    background.color=0x44ffffff \
+    background.corner_radius=5 \
+    background.height=20 \
+    background.drawing=off \
+    label="$sid" \
+    click_script="aerospace workspace $sid" \
+    script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 done
-
 
 ##### Adding Left Items #####
 # We add some regular items to the left side of the bar, where
 # only the properties deviating from the current defaults need to be set
 
 sketchybar --add item chevron left \
-           --set chevron icon= label.drawing=off \
+           --set chevron icon= label.drawing=off \
            --add item front_app left \
-           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
-           --subscribe front_app front_app_switched \
-           --add item window_tags left \
-           --set window_tags script="$PLUGIN_DIR/window_tags.sh" label.color=0xffaaaaaa \
-           --subscribe window_tags front_app_switched aerospace_workspace_change aerotag_change
+           --set front_app script="$PLUGIN_DIR/front_app.sh" \
+           --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.

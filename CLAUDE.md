@@ -1,5 +1,13 @@
 # dotfiles プロジェクト用 Claude 指示
 
+## 主要な設定ファイルのパス
+
+- **aerospace**: `config/.config/aerospace/aerospace.toml`
+- **sketchybar**: `config/.config/sketchybar/sketchybarrc`
+- **zellij**: `config/.config/zellij/config.kdl`
+- **wezterm**: `config/.config/wezterm/wezterm.lua`
+- **zsh**: `config/.zshrc`
+
 ## ショートカットキーの設定
 
 ショートカットキーを設定する際は、aerospace のキーバインドと競合しないように注意すること。
@@ -7,9 +15,10 @@
 aerospace で使用中のキー:
 - `Alt + h/j/k/l` - フォーカス移動
 - `Alt + Shift + h/j/k/l` - ウィンドウ移動
-- `Alt + r/c/d/z/g/a/e` - aerotag タグ切り替え
-- `Ctrl + Alt + *` - aerotag タグトグル
-- `Alt + Shift + *` - aerotag ウィンドウ移動
+- `Alt + 1/2` - ワークスペース切り替え
+- `Alt + Shift + 1/2/0` - ウィンドウをワークスペースに移動
+- `Ctrl + Alt + t/b/g/v` - アプリトグル ws1（WezTerm/Chrome/GoLand/VSCode）
+- `Ctrl + Alt + o/s/l/j/z/c` - アプリトグル ws2（Obsidian/Slack/LINE/Logseq/Zoom/Calendar）
 
 設定前に `config/.config/aerospace/aerospace.toml` を確認すること。
 
@@ -26,14 +35,14 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 ```
 
 現在 cheat でアクセスできる設定:
-- `cheat aerospace` - aerospace + aerotag
+- `cheat aerospace` - aerospace
 - `cheat zellij` / `cheat zj` - zellij
 - `cheat wezterm` - wezterm
 
 ## bin/ コマンド
 
 便利なコマンドは `bin/` に追加する:
-- `aerotag-list` - aerotag のウィンドウ・タグ状態を一覧表示
+- `app-toggle <bundle-id> <app-name>` - アプリを workspace 1/9 間でトグル
 - `macos-hotkeys` - macOS のショートカットキー一覧
 
 ## macOS 設定
