@@ -145,6 +145,7 @@ source ~/dotfiles/config/zsh/init/lang/rust.sh
 source ~/dotfiles/config/zsh/init/cmd/fzf.sh
 source ~/dotfiles/config/zsh/init/cmd/pure.sh
 source ~/dotfiles/config/zsh/init/cmd/zellij.sh
+source ~/dotfiles/config/zsh/init/cmd/cheat.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
