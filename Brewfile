@@ -8,6 +8,9 @@ cask '1password'
 # Command-line interface for 1Password
 cask '1password-cli'
 
+# AeroSpace is an i3-like tiling window manager for macOS
+cask 'aerospace'
+
 # GPU-accelerated terminal emulator
 cask 'alacritty'
 
@@ -41,6 +44,9 @@ cask 'cyberduck'
 # Monitors and peripherals manager
 cask 'ddpm'
 
+# Virtual monitor for screen sharing
+cask 'deskpad'
+
 # Voice and text chat software
 cask 'discord'
 
@@ -57,6 +63,9 @@ cask 'font-fira-code-nerd-font'
 cask 'font-hack-nerd-font'
 
 # None
+cask 'font-hackgen-nerd'
+
+# None
 cask 'font-jetbrains-mono'
 
 # None
@@ -70,6 +79,9 @@ cask 'font-noto-sans-mono'
 
 # None
 cask 'font-noto-serif-cjk-jp'
+
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask 'ghostty'
 
 # Web browser
 cask 'google-chrome'
@@ -118,6 +130,9 @@ cask 'visual-studio-code'
 
 # Web browser with built-in email client focusing on customization and control
 cask 'vivaldi'
+
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask 'wezterm'
 
 # Network protocol analyzer
 cask 'wireshark-app'
@@ -169,8 +184,14 @@ brew 'pack'
 # Vi-like binary file (hex) editor
 brew 'bvi'
 
+# A powerful terminal-based AI assistant for developers, providing intelligent coding assistance directly in your terminal.
+brew 'crush'
+
 # Cross-platform make
 brew 'cmake'
+
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew 'colima'
 
 # GNU File, Shell, and Text utilities
 brew 'coreutils'
@@ -204,6 +225,12 @@ brew 'entr'
 
 # Simple, fast and user-friendly alternative to find
 brew 'fd'
+
+# A window border system for macOS
+brew 'borders'
+
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew 'sketchybar'
 
 # Plugin manager for the Fish shell
 brew 'fisher'
@@ -283,6 +310,9 @@ brew 'quickstart'
 # None
 brew 'kn'
 
+# Lazier way to manage everything docker
+brew 'lazydocker'
+
 # Fast and powerful Git hooks manager for any type of projects
 brew 'lefthook'
 
@@ -294,6 +324,12 @@ brew 'libedit'
 
 # GNOME XML library
 brew 'libxml2'
+
+# Tool for linting and static analysis of Lua code
+brew 'luacheck'
+
+# Package manager for the Lua programming language
+brew 'luarocks'
 
 # Powerful multi-lingual file viewer/grep
 brew 'lv'
@@ -340,9 +376,6 @@ brew 'node_exporter'
 # Libraries for security-enabled client and server applications
 brew 'nss'
 
-# AI coding agent, built for the terminal
-brew 'opencode'
-
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew 'opentofu'
 
@@ -372,6 +405,9 @@ brew 'ranger'
 
 # Generate C-based recognizers from regular expressions
 brew 're2c'
+
+# Search tool like grep and The Silver Searcher
+brew 'ripgrep'
 
 # Command-line tool for the Amazon S3 service
 brew 's3cmd'
