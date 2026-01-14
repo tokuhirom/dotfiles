@@ -31,6 +31,7 @@
 | `ctrl-alt-j` | Logseq |
 | `ctrl-alt-z` | Zoom |
 | `ctrl-alt-c` | Calendar |
+| `ctrl-alt-1` | 1Password |
 
 ### 動作詳細
 

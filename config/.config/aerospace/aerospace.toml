@@ -129,6 +129,7 @@ on-mode-changed = []
     ctrl-alt-j = 'exec-and-forget ~/dotfiles/bin/app-toggle com.electron.logseq Logseq 2'
     ctrl-alt-z = 'exec-and-forget ~/dotfiles/bin/app-toggle us.zoom.xos zoom.us 2'
     ctrl-alt-c = 'exec-and-forget ~/dotfiles/bin/app-toggle com.apple.iCal Calendar 2'
+    ctrl-alt-1 = 'exec-and-forget ~/dotfiles/bin/app-toggle com.1password.1password 1Password 2'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     ctrl-alt-slash = 'layout tiles horizontal vertical'
@@ -236,6 +237,11 @@ run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
+if.during-aerospace-startup = true
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
 if.during-aerospace-startup = true
 run = 'move-node-to-workspace 2'
 
