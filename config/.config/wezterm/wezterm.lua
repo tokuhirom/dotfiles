@@ -2,7 +2,12 @@ local wezterm = require 'wezterm';
 
 return {
     -- font = wezterm.font("Cica"), -- 自分の好きなフォントいれる
-    font = wezterm.font('HackGen Console NF'),
+    -- HackGen は漢数字の一が独特であんま好みじゃなかった｡
+    -- font = wezterm.font('HackGen Console NF'),
+    -- PremolJP は `{` が好みじゃない｡
+    -- font = wezterm.font("PlemolJP Console"),
+    font = wezterm.font("UDEV Gothic NF"),
+
     use_ime = true,
     font_size = 14.0,
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
