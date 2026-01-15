@@ -1,12 +1,26 @@
 local wezterm = require 'wezterm';
 
 return {
-    -- font = wezterm.font("Cica"), -- 自分の好きなフォントいれる
+    -- 0123456789
+    font = wezterm.font("Cica"),
+
     -- HackGen は漢数字の一が独特であんま好みじゃなかった｡
     -- font = wezterm.font('HackGen Console NF'),
+
     -- PremolJP は `{` が好みじゃない｡
     -- font = wezterm.font("PlemolJP Console"),
-    font = wezterm.font("UDEV Gothic NF"),
+
+    -- font = wezterm.font("UDEV Gothic NF"),
+--  font = wezterm.font_with_fallback {
+--        'Hack Nerd Font',   -- Glyphs (icons)
+--        'Hiragino Sans', -- Japanese
+--        'Noto Sans CJK SC', -- Simple Chinese
+--        'Noto Sans CJK TC', -- Traditional Chinese
+--        'Noto Sans CJK HK', -- Traditional Chinese (HK)
+--        'Noto Sans CJK JP', -- Japanese
+--        'Noto Sans CJK KR', -- Korean
+--  },
+    -- font = wezterm.font("NotoMoto Nerd Font"),
 
     use_ime = true,
     font_size = 14.0,
