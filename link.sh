@@ -42,6 +42,7 @@ link .config/ranger
 link .config/topydo
 link .config/aerospace/aerospace.toml
 link .config/sketchybar
+link .emacs.d
 
 # mac only
 if [ -d /Users ]; then

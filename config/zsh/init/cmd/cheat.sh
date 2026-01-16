@@ -1,3 +1,8 @@
+# cheat pager setting
+if command -v bat &>/dev/null; then
+    export CHEAT_PAGER=bat
+fi
+
 # cheat command completion
 _cheat() {
     local cheat_dir="$HOME/dotfiles/cheat"

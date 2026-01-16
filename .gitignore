@@ -1,3 +1,9 @@
 config/.config/vim/yankround/history
 /config/.pause
 bin/kn-func
+
+# Emacs
+config/.emacs.d/elpa/
+config/.emacs.d/projects
+config/.emacs.d/eln-cache/
+config/.emacs.d/.cache/
