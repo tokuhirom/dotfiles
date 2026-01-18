@@ -14,7 +14,12 @@
 
     # Homebrew taps
     taps = [
-      "homebrew/cask-fonts"
+      "nikitabobko/tap"       # aerospace
+      "felixkratz/formulae"   # borders, sketchybar
+      "sacloud/usacloud"      # usacloud
+      "k1low/tap"             # runn, tbls
+      "charmbracelet/tap"     # crush
+      "tokuhirom/tap"         # sops-sakura-kms, dcv, taskeru
     ];
 
     # GUI Applications (Casks)
@@ -85,6 +90,7 @@
       "jasper-app" # GitHub issue reader
 
       # === Fonts ===
+      "font-cica"
       "font-fira-code-nerd-font"
       "font-hack-nerd-font"
       "font-hackgen-nerd"
@@ -114,13 +120,10 @@
     brews = [
       "borders"      # macOS window borders - not in nixpkgs
       "sketchybar"   # Custom statusbar - not in nixpkgs
+      "pure"         # ZSH prompt
+      "terminal-notifier"  # macOS notifications
       "sops-sakura-kms"  # SAKURA Cloud KMS plugin
       "crush"        # AI coding assistant
-      "func"         # Knative func
-      "kn"           # Knative CLI
-      "quickstart"   # Knative quickstart
-      "mkr"          # Mackerel CLI
-      "tftui"        # Terraform TUI
       "runn"         # Scenario runner
       "tbls"         # Database documentation
       "usacloud"     # SAKURA Cloud CLI
