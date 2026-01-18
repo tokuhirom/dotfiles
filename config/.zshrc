@@ -97,6 +97,7 @@ export LESS=-R
 # export PAGER=bat
 
 [[ -d $HOME/dotfiles/bin/ ]] && export PATH="$PATH:$HOME/dotfiles/bin/"
+[[ -d $HOME/.local/bin/ ]] && export PATH="$HOME/.local/bin:$PATH"
 
 # なんのスクリプトかまったく思い出せないので一旦コメントアウト
 #   if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then

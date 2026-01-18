@@ -2,6 +2,23 @@
 
 This is my dotfiles repo.
 
+## 🚀 Quick Start (Nix - Recommended)
+
+**New: Now migrating to Nix for declarative configuration management!**
+
+```bash
+cd ~/dotfiles
+./install-nix.sh
+```
+
+See [NIX_README.md](NIX_README.md) for complete documentation.
+
+**Traditional setup (still works):**
+```bash
+./setup.sh
+./link.sh
+```
+
 ## My environment
 
 - Terminal
