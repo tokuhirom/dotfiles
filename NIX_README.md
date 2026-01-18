@@ -161,9 +161,35 @@ darwin-rebuild switch --impure --flake .#your-mac-hostname
 **注意:**
 - 初回セットアップ後、`mise install` を手動で実行して言語をインストールする必要があります
 
+### Phase 6: Linux サポート拡張 ✅ 完了
+
+**完了項目:**
+- ✅ Linux 固有のパッケージを `home/linux.nix` に追加
+- ✅ IME（Fcitx5）の環境変数を設定
+- ✅ Linux でのビルドとテストを検証
+
+**追加されたパッケージ:**
+- **ウィンドウ管理**: i3, i3status, i3lock, rofi, polybar, dunst, xss-lock
+- **フォント**: noto-fonts, noto-fonts-cjk-sans/serif, noto-fonts-color-emoji, source-han-sans/serif, font-awesome
+- **日本語入力**: fcitx5, fcitx5-mozc, fcitx5-gtk
+- **X11 ユーティリティ**: xev, xdpyinfo, xrandr, xmodmap, arandr
+- **スクリーンショット**: scrot, maim
+- **クリップボード**: xclip, wl-clipboard
+- **システムモニタ**: htop, btop
+
+**環境変数:**
+- `GTK_IM_MODULE=fcitx`
+- `QT_IM_MODULE=fcitx`
+- `XMODIFIERS=@im=fcitx`
+
+**現在動作しているもの:**
+- Linux でのフルスタック開発環境が宣言的に管理
+- i3 ウィンドウマネージャーとその関連ツールが自動インストール
+- 日本語入力（Fcitx5 + Mozc）が設定済み
+- X11 と Wayland 両方のクリップボードサポート
+
 ### 今後のフェーズ
 
-- **Phase 6**: Linux サポート拡張（1週間）
 - **Phase 7**: クリーンアップとドキュメント（1週間）
 
 ## ディレクトリ構造
