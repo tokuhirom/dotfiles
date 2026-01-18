@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  # Phase 2: CLI tools from Homebrew formulae
-  # Migrated from Brewfile (139+ packages)
+  # CLI tools from nixpkgs
+  # Migrated from Brewfile
 
   environment.systemPackages = with pkgs; [
     # === Development Tools ===

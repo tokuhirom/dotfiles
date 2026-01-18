@@ -1,10 +1,9 @@
 { config, pkgs, ... }: {
   # Cross-platform user environment configuration
-  # Phase 2: Expanded with common development tools
 
   # CLI packages available on all systems (macOS & Linux)
   home.packages = with pkgs; [
-    # === Essential CLI Tools (Phase 1) ===
+    # === Essential CLI Tools ===
     git
     git-lfs
     neovim
@@ -110,9 +109,7 @@
   # XDG Base Directory specification
   xdg.enable = true;
 
-  # === Phase 3: Dotfiles Management ===
-  # Cross-platform dotfiles (replaces link.sh)
-
+  # Dotfiles management
   home.file = {
     # Shell configurations
     ".bashrc".source = ../config/.bashrc;
@@ -148,7 +145,7 @@
     ".config/aerospace/aerospace.toml".source = ../config/.config/aerospace/aerospace.toml;
     ".config/sketchybar".source = ../config/.config/sketchybar;
 
-    # === Bin scripts (with executable permissions) ===
+    # Bin scripts
     ".local/bin/aerospace-focus-handler" = { source = ../bin/aerospace-focus-handler; executable = true; };
     ".local/bin/app-toggle" = { source = ../bin/app-toggle; executable = true; };
     ".local/bin/cheat" = { source = ../bin/cheat; executable = true; };

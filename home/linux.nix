@@ -6,7 +6,7 @@
     xclip  # Clipboard support for terminal
   ];
 
-  # === Phase 3: Linux-specific dotfiles ===
+  # Linux-specific dotfiles
   home.file = {
     # X11
     ".xinitrc".source = ../config/.xinitrc;

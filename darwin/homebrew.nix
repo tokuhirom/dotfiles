@@ -1,5 +1,5 @@
 { ... }: {
-  # Phase 2: Declarative Homebrew for GUI apps (casks) and Mac App Store apps
+  # Declarative Homebrew for GUI apps (casks) and Mac App Store apps
   # Nix-darwin manages Homebrew installation and keeps casks in sync
 
   homebrew = {

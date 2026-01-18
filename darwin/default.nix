@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  # Import Phase 2 modules
   imports = [
     ./packages.nix    # CLI tools from nixpkgs
     ./homebrew.nix    # GUI apps via Homebrew
