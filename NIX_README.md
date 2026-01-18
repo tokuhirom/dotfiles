@@ -67,28 +67,35 @@ darwin-rebuild switch --flake .
 
 ### Phase 2: Package Management ✅ COMPLETE
 
-**Completed:**
 - ✅ Migrated ~100+ CLI tools to `darwin/packages.nix` (macOS)
 - ✅ Migrated ~60 CLI tools to `home/common.nix` (cross-platform)
-- ✅ Declarative Homebrew for 47 casks (GUI apps)
-- ✅ Declarative Homebrew for 13 nixpkgs-unavailable tools
-- ✅ Mac App Store apps (10 apps)
+- ✅ Declarative Homebrew for 47 casks + 13 formulae + 10 Mac App Store apps
 - ✅ Package name mappings documented
 
+### Phase 3: Dotfiles Management ✅ COMPLETE
+
+**Completed:**
+- ✅ Replaced `link.sh` with home-manager file management
+- ✅ Cross-platform dotfiles in `home/common.nix` (22 files)
+- ✅ macOS-specific dotfiles in `home/darwin.nix` (2 files)
+- ✅ Linux-specific dotfiles in `home/linux.nix` (8 files)
+- ✅ All 22 bin/ scripts linked to `~/.local/bin` with executable permissions
+- ✅ `~/.vim/tmp/` directory created automatically
+- ✅ `~/.local/bin` added to PATH
+
 **What works now:**
-- ~160+ packages managed declaratively via Nix
-- GUI apps managed via nix-darwin's Homebrew integration
-- All packages version-locked in flake.lock
-- Cross-platform consistency (same tools on macOS and Linux)
+- All dotfiles managed declaratively
+- Bin scripts executable and in PATH (cheat, app-toggle, git-*, etc.)
+- Platform-specific configs automatically applied
+- No more manual symlinking needed
 
 **What doesn't work yet:**
-- Dotfile symlinking (still using link.sh)
 - System settings (still using setup-mac-settings.sh)
 - Git configuration (still using setup-git.sh)
+- Shell configuration (zsh/bash setup)
 
 ### Upcoming Phases
 
-- **Phase 3**: Dotfiles Management (1 week)
 - **Phase 4**: System Configuration Scripts (1 week)
 - **Phase 5**: Advanced Features (2 weeks)
 - **Phase 6**: Linux Support Expansion (1 week)
