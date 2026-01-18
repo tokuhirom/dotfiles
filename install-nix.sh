@@ -172,17 +172,22 @@ apply_config() {
         print_info "Applying nix-darwin configuration..."
         echo
 
-        # First time setup - install nix-darwin and apply config
-        if ! command -v darwin-rebuild &> /dev/null; then
-            print_info "Installing and activating nix-darwin..."
-            print_info "This will download packages - progress will be shown below"
-            echo
-            nix run nix-darwin --impure --print-build-logs -- switch --flake ".#$HOSTNAME"
-        else
-            print_info "Updating nix-darwin configuration..."
-            echo
-            darwin-rebuild switch --impure --flake ".#$HOSTNAME"
-        fi
+        # Build first (as user), then activate (with sudo)
+        print_info "Building nix-darwin configuration..."
+        print_info "This will download packages - progress will be shown below"
+        echo
+
+        # Build the system configuration
+        nix build ".#darwinConfigurations.$HOSTNAME.system" --impure --print-build-logs
+
+        print_info "Activating configuration (sudo required)..."
+        echo
+
+        # Activate with sudo
+        sudo ./result/sw/bin/darwin-rebuild activate
+
+        # Clean up result symlink
+        rm -f result
 
         echo
         print_success "Configuration applied successfully!"

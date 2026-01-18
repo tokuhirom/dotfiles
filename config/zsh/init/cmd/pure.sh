@@ -1,6 +1,9 @@
-if [ -d /opt/homebrew ]; then
+# pure prompt - homebrew or manual install
+if [ -d /opt/homebrew/share/zsh/site-functions ]; then
+    # homebrew
     fpath+=("/opt/homebrew/share/zsh/site-functions")
 else
+    # manual install
     if [ ! -d "$HOME/.zsh/pure" ]; then
         mkdir -p "$HOME/.zsh"
         git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"

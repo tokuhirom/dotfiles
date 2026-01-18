@@ -7,6 +7,18 @@
 # を追加｡
 
 # -------------------------------------------------------------------------
+# Nix
+# -------------------------------------------------------------------------
+
+# Determinate Nix daemon
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+# Nix paths (Determinate Nix + user profile)
+export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+
+# -------------------------------------------------------------------------
 # Key binding
 # -------------------------------------------------------------------------
 
@@ -137,10 +149,7 @@ for file in ~/dotfiles/config/zsh/init/os/*.sh; do
 done
 
 source ~/dotfiles/config/zsh/init/lang/go.sh
-source ~/dotfiles/config/zsh/init/lang/java-jenv.sh
 source ~/dotfiles/config/zsh/init/lang/perl.sh
-source ~/dotfiles/config/zsh/init/lang/python-rye.sh
-source ~/dotfiles/config/zsh/init/lang/ruby-rbenv.sh
 source ~/dotfiles/config/zsh/init/lang/rust.sh
 
 source ~/dotfiles/config/zsh/init/cmd/fzf.sh
@@ -179,8 +188,12 @@ if [ -d /usr/local/go ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
 
-[[ -e "$HOME/.local/bin/mise" ]] && eval "$(~/.local/bin/mise activate zsh)"
-[[ -e /opt/homebrew/bin/mise ]] && eval "$(/opt/homebrew/bin/mise activate zsh)"
+# mise activation - check nix, homebrew, or local install
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+elif [[ -e "$HOME/.local/bin/mise" ]]; then
+    eval "$(~/.local/bin/mise activate zsh)"
+fi
 
 export TODO_FILE="$HOME/todo.txt"
 

@@ -21,7 +21,6 @@
     gh
     act
     actionlint
-    actionspin
 
     # === Container & Cloud Tools ===
     docker
@@ -39,11 +38,11 @@
     # === Infrastructure as Code ===
     ansible
     opentofu  # Terraform alternative
-    packer
+    # packer  # Managed by mise
     atlas
 
     # === Databases & Data Tools ===
-    postgresql_13
+    postgresql_14
     duckdb
     # Database monitoring
     # innotop  # MySQL monitoring - not in nixpkgs
@@ -51,22 +50,19 @@
 
     # === Programming Languages & Tools ===
     # Python
-    ipython
-    cython
+    python3Packages.ipython
+    python3Packages.cython
     uv  # Fast Python package installer
 
     # Lua
     luarocks
-    luacheck
-
-    # Java
-    jenv
+    luajitPackages.luacheck
 
     # === CLI Utilities ===
     # File & text processing
     fd
     ripgrep
-    the-silver-searcher  # ag
+    silver-searcher  # ag
     bat
     fzf
     jq
@@ -92,11 +88,11 @@
     nmap
     ngrep
     whois
-    telnet
+    inetutils  # telnet, ftp, etc.
 
     # === macOS Specific ===
     mas  # Mac App Store CLI
-    terminal-notifier
+    # terminal-notifier  # moved to homebrew
 
     # Window management & status bar
     # borders  # Window borders - not in nixpkgs yet
@@ -108,10 +104,7 @@
     # runn  # Not in nixpkgs
     # tbls  # Not in nixpkgs
 
-    # === Container & Image Tools ===
-    prometheus
-    node_exporter
-    fluent-bit
+    # === Certificates ===
     mkcert
 
     # === Security & Secrets ===
@@ -130,12 +123,12 @@
     graphviz
 
     # === Text Editors ===
+    vim
     neovim
     emacs
 
     # === Compression & Archives ===
     libarchive
-    squashfs
     xorriso
 
     # === Libraries ===
@@ -151,20 +144,19 @@
 
     # === Misc Tools ===
     mise  # Runtime manager (asdf alternative)
-    cpanminus  # Perl CPAN
-    pure  # ZSH prompt
-    todo-txt
+    # pure-prompt  # ZSH prompt - use homebrew instead
+    todo-txt-cli
     zellij
     tmux
     zsh
     bash
-    fisher  # Fish shell plugin manager
+    # fisher  # Fish shell plugin manager - not in nixpkgs
 
     # Swift
     swiftlint
 
     # Go
-    yaegi  # Go interpreter
+    # yaegi  # Go interpreter
 
     # === Packages not in nixpkgs (commented out) ===
     # crush  # AI coding assistant

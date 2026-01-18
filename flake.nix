@@ -42,14 +42,24 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./home;
+              home-manager.backupFileExtension = "backup";
+              home-manager.users.${username} = { pkgs, lib, ... }: {
+                imports = [ ./home ];
+                home.username = username;
+                home.homeDirectory = lib.mkForce "/Users/${username}";
+              };
             }
           ];
         };
 
       # Import machine-specific configurations from ~/.config/nix/machines.nix
       # This keeps your hostnames and usernames private (outside the git repo)
-      homeDir = builtins.getEnv "HOME";
+      # SUDO_USER is set when running with sudo, use it to find the real user's home
+      sudoUser = builtins.getEnv "SUDO_USER";
+      homeEnv = builtins.getEnv "HOME";
+      homeDir = if sudoUser != ""
+        then "/Users/${sudoUser}"  # macOS path when running with sudo
+        else homeEnv;
       machinesPath = homeDir + "/.config/nix/machines.nix";
 
       machineConfigs = if builtins.pathExists machinesPath
