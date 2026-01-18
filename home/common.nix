@@ -53,7 +53,7 @@
     entr
 
     # File managers
-    ranger
+    # ranger
 
     # Networking
     curl
