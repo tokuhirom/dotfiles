@@ -1,62 +1,62 @@
-# tokuhirom's dotfiles
+# tokuhirom の dotfiles
 
-This is my dotfiles repo.
+これは私の dotfiles リポジトリです。
 
-## 🚀 Quick Start (Nix - Recommended)
+## 🚀 クイックスタート（Nix - 推奨）
 
-**New: Now migrating to Nix for declarative configuration management!**
+**新機能: 宣言的な設定管理のため Nix への移行中！**
 
 ```bash
 cd ~/dotfiles
 ./install-nix.sh
 ```
 
-See [NIX_README.md](NIX_README.md) for complete documentation.
+完全なドキュメントは [NIX_README.md](NIX_README.md) を参照してください。
 
-**Traditional setup (still works):**
+**従来のセットアップ（引き続き動作します）:**
 ```bash
 ./setup.sh
 ./link.sh
 ```
 
-## My environment
+## 私の環境
 
-- Terminal
+- ターミナル
   - Terminal.app -> iTerm2 -> wezterm -> alacritty -> wezterm(2026)
   - :o: wezterm
-    - it's the best choice with aerospace
+    - aerospace との組み合わせで最高の選択
   - :x: alacritty
-    - not good with aerospace
+    - aerospace と相性が悪い
   - :x: ghostty
-    - not good with aerospace
-- programming language dependency manager
-  - (plenv, nodeenv etc...) -> mise(2025)
+    - aerospace と相性が悪い
+- プログラミング言語の依存関係マネージャー
+  - (plenv, nodeenv など...) -> mise(2025)
   - :o: mise
     - だいたいなんでも mise で管理できるので便利すぎる。
     - PHP だけ管理しにくい問題あり。
-- main ide
+- メイン IDE
 - :o: goland
-- neovim environment
-  - see config/.config/neovim/README.md
-- terminal multiplexer
+- neovim 環境
+  - config/.config/neovim/README.md を参照
+- ターミナルマルチプレクサ
   - screen -> tmux -> zellij(2026) -> tmux(2026)
   - :o: tmux
-    - copy mode is so good
+    - copy mode が非常に優秀
   - :x: zellij
-    - tmux's copy mode is better than zellij's
-    - `C-t p l` is longer than `C-t l`
-- shell
+    - tmux の copy mode の方が zellij より優れている
+    - `C-t p l` は `C-t l` より長い
+- シェル
   - bash -> zsh -> fish(2025)
   - :o: fish
-    - good interactive shell
-    - :( not compatible with bash
+    - 優れたインタラクティブシェル
+    - :( bash と互換性がない
     - しばらく使ったけど、特にメリットないので、zsh に戻したい気もする
   - zsh
   - bash
-    - mac に入ってるBashはライセンスの関係上絶妙に古いので、そのへん考えるのがめんどくさい。
- - mac package management
+    - Mac に入ってる Bash はライセンスの関係上絶妙に古いので、そのへん考えるのがめんどくさい。
+ - Mac パッケージ管理
    - macports -> brew
-- web browser
+- ウェブブラウザ
   - chrome -> vivaldi -> chrome
   - :x: vivaldi
     - そんなにすごく便利っていう感じの機能が特になかった。
