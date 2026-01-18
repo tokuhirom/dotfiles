@@ -232,7 +232,17 @@ nvim --version
   - bash
     - Mac に入ってる Bash はライセンスの関係上絶妙に古いので、そのへん考えるのがめんどくさい。
  - Mac パッケージ管理
-   - macports -> brew
+   - macports -> brew -> Nix(2026)
+   - :o: Nix
+     - 完全に宣言的で再現可能
+     - アトミックロールバックが便利
+     - クロスプラットフォーム（macOS と Linux で同じ設定）
+- dotfiles 管理
+  - シェルスクリプト (link.sh, setup-*.sh) -> Nix(2026)
+  - :o: Nix (nix-darwin + home-manager)
+    - すべての設定がコードで管理できる
+    - マシン間で完全に同期
+    - ロールバックが簡単
 - ウェブブラウザ
   - chrome -> vivaldi -> chrome
   - :x: vivaldi
