@@ -141,9 +141,28 @@ darwin-rebuild switch --impure --flake .#your-mac-hostname
 - ~~setup-git.sh~~ → `home/programs/git.nix`
 - ~~setup-mac-settings.sh~~ → `darwin/system-settings.nix`
 
+### Phase 5: 高度な機能 ✅ 完了
+
+**完了項目:**
+- ✅ mise を Nix で管理し、zsh で自動 activation
+- ✅ Neovim を `home/programs/neovim.nix` で宣言的に管理（lazy.nvim 設定を維持）
+- ✅ 開発用ビルド依存関係を `home/development.nix` に追加
+
+**現在動作しているもの:**
+- mise が Nix パッケージとして管理され、zsh 起動時に自動的に有効化
+- Neovim が home-manager で管理され、既存の lazy.nvim 設定をそのまま使用
+- 言語のビルドに必要なライブラリ（ncurses, libyaml, zlib, openssl など）が自動インストール
+- gcc, make, cmake などのビルドツールが利用可能
+
+**廃止されたスクリプト:**
+- ~~setup-mise.sh~~ → mise は Nix で管理、ビルド依存関係は `home/development.nix`
+- ~~setup-vimplug.sh~~ → Neovim は `home/programs/neovim.nix` で管理（lazy.nvim 使用）
+
+**注意:**
+- 初回セットアップ後、`mise install` を手動で実行して言語をインストールする必要があります
+
 ### 今後のフェーズ
 
-- **Phase 5**: 高度な機能（2週間）
 - **Phase 6**: Linux サポート拡張（1週間）
 - **Phase 7**: クリーンアップとドキュメント（1週間）
 
@@ -163,9 +182,11 @@ dotfiles/
     ├── common.nix         # クロスプラットフォーム設定
     ├── darwin.nix         # macOS 固有のユーザー設定
     ├── linux.nix          # Linux 固有のユーザー設定
+    ├── development.nix    # 開発用ビルド依存関係
     └── programs/          # プログラム固有の設定
         ├── git.nix        # Git 設定
-        └── zsh.nix        # Zsh 設定
+        ├── zsh.nix        # Zsh 設定（mise activation 含む）
+        └── neovim.nix     # Neovim 設定
 ```
 
 ## 検証

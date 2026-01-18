@@ -23,8 +23,12 @@
     };
 
     # 追加設定
-    # 既存の .zshrc を読み込む（将来的には設定を徐々に Nix に移行）
     initContent = ''
+      # mise の activation
+      if command -v mise &> /dev/null; then
+        eval "$(mise activate zsh)"
+      fi
+
       # 既存の .zshrc を読み込み
       if [ -f ~/dotfiles/config/.zshrc ]; then
         source ~/dotfiles/config/.zshrc

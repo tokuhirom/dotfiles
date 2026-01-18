@@ -4,13 +4,15 @@
   imports = [
     ./programs/git.nix
     ./programs/zsh.nix
+    ./programs/neovim.nix
+    ./development.nix
   ];
 
   # CLI packages available on all systems (macOS & Linux)
   home.packages = with pkgs; [
     # === Essential CLI Tools ===
     # git と git-lfs は programs/git.nix で管理
-    neovim
+    # neovim は programs/neovim.nix で管理
     tmux
     fzf
     ripgrep
@@ -135,7 +137,7 @@
     ".Rprofile".source = ../config/.Rprofile;
 
     # XDG config directories
-    ".config/nvim".source = ../config/.config/nvim;
+    # .config/nvim は programs/neovim.nix で管理
     ".config/bat/config".source = ../config/.config/bat/config;
     ".config/ghostty".source = ../config/.config/ghostty;
     ".config/starship.toml".source = ../config/.config/starship.toml;
