@@ -1,28 +1,29 @@
--- install vim-plug by following command.
--- curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+-- Neovim Configuration with lazy.nvim
 
--- :PlugInstall to install plugins.
-
-
-require('packer-init')
-
+-- Basic settings
 require('opts')
 require('keys')
-require('vimplug')
 
------ plugins ---
+-- Bootstrap lazy.nvim
+require('lazy-bootstrap')
 
--- buffer tabs
-require('plugins/bufferline')
+-- Load plugins
+require('lazy').setup('plugins', {
+  ui = {
+    border = 'rounded',
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        'gzip',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+      },
+    },
+  },
+})
 
-require('plugins/ctrlp')
--- require('plugins/nvim-tree')
-require('plugins/lualine')
---  require('plugins/cmp')
-
-vim.cmd('colorscheme tokyonight')
-
+-- Custom keybindings
 vim.api.nvim_set_keymap('i', '.#', '# -------------------------------------------------------------------------', { noremap = true, silent = true })
-
-require'lspconfig'.gopls.setup{}
-

@@ -1,13 +1,37 @@
 local wezterm = require 'wezterm';
 
 return {
-    -- font = wezterm.font("Cica"), -- 自分の好きなフォントいれる
+    -- 0123456789
+    font = wezterm.font("Cica"),
+
+    -- HackGen は漢数字の一が独特であんま好みじゃなかった｡
+    -- font = wezterm.font('HackGen Console NF'),
+
+    -- PremolJP は `{` が好みじゃない｡
+    -- font = wezterm.font("PlemolJP Console"),
+
+    -- font = wezterm.font("UDEV Gothic NF"),
+--  font = wezterm.font_with_fallback {
+--        'Hack Nerd Font',   -- Glyphs (icons)
+--        'Hiragino Sans', -- Japanese
+--        'Noto Sans CJK SC', -- Simple Chinese
+--        'Noto Sans CJK TC', -- Traditional Chinese
+--        'Noto Sans CJK HK', -- Traditional Chinese (HK)
+--        'Noto Sans CJK JP', -- Japanese
+--        'Noto Sans CJK KR', -- Korean
+--  },
+    -- font = wezterm.font("NotoMoto Nerd Font"),
+
     use_ime = true,
     font_size = 14.0,
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
     color_scheme = "OneHalfDark",
     -- hide_tab_bar_if_only_one_tab = true,
     -- adjust_window_size_when_changing_font_size = false,
+
+    window_frame = {
+        font_size = 16.0,
+    },
 
     keys = {
         {
@@ -30,6 +54,26 @@ return {
             mods = 'CTRL|SHIFT',
             action = wezterm.action.PasteFrom 'Clipboard',
         },
+        -- Copy Mode (vim-like selection)
+        {
+            key = '[',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.ActivateCopyMode,
+        },
+        -- QuickSelect (highlight and select text patterns)
+        {
+            key = 'Space',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.QuickSelect,
+        },
+    },
+
+    -- QuickSelect patterns (URLs, paths, hashes, etc.)
+    quick_select_patterns = {
+        -- Git short hash
+        '[0-9a-f]{7,40}',
+        -- IPv4
+        '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}',
     },
 
     -- show underline for link

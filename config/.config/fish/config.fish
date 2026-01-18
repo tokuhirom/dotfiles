@@ -6,6 +6,12 @@ if status is-interactive
         fish_add_path --global --move --path "/opt/homebrew/bin" "/opt/homebrew/sbin"
     end
 
+    function today
+        set _path (date +"$HOME/tmp/%Y%m%d/")
+        mkdir -p $_path
+        cd $_path
+    end
+
     # https://ka2n.hatenablog.com/entry/2017/01/09/fish_shell%E3%81%A7z%E3%81%AE%E7%B5%90%E6%9E%9C%E3%82%92peco%E3%81%A3%E3%81%A6%E7%88%86%E9%80%9F%E3%81%A7%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95%E3%81%99%E3%82%8B
     function fzf_z
       # すでに入力済みの文字列があればそれを fzf のクエリとして入力済みにする
@@ -29,6 +35,25 @@ if status is-interactive
       end
     end
 
+    # zellij の起動を良い感じにする
+    function zj
+        # 1. カレントディレクトリのベース名を取得
+        set -l sess_name (basename (pwd))
+
+        # 2. 同名のセッションが何個あるか取得
+        #    -x は「行全体が完全一致」だけを抽出（正規表現の $ が邪魔にならない）
+        set -l matches (zellij list-sessions | grep -x $sess_name)
+
+        # 3. 複数ヒットしたら fzf で選択させる
+        if test (count $matches) -gt 1
+            set -l sess_name (printf '%s\n' $matches | fzf --prompt='Select Zellij session> ')
+        end
+
+        # 4. attach –c で「無ければ作成、あれば attach」する
+        zellij attach $sess_name -c
+    end
+
+
     function fish_user_key_bindings
         bind \cq fzf_z # Bind to Ctrl-Q
     end 
@@ -43,11 +68,15 @@ if status is-interactive
 
     abbr -a s ls
     abbr -a l ls
+    abbr -a sl ls
     abbr -a ll ls -l
+    abbr -a popd prevd
+    abbr -a k kubectl
+    abbr -a vim nvim
 
-    if type -q nvim
-        abbr -a vim nvim
-    end
+    # jif type -q nvim
+    # abbr -a vim nvim
+    # end
 
     if test -d ~/.plenv
         fish_add_path ~/.plenv/bin
@@ -55,5 +84,49 @@ if status is-interactive
     end
 
     fish_add_path ~/dotfiles/bin/
+
+    if test -d /opt/homebrew/opt/mysql@8.4/bin/
+        fish_add_path /opt/homebrew/opt/mysql@8.4/bin/
+    end
+
+    set jetbrains "$HOME/Library/Application Support/JetBrains/Toolbox/scripts/"
+    if test -d "$jetbrains"
+        fish_add_path "$jetbrains"
+    end
+
+      fish_add_path /opt/homebrew/opt/postgresql@13/bin
+
+    set EDITOR nvim
 end
+
+
+# Setting PATH for Python 3.12
+# The original version is saved in $HOME/.config/fish/config.fish.pysave
+set -x PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" "$PATH"
+
+
+# pnpm
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+
+
+# TypeSpec
+set TYPESPEC_PATH "$HOME/.tsp/bin"
+if [ -d "$TYPESPEC_PATH" ]
+  set PATH "$TYPESPEC_PATH" $PATH
+end
+
+
+
+mise activate fish | source
+
+
+set -x TODO_FILE ~/todo.txt
+
+# uv
+fish_add_path "/Users/to-matsuno/.local/bin"
 

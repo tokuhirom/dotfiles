@@ -1,0 +1,113 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" Source your .vimrc
+" source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+nnoremap d "_d
+" d, dd, x をブラックホールレジスタに送る｡d や x でクリップボードにコピーしない
+nnoremap dd "_dd
+nnoremap x "_x
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+" Plug 'preservim/nerdtree'
+
+let mapleader = ","
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f :action GotoFile<CR>
+" nnoremap <Leader>r :source ~/.ideavimrc<CR>
+nnoremap <Leader>ev :<C-u>vsplit ~/.ideavimrc<CR>
+nnoremap <Leader>sv :<C-u>source ~/.ideavimrc<CR>
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+" yank(コピー)した時にクリップボードに入るようにする
+set clipboard+=unnamed
+
+" ファイル内のGitの変更箇所にジャンプする
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]c <Action>(VcsShowNextChangeMarker)
+
+" ファイル内のエラー箇所にジャンプする
+nmap [q <Action>(GotoPreviousError)
+nmap ]q <Action>(GotoNextError)
+
+" マウスホバーした時の情報を出す
+nnmap <Leader>k <Action>(ShowHoverInfo)
+
+" https://maku.blog/p/f4ugxri/
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+
+" :actionlist でアクションの一覧を表示
+
+
+" https://zenn.dev/sdb_blog/articles/003-idea_with_vim
+" https://maku.blog/p/f4ugxri/
+" https://qiita.com/KaitoMuraoka/items/fe0aaab683bc911508ff
+" https://blog-dry.com/entry/2024/03/05/113256
+" https://inommm.hatenablog.com/entry/2024/03/04/012046
+
+" https://blog-dry.com/entry/2024/03/05/113256
+nmap gr <Action>(FindUsages)
+nmap <leader>fa <Action>(GotoAction)
+nmap <leader>ff <Action>(SearchEverywhere)
+nmap <leader>fw <Action>(FindInPath)
+nmap <leader>c <Action>(CloseContent)
+nmap <leader>d <Action>(Debug)
+nmap <leader>bc <Action>(CloseAllEditorsButActive)
+nmap <leader>bC <Action>(CloseAllEditors)
+nmap <leader>e <Action>(ActivateProjectToolWindow)
+nmap <leader>la <Action>(ShowIntentionActions)
+nmap <leader>ls <Action>(ActivateStructureToolWindow)
+nmap <leader>lr <Action>(RenameElement)
+nmap <leader>o <Action>(EditorEscape)
+nmap <Leader>r <Action>(Run)
+nmap <Leader>R <Action>(RefactoringMenu)
+nmap <leader>th <Action>(ActivateTerminalToolWindow)
+nmap <leader>q <Action>(HideAllWindows)
+nmap <leader>/ <Action>(CommentByLineComment)
+nmap gp <Action>(PreviousTab)
+nmap gn <Action>(NextTab)
+nmap gd <Action>(CloseContent)
+nmap u <Action>($Undo)
+nmap <C-l> <Action>(NextSplitter)
+nmap <C-h> <Action>(PrevSplitter)
+
+map <Leader>pf <action>(com.mituuz.fuzzier.Fuzzier)
+map <Leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
+map <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
+map <Leader>ff <action>(com.mituuz.fuzzier.FuzzyGrep)
+
+nnoremap <Leader>n :NERDTreeToggle<CR>

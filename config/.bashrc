@@ -51,3 +51,14 @@ fi
 [[ -d /c/Strawberry/perl/bin/ ]] && export PATH=/c/Strawberry/perl/bin/:$PATH
 [[ -d '/c/Program Files/AdoptOpenJDK/jdk-11.0.6.10-hotspot' ]] && export JAVA_HOME=/c/Program\ Files/AdoptOpenJDK/jdk-11.0.6.10-hotspot
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH=$PATH:$HOME/.local/bin
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/to-matsuno/.lmstudio/bin"
+# End of LM Studio CLI section
+

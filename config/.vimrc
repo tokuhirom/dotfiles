@@ -66,8 +66,8 @@
     match WhitespaceEOL /\s\+$/
     autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
-    set list
-    set listchars=tab:»--,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+    " set list
+    " set listchars=tab:»--,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 " -------------------------------------------------------------------------
 " vim plugins
@@ -332,6 +332,8 @@
 " golang
 "
 " -------------------------------------------------------------------------
+
+    let g:go_version_warning = 0
 
     " gocode
     if $GOROOT != ''

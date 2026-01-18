@@ -53,6 +53,17 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 
+# -------------------------------------------------------------------------
+# Desktop & Dock
+# -------------------------------------------------------------------------
+
+# Disable "Click wallpaper to show desktop"
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
+# Disable dictation shortcut (Control key double-press)
+/usr/libexec/PlistBuddy -c "Set AppleSymbolicHotKeys:164:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
+
+
 # See also
 # https://github.com/roife/mac-setup/blob/5f77bac9d1667980bd087ced1f1fa2573b2fc1f1/macos.sh
 

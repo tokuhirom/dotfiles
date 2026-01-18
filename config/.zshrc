@@ -50,9 +50,9 @@ export LANG=en_US.UTF-8
 # -------------------------------------------------------------------------
 
 if which nvim &> /dev/null; then
-    export EDITOR=nvim
-    alias vi=nvim
-    alias vim=nvim
+ #  export EDITOR=nvim
+ #  alias vi=nvim
+ #  alias vim=nvim
 else
     export EDITOR=vim
     alias vi=vim
@@ -144,10 +144,15 @@ source ~/dotfiles/config/zsh/init/lang/rust.sh
 
 source ~/dotfiles/config/zsh/init/cmd/fzf.sh
 source ~/dotfiles/config/zsh/init/cmd/pure.sh
+source ~/dotfiles/config/zsh/init/cmd/zellij.sh
+source ~/dotfiles/config/zsh/init/cmd/cheat.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# JetBrains Toolbox scripts (goland, idea, etc.)
+export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
 
 export PATH="$HOME/.tiup/bin:$PATH"
 
@@ -156,3 +161,25 @@ export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+if [ -d /usr/local/go ]; then
+    export GOROOT=/usr/local/go
+    export GOPATH=$HOME/go
+    export PATH=$PATH:/usr/local/go/bin
+fi
+
+[[ -e "$HOME/.local/bin/mise" ]] && eval "$(~/.local/bin/mise activate zsh)"
+[[ -e /opt/homebrew/bin/mise ]] && eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+export TODO_FILE="$HOME/todo.txt"
+

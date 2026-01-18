@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# docker-clean-all: stop & clean all containers
+
+set -euo pipefail
+
+ids=$(docker ps -q)
+
+if [ -n "$ids" ]; then
+  docker stop $ids
+  echo "Stopped containers: $ids"
+else
+  echo "No running containers"
+fi
+
+docker container prune -f
+

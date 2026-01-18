@@ -19,5 +19,6 @@ fi
 ./setup/setup-tmux.sh
 ./setup/setup-alacritty.sh
 ./setup/setup-go.sh
-
+./setup/setup-mise.sh
+./setup/setup-claude.sh
 

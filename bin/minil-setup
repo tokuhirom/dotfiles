@@ -1,0 +1,2 @@
+#!/bin/bash
+cpanm -n Minilla::Error::CommandExit Version::Next CPAN::Uploader Test::CPAN::Meta Test::MinimumVersion::Fast Test::Pod Test::Spellunker

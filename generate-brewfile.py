@@ -45,7 +45,7 @@ def get_mas_info(lines):
         1289583905  Pixelmator Pro  (3.6.14)
     """
     for line in lines:
-        id_, name = re.match(r"(\d+)\s+(.+?)\s+\(.+?\)", line).groups()
+        id_, name = re.match(r"\s*(\d+)\s+(.+?)\s+\(.+?\)", line).groups()
         yield name, id_
 
 def generate_cask(script):
