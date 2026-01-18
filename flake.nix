@@ -17,42 +17,67 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager }: {
-    # macOS configuration
-    darwinConfigurations."YOUR-MAC-HOSTNAME" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";  # Change to x86_64-darwin for Intel Macs
-      modules = [
-        ./darwin
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.tokuhirom = import ./home;
-        }
-      ];
-    };
+  outputs = { self, nixpkgs, nix-darwin, home-manager }:
+    let
+      # Helper to create Linux home-manager configuration
+      mkLinuxHome = { username, hostname, system ? "x86_64-linux" }:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./home
+            {
+              home.username = username;
+              home.homeDirectory = "/home/${username}";
+            }
+          ];
+        };
 
-    # Linux home-manager configurations
-    homeConfigurations."tokuhirom@pop-os" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [
-        ./home
-        {
-          home.username = "tokuhirom";
-          home.homeDirectory = "/home/tokuhirom";
-        }
-      ];
-    };
+      # Helper to create macOS nix-darwin configuration
+      mkDarwinHost = { username, hostname, system ? "aarch64-darwin" }:
+        nix-darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            ./darwin
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home;
+            }
+          ];
+        };
+    in
+    {
+      # macOS configurations
+      darwinConfigurations = {
+        # Example: Change YOUR-MAC-HOSTNAME to your actual hostname
+        # Get it with: scutil --get LocalHostName
+        "YOUR-MAC-HOSTNAME" = mkDarwinHost {
+          username = "tokuhirom";
+          hostname = "YOUR-MAC-HOSTNAME";
+          system = "aarch64-darwin";  # or "x86_64-darwin" for Intel
+        };
+      };
 
-    homeConfigurations."tokuhirom@arch" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [
-        ./home
-        {
-          home.username = "tokuhirom";
-          home.homeDirectory = "/home/tokuhirom";
-        }
-      ];
+      # Linux home-manager configurations
+      homeConfigurations = {
+        # Personal machines
+        "tokuhirom@pop-os" = mkLinuxHome {
+          username = "tokuhirom";
+          hostname = "pop-os";
+        };
+
+        "tokuhirom@arch" = mkLinuxHome {
+          username = "tokuhirom";
+          hostname = "arch";
+        };
+
+        # Work machines - add your work username here
+        # Example:
+        # "workuser@work-laptop" = mkLinuxHome {
+        #   username = "workuser";
+        #   hostname = "work-laptop";
+        # };
+      };
     };
-  };
 }

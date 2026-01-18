@@ -42,6 +42,21 @@ nix run home-manager/master --print-build-logs -- switch --flake .#tokuhirom@$(h
 home-manager switch --flake .#tokuhirom@$(hostname)
 ```
 
+**For work machines with different username:**
+```bash
+# 1. Add your work machine to flake.nix:
+#    Uncomment and edit the example in homeConfigurations section
+#
+#    "yourworkuser@work-laptop" = mkLinuxHome {
+#      username = "yourworkuser";
+#      hostname = "work-laptop";
+#    };
+
+# 2. Apply the configuration
+cd ~/dotfiles
+nix run home-manager/master --print-build-logs -- switch --flake .#yourworkuser@work-laptop
+```
+
 **On macOS:**
 ```bash
 cd ~/dotfiles
