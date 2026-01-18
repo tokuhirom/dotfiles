@@ -3,8 +3,15 @@
   # mise で言語をビルドする際に必要なライブラリとツール
 
   # pkg-config が .dev パッケージを見つけられるように設定
+  # ビルドツールがヘッダーファイルとライブラリを見つけられるように設定
   home.sessionVariables = {
     PKG_CONFIG_PATH = "$HOME/.nix-profile/lib/pkgconfig";
+    C_INCLUDE_PATH = "$HOME/.nix-profile/include";
+    CPLUS_INCLUDE_PATH = "$HOME/.nix-profile/include";
+    LIBRARY_PATH = "$HOME/.nix-profile/lib";
+
+    # ASDF PHP plugin: PostgreSQL サポートを無効化 (NixOS には pg_config がないため)
+    ASDF_PHP_CONFIGURE_OPTIONS = "--without-pdo-pgsql";
   };
 
   home.packages = with pkgs; [
@@ -36,10 +43,11 @@
     freetype.dev
     libwebp  # No dev output
     libxpm
-    oniguruma  # libonig
+    oniguruma.dev  # libonig
 
     # === データベース ===
-    postgresql
+    postgresql  # pg_config などのバイナリ
+    postgresql.dev  # ヘッダーファイル
 
     # === その他の開発ライブラリ ===
     libzip
