@@ -97,22 +97,95 @@ source_nix() {
     fi
 }
 
+# Generate machines.nix configuration
+generate_machines_config() {
+    print_header "Generating machine configuration"
+
+    MACHINES_DIR="$HOME/.config/nix"
+    MACHINES_FILE="$MACHINES_DIR/machines.nix"
+    USERNAME=$(whoami)
+    HOSTNAME=$(hostname)
+    OS=$(detect_os)
+
+    print_info "Detected system:"
+    echo "  Username: $USERNAME"
+    echo "  Hostname: $HOSTNAME"
+    echo "  Platform: $OS"
+    echo
+
+    # Check if machines.nix already exists
+    if [[ -f "$MACHINES_FILE" ]]; then
+        print_success "Machine configuration already exists: $MACHINES_FILE"
+        return 0
+    fi
+
+    # Create directory if it doesn't exist
+    mkdir -p "$MACHINES_DIR"
+    print_info "Creating $MACHINES_FILE..."
+
+    # Generate machines.nix based on platform
+    if [[ "$OS" == "darwin" ]]; then
+        # macOS - use darwinConfigurations
+        cat > "$MACHINES_FILE" << EOF
+{ mkLinuxHome, mkDarwinHost }:
+{
+  darwinConfigurations = {
+    "$HOSTNAME" = mkDarwinHost {
+      username = "$USERNAME";
+      hostname = "$HOSTNAME";
+    };
+  };
+}
+EOF
+        print_success "Generated macOS configuration for $USERNAME@$HOSTNAME"
+    else
+        # Linux - use homeConfigurations
+        cat > "$MACHINES_FILE" << EOF
+{ mkLinuxHome, mkDarwinHost }:
+{
+  homeConfigurations = {
+    "$USERNAME@$HOSTNAME" = mkLinuxHome {
+      username = "$USERNAME";
+      hostname = "$HOSTNAME";
+    };
+  };
+}
+EOF
+        print_success "Generated Linux configuration for $USERNAME@$HOSTNAME"
+    fi
+
+    echo
+    print_info "File saved to: $MACHINES_FILE"
+}
+
 # Apply configuration
 apply_config() {
     print_header "Applying dotfiles configuration"
 
     OS=$(detect_os)
     HOSTNAME=$(hostname)
+    USERNAME=$(whoami)
 
     if [[ "$OS" == "darwin" ]]; then
         print_info "Detected macOS"
-        print_warning "Please update flake.nix with your Mac hostname before running:"
-        print_info "  1. Get your hostname: scutil --get LocalHostName"
-        print_info "  2. Replace 'YOUR-MAC-HOSTNAME' in flake.nix"
-        print_info "  3. Run: darwin-rebuild switch --flake ."
+        print_info "Hostname: $HOSTNAME"
+        print_info "Applying nix-darwin configuration..."
         echo
-        print_info "For first-time setup, run:"
-        echo "  nix run nix-darwin -- switch --flake ."
+
+        # First time setup - install nix-darwin and apply config
+        if ! command -v darwin-rebuild &> /dev/null; then
+            print_info "Installing and activating nix-darwin..."
+            print_info "This will download packages - progress will be shown below"
+            echo
+            nix run nix-darwin --impure --print-build-logs -- switch --flake ".#$HOSTNAME"
+        else
+            print_info "Updating nix-darwin configuration..."
+            echo
+            darwin-rebuild switch --impure --flake ".#$HOSTNAME"
+        fi
+
+        echo
+        print_success "Configuration applied successfully!"
 
     elif [[ "$OS" == "linux" ]]; then
         print_info "Detected Linux"
@@ -125,11 +198,11 @@ apply_config() {
             print_info "Installing and activating home-manager..."
             print_info "This will download packages - progress will be shown below"
             echo
-            nix run home-manager/master --print-build-logs -- switch --flake ".#tokuhirom@$HOSTNAME" --show-trace
+            nix run home-manager/master --impure --print-build-logs -- switch --flake ".#$USERNAME@$HOSTNAME" -b backup
         else
             print_info "Updating home-manager configuration..."
             echo
-            home-manager switch --flake ".#tokuhirom@$HOSTNAME" --show-trace
+            home-manager switch --impure --flake ".#$USERNAME@$HOSTNAME" -b backup
         fi
 
         echo
@@ -193,6 +266,10 @@ main() {
 
     # Source Nix
     source_nix
+    echo
+
+    # Generate machine configuration
+    generate_machines_config
     echo
 
     # Apply configuration

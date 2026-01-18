@@ -4,48 +4,27 @@
 
 ## クイックスタート
 
-### 1. マシン設定（初回のみ）
+### 自動インストール（推奨）
 
-```bash
-# テンプレートを ~/.config/nix/ にコピー（リポジトリの外）
-# これによりホスト名とユーザー名をプライベートに保つ
-mkdir -p ~/.config/nix
-cp ~/dotfiles/machines.nix.example ~/.config/nix/machines.nix
-
-# マシン情報を編集
-vim ~/.config/nix/machines.nix
-```
-
-`~/.config/nix/machines.nix` の例:
-```nix
-{ mkLinuxHome, mkDarwinHost }:
-{
-  homeConfigurations = {
-    "yourname@laptop" = mkLinuxHome {
-      username = "yourname";
-      hostname = "laptop";
-    };
-  };
-}
-```
-
-**なぜ `~/.config/nix/` なのか？**
-- git リポジトリの外にあるため、誤ってコミットされることがない
-- Nix ユーザー設定の標準的な場所
-- 公開する dotfiles リポジトリに表示されない
-
-### 2. Nix のインストールと設定の適用
-
-**最も簡単な方法 - 自動インストール:**
 ```bash
 cd ~/dotfiles
 ./install-nix.sh
 ```
 
-このスクリプトは以下を実行します:
+このスクリプトは以下を自動的に実行します:
 1. Determinate Systems インストーラーを使用して Nix をインストール
 2. 環境を設定
-3. dotfiles 設定を自動的に適用
+3. **マシン固有設定 (`~/.config/nix/machines.nix`) を自動生成**
+4. dotfiles 設定を自動的に適用
+
+**マシン設定について:**
+- `~/.config/nix/machines.nix` は現在のユーザー名とホスト名で自動生成されます
+- git リポジトリの外にあるため、誤ってコミットされることがない
+- 複数マシンで使う場合は、各マシンで `./install-nix.sh` を実行すれば OK
+
+**`~/.config/nix/` を使う理由:**
+- Nix ユーザー設定の標準的な場所
+- リポジトリ外なので、ホスト名やユーザー名が公開リポジトリに表示されない
 
 ## 手動インストール
 
@@ -60,7 +39,20 @@ Determinate インストーラーの特徴:
 - アンインストールのサポートが優れている
 - 公式インストーラーよりも信頼性が高い
 
-### 2. 設定の適用
+### 2. マシン設定ファイルの作成
+
+手動で `~/.config/nix/machines.nix` を作成:
+
+```bash
+# テンプレートをコピー
+mkdir -p ~/.config/nix
+cp ~/dotfiles/machines.nix.example ~/.config/nix/machines.nix
+
+# ユーザー名とホスト名を編集
+vim ~/.config/nix/machines.nix
+```
+
+### 3. 設定の適用
 
 **Linux の場合:**
 ```bash
