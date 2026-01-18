@@ -13,6 +13,7 @@
     # === Essential CLI Tools ===
     # git と git-lfs は programs/git.nix で管理
     # neovim は programs/neovim.nix で管理
+    vim
     tmux
     fzf
     ripgrep
