@@ -65,7 +65,10 @@ cd ~/dotfiles
 # --print-build-logs はダウンロード/ビルドの進捗を表示
 nix run home-manager/master --impure --print-build-logs -- switch --flake .#username@hostname
 
-# 初回実行後は、インストールされた home-manager を使用可能
+# 初回実行後は、簡単なスクリプトを使用可能
+./apply-nix.sh
+
+# または手動で
 home-manager switch --impure --flake .#username@hostname
 ```
 
@@ -76,7 +79,10 @@ cd ~/dotfiles
 # 初回セットアップ
 nix run nix-darwin --impure --print-build-logs -- switch --flake .#your-mac-hostname
 
-# 初回実行後
+# 初回実行後は、簡単なスクリプトを使用可能
+./apply-nix.sh
+
+# または手動で
 darwin-rebuild switch --impure --flake .#your-mac-hostname
 ```
 
@@ -145,6 +151,9 @@ dotfiles/
 ## 便利なコマンド
 
 ```bash
+# 設定を適用（最も簡単な方法）
+./apply-nix.sh
+
 # flake inputs を更新（nixpkgs、home-manager など）
 nix flake update
 

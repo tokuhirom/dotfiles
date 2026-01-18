@@ -16,7 +16,7 @@
       # エイリアス
       alias = {
         # コミット済みブランチの削除
-        br-cleanup = "!git branch --merged | egrep -v \"main|master|develop\" | grep -v \\* | xargs -I % git branch -d %";
+        branch-cleanup = "!git branch --merged | egrep -v \"main|master|develop\" | grep -v \\* | xargs -I % git branch -d %";
         prowl = "!gh prowl";
         ci = "commit";
         co = "checkout";
