@@ -1,5 +1,12 @@
 # dotfiles プロジェクト用 Claude 指示
 
+## 基本ルール
+
+### ドキュメント言語
+- **すべてのドキュメントは日本語で記述すること**
+- README.md、NIX_README.md、各種設定ファイルの説明文など、すべて日本語で書く
+- コード内のコメントも日本語を推奨
+
 ## 主要な設定ファイルのパス
 
 - **aerospace**: `config/.config/aerospace/aerospace.toml`
