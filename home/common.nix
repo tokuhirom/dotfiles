@@ -1,11 +1,15 @@
 { config, pkgs, ... }: {
   # Cross-platform user environment configuration
 
+  imports = [
+    ./programs/git.nix
+    ./programs/zsh.nix
+  ];
+
   # CLI packages available on all systems (macOS & Linux)
   home.packages = with pkgs; [
     # === Essential CLI Tools ===
-    git
-    git-lfs
+    # git と git-lfs は programs/git.nix で管理
     neovim
     tmux
     fzf
@@ -113,7 +117,7 @@
   home.file = {
     # Shell configurations
     ".bashrc".source = ../config/.bashrc;
-    ".zshrc".source = ../config/.zshrc;
+    # .zshrc は programs/zsh.nix で管理
 
     # Editor configurations
     ".vimrc".source = ../config/.vimrc;

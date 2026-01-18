@@ -124,14 +124,25 @@ darwin-rebuild switch --impure --flake .#your-mac-hostname
 - プラットフォーム固有の設定が自動的に適用される
 - 手動でのシンボリックリンク作成が不要
 
-**まだ動作していないもの:**
-- システム設定（まだ setup-mac-settings.sh を使用）
-- Git 設定（まだ setup-git.sh を使用）
-- シェル設定（zsh/bash セットアップ）
+### Phase 4: システム設定スクリプト ✅ 完了
+
+**完了項目:**
+- ✅ Git 設定を `home/programs/git.nix` に移行（setup-git.sh を置き換え）
+- ✅ macOS システム設定を `darwin/system-settings.nix` に移行（setup-mac-settings.sh を置き換え）
+- ✅ Zsh 設定を `home/programs/zsh.nix` で宣言的に管理
+
+**現在動作しているもの:**
+- Git の全設定（ユーザー情報、エイリアス、diff/merge/push/fetch 設定など）が宣言的に管理
+- macOS のシステムデフォルト（ダークモード、キーリピート、Dock、Finder など）が宣言的に管理
+- キーボードショートカット、CapsLock → Control マッピングなどが自動設定
+- Zsh の補完、履歴、シンタックスハイライトが有効化
+
+**廃止されたスクリプト:**
+- ~~setup-git.sh~~ → `home/programs/git.nix`
+- ~~setup-mac-settings.sh~~ → `darwin/system-settings.nix`
 
 ### 今後のフェーズ
 
-- **Phase 4**: システム設定スクリプト（1週間）
 - **Phase 5**: 高度な機能（2週間）
 - **Phase 6**: Linux サポート拡張（1週間）
 - **Phase 7**: クリーンアップとドキュメント（1週間）
@@ -140,16 +151,21 @@ darwin-rebuild switch --impure --flake .#your-mac-hostname
 
 ```
 dotfiles/
-├── flake.nix           # Nix flake エントリーポイント
-├── flake.lock          # 自動生成されるロックファイル（git コミット済み）
-├── darwin/             # macOS システム設定
-│   └── default.nix
-└── home/               # ユーザー環境（クロスプラットフォーム）
-    ├── default.nix     # メイン home-manager 設定
-    ├── common.nix      # クロスプラットフォーム設定
-    ├── darwin.nix      # macOS 固有のユーザー設定
-    ├── linux.nix       # Linux 固有のユーザー設定
-    └── programs/       # プログラム固有の設定（Phase 4以降）
+├── flake.nix              # Nix flake エントリーポイント
+├── flake.lock             # 自動生成されるロックファイル（git コミット済み）
+├── darwin/                # macOS システム設定
+│   ├── default.nix        # メイン設定
+│   ├── packages.nix       # CLI ツール
+│   ├── homebrew.nix       # GUI アプリ
+│   └── system-settings.nix # システムデフォルト設定
+└── home/                  # ユーザー環境（クロスプラットフォーム）
+    ├── default.nix        # メイン home-manager 設定
+    ├── common.nix         # クロスプラットフォーム設定
+    ├── darwin.nix         # macOS 固有のユーザー設定
+    ├── linux.nix          # Linux 固有のユーザー設定
+    └── programs/          # プログラム固有の設定
+        ├── git.nix        # Git 設定
+        └── zsh.nix        # Zsh 設定
 ```
 
 ## 検証

@@ -1,7 +1,8 @@
 { pkgs, ... }: {
   imports = [
-    ./packages.nix    # CLI tools from nixpkgs
-    ./homebrew.nix    # GUI apps via Homebrew
+    ./packages.nix         # CLI tools from nixpkgs
+    ./homebrew.nix         # GUI apps via Homebrew
+    ./system-settings.nix  # macOS system settings
   ];
 
   # Enable the Nix daemon
