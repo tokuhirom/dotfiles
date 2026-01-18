@@ -10,3 +10,4 @@ config/.emacs.d/.cache/
 
 # Embedded git repos
 akaza/
+result

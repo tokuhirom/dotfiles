@@ -1,16 +1,8 @@
 { pkgs, ... }: {
-  # Core system packages (Phase 1: Foundation)
-  environment.systemPackages = with pkgs; [
-    # Essential CLI tools
-    git
-    neovim
-    tmux
-    fzf
-    ripgrep
-    bat
-    jq
-    fd
-    gh
+  # Import Phase 2 modules
+  imports = [
+    ./packages.nix    # CLI tools from nixpkgs
+    ./homebrew.nix    # GUI apps via Homebrew
   ];
 
   # Enable the Nix daemon

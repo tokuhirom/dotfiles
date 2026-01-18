@@ -58,31 +58,40 @@ darwin-rebuild switch --flake .
 
 ## Current Migration Status
 
-### Phase 1: Foundation ✅ (Current Phase)
+### Phase 1: Foundation ✅ COMPLETE
 
-**Completed:**
 - ✅ Flake structure created
 - ✅ Basic nix-darwin configuration (macOS)
 - ✅ Basic home-manager configuration (Linux + macOS)
-- ✅ Core CLI tools (git, neovim, tmux, fzf, ripgrep, bat, jq, fd, gh)
+- ✅ Core CLI tools (9 packages)
+
+### Phase 2: Package Management ✅ COMPLETE
+
+**Completed:**
+- ✅ Migrated ~100+ CLI tools to `darwin/packages.nix` (macOS)
+- ✅ Migrated ~60 CLI tools to `home/common.nix` (cross-platform)
+- ✅ Declarative Homebrew for 47 casks (GUI apps)
+- ✅ Declarative Homebrew for 13 nixpkgs-unavailable tools
+- ✅ Mac App Store apps (10 apps)
+- ✅ Package name mappings documented
 
 **What works now:**
-- Install 9 core CLI packages via Nix
-- All existing shell scripts still work (setup/, link.sh, etc.)
-- No disruption to current workflow
+- ~160+ packages managed declaratively via Nix
+- GUI apps managed via nix-darwin's Homebrew integration
+- All packages version-locked in flake.lock
+- Cross-platform consistency (same tools on macOS and Linux)
 
 **What doesn't work yet:**
-- Full package management (still using Homebrew/system package manager)
 - Dotfile symlinking (still using link.sh)
 - System settings (still using setup-mac-settings.sh)
+- Git configuration (still using setup-git.sh)
 
 ### Upcoming Phases
 
-- **Phase 2**: Package Management Migration (~2 weeks)
 - **Phase 3**: Dotfiles Management (1 week)
 - **Phase 4**: System Configuration Scripts (1 week)
 - **Phase 5**: Advanced Features (2 weeks)
-- **Phase 6**: Linux Support (1 week)
+- **Phase 6**: Linux Support Expansion (1 week)
 - **Phase 7**: Cleanup & Documentation (1 week)
 
 ## Directory Structure
