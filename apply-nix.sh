@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     darwin-rebuild switch --impure --flake ".#$HOSTNAME"
 else
     echo "🐧 Applying Nix configuration for Linux ($USER@$HOSTNAME)..."
-    home-manager switch --impure --flake ".#$USER@$HOSTNAME"
+    home-manager switch --impure --flake ".#$USER@$HOSTNAME" -b backup
 fi
 
 echo "✅ Configuration applied successfully!"
