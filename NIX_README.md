@@ -188,9 +188,43 @@ darwin-rebuild switch --impure --flake .#your-mac-hostname
 - 日本語入力（Fcitx5 + Mozc）が設定済み
 - X11 と Wayland 両方のクリップボードサポート
 
-### 今後のフェーズ
+### Phase 7: クリーンアップとドキュメント ✅ 完了
 
-- **Phase 7**: クリーンアップとドキュメント（1週間）
+**完了項目:**
+- ✅ 廃止されたスクリプトを `legacy/` ディレクトリに移動
+- ✅ README.md を Nix メインに更新
+- ✅ legacy/README.md を作成して移行状況を説明
+- ✅ 最終的なビルドテストと検証
+
+**移動されたファイル:**
+- `Brewfile` → `legacy/Brewfile`（Phase 2 で置き換え）
+- `link.sh` → `legacy/link.sh`（Phase 3 で置き換え）
+- `setup/setup-git.sh` → `legacy/setup/setup-git.sh`（Phase 4 で置き換え）
+- `setup/setup-mac-settings.sh` → `legacy/setup/setup-mac-settings.sh`（Phase 4 で置き換え）
+- `setup/setup-mise.sh` → `legacy/setup/setup-mise.sh`（Phase 5 で置き換え）
+- `setup/setup-vimplug.sh` → `legacy/setup/setup-vimplug.sh`（Phase 5 で置き換え）
+
+**ドキュメント更新:**
+- README.md: Nix 移行完了を反映、特徴を追加
+- legacy/README.md: 廃止されたスクリプトの説明を追加
+
+## 🎉 Nix 移行完了！
+
+すべてのフェーズが完了し、dotfiles は完全に宣言的な Nix 管理に移行されました。
+
+### 移行完了の成果
+
+- ✅ **220+ パッケージ**が宣言的に管理
+- ✅ **すべての dotfiles** が home-manager で管理
+- ✅ **Git、Zsh、Neovim** の設定が宣言的
+- ✅ **macOS システム設定**が宣言的
+- ✅ **開発環境のビルド依存関係**が自動セットアップ
+- ✅ **Linux フルサポート**（i3、Fcitx5、フォントなど）
+- ✅ **プライバシー保護**（ホスト名・ユーザー名は ~/.config/nix/ で管理）
+
+### 従来のセットアップスクリプト
+
+すべて `legacy/` ディレクトリに移動されました。参照用に保持されていますが、新規インストールには使用しないでください。
 
 ## ディレクトリ構造
 
@@ -198,21 +232,30 @@ darwin-rebuild switch --impure --flake .#your-mac-hostname
 dotfiles/
 ├── flake.nix              # Nix flake エントリーポイント
 ├── flake.lock             # 自動生成されるロックファイル（git コミット済み）
+├── machines.nix.example   # マシン設定のテンプレート
+├── install-nix.sh         # Nix 自動インストールスクリプト
 ├── darwin/                # macOS システム設定
 │   ├── default.nix        # メイン設定
 │   ├── packages.nix       # CLI ツール
 │   ├── homebrew.nix       # GUI アプリ
 │   └── system-settings.nix # システムデフォルト設定
-└── home/                  # ユーザー環境（クロスプラットフォーム）
-    ├── default.nix        # メイン home-manager 設定
-    ├── common.nix         # クロスプラットフォーム設定
-    ├── darwin.nix         # macOS 固有のユーザー設定
-    ├── linux.nix          # Linux 固有のユーザー設定
-    ├── development.nix    # 開発用ビルド依存関係
-    └── programs/          # プログラム固有の設定
-        ├── git.nix        # Git 設定
-        ├── zsh.nix        # Zsh 設定（mise activation 含む）
-        └── neovim.nix     # Neovim 設定
+├── home/                  # ユーザー環境（クロスプラットフォーム）
+│   ├── default.nix        # メイン home-manager 設定
+│   ├── common.nix         # クロスプラットフォーム設定
+│   ├── darwin.nix         # macOS 固有のユーザー設定
+│   ├── linux.nix          # Linux 固有のユーザー設定
+│   ├── development.nix    # 開発用ビルド依存関係
+│   └── programs/          # プログラム固有の設定
+│       ├── git.nix        # Git 設定
+│       ├── zsh.nix        # Zsh 設定（mise activation 含む）
+│       └── neovim.nix     # Neovim 設定
+├── config/                # dotfiles の実体（Nix から参照）
+├── bin/                   # カスタムスクリプト
+└── legacy/                # 廃止されたスクリプト（参照用）
+    ├── README.md          # 移行状況の説明
+    ├── Brewfile           # 旧 Homebrew 設定
+    ├── link.sh            # 旧シンボリックリンク作成スクリプト
+    └── setup/             # 旧セットアップスクリプト
 ```
 
 ## 検証
