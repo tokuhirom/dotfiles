@@ -1,22 +1,22 @@
-# Nix Configuration
+# Nix 設定
 
-This dotfiles repository is being migrated to use Nix for declarative system and user environment management.
+この dotfiles リポジトリは、宣言的なシステムとユーザー環境管理のために Nix へ移行中です。
 
-## Quick Start
+## クイックスタート
 
-### 1. Configure Your Machines (First Time Only)
+### 1. マシン設定（初回のみ）
 
 ```bash
-# Copy the template to ~/.config/nix/ (outside the repo)
-# This keeps your hostnames/usernames private
+# テンプレートを ~/.config/nix/ にコピー（リポジトリの外）
+# これによりホスト名とユーザー名をプライベートに保つ
 mkdir -p ~/.config/nix
 cp ~/dotfiles/machines.nix.example ~/.config/nix/machines.nix
 
-# Edit with your machine info
+# マシン情報を編集
 vim ~/.config/nix/machines.nix
 ```
 
-Example `~/.config/nix/machines.nix`:
+`~/.config/nix/machines.nix` の例:
 ```nix
 { mkLinuxHome, mkDarwinHost }:
 {
@@ -29,212 +29,212 @@ Example `~/.config/nix/machines.nix`:
 }
 ```
 
-**Why `~/.config/nix/`?**
-- Outside the git repo, so it's never accidentally committed
-- Standard location for Nix user configuration
-- Won't appear in your public dotfiles repo
+**なぜ `~/.config/nix/` なのか？**
+- git リポジトリの外にあるため、誤ってコミットされることがない
+- Nix ユーザー設定の標準的な場所
+- 公開する dotfiles リポジトリに表示されない
 
-### 2. Install Nix and Apply Configuration
+### 2. Nix のインストールと設定の適用
 
-**Easiest way - Automated installation:**
+**最も簡単な方法 - 自動インストール:**
 ```bash
 cd ~/dotfiles
 ./install-nix.sh
 ```
 
-This script will:
-1. Install Nix using the Determinate Systems installer
-2. Configure your environment
-3. Apply the dotfiles configuration automatically
+このスクリプトは以下を実行します:
+1. Determinate Systems インストーラーを使用して Nix をインストール
+2. 環境を設定
+3. dotfiles 設定を自動的に適用
 
-## Manual Installation
+## 手動インストール
 
-### 1. Install Nix (Determinate Installer - Recommended)
+### 1. Nix のインストール（Determinate インストーラー - 推奨）
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
-The Determinate installer:
-- Enables flakes by default
-- Has better uninstall support
-- More reliable than the official installer
+Determinate インストーラーの特徴:
+- デフォルトで flakes が有効
+- アンインストールのサポートが優れている
+- 公式インストーラーよりも信頼性が高い
 
-### 2. Apply Configuration
+### 2. 設定の適用
 
-**On Linux:**
+**Linux の場合:**
 ```bash
 cd ~/dotfiles
 
-# First time setup - this will create flake.lock
-# Use the username@hostname you configured in ~/.config/nix/machines.nix
-# --impure allows reading your private machines.nix
-# --print-build-logs shows download/build progress
+# 初回セットアップ - flake.lock が作成されます
+# ~/.config/nix/machines.nix で設定した username@hostname を使用
+# --impure は プライベートな machines.nix の読み込みを許可
+# --print-build-logs はダウンロード/ビルドの進捗を表示
 nix run home-manager/master --impure --print-build-logs -- switch --flake .#username@hostname
 
-# After first run, you can use the installed home-manager
+# 初回実行後は、インストールされた home-manager を使用可能
 home-manager switch --impure --flake .#username@hostname
 ```
 
-**On macOS:**
+**macOS の場合:**
 ```bash
 cd ~/dotfiles
 
-# Configure your Mac in ~/.config/nix/machines.nix first
-# (see step 1 above)
+# まず ~/.config/nix/machines.nix で Mac を設定
+# （上記ステップ1を参照）
 
-# First time setup
-# --impure allows reading your private machines.nix
+# 初回セットアップ
+# --impure はプライベートな machines.nix の読み込みを許可
 nix run nix-darwin --impure --print-build-logs -- switch --flake .#your-mac-hostname
 
-# After first run
+# 初回実行後
 darwin-rebuild switch --impure --flake .#your-mac-hostname
 ```
 
-## Current Migration Status
+## 現在の移行状況
 
-### Phase 1: Foundation ✅ COMPLETE
+### Phase 1: 基盤 ✅ 完了
 
-- ✅ Flake structure created
-- ✅ Basic nix-darwin configuration (macOS)
-- ✅ Basic home-manager configuration (Linux + macOS)
-- ✅ Core CLI tools (9 packages)
+- ✅ Flake 構造を作成
+- ✅ 基本的な nix-darwin 設定（macOS）
+- ✅ 基本的な home-manager 設定（Linux + macOS）
+- ✅ コア CLI ツール（9パッケージ）
 
-### Phase 2: Package Management ✅ COMPLETE
+### Phase 2: パッケージ管理 ✅ 完了
 
-- ✅ Migrated ~100+ CLI tools to `darwin/packages.nix` (macOS)
-- ✅ Migrated ~60 CLI tools to `home/common.nix` (cross-platform)
-- ✅ Declarative Homebrew for 47 casks + 13 formulae + 10 Mac App Store apps
-- ✅ Package name mappings documented
+- ✅ 100個以上の CLI ツールを `darwin/packages.nix` に移行（macOS）
+- ✅ 60個の CLI ツールを `home/common.nix` に移行（クロスプラットフォーム）
+- ✅ 宣言的な Homebrew（47 casks + 13 formulae + 10 Mac App Store アプリ）
+- ✅ パッケージ名マッピングをドキュメント化
 
-### Phase 3: Dotfiles Management ✅ COMPLETE
+### Phase 3: Dotfiles 管理 ✅ 完了
 
-**Completed:**
-- ✅ Replaced `link.sh` with home-manager file management
-- ✅ Cross-platform dotfiles in `home/common.nix` (22 files)
-- ✅ macOS-specific dotfiles in `home/darwin.nix` (2 files)
-- ✅ Linux-specific dotfiles in `home/linux.nix` (8 files)
-- ✅ All 22 bin/ scripts linked to `~/.local/bin` with executable permissions
-- ✅ `~/.vim/tmp/` directory created automatically
-- ✅ `~/.local/bin` added to PATH
+**完了項目:**
+- ✅ `link.sh` を home-manager ファイル管理に置き換え
+- ✅ クロスプラットフォーム dotfiles を `home/common.nix` に（22ファイル）
+- ✅ macOS 固有の dotfiles を `home/darwin.nix` に（2ファイル）
+- ✅ Linux 固有の dotfiles を `home/linux.nix` に（8ファイル）
+- ✅ すべての bin/ スクリプト（22個）を実行権限付きで `~/.local/bin` にリンク
+- ✅ `~/.vim/tmp/` ディレクトリを自動作成
+- ✅ `~/.local/bin` を PATH に追加
 
-**What works now:**
-- All dotfiles managed declaratively
-- Bin scripts executable and in PATH (cheat, app-toggle, git-*, etc.)
-- Platform-specific configs automatically applied
-- No more manual symlinking needed
+**現在動作しているもの:**
+- すべての dotfiles が宣言的に管理されている
+- Bin スクリプトが実行可能で PATH に含まれている（cheat、app-toggle、git-* など）
+- プラットフォーム固有の設定が自動的に適用される
+- 手動でのシンボリックリンク作成が不要
 
-**What doesn't work yet:**
-- System settings (still using setup-mac-settings.sh)
-- Git configuration (still using setup-git.sh)
-- Shell configuration (zsh/bash setup)
+**まだ動作していないもの:**
+- システム設定（まだ setup-mac-settings.sh を使用）
+- Git 設定（まだ setup-git.sh を使用）
+- シェル設定（zsh/bash セットアップ）
 
-### Upcoming Phases
+### 今後のフェーズ
 
-- **Phase 4**: System Configuration Scripts (1 week)
-- **Phase 5**: Advanced Features (2 weeks)
-- **Phase 6**: Linux Support Expansion (1 week)
-- **Phase 7**: Cleanup & Documentation (1 week)
+- **Phase 4**: システム設定スクリプト（1週間）
+- **Phase 5**: 高度な機能（2週間）
+- **Phase 6**: Linux サポート拡張（1週間）
+- **Phase 7**: クリーンアップとドキュメント（1週間）
 
-## Directory Structure
+## ディレクトリ構造
 
 ```
 dotfiles/
-├── flake.nix           # Nix flake entry point
-├── flake.lock          # Auto-generated lockfile (git committed)
-├── darwin/             # macOS system configuration
+├── flake.nix           # Nix flake エントリーポイント
+├── flake.lock          # 自動生成されるロックファイル（git コミット済み）
+├── darwin/             # macOS システム設定
 │   └── default.nix
-└── home/               # User environment (cross-platform)
-    ├── default.nix     # Main home-manager config
-    ├── common.nix      # Cross-platform settings
-    ├── darwin.nix      # macOS-specific user configs
-    ├── linux.nix       # Linux-specific user configs
-    └── programs/       # Program-specific configs (Phase 4+)
+└── home/               # ユーザー環境（クロスプラットフォーム）
+    ├── default.nix     # メイン home-manager 設定
+    ├── common.nix      # クロスプラットフォーム設定
+    ├── darwin.nix      # macOS 固有のユーザー設定
+    ├── linux.nix       # Linux 固有のユーザー設定
+    └── programs/       # プログラム固有の設定（Phase 4以降）
 ```
 
-## Verification
+## 検証
 
-After applying the configuration:
+設定を適用した後:
 
 ```bash
-# Check which packages are managed by Nix
+# Nix で管理されているパッケージを確認
 which git neovim tmux ripgrep bat jq fd gh fzf
 
-# They should point to /nix/store/...
+# /nix/store/... を指しているはず
 
-# Check package versions
+# パッケージバージョンを確認
 git --version
 nvim --version
 ```
 
-## Rollback
+## ロールバック
 
-If something goes wrong:
+問題が発生した場合:
 
 **Linux:**
 ```bash
-# List generations
+# 世代をリスト表示
 home-manager generations
 
-# Rollback to previous generation
+# 前の世代にロールバック
 home-manager switch --flake . --rollback
 ```
 
 **macOS:**
 ```bash
-# List generations
+# 世代をリスト表示
 darwin-rebuild --list-generations
 
-# Rollback
+# ロールバック
 darwin-rebuild --rollback
 ```
 
-## Useful Commands
+## 便利なコマンド
 
 ```bash
-# Update flake inputs (nixpkgs, home-manager, etc.)
+# flake inputs を更新（nixpkgs、home-manager など）
 nix flake update
 
-# Check what would change (dry-run)
+# 変更内容を確認（ドライラン）
 home-manager switch --flake . --dry-run  # Linux
 darwin-rebuild check --flake .           # macOS
 
-# Show download/build progress (add to any nix command)
+# ダウンロード/ビルドの進捗を表示（任意の nix コマンドに追加）
 nix run <package> --print-build-logs
-home-manager switch --flake . --show-trace  # Shows detailed error traces
+home-manager switch --flake . --show-trace  # 詳細なエラートレースを表示
 
-# Clean old generations
+# 古い世代をクリーンアップ
 nix-collect-garbage --delete-older-than 30d
 
-# Search for packages
+# パッケージを検索
 nix search nixpkgs <package-name>
 
-# See what's being downloaded in real-time
+# ダウンロード中の内容をリアルタイムで確認
 nix build --print-build-logs --verbose <package>
 ```
 
-## Tips & Best Practices
+## Tips とベストプラクティス
 
-### Show Download Progress
+### ダウンロード進捗の表示
 
-By default, Nix can be silent during downloads. Always use these flags:
+デフォルトでは、Nix はダウンロード中に何も表示しないことがあります。常にこれらのフラグを使用してください:
 
 ```bash
-# For nix run commands
+# nix run コマンドの場合
 nix run <package> --print-build-logs
 
-# For home-manager/darwin-rebuild
+# home-manager/darwin-rebuild の場合
 home-manager switch --flake . --show-trace
 darwin-rebuild switch --flake . --show-trace
 ```
 
-The `install-nix.sh` script includes these flags automatically!
+`install-nix.sh` スクリプトは自動的にこれらのフラグを含んでいます！
 
-## Notes
+## 注意事項
 
-- **Flakes are enabled by default** with Determinate installer
-- **Progress visibility**: Use `--print-build-logs` to see downloads
-- **Existing shell scripts continue to work** during migration
-- **Homebrew is not removed** - Nix packages appear first in PATH
-- **link.sh still works** - will be replaced in Phase 3
-- **All setup/*.sh scripts still needed** - will be replaced in later phases
+- **Flakes はデフォルトで有効** Determinate インストーラーを使用
+- **進捗の可視性**: ダウンロードを確認するために `--print-build-logs` を使用
+- **既存のシェルスクリプトは引き続き動作** 移行中も使用可能
+- **Homebrew は削除されません** - Nix パッケージが PATH で優先される
+- **link.sh は引き続き動作** - Phase 3 で置き換え済み
+- **すべての setup/*.sh スクリプトはまだ必要** - 後のフェーズで置き換え予定
