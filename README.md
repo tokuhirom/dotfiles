@@ -198,14 +198,45 @@ nvim --version
 
 ## 私の環境
 
-- **ターミナル**: wezterm（aerospace との組み合わせで最高）
-- **プログラミング言語管理**: mise（だいたいなんでも管理できて便利）
-- **メイン IDE**: GoLand
-- **エディタ**: Neovim（lazy.nvim）
-- **ターミナルマルチプレクサ**: tmux（copy mode が優秀）
-- **シェル**: zsh
-- **Mac パッケージ管理**: Nix + Homebrew（GUI アプリ）
-- **ウェブブラウザ**: Chrome
+- ターミナル
+  - Terminal.app -> iTerm2 -> wezterm -> alacritty -> wezterm(2026)
+  - :o: wezterm
+    - aerospace との組み合わせで最高の選択
+  - :x: alacritty
+    - aerospace と相性が悪い
+  - :x: ghostty
+    - aerospace と相性が悪い
+- プログラミング言語の依存関係マネージャー
+  - (plenv, nodeenv など...) -> mise(2025)
+  - :o: mise
+    - だいたいなんでも mise で管理できるので便利すぎる。
+    - PHP だけ管理しにくい問題あり。
+- メイン IDE
+- :o: goland
+- neovim 環境
+  - config/.config/neovim/README.md を参照
+- ターミナルマルチプレクサ
+  - screen -> tmux -> zellij(2026) -> tmux(2026)
+  - :o: tmux
+    - copy mode が非常に優秀
+  - :x: zellij
+    - tmux の copy mode の方が zellij より優れている
+    - `C-t p l` は `C-t l` より長い
+- シェル
+  - bash -> zsh -> fish(2025)
+  - :o: fish
+    - 優れたインタラクティブシェル
+    - :( bash と互換性がない
+    - しばらく使ったけど、特にメリットないので、zsh に戻したい気もする
+  - zsh
+  - bash
+    - Mac に入ってる Bash はライセンスの関係上絶妙に古いので、そのへん考えるのがめんどくさい。
+ - Mac パッケージ管理
+   - macports -> brew
+- ウェブブラウザ
+  - chrome -> vivaldi -> chrome
+  - :x: vivaldi
+    - そんなにすごく便利っていう感じの機能が特になかった。
 
 ## 注意事項
 
