@@ -46,38 +46,24 @@
             }
           ];
         };
+
+      # Import machine-specific configurations from ~/.config/nix/machines.nix
+      # This keeps your hostnames and usernames private (outside the git repo)
+      homeDir = builtins.getEnv "HOME";
+      machinesPath = homeDir + "/.config/nix/machines.nix";
+
+      machineConfigs = if builtins.pathExists machinesPath
+        then import machinesPath { inherit mkLinuxHome mkDarwinHost; }
+        else {
+          # Default empty configs if machines.nix doesn't exist
+          # Copy machines.nix.example to ~/.config/nix/machines.nix
+          darwinConfigurations = {};
+          homeConfigurations = {};
+        };
     in
     {
-      # macOS configurations
-      darwinConfigurations = {
-        # Example: Change YOUR-MAC-HOSTNAME to your actual hostname
-        # Get it with: scutil --get LocalHostName
-        "YOUR-MAC-HOSTNAME" = mkDarwinHost {
-          username = "tokuhirom";
-          hostname = "YOUR-MAC-HOSTNAME";
-          system = "aarch64-darwin";  # or "x86_64-darwin" for Intel
-        };
-      };
-
-      # Linux home-manager configurations
-      homeConfigurations = {
-        # Personal machines
-        "tokuhirom@pop-os" = mkLinuxHome {
-          username = "tokuhirom";
-          hostname = "pop-os";
-        };
-
-        "tokuhirom@arch" = mkLinuxHome {
-          username = "tokuhirom";
-          hostname = "arch";
-        };
-
-        # Work machines - add your work username here
-        # Example:
-        # "workuser@work-laptop" = mkLinuxHome {
-        #   username = "workuser";
-        #   hostname = "work-laptop";
-        # };
-      };
+      # Machine-specific configurations (from machines.nix, gitignored)
+      darwinConfigurations = machineConfigs.darwinConfigurations or {};
+      homeConfigurations = machineConfigs.homeConfigurations or {};
     };
 }

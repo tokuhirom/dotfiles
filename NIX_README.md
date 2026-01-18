@@ -4,6 +4,38 @@ This dotfiles repository is being migrated to use Nix for declarative system and
 
 ## Quick Start
 
+### 1. Configure Your Machines (First Time Only)
+
+```bash
+# Copy the template to ~/.config/nix/ (outside the repo)
+# This keeps your hostnames/usernames private
+mkdir -p ~/.config/nix
+cp ~/dotfiles/machines.nix.example ~/.config/nix/machines.nix
+
+# Edit with your machine info
+vim ~/.config/nix/machines.nix
+```
+
+Example `~/.config/nix/machines.nix`:
+```nix
+{ mkLinuxHome, mkDarwinHost }:
+{
+  homeConfigurations = {
+    "yourname@laptop" = mkLinuxHome {
+      username = "yourname";
+      hostname = "laptop";
+    };
+  };
+}
+```
+
+**Why `~/.config/nix/`?**
+- Outside the git repo, so it's never accidentally committed
+- Standard location for Nix user configuration
+- Won't appear in your public dotfiles repo
+
+### 2. Install Nix and Apply Configuration
+
 **Easiest way - Automated installation:**
 ```bash
 cd ~/dotfiles
@@ -30,45 +62,33 @@ The Determinate installer:
 
 ### 2. Apply Configuration
 
-**On Linux (Pop!_OS, Arch, etc.):**
+**On Linux:**
 ```bash
 cd ~/dotfiles
 
 # First time setup - this will create flake.lock
+# Use the username@hostname you configured in ~/.config/nix/machines.nix
+# --impure allows reading your private machines.nix
 # --print-build-logs shows download/build progress
-nix run home-manager/master --print-build-logs -- switch --flake .#tokuhirom@$(hostname)
+nix run home-manager/master --impure --print-build-logs -- switch --flake .#username@hostname
 
 # After first run, you can use the installed home-manager
-home-manager switch --flake .#tokuhirom@$(hostname)
-```
-
-**For work machines with different username:**
-```bash
-# 1. Add your work machine to flake.nix:
-#    Uncomment and edit the example in homeConfigurations section
-#
-#    "yourworkuser@work-laptop" = mkLinuxHome {
-#      username = "yourworkuser";
-#      hostname = "work-laptop";
-#    };
-
-# 2. Apply the configuration
-cd ~/dotfiles
-nix run home-manager/master --print-build-logs -- switch --flake .#yourworkuser@work-laptop
+home-manager switch --impure --flake .#username@hostname
 ```
 
 **On macOS:**
 ```bash
 cd ~/dotfiles
 
-# Update flake.nix with your Mac's hostname first!
-# Replace YOUR-MAC-HOSTNAME with: $(scutil --get LocalHostName)
+# Configure your Mac in ~/.config/nix/machines.nix first
+# (see step 1 above)
 
-# First time setup (--print-build-logs shows download progress)
-nix run nix-darwin --print-build-logs -- switch --flake .
+# First time setup
+# --impure allows reading your private machines.nix
+nix run nix-darwin --impure --print-build-logs -- switch --flake .#your-mac-hostname
 
 # After first run
-darwin-rebuild switch --flake .
+darwin-rebuild switch --impure --flake .#your-mac-hostname
 ```
 
 ## Current Migration Status

@@ -1,0 +1,43 @@
+# Machine-specific configurations
+# Copy this file to machines.nix and customize for your machines
+# machines.nix is gitignored to keep your hostnames/usernames private
+
+{ mkLinuxHome, mkDarwinHost }:
+
+{
+  # macOS configurations
+  darwinConfigurations = {
+    # Example macOS machine
+    # "your-mac-hostname" = mkDarwinHost {
+    #   username = "yourusername";
+    #   hostname = "your-mac-hostname";
+    #   system = "aarch64-darwin";  # or "x86_64-darwin" for Intel Macs
+    # };
+  };
+
+  # Linux home-manager configurations
+  homeConfigurations = {
+    # Example Linux machine
+    # "yourusername@your-laptop" = mkLinuxHome {
+    #   username = "yourusername";
+    #   hostname = "your-laptop";
+    # };
+
+    # Example work machine
+    # "workuser@work-laptop" = mkLinuxHome {
+    #   username = "workuser";
+    #   hostname = "work-laptop";
+    # };
+
+    # Multiple machines example
+    # "alice@desktop" = mkLinuxHome {
+    #   username = "alice";
+    #   hostname = "desktop";
+    # };
+    #
+    # "alice@laptop" = mkLinuxHome {
+    #   username = "alice";
+    #   hostname = "laptop";
+    # };
+  };
+}
