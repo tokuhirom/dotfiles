@@ -1,28 +1,6 @@
 { pkgs, ... }:
 let
   # カスタムパッケージ: GitHub Releases からインストール
-  apprun-provisioner = pkgs.stdenv.mkDerivation {
-    pname = "apprun-dedicated-application-provisioner";
-    version = "0.0.26";
-
-    src = pkgs.fetchurl {
-      url = "https://github.com/tokuhirom/apprun-dedicated-application-provisioner/releases/download/v0.0.26/apprun-dedicated-application-provisioner_0.0.26_darwin_arm64.tar.gz";
-      sha256 = "0vlxf4hqnjnlzzn78165hzl393yym28dlnfh91yydagb513wbpv0";
-    };
-
-    sourceRoot = ".";
-    nativeBuildInputs = [ pkgs.gnutar ];
-
-    unpackPhase = ''
-      tar xzf $src
-    '';
-
-    installPhase = ''
-      mkdir -p $out/bin
-      cp apprun-dedicated-application-provisioner $out/bin/
-    '';
-  };
-
   db-schema-sync = pkgs.stdenv.mkDerivation {
     pname = "db-schema-sync";
     version = "0.0.8";
@@ -214,7 +192,6 @@ in {
     # taskeru  # Task management
 
     # === Custom packages (GitHub Releases) ===
-    apprun-provisioner
     db-schema-sync
   ];
 }
