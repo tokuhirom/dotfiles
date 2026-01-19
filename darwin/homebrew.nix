@@ -105,7 +105,6 @@
 
     # Mac App Store Applications
     masApps = {
-      "Cybozu Desktop" = 905155357;
       "Get Plain Text" = 508368068;
       "iMovie" = 408981434;
       "Keynote" = 409183694;

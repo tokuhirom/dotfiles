@@ -137,7 +137,7 @@ in {
     inetutils  # telnet, ftp, etc.
 
     # === macOS Specific ===
-    mas  # Mac App Store CLI
+    # mas  # Mac App Store CLI
     # terminal-notifier  # moved to homebrew
 
     # Window management & status bar
