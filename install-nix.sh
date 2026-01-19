@@ -5,6 +5,17 @@
 
 set -e
 
+# ログディレクトリ
+LOG_DIR="$HOME/.local/share/nix-logs"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/install-$(date +%Y%m%d-%H%M%S).log"
+
+# stdout/stderr をログファイルにも出力
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+echo "📝 Log file: $LOG_FILE"
+echo "---"
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -172,22 +183,11 @@ apply_config() {
         print_info "Applying nix-darwin configuration..."
         echo
 
-        # Build first (as user), then activate (with sudo)
-        print_info "Building nix-darwin configuration..."
         print_info "This will download packages - progress will be shown below"
         echo
 
-        # Build the system configuration
-        nix build ".#darwinConfigurations.$HOSTNAME.system" --impure --print-build-logs
-
-        print_info "Activating configuration (sudo required)..."
-        echo
-
-        # Activate with sudo
-        sudo ./result/sw/bin/darwin-rebuild activate
-
-        # Clean up result symlink
-        rm -f result
+        # nix-darwin を適用
+        nix run nix-darwin -- switch --impure --flake ".#$HOSTNAME"
 
         echo
         print_success "Configuration applied successfully!"
@@ -295,10 +295,7 @@ main() {
     echo "  2. Verify packages are from Nix store:"
     echo "     which git nvim tmux"
     echo
-    echo "  3. Run verification script:"
-    echo "     ./verify-nix.sh"
-    echo
-    echo "  4. Read NIX_README.md for complete documentation"
+    echo "  3. Read NIX_README.md for complete documentation"
     echo
     print_info "Current status: Phase 1 (Foundation) complete"
     print_info "Ready for Phase 2 (Package Management Migration)"

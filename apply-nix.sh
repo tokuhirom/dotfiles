@@ -5,20 +5,28 @@ set -e
 # macOS: darwin-rebuild switch
 # Linux: home-manager switch
 
+# ログディレクトリ
+LOG_DIR="$HOME/.local/share/nix-logs"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/apply-$(date +%Y%m%d-%H%M%S).log"
+
+# stdout/stderr をログファイルにも出力
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+echo "📝 Log file: $LOG_FILE"
+echo "---"
+
 HOSTNAME=$(hostname)
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "🍎 Applying Nix configuration for macOS ($HOSTNAME)..."
 
-    # Build first (as user), then activate (with sudo)
-    echo "📦 Building configuration..."
-    nix build ".#darwinConfigurations.$HOSTNAME.system" --impure
-
-    echo "🔧 Activating configuration (sudo required)..."
-    sudo ./result/sw/bin/darwin-rebuild activate
-
-    # Clean up
-    rm -f result
+    if command -v darwin-rebuild &> /dev/null; then
+        sudo darwin-rebuild switch --impure --flake ".#$HOSTNAME"
+    else
+        # 初回セットアップ時は nix run で実行
+        sudo nix run nix-darwin -- switch --impure --flake ".#$HOSTNAME"
+    fi
 else
     echo "🐧 Applying Nix configuration for Linux ($USER@$HOSTNAME)..."
     home-manager switch --impure --flake ".#$USER@$HOSTNAME" -b backup
