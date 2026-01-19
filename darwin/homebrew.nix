@@ -55,7 +55,6 @@
       # === Development Tools ===
       "visual-studio-code"
       "jetbrains-toolbox"
-      "docker-desktop"
 
       # === Text Editors ===
       "coteditor"  # Plain-text editor
