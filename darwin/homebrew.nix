@@ -36,9 +36,9 @@
 
       # === Terminal Emulators ===
       "wezterm"    # GPU-accelerated (primary)
-      "alacritty"  # GPU-accelerated
+      # "alacritty"  # aerospace との相性が悪いため使用停止
       "ghostty"    # GPU-accelerated
-      "kitty"      # GPU-accelerated
+      # "kitty"      # 未使用
 
       # === AI & Coding Assistants ===
       "claude-code"  # Terminal-based AI assistant
