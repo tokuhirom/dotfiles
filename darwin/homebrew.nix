@@ -131,7 +131,6 @@
       "tbls"         # Database documentation
       "usacloud"     # SAKURA Cloud CLI
       "dcv"          # Docker Compose Viewer
-      "taskeru"      # Task management
     ];
   };
 }
