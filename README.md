@@ -22,46 +22,6 @@ cd ~/dotfiles
 - git リポジトリの外にあるため、誤ってコミットされることがない
 - 複数マシンで使う場合は、各マシンで `./install-nix.sh` を実行すれば OK
 
-## 手動インストール
-
-### 1. Nix のインストール（Determinate インストーラー - 推奨）
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
-
-### 2. 設定の適用
-
-**Linux の場合:**
-```bash
-cd ~/dotfiles
-
-# 初回セットアップ - flake.lock が作成されます
-# --impure は プライベートな machines.nix の読み込みを許可
-# --print-build-logs はダウンロード/ビルドの進捗を表示
-nix run home-manager/master --impure --print-build-logs -- switch --flake .#username@hostname
-
-# 初回実行後は、簡単なスクリプトを使用可能
-./apply-nix.sh
-
-# または手動で
-home-manager switch --impure --flake .#username@hostname
-```
-
-**macOS の場合:**
-```bash
-cd ~/dotfiles
-
-# 初回セットアップ
-nix run nix-darwin --impure --print-build-logs -- switch --flake .#your-mac-hostname
-
-# 初回実行後は、簡単なスクリプトを使用可能
-./apply-nix.sh
-
-# または手動で
-darwin-rebuild switch --impure --flake .#your-mac-hostname
-```
-
 ## 特徴
 
 - ✅ **完全に宣言的**: すべての設定がコードで管理
@@ -201,19 +161,23 @@ nvim --version
 - neovim 環境
   - config/.config/neovim/README.md を参照
 - ターミナルマルチプレクサ
-  - screen -> tmux -> zellij(2026) -> tmux(2026)
-  - :o: tmux
+  - screen -> tmux -> zellij(2026) -> tmux(2026) -> zellij(2026)
+  - :x: tmux
     - copy mode が非常に優秀
-  - :x: zellij
+    - tmux は claude で使うとめっちゃスクロールする謎現象があり｡
+  - :o: zellij
     - tmux の copy mode の方が zellij より優れている
     - `C-t p l` は `C-t l` より長い
+      - この問題は諸々設定頑張ったら解決した
+      - copy mode は相変わらず tmux の方が便利だけど
 - シェル
-  - bash -> zsh -> fish(2025)
-  - :o: fish
+  - bash -> zsh -> fish(2025) -> zsh(2026-)
+  - :x: fish
     - 優れたインタラクティブシェル
     - :( bash と互換性がない
     - しばらく使ったけど、特にメリットないので、zsh に戻したい気もする
   - zsh
+    - 結局 fish から zsh に戻した
   - bash
     - Mac に入ってる Bash はライセンスの関係上絶妙に古いので、そのへん考えるのがめんどくさい。
  - Mac パッケージ管理
@@ -232,6 +196,7 @@ nvim --version
   - chrome -> vivaldi -> chrome
   - :x: vivaldi
     - そんなにすごく便利っていう感じの機能が特になかった。
+    - chrome に縦タブ来るらしいし
 
 ## 注意事項
 
@@ -243,3 +208,4 @@ nvim --version
 
 古いセットアップスクリプト（link.sh、Brewfile、setup-*.sh）は `legacy/` ディレクトリに移動されました。
 新規インストールには Nix を使用してください。
+
