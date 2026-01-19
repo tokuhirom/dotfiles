@@ -43,6 +43,7 @@
 
     # === CLI Utilities ===
     # File & text processing
+    coreutils  # GNU coreutils (tac, etc.)
     silver-searcher  # ag
     yq-go
     pandoc

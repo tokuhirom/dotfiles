@@ -148,8 +148,7 @@
     todo-txt-cli
     zellij
     tmux
-    zsh
-    bash
+    # zsh / bash はログインシェルなので homebrew で管理
     # fisher  # Fish shell plugin manager - not in nixpkgs
 
     # Swift

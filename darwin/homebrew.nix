@@ -118,6 +118,10 @@
     # Homebrew formulae that MUST be installed via Homebrew
     # (Not available in nixpkgs or have issues)
     brews = [
+      # Shell (ログインシェルは nix ではなく homebrew で管理)
+      "zsh"
+      "bash"
+
       "borders"      # macOS window borders - not in nixpkgs
       "sketchybar"   # Custom statusbar - not in nixpkgs
       "pure"         # ZSH prompt
