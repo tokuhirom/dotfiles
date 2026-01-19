@@ -61,7 +61,7 @@
 
       # === Productivity & Note-taking ===
       "obsidian"   # Knowledge base
-      "notion"     # Workspace
+      # "notion"     # 未使用
       "logseq"     # Knowledge management
 
       # === Utilities ===
@@ -131,6 +131,7 @@
       # "tbls"         # Database documentation
       "usacloud"     # SAKURA Cloud CLI
       "dcv"          # Docker Compose Viewer
+      "opencode"     # AI coding agent
     ];
   };
 }

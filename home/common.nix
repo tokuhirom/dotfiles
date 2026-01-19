@@ -89,7 +89,7 @@
     direnv  # Directory-based environment switching
     nix-direnv  # Fast direnv integration for Nix
     mise  # Runtime/language manager
-    opencode  # AI coding agent
+    # opencode  # nixpkgs 版はビルドがスタックするため homebrew で管理
     zellij
     tree
     htop
