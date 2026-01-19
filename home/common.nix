@@ -86,6 +86,8 @@
     ditaa
 
     # === Misc Tools ===
+    direnv  # Directory-based environment switching
+    nix-direnv  # Fast direnv integration for Nix
     mise  # Runtime/language manager
     zellij
     tree
