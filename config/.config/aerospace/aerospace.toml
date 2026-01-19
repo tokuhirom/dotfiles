@@ -124,6 +124,8 @@ on-mode-changed = []
     ctrl-alt-b = 'exec-and-forget ~/dotfiles/bin/app-toggle com.google.Chrome "Google Chrome" 1'
     ctrl-alt-g = 'exec-and-forget ~/dotfiles/bin/app-toggle com.jetbrains.goland GoLand 1'
     ctrl-alt-v = 'exec-and-forget ~/dotfiles/bin/app-toggle com.microsoft.VSCode "Visual Studio Code" 1'
+    ctrl-alt-m = 'exec-and-forget ~/dotfiles/bin/app-toggle com.wails.NoteBeam "NoteBeam" 1'
+    ctrl-alt-shift-n = 'exec-and-forget ~/dotfiles/bin/app-toggle com.wails.NoteBeam "NoteBeam" 1'
 
     # App toggle - workspace 2 (サブモニター)
     ctrl-alt-o = 'exec-and-forget ~/dotfiles/bin/app-toggle md.obsidian Obsidian 2'
