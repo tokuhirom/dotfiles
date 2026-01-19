@@ -127,8 +127,8 @@
       "terminal-notifier"  # macOS notifications
       "sops-sakura-kms"  # SAKURA Cloud KMS plugin
       "crush"        # AI coding assistant
-      "runn"         # Scenario runner
-      "tbls"         # Database documentation
+      # "runn"         # Scenario runner
+      # "tbls"         # Database documentation
       "usacloud"     # SAKURA Cloud CLI
       "dcv"          # Docker Compose Viewer
     ];
