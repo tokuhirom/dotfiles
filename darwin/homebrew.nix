@@ -42,6 +42,8 @@
 
       # === AI & Coding Assistants ===
       "claude-code"  # Terminal-based AI assistant
+      "tokuhirom/tap/notebeam"  # シンプルなメモアプリ
+      "tokuhirom/tap/sakpilot"  # SAKURA Cloud AI assistant
 
       # === Web Browsers ===
       "google-chrome"
