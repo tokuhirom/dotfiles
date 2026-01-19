@@ -89,6 +89,7 @@
     direnv  # Directory-based environment switching
     nix-direnv  # Fast direnv integration for Nix
     mise  # Runtime/language manager
+    opencode  # AI coding agent
     zellij
     tree
     htop
