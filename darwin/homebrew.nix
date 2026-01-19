@@ -20,6 +20,7 @@
       "k1low/tap"             # runn, tbls
       "charmbracelet/tap"     # crush
       "tokuhirom/tap"         # sops-sakura-kms, dcv, taskeru
+      "sqldef/sqldef"         # psqldef
     ];
 
     # GUI Applications (Casks)
@@ -134,6 +135,7 @@
       "usacloud"     # SAKURA Cloud CLI
       "dcv"          # Docker Compose Viewer
       "opencode"     # AI coding agent
+      "sqldef/sqldef/psqldef"  # PostgreSQL schema management
     ];
   };
 }

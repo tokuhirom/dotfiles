@@ -25,11 +25,11 @@ let
 
   db-schema-sync = pkgs.stdenv.mkDerivation {
     pname = "db-schema-sync";
-    version = "0.0.7";
+    version = "0.0.8";
 
     src = pkgs.fetchurl {
-      url = "https://github.com/tokuhirom/db-schema-sync/releases/download/v0.0.7/db-schema-sync_0.0.7_darwin_arm64.tar.gz";
-      sha256 = "13zv3ws59d10a4yvxlj56srsfrk966pga0q2kljw19h5h8gf50xh";
+      url = "https://github.com/tokuhirom/db-schema-sync/releases/download/v0.0.8/db-schema-sync_0.0.8_darwin_arm64.tar.gz";
+      sha256 = "1kdb52vkz9q0sdzinsz1m561gjkiwafk9smq5xs30di3ybqqbqp4";
     };
 
     sourceRoot = ".";
