@@ -7,7 +7,11 @@ fi
 set bell-style visible
 
 export GOPATH=$HOME/go/
-shopt -s globstar
+
+# globstar は bash 4.0 以降で利用可能
+if [[ ${BASH_VERSINFO[0]} -ge 4 ]]; then
+    shopt -s globstar
+fi
 
 # -----------------------------------------------
 # Prompt
