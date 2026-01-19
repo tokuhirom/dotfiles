@@ -70,7 +70,7 @@
       "meetingbar"          # Next meeting in menu bar
       "jordanbaird-ice"     # Menu bar manager
       "cyberduck"           # FTP/cloud browser
-      "deskpad"             # Virtual monitor
+      # "deskpad"             # 仮想モニターを作成し画面共有時に特定ウィンドウのみ共有可能にするツール
       "ddpm"                # Monitor manager
       "wireshark-app"       # Network analyzer
       "uhk-agent"           # Ultimate Hacking Keyboard config
