@@ -79,7 +79,7 @@
       "multipass"  # Ubuntu VMs
 
       # === Database Tools ===
-      "another-redis-desktop-manager"
+      # "another-redis-desktop-manager"
 
       # === Japanese Input (IME) ===
       "atok"       # ATOK input method
