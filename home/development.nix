@@ -29,6 +29,7 @@
     # === 基本ライブラリ (.dev output for headers and pkg-config) ===
     ncurses.dev
     libyaml.dev
+    zlib
     zlib.dev
     openssl.dev
     readline.dev
@@ -59,9 +60,6 @@
     # Perl
     perl
     perlPackages.CPAN
-
-    # Ruby
-    bundler
 
     # Rust
     cargo

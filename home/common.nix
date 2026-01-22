@@ -37,6 +37,9 @@
     python3
     python3Packages.ipython
 
+    # Ruby
+    ruby
+
     # Lua
     luajit
     luajitPackages.luarocks
