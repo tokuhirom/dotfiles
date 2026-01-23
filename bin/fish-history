@@ -1,0 +1,34 @@
+#!/bin/bash
+# fish の履歴を fzf で検索して選択・実行するコマンド
+# 使い方:
+#   fish-history        # 選択したコマンドを実行
+#   fish-history -c     # 選択したコマンドをクリップボードにコピー
+#   fish-history -p     # 選択したコマンドを表示するだけ
+
+FISH_HISTORY="${HOME}/.local/share/fish/fish_history"
+
+if [[ ! -f "$FISH_HISTORY" ]]; then
+    echo "fish history not found: $FISH_HISTORY" >&2
+    exit 1
+fi
+
+# コマンドを抽出（新しい順）
+selected=$(grep '^- cmd:' "$FISH_HISTORY" | sed 's/^- cmd: //' | tac | awk '!seen[$0]++' | fzf --no-sort --height=40% --reverse --prompt="fish> ")
+
+if [[ -z "$selected" ]]; then
+    exit 0
+fi
+
+case "${1:-}" in
+    -c|--copy)
+        echo -n "$selected" | pbcopy
+        echo "Copied: $selected"
+        ;;
+    -p|--print)
+        echo "$selected"
+        ;;
+    *)
+        echo "Execute: $selected"
+        eval "$selected"
+        ;;
+esac
