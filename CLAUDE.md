@@ -96,6 +96,10 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 - `app-toggle <bundle-id> <app-name>` - アプリを workspace 1/9 間でトグル
 - `cheat <name>` - 設定ファイルのチートシート表示
 
+## Git 運用
+
+このリポジトリでは **main ブランチに直接コミット** してよい。PR を作成する必要はない。
+
 ## 設定の適用
 
 ```bash
@@ -109,3 +113,40 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 ## macOS 設定
 
 macOS のシステム設定は `darwin/system-settings.nix` で宣言的に管理。
+
+## ADR (Architecture Decision Records)
+
+設定変更の意思決定を `docs/adr/` に記録する。
+
+### ADR を書くタイミング
+
+- 新しいツール・アプリを追加するとき
+- 既存のツールを別のものに置き換えるとき
+- 設定の方針を変更するとき
+
+### ADR のフォーマット
+
+```markdown
+# ADR-NNNN: タイトル
+
+## ステータス
+採用 / 却下 / 廃止
+
+## コンテキスト
+なぜこの決定が必要になったのか
+
+## 決定
+何を決定したか
+
+## 理由
+なぜその決定をしたか
+
+## 結果
+この決定によって何が変わるか
+```
+
+### 運用ルール
+
+- ファイル名: `NNNN-kebab-case-title.md`（例: `0001-add-hammerspoon.md`）
+- Claude は変更理由が不明な場合、ユーザーに質問してから ADR を作成する
+- 軽微な変更（typo 修正、バージョン更新など）は ADR 不要

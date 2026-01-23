@@ -24,6 +24,19 @@ return {
 
     use_ime = true,
     font_size = 14.0,
+
+    -- タイリングWM (aerospace) との相性改善
+    window_decorations = "RESIZE",  -- タイトルバーを消す
+    native_macos_fullscreen_mode = false,  -- ネイティブフルスクリーンを使わない
+    adjust_window_size_when_changing_font_size = false,
+
+    -- 上部の余分なスペースを削除
+    window_padding = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
+    },
     -- https://wezfurlong.org/wezterm/colorschemes/index.html
     color_scheme = "OneHalfDark",
     -- hide_tab_bar_if_only_one_tab = true,

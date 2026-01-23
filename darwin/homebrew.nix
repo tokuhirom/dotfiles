@@ -34,11 +34,12 @@
       "alt-tab"    # Windows-like alt-tab
       "raycast"    # Launcher & productivity
       "karabiner-elements"  # Keyboard customizer
+      "hammerspoon"  # macOS automation with Lua
 
       # === Terminal Emulators ===
-      "wezterm"    # GPU-accelerated (primary)
-      # "alacritty"  # aerospace との相性が悪いため使用停止
-      # "ghostty"    # aerospace との相性が悪いため使用停止
+      "ghostty"    # 軽量・高速 (primary)
+      "wezterm"    # GPU-accelerated (fallback)
+      # "alacritty"  # 未使用
       # "kitty"      # 未使用
 
       # === AI & Coding Assistants ===
@@ -70,7 +71,7 @@
       # === Utilities ===
       "cleanshot"           # Screen capture
       "caffeine"            # Prevent sleep
-      "meetingbar"          # Next meeting in menu bar
+      "meetingbar"          # Next meeting in menu bar (カレンダー選択可能)
       "jordanbaird-ice"     # Menu bar manager
       "cyberduck"           # FTP/cloud browser
       # "deskpad"             # 仮想モニターを作成し画面共有時に特定ウィンドウのみ共有可能にするツール

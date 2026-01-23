@@ -20,6 +20,9 @@
 
       # すべてのファイル名拡張子を表示
       AppleShowAllExtensions = true;
+
+      # ウィンドウアニメーションを無効化
+      NSAutomaticWindowAnimationsEnabled = false;
     };
 
     # Dock 設定

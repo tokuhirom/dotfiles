@@ -1,0 +1,12 @@
+#!/bin/bash
+# fish の履歴を fzf で検索するコマンド
+
+FISH_HISTORY="${HOME}/.local/share/fish/fish_history"
+
+if [[ ! -f "$FISH_HISTORY" ]]; then
+    echo "fish history not found: $FISH_HISTORY" >&2
+    exit 1
+fi
+
+# コマンドを抽出（新しい順、重複除去）
+grep '^- cmd:' "$FISH_HISTORY" | sed 's/^- cmd: //' | tac | awk '!seen[$0]++' | fzf --no-sort --height=40% --reverse --prompt="fish> "

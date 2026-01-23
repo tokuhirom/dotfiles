@@ -1,27 +1,49 @@
-shell-integration = fish
+# Ghostty 設定ファイル
 
-# theme = 3024 Day
+# === シェル設定 ===
+shell-integration = zsh
+
+# === テーマ ===
 theme = Aurora
-# theme = zenburn
-# theme = ayu
 
-# font-family = "SF Mono"
-# font-family = "Hiragino Kaku Gothic ProN"
+# === フォント ===
 font-family = JetBrainsMonoNL Nerd Font Mono
-
 font-thicken = true
 font-thicken-strength = 1
-
+# リガチャを無効化
 font-feature = -calt
 font-feature = -dlig
 
+# === カーソル ===
 cursor-style = block
 cursor-style-blink = false
 
+# === ウィンドウ ===
+window-padding-x = 4
+window-padding-y = 4
+# 閉じる時の確認を無効化
+confirm-close-surface = false
+# 背景透過 (0.0〜1.0)
+background-opacity = 0.85
+
+# === 入力 ===
+# Option キーを Alt として扱う（Alt+キー のショートカットに必要）
+macos-option-as-alt = true
+# 入力中はマウスカーソルを非表示
 mouse-hide-while-typing = true
 
+# === クリップボード ===
+# 選択時に自動でクリップボードにコピー
+copy-on-select = clipboard
+
+# === その他 ===
+# URL をクリック可能にする
 link-url = true
+# スクロールバック行数
+scrollback-limit = 10000
 
+# === キーバインド ===
+# クイックターミナル（どこからでも呼び出せる）
 keybind = "global:ctrl+cmd+`=toggle_quick_terminal"
-
-# see https://zenn.dev/koya_iwamura/articles/65e4fbb747bcd2
+# Ctrl+M を Enter として扱う
+keybind = ctrl+m=text:\x0d

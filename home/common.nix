@@ -71,7 +71,7 @@
     k9s
 
     # Cloud
-    awscli
+    awscli2
 
     # === Task Runners ===
     go-task
@@ -91,6 +91,7 @@
     # === Misc Tools ===
     direnv  # Directory-based environment switching
     nix-direnv  # Fast direnv integration for Nix
+    devbox  # Nix-based portable dev environments
     mise  # Runtime/language manager
     # opencode  # nixpkgs 版はビルドがスタックするため homebrew で管理
     zellij
@@ -158,6 +159,7 @@
     ".config/topydo".source = ../config/.config/topydo;
     ".config/aerospace/aerospace.toml".source = ../config/.config/aerospace/aerospace.toml;
     ".config/sketchybar".source = ../config/.config/sketchybar;
+    ".hammerspoon/init.lua".source = ../config/.hammerspoon/init.lua;
 
     # Bin scripts
     ".local/bin/aerospace-focus-handler" = { source = ../bin/aerospace-focus-handler; executable = true; };
@@ -166,6 +168,7 @@
     ".local/bin/docker-clean-all" = { source = ../bin/docker-clean-all; executable = true; };
     ".local/bin/docker-minil-release" = { source = ../bin/docker-minil-release; executable = true; };
     ".local/bin/epoch" = { source = ../bin/epoch; executable = true; };
+    ".local/bin/fish-history" = { source = ../bin/fish-history; executable = true; };
     ".local/bin/git-branch-cleanup" = { source = ../bin/git-branch-cleanup; executable = true; };
     ".local/bin/git-branch-name-suggestion" = { source = ../bin/git-branch-name-suggestion; executable = true; };
     ".local/bin/httpdumpd" = { source = ../bin/httpdumpd; executable = true; };
