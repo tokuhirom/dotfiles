@@ -34,6 +34,7 @@
       "alt-tab"    # Windows-like alt-tab
       "raycast"    # Launcher & productivity
       "karabiner-elements"  # Keyboard customizer
+      "hammerspoon"  # macOS automation with Lua
 
       # === Terminal Emulators ===
       "wezterm"    # GPU-accelerated (primary)
@@ -71,6 +72,7 @@
       "cleanshot"           # Screen capture
       "caffeine"            # Prevent sleep
       "meetingbar"          # Next meeting in menu bar
+      "itsycal"             # Menu bar calendar with calendar filtering
       "jordanbaird-ice"     # Menu bar manager
       "cyberduck"           # FTP/cloud browser
       # "deskpad"             # 仮想モニターを作成し画面共有時に特定ウィンドウのみ共有可能にするツール
