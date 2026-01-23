@@ -166,6 +166,7 @@
     ".local/bin/docker-clean-all" = { source = ../bin/docker-clean-all; executable = true; };
     ".local/bin/docker-minil-release" = { source = ../bin/docker-minil-release; executable = true; };
     ".local/bin/epoch" = { source = ../bin/epoch; executable = true; };
+    ".local/bin/fish-history" = { source = ../bin/fish-history; executable = true; };
     ".local/bin/git-branch-cleanup" = { source = ../bin/git-branch-cleanup; executable = true; };
     ".local/bin/git-branch-name-suggestion" = { source = ../bin/git-branch-name-suggestion; executable = true; };
     ".local/bin/httpdumpd" = { source = ../bin/httpdumpd; executable = true; };
