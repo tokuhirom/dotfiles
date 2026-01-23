@@ -23,6 +23,8 @@ window-padding-x = 4
 window-padding-y = 4
 # 閉じる時の確認を無効化
 confirm-close-surface = false
+# 背景透過 (0.0〜1.0)
+background-opacity = 0.85
 
 # === 入力 ===
 # Option キーを Alt として扱う（Alt+キー のショートカットに必要）
