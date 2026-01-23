@@ -91,6 +91,7 @@
     # === Misc Tools ===
     direnv  # Directory-based environment switching
     nix-direnv  # Fast direnv integration for Nix
+    devbox  # Nix-based portable dev environments
     mise  # Runtime/language manager
     # opencode  # nixpkgs 版はビルドがスタックするため homebrew で管理
     zellij
