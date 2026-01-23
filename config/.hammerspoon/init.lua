@@ -8,20 +8,21 @@
 local modifier = {"ctrl", "alt"}
 local modifierShift = {"ctrl", "alt", "shift"}
 
--- アプリ定義: キー = {bundleId, appName}
+-- アプリ定義: キー = {bundleId, appName, screen}
+-- screen: 1 = メインモニター, 2 = サブモニター, nil = 移動しない
 local apps = {
-    t = {"com.github.wez.wezterm", "WezTerm"},
-    b = {"com.google.Chrome", "Google Chrome"},
-    g = {"com.jetbrains.goland", "GoLand"},
-    v = {"com.microsoft.VSCode", "Visual Studio Code"},
-    m = {"com.wails.NoteBeam", "NoteBeam"},
-    o = {"md.obsidian", "Obsidian"},
-    s = {"com.tinyspeck.slackmacgap", "Slack"},
-    l = {"jp.naver.line.mac", "LINE"},
-    j = {"com.electron.logseq", "Logseq"},
-    z = {"us.zoom.xos", "zoom.us"},
-    c = {"com.apple.iCal", "Calendar"},
-    ["1"] = {"com.1password.1password", "1Password"},
+    t = {"com.github.wez.wezterm", "WezTerm", 1},
+    b = {"com.google.Chrome", "Google Chrome", 1},
+    g = {"com.jetbrains.goland", "GoLand", 1},
+    v = {"com.microsoft.VSCode", "Visual Studio Code", 1},
+    m = {"com.wails.NoteBeam", "NoteBeam", 1},
+    o = {"md.obsidian", "Obsidian", 2},
+    s = {"com.tinyspeck.slackmacgap", "Slack", 2},
+    l = {"jp.naver.line.mac", "LINE", 2},
+    j = {"com.electron.logseq", "Logseq", 2},
+    z = {"us.zoom.xos", "zoom.us", 2},
+    c = {"com.apple.iCal", "Calendar", 2},
+    ["1"] = {"com.1password.1password", "1Password", 2},
 }
 
 -- ウィンドウサイズのサイクル定義
@@ -91,13 +92,54 @@ end
 -- アプリトグル機能
 --------------------------------------------------------------------------------
 
-local function toggleApp(bundleId, appName)
+-- ウィンドウを指定のスクリーンに移動
+local function moveToScreen(win, screenIndex)
+    if not win then return end
+    local screens = hs.screen.allScreens()
+    if screenIndex > #screens then return end
+
+    local targetScreen = screens[screenIndex]
+    local currentScreen = win:screen()
+
+    if targetScreen:id() ~= currentScreen:id() then
+        -- 現在のフレームを相対的に保持して移動
+        local frame = win:frame()
+        local currentFrame = currentScreen:frame()
+        local targetFrame = targetScreen:frame()
+
+        -- 相対位置を計算
+        local relX = (frame.x - currentFrame.x) / currentFrame.w
+        local relY = (frame.y - currentFrame.y) / currentFrame.h
+        local relW = frame.w / currentFrame.w
+        local relH = frame.h / currentFrame.h
+
+        -- 新しいスクリーンに適用
+        win:setFrame({
+            x = targetFrame.x + targetFrame.w * relX,
+            y = targetFrame.y + targetFrame.h * relY,
+            w = targetFrame.w * relW,
+            h = targetFrame.h * relH,
+        })
+    end
+end
+
+local function toggleApp(bundleId, appName, targetScreen)
     local now = hs.timer.secondsSinceEpoch()
     local app = hs.application.get(bundleId)
 
     if not app then
         -- アプリが起動していない場合は起動
         hs.application.launchOrFocusByBundleID(bundleId)
+        -- 起動後にスクリーン移動（少し待つ）
+        if targetScreen then
+            hs.timer.doAfter(0.5, function()
+                local newApp = hs.application.get(bundleId)
+                if newApp then
+                    local win = newApp:mainWindow()
+                    moveToScreen(win, targetScreen)
+                end
+            end)
+        end
         return
     end
 
@@ -105,8 +147,11 @@ local function toggleApp(bundleId, appName)
     local isFrontmost = app:isFrontmost()
 
     if not isFrontmost then
-        -- 最前面でない場合: 最前面に持ってくる
+        -- 最前面でない場合: 最前面に持ってきて、指定スクリーンに移動
         app:activate()
+        if targetScreen and win then
+            moveToScreen(win, targetScreen)
+        end
         appState[bundleId] = {lastTime = now, cycleIndex = 0}
     else
         -- 既に最前面の場合: 連打でサイズをサイクル
@@ -145,7 +190,7 @@ end
 -- アプリトグル: Ctrl+Alt+キー
 for key, appInfo in pairs(apps) do
     hs.hotkey.bind(modifier, key, function()
-        toggleApp(appInfo[1], appInfo[2])
+        toggleApp(appInfo[1], appInfo[2], appInfo[3])
     end)
 end
 
