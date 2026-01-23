@@ -1,28 +1,5 @@
 { pkgs, ... }:
-let
-  # カスタムパッケージ: GitHub Releases からインストール
-  db-schema-sync = pkgs.stdenv.mkDerivation {
-    pname = "db-schema-sync";
-    version = "0.0.8";
-
-    src = pkgs.fetchurl {
-      url = "https://github.com/tokuhirom/db-schema-sync/releases/download/v0.0.8/db-schema-sync_0.0.8_darwin_arm64.tar.gz";
-      sha256 = "1kdb52vkz9q0sdzinsz1m561gjkiwafk9smq5xs30di3ybqqbqp4";
-    };
-
-    sourceRoot = ".";
-    nativeBuildInputs = [ pkgs.gnutar ];
-
-    unpackPhase = ''
-      tar xzf $src
-    '';
-
-    installPhase = ''
-      mkdir -p $out/bin
-      cp db-schema-sync $out/bin/
-    '';
-  };
-in {
+{
   # CLI tools from nixpkgs
   # Migrated from Brewfile
 
@@ -57,7 +34,7 @@ in {
     pack
 
     # Cloud CLIs
-    awscli
+    awscli2
 
     # === Infrastructure as Code ===
     ansible
@@ -191,7 +168,5 @@ in {
     # dcv  # Docker Compose Viewer
     # taskeru  # Task management
 
-    # === Custom packages (GitHub Releases) ===
-    db-schema-sync
   ];
 }

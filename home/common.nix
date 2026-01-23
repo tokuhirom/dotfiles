@@ -71,7 +71,7 @@
     k9s
 
     # Cloud
-    awscli
+    awscli2
 
     # === Task Runners ===
     go-task
