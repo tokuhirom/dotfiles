@@ -57,7 +57,7 @@ in {
     pack
 
     # Cloud CLIs
-    awscli
+    awscli2
 
     # === Infrastructure as Code ===
     ansible
