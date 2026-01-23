@@ -146,15 +146,19 @@ local function toggleApp(bundleId, appName, targetScreen)
     local win = app:mainWindow()
     local isFrontmost = app:isFrontmost()
 
+    -- まずアクティベート
+    app:activate()
+
+    -- 指定スクリーンに移動（常に）
+    if targetScreen and win then
+        moveToScreen(win, targetScreen)
+    end
+
     if not isFrontmost then
-        -- 最前面でない場合: 最前面に持ってきて、指定スクリーンに移動
-        app:activate()
-        if targetScreen and win then
-            moveToScreen(win, targetScreen)
-        end
+        -- 最前面でなかった場合: 状態リセット
         appState[bundleId] = {lastTime = now, cycleIndex = 0}
     else
-        -- 既に最前面の場合: 連打でサイズをサイクル
+        -- 既に最前面だった場合: 連打でサイズをサイクル
         local state = appState[bundleId] or {lastTime = 0, cycleIndex = 0}
 
         if (now - state.lastTime) < DOUBLE_TAP_THRESHOLD then
@@ -163,11 +167,8 @@ local function toggleApp(bundleId, appName, targetScreen)
             moveWindow(win, sizeCycle[nextIndex])
             appState[bundleId] = {lastTime = now, cycleIndex = nextIndex}
         else
-            -- 間隔が空いた: 現在位置からサイクル開始
-            local currentIndex = getCurrentCycleIndex(win)
-            local nextIndex = (currentIndex % #sizeCycle) + 1
-            moveWindow(win, sizeCycle[nextIndex])
-            appState[bundleId] = {lastTime = now, cycleIndex = nextIndex}
+            -- 間隔が空いた: 状態リセットのみ
+            appState[bundleId] = {lastTime = now, cycleIndex = 0}
         end
     end
 end
