@@ -45,3 +45,5 @@ scrollback-limit = 10000
 # === キーバインド ===
 # クイックターミナル（どこからでも呼び出せる）
 keybind = "global:ctrl+cmd+`=toggle_quick_terminal"
+# Ctrl+M を Enter として扱う
+keybind = ctrl+m=text:\x0d
