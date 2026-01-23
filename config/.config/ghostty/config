@@ -1,4 +1,4 @@
-shell-integration = fish
+shell-integration = zsh
 
 # theme = 3024 Day
 theme = Aurora
