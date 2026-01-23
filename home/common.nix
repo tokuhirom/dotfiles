@@ -158,6 +158,7 @@
     ".config/topydo".source = ../config/.config/topydo;
     ".config/aerospace/aerospace.toml".source = ../config/.config/aerospace/aerospace.toml;
     ".config/sketchybar".source = ../config/.config/sketchybar;
+    ".hammerspoon/init.lua".source = ../config/.hammerspoon/init.lua;
 
     # Bin scripts
     ".local/bin/aerospace-focus-handler" = { source = ../bin/aerospace-focus-handler; executable = true; };
