@@ -31,6 +31,10 @@ bindkey "^[[3~" delete-char
 bindkey "^[[H"  beginning-of-line
 bindkey "^[[F"  end-of-line
 
+# kitty keyboard protocol (CSI u) 対応
+# ghostty などのモダンターミナルで Ctrl+M が効くように
+bindkey '^[[109;5u' accept-line
+
 # -------------------------------------------------------------------------
 # History
 # 履歴マニア - http://0xcc.net/unimag/3/
