@@ -71,8 +71,7 @@
       # === Utilities ===
       "cleanshot"           # Screen capture
       "caffeine"            # Prevent sleep
-      "meetingbar"          # Next meeting in menu bar
-      "itsycal"             # Menu bar calendar with calendar filtering
+      "meetingbar"          # Next meeting in menu bar (カレンダー選択可能)
       "jordanbaird-ice"     # Menu bar manager
       "cyberduck"           # FTP/cloud browser
       # "deskpad"             # 仮想モニターを作成し画面共有時に特定ウィンドウのみ共有可能にするツール

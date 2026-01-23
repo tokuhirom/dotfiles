@@ -1,7 +1,7 @@
 # ADR-0002: sketchybar のカレンダー表示を Itsycal に置き換え
 
 ## ステータス
-採用
+却下
 
 ## コンテキスト
 aerospace から hammerspoon への移行に伴い、sketchybar の必要性を見直している。
@@ -23,5 +23,8 @@ Itsycal を導入してカレンダー表示を担当させる。
 - **sketchybar 維持**: aerospace 廃止後は冗長
 
 ## 結果
-- `darwin/homebrew.nix` に itsycal を追加
-- sketchybar は aerospace と一緒に後日削除予定
+~~- `darwin/homebrew.nix` に itsycal を追加~~
+~~- sketchybar は aerospace と一緒に後日削除予定~~
+
+## 却下理由 (2025-01-23)
+MeetingBar の設定ウィンドウを大きくしたら、カレンダー選択機能が表示された。MeetingBar で要件を満たせるため、Itsycal は不要。
