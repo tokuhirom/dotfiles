@@ -37,9 +37,9 @@
       "hammerspoon"  # macOS automation with Lua
 
       # === Terminal Emulators ===
-      "wezterm"    # GPU-accelerated (primary)
-      # "alacritty"  # aerospace との相性が悪いため使用停止
-      # "ghostty"    # aerospace との相性が悪いため使用停止
+      "ghostty"    # 軽量・高速 (primary)
+      "wezterm"    # GPU-accelerated (fallback)
+      # "alacritty"  # 未使用
       # "kitty"      # 未使用
 
       # === AI & Coding Assistants ===

@@ -11,7 +11,7 @@ local modifierShift = {"ctrl", "alt", "shift"}
 -- アプリ定義: キー = {bundleId, appName, screen}
 -- screen: 1 = メインモニター, 2 = サブモニター, nil = 移動しない
 local apps = {
-    t = {"com.github.wez.wezterm", "WezTerm", 1},
+    t = {"com.mitchellh.ghostty", "Ghostty", 1},
     b = {"com.google.Chrome", "Google Chrome", 1},
     g = {"com.jetbrains.goland", "GoLand", 1},
     v = {"com.microsoft.VSCode", "Visual Studio Code", 1},
