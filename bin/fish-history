@@ -1,9 +1,5 @@
 #!/bin/bash
-# fish の履歴を fzf で検索して選択・実行するコマンド
-# 使い方:
-#   fish-history        # 選択したコマンドを実行
-#   fish-history -c     # 選択したコマンドをクリップボードにコピー
-#   fish-history -p     # 選択したコマンドを表示するだけ
+# fish の履歴を fzf で検索するコマンド
 
 FISH_HISTORY="${HOME}/.local/share/fish/fish_history"
 
@@ -12,28 +8,5 @@ if [[ ! -f "$FISH_HISTORY" ]]; then
     exit 1
 fi
 
-# コマンドを抽出（新しい順）
-selected=$(grep '^- cmd:' "$FISH_HISTORY" | sed 's/^- cmd: //' | tac | awk '!seen[$0]++' | fzf --no-sort --height=40% --reverse --prompt="fish> ")
-
-if [[ -z "$selected" ]]; then
-    exit 0
-fi
-
-case "${1:-}" in
-    -c|--copy)
-        echo -n "$selected" | pbcopy
-        echo "Copied: $selected"
-        ;;
-    -p|--print)
-        echo "$selected"
-        ;;
-    *)
-        # zsh の履歴に追加
-        if [[ -n "$ZSH_VERSION" ]] || [[ "$SHELL" == */zsh ]]; then
-            print -s "$selected" 2>/dev/null || \
-            echo ": $(date +%s):0;$selected" >> "${HISTFILE:-$HOME/.zsh_history}"
-        fi
-        echo "Execute: $selected"
-        eval "$selected"
-        ;;
-esac
+# コマンドを抽出（新しい順、重複除去）
+grep '^- cmd:' "$FISH_HISTORY" | sed 's/^- cmd: //' | tac | awk '!seen[$0]++' | fzf --no-sort --height=40% --reverse --prompt="fish> "
