@@ -26,3 +26,36 @@ Hammerspoon を導入する。将来的に aerospace から完全に移行する
 - `darwin/homebrew.nix` に hammerspoon を追加
 - `config/.hammerspoon/init.lua` で設定を管理
 - 移行完了後、aerospace と sketchybar は削除予定
+
+## 実装した機能
+
+### アプリトグル (Ctrl+Alt+キー)
+| キー | アプリ | モニター |
+|------|--------|----------|
+| T | WezTerm | メイン |
+| B | Chrome | メイン |
+| G | GoLand | メイン |
+| V | VSCode | メイン |
+| M | NoteBeam | メイン |
+| O | Obsidian | サブ |
+| S | Slack | サブ |
+| L | LINE | サブ |
+| J | Logseq | サブ |
+| Z | Zoom | サブ |
+| C | Calendar | サブ |
+| 1 | 1Password | サブ |
+
+- ショートカットでアプリを最前面に + 指定モニターに移動
+- 連打でウィンドウサイズをサイクル（左半分→右半分→中央→左1/3→中央1/3→右1/3→フル）
+
+### ウィンドウ配置 (Ctrl+Alt+Shift+キー)
+| キー | 配置 |
+|------|------|
+| Z | 左半分 |
+| X | 右半分 |
+| F | フルスクリーン |
+| C | 中央 70% |
+
+### その他
+- `Ctrl+Alt+R` で設定リロード
+- `NSAutomaticWindowAnimationsEnabled = false` でウィンドウ移動アニメーションを無効化
