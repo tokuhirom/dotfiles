@@ -195,21 +195,36 @@ for key, appInfo in pairs(apps) do
     end)
 end
 
--- ウィンドウ配置: Ctrl+Alt+Shift+Z/X で左右半分
+-- ウィンドウ配置: Ctrl+Alt+Shift+キー
+
+-- 半分 (Z/X)
 hs.hotkey.bind(modifierShift, "z", function()
-    moveCurrentWindow({x = 0, y = 0, w = 0.5, h = 1})
+    moveCurrentWindow({x = 0, y = 0, w = 0.5, h = 1})  -- 左半分
 end)
 
 hs.hotkey.bind(modifierShift, "x", function()
-    moveCurrentWindow({x = 0.5, y = 0, w = 0.5, h = 1})
+    moveCurrentWindow({x = 0.5, y = 0, w = 0.5, h = 1})  -- 右半分
 end)
 
--- フルスクリーン: Ctrl+Alt+Shift+F
+-- 1/3 (A/S/D)
+hs.hotkey.bind(modifierShift, "a", function()
+    moveCurrentWindow({x = 0, y = 0, w = 0.33, h = 1})  -- 左 1/3
+end)
+
+hs.hotkey.bind(modifierShift, "s", function()
+    moveCurrentWindow({x = 0.33, y = 0, w = 0.34, h = 1})  -- 中央 1/3
+end)
+
+hs.hotkey.bind(modifierShift, "d", function()
+    moveCurrentWindow({x = 0.67, y = 0, w = 0.33, h = 1})  -- 右 1/3
+end)
+
+-- フルスクリーン (F)
 hs.hotkey.bind(modifierShift, "f", function()
     moveCurrentWindow({x = 0, y = 0, w = 1, h = 1})
 end)
 
--- 中央配置: Ctrl+Alt+Shift+C
+-- 中央 70% (C)
 hs.hotkey.bind(modifierShift, "c", function()
     moveCurrentWindow({x = 0.15, y = 0, w = 0.7, h = 1})
 end)
