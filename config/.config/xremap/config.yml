@@ -1,0 +1,19 @@
+# xremap configuration
+# Alt キーの単独タップで日本語入力切り替え、組み合わせで通常の Alt として動作
+
+# デバイスを明示的に指定（自動検出がうまくいかない場合）
+# device:
+#   - /dev/input/event4  # キーボードデバイス
+
+modmap:
+  - name: Right Alt to Henkan (alone) / Alt (held)
+    remap:
+      Alt_R:
+        held: Alt_R
+        alone: HENKAN
+
+  - name: Left Alt to Muhenkan (alone) / Alt (held)
+    remap:
+      Alt_L:
+        held: Alt_L
+        alone: MUHENKAN

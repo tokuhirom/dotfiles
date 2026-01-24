@@ -89,6 +89,7 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 - `cheat aerospace` - aerospace
 - `cheat zellij` / `cheat zj` - zellij
 - `cheat wezterm` - wezterm
+- `cheat xremap` - xremap (Linux)
 
 ## bin/ コマンド
 

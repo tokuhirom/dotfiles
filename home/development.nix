@@ -56,6 +56,19 @@
     libxslt.dev
     icu.dev
 
+    # === GUI 開発ライブラリ (Wails/WebView) ===
+    gtk3.dev
+    glib.dev
+    pango.dev
+    gdk-pixbuf.dev
+    cairo.dev
+    harfbuzz.dev
+    atk.dev
+    at-spi2-atk.dev
+    at-spi2-core.dev
+    libsoup_3.dev
+    webkitgtk_4_1.dev
+
     # === 言語ツール ===
     # Perl
     perl

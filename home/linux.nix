@@ -36,6 +36,9 @@
     xorg.xmodmap  # キーマップ設定
     arandr  # xrandr の GUI フロントエンド
 
+    # === キーリマップ ===
+    xremap  # 高度なキーリマッパー（X11/Wayland 対応）
+
     # === スクリーンショット ===
     scrot  # スクリーンショットツール
     maim  # スクリーンショットツール（高機能）
@@ -61,6 +64,9 @@
     # Input method
     ".config/fcitx5".source = ../config/.config/fcitx5;
     ".config/akaza/config.yml".source = ../config/.config/akaza/config.yml;
+
+    # Xremap
+    ".config/xremap/config.yml".source = ../config/.config/xremap/config.yml;
 
     # MIME type associations
     ".config/mimeapps.list".source = ../config/.config/mimeapps.list;
