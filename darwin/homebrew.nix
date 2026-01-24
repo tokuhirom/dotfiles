@@ -107,7 +107,6 @@
     # Mac App Store Applications
     masApps = {
       "Get Plain Text" = 508368068;
-      "iMovie" = 408981434;
       "Keynote" = 409183694;
       "LINE" = 539883307;
       "MindNode Classic" = 1289197285;
