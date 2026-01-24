@@ -25,9 +25,8 @@
     font-awesome  # アイコンフォント
 
     # === 日本語入力 (IME) ===
-    fcitx5  # 入力メソッドフレームワーク
-    fcitx5-mozc  # Google 日本語入力
-    fcitx5-gtk  # GTK サポート
+    ibus  # 入力メソッドフレームワーク
+    ibus-engines.mozc  # Google 日本語入力
 
     # === X11 ユーティリティ ===
     xorg.xev  # X イベント表示
@@ -61,10 +60,6 @@
     # Terminal (Linux-specific config)
     ".config/wezterm/wezterm.lua".source = ../config/.config/wezterm/wezterm.lua;
 
-    # Input method
-    ".config/fcitx5".source = ../config/.config/fcitx5;
-    ".config/akaza/config.yml".source = ../config/.config/akaza/config.yml;
-
     # Xremap
     ".config/xremap/config.yml".source = ../config/.config/xremap/config.yml;
 
@@ -74,9 +69,9 @@
 
   # Linux 固有の環境変数
   home.sessionVariables = {
-    # Fcitx5 IME 設定
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
+    # IBus IME 設定
+    GTK_IM_MODULE = "ibus";
+    QT_IM_MODULE = "ibus";
+    XMODIFIERS = "@im=ibus";
   };
 }
