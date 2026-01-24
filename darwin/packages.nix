@@ -20,14 +20,12 @@
 
     # GitHub tools
     gh
-    act
     actionlint
 
     # === Container & Cloud Tools ===
     docker
     colima
     kind
-    k9s
     lazydocker
     crane
     skopeo
@@ -110,7 +108,6 @@
 
     # === Security & Secrets ===
     sops
-    trufflehog
 
     # === S3 & Cloud Storage ===
     s3cmd
@@ -129,8 +126,7 @@
     emacs
 
     # === Compression & Archives ===
-    libarchive
-    xorriso
+    # (empty - using built-in tools)
 
     # === Libraries ===
     coreutils
@@ -146,7 +142,6 @@
     # === Misc Tools ===
     mise  # Runtime manager (asdf alternative)
     # pure-prompt  # ZSH prompt - use homebrew instead
-    todo-txt-cli
     zellij
     tmux
     # zsh / bash はログインシェルなので homebrew で管理
