@@ -26,6 +26,7 @@
 
     # === 日本語入力 (IME) ===
     ibus  # 入力メソッドフレームワーク
+    ibus.dev  # ヘッダーファイル
     ibus-engines.mozc  # Google 日本語入力
 
     # === X11 ユーティリティ ===

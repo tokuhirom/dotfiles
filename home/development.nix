@@ -55,6 +55,7 @@
     bzip2.dev
     libxslt.dev
     icu.dev
+    marisa  # MARISA trie (static trie data structure)
 
     # === 言語ツール ===
     # Perl
