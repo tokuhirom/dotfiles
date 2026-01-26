@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   # 開発用ビルド依存関係
   # mise で言語をビルドする際に必要なライブラリとツール
 
@@ -56,7 +56,15 @@
     libxslt.dev
     icu.dev
 
-    # === GUI 開発ライブラリ (Wails/WebView) ===
+    # === 言語ツール ===
+    # Perl
+    perl
+    perlPackages.CPAN
+
+    # Rust
+    cargo
+  ] ++ lib.optionals pkgs.stdenv.isLinux [
+    # === GUI 開発ライブラリ (Wails/WebView) - Linux のみ ===
     gtk3.dev
     glib.dev
     pango.dev
@@ -68,13 +76,5 @@
     at-spi2-core.dev
     libsoup_3.dev
     webkitgtk_4_1.dev
-
-    # === 言語ツール ===
-    # Perl
-    perl
-    perlPackages.CPAN
-
-    # Rust
-    cargo
   ];
 }
