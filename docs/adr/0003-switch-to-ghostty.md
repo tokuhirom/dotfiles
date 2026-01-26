@@ -1,7 +1,7 @@
 # ADR-0003: WezTerm から Ghostty への移行
 
 ## ステータス
-採用
+廃止（Alacritty に変更）
 
 ## コンテキスト
 これまで WezTerm を使用していたが、aerospace との相性問題があった。Hammerspoon への移行（ADR-0001）により、タイリング WM の制約がなくなったため、ターミナルエミュレータの選択肢が広がった。
@@ -32,3 +32,12 @@ Ghostty に移行する。
 | copy-on-select | clipboard | 選択時に自動コピー |
 | scrollback-limit | 10000 | スクロールバック行数 |
 | keybind | ctrl+cmd+\` | クイックターミナル |
+
+## 廃止理由 (2025-01-24)
+
+Ghostty は kitty keyboard protocol を使用しており、以下の問題が発生：
+- `Ctrl+M` で `^[[109;5u` が入力される
+- `Tab` キーで変なエスケープシーケンスが入力される
+- zsh や一部のアプリとの互換性問題
+
+Alacritty に移行。シンプルで安定している。

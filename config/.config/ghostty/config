@@ -8,6 +8,9 @@ theme = Aurora
 
 # === フォント ===
 font-family = JetBrainsMonoNL Nerd Font Mono
+# 日本語フォント（ひらがな「の」の表示崩れ対策）
+# https://zenn.dev/meijin/articles/ghostty-hiranana-fix-display
+font-family = "Hiragino Kaku Gothic ProN"
 font-thicken = true
 font-thicken-strength = 1
 # リガチャを無効化

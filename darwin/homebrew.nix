@@ -37,9 +37,9 @@
       "hammerspoon"  # macOS automation with Lua
 
       # === Terminal Emulators ===
-      "ghostty"    # 軽量・高速 (primary)
+      "alacritty"  # シンプル・安定 (primary)
+      "ghostty"    # kitty keyboard protocol の問題あり
       "wezterm"    # GPU-accelerated (fallback)
-      # "alacritty"  # 未使用
       # "kitty"      # 未使用
 
       # === AI & Coding Assistants ===
