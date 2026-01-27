@@ -192,12 +192,19 @@ if [ -d /usr/local/go ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
 
-# mise activation - check nix, homebrew, or local install
-if command -v mise &> /dev/null; then
-    eval "$(mise activate zsh)"
-elif [[ -e "$HOME/.local/bin/mise" ]]; then
-    eval "$(~/.local/bin/mise activate zsh)"
-fi
+# mise - 必要な時だけ手動で有効化
+# 使用方法: mise-activate
+function mise-activate() {
+    if command -v mise &> /dev/null; then
+        eval "$(mise activate zsh)"
+        echo "mise activated"
+    elif [[ -e "$HOME/.local/bin/mise" ]]; then
+        eval "$(~/.local/bin/mise activate zsh)"
+        echo "mise activated"
+    else
+        echo "mise not found"
+    fi
+}
 
 export TODO_FILE="$HOME/todo.txt"
 
