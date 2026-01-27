@@ -1,102 +1,78 @@
-#!/usr/bin/env yaegi
-package main
-// vim: set filetype=go noexpandtab tabstop=4 shiftwidth=4:
+#!/usr/bin/env perl
+# slog - JSON 形式の slog ログを整形して表示
+use strict;
+use warnings;
+use JSON::PP;
 
-import (
-	"bufio"
-	"encoding/json"
-	"fmt"
-	"os"
-	"strings"
-	"time"
-)
+# ANSI color codes
+my $RESET   = "\033[0m";
+my $GREY    = "\033[38;5;59m";
+my $BLUE    = "\033[34m";
+my $GREEN   = "\033[32m";
+my $YELLOW  = "\033[33m";
+my $RED     = "\033[31m";
+my $MAGENTA = "\033[35m";
 
-// ANSI color codes
-const (
-	Reset       = "\033[0m"
-	Grey23      = "\033[38;5;59m"
-	Blue        = "\033[34m"
-	Red         = "\033[31m"
-	Bold        = "\033[1m"
-	BrightRed   = "\033[91m"
-	OnBlack     = "\033[40m"
-)
+# level ごとの色
+my %LEVEL_COLOR = (
+    DEBUG => $GREY,
+    INFO  => $GREEN,
+    WARN  => $YELLOW,
+    ERROR => $RED,
+    FATAL => $MAGENTA,
+);
 
-func main() {
-	scanner := bufio.NewScanner(os.Stdin)
+while (my $line = <STDIN>) {
+    chomp $line;
 
-	for scanner.Scan() {
-		line := scanner.Text()
+    if ($line =~ /^\{/) {
+        my $data = eval { decode_json($line) };
+        if ($@) {
+            print "$line\n";
+            next;
+        }
 
-		if strings.HasPrefix(line, "{") {
-			var data map[string]interface{}
-			if err := json.Unmarshal([]byte(line), &data); err != nil {
-				fmt.Println(line)
-				continue
-			}
+        # タイムスタンプ（秒まで）
+        my $time_str = $data->{time} // '';
+        if ($time_str =~ /T(\d{2}:\d{2}:\d{2})/) {
+            $time_str = $1;
+        }
 
-			// Convert time to a more readable format
-			timeStr, _ := data["time"].(string)
-			t, err := time.Parse(time.RFC3339, timeStr)
-			if err == nil {
-				timeStr = t.Format("15:04:05")
-			}
+        # level
+        my $level = $data->{level} // 'UNKNOWN';
+        my $level_color = $LEVEL_COLOR{uc $level} // $RESET;
 
-			// Print the formatted log
-			fmt.Print(Grey23, timeStr, Reset)
-			fmt.Print(" [")
-			fmt.Print(Blue, data["level"].(string), Reset)
-			fmt.Print("] ")
+        # msg
+        my $msg = $data->{msg} // '';
 
-			// Remove used keys
-			for _, key := range []string{"time", "level"} {
-				delete(data, key)
-			}
+        # 出力: timestamp [LEVEL] msg
+        print "${GREY}${time_str}${RESET} ";
+        print "[${level_color}${level}${RESET}] ";
+        print $msg;
 
-			if url, ok := data["URL"]; ok {
-				fmt.Printf("%s %s %-6s %s ", data["process_name"], data["req_id"], data["method"], url)
-				fmt.Print(data["msg"])
+        # 無視するキー
+        delete @{$data}{qw(time level msg source)};
 
-				if latency, ok := data["latency"]; ok {
-					fmt.Print(" ", latency)
-				}
-				if statusCode, ok := data["status_code"]; ok {
-					code := int(statusCode.(float64))
-					if code == 200 {
-						fmt.Print(" ", Blue, code, Reset)
-					} else {
-						fmt.Print(" ", Red, code, Reset)
-					}
-				}
-				fmt.Println()
+        # extra fields を key=value 形式で表示
+        if (keys %$data) {
+            my @extras;
+            for my $key (sort keys %$data) {
+                my $val = $data->{$key};
+                # undef の場合
+                if (!defined $val) {
+                    $val = 'null';
+                }
+                # 値が参照の場合は JSON 文字列に
+                elsif (ref $val) {
+                    $val = encode_json($val);
+                }
+                push @extras, "${GREY}${key}${RESET}=$val";
+            }
+            print " ", join(" ", @extras);
+        }
 
-				// Remove used keys
-				for _, key := range []string{"method", "msg", "req_id", "URL", "latency", "status_code"} {
-					delete(data, key)
-				}
-			} else {
-				fmt.Print("[")
-				fmt.Print(data["process_name"])
-				fmt.Print("] ")
-				fmt.Print(Bold, BrightRed, OnBlack, data["msg"], Reset)
-				fmt.Println()
-
-				// Remove used keys
-				for _, key := range []string{"process_name", "msg"} {
-					delete(data, key)
-				}
-			}
-
-			if len(data) > 0 {
-				extras, _ := json.MarshalIndent(data, "                ", "  ")
-				fmt.Println("                ", string(extras))
-			}
-		} else {
-			fmt.Println(line)
-		}
-	}
-
-	if err := scanner.Err(); err != nil {
-		fmt.Fprintln(os.Stderr, "reading standard input:", err)
-	}
+        print "\n";
+    } else {
+        print "$line\n";
+    }
 }
