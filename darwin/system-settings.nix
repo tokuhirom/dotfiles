@@ -23,6 +23,9 @@
 
       # ウィンドウアニメーションを無効化
       NSAutomaticWindowAnimationsEnabled = false;
+
+      # メニューバーを自動的に隠さない
+      _HIHideMenuBar = false;
     };
 
     # Dock 設定
