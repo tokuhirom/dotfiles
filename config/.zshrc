@@ -157,7 +157,7 @@ source ~/dotfiles/config/zsh/init/lang/perl.sh
 source ~/dotfiles/config/zsh/init/lang/rust.sh
 
 source ~/dotfiles/config/zsh/init/cmd/fzf.sh
-source ~/dotfiles/config/zsh/init/cmd/pure.sh
+source ~/dotfiles/config/zsh/init/cmd/prompt.sh
 source ~/dotfiles/config/zsh/init/cmd/zellij.sh
 source ~/dotfiles/config/zsh/init/cmd/cheat.sh
 

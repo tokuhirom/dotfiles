@@ -124,7 +124,6 @@
       "bash"
 
       "borders"      # macOS window borders - not in nixpkgs
-      "pure"         # ZSH prompt
       "terminal-notifier"  # macOS notifications
       "sops-sakura-kms"  # SAKURA Cloud KMS plugin
       "crush"        # AI coding assistant
