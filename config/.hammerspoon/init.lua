@@ -13,6 +13,7 @@ local modifierShift = {"ctrl", "alt", "shift"}
 local apps = {
     t = {"org.alacritty", "Alacritty", 1},
     b = {"com.google.Chrome", "Google Chrome", 1},
+    f = {"org.mozilla.firefox", "Firefox", 1},
     g = {"com.jetbrains.goland", "GoLand", 1},
     v = {"com.microsoft.VSCode", "Visual Studio Code", 1},
     m = {"com.wails.NoteBeam", "NoteBeam", 1},
@@ -49,17 +50,26 @@ local DOUBLE_TAP_THRESHOLD = 0.5  -- 秒
 --------------------------------------------------------------------------------
 
 -- ウィンドウを指定の位置・サイズに移動
+-- screen:frame() を使用してメニューバー・Dock を除いた領域に配置
 local function moveWindow(win, rect)
     if not win then return end
     local screen = win:screen()
+    -- frame() はメニューバーと Dock を除いた使用可能領域
+    -- fullFrame() は画面全体
+    local fullFrame = screen:fullFrame()
     local frame = screen:frame()
 
-    win:setFrame({
+    -- デバッグ: メニューバーの高さを確認
+    local menuBarHeight = frame.y - fullFrame.y
+    hs.printf("fullFrame.y=%d, frame.y=%d, menuBarHeight=%d", fullFrame.y, frame.y, menuBarHeight)
+
+    local newFrame = {
         x = frame.x + frame.w * rect.x,
         y = frame.y + frame.h * rect.y,
         w = frame.w * rect.w,
         h = frame.h * rect.h,
-    })
+    }
+    win:setFrame(newFrame)
 end
 
 -- 現在のウィンドウ位置がサイクルのどのインデックスに近いか判定
