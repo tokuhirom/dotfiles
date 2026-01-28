@@ -115,6 +115,14 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 ./install-nix.sh
 ```
 
+### 設定変更後のアナウンス
+
+`config/` 以下の設定ファイルを変更した場合、ユーザーに `./apply-nix.sh` の実行を促すこと。
+
+```
+設定を反映するには `./apply-nix.sh` を実行してください。
+```
+
 ## macOS 設定
 
 macOS のシステム設定は `darwin/system-settings.nix` で宣言的に管理。

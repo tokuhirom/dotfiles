@@ -13,6 +13,7 @@ local modifierShift = {"ctrl", "alt", "shift"}
 local apps = {
     t = {"org.alacritty", "Alacritty", 1},
     b = {"com.google.Chrome", "Google Chrome", 1},
+    f = {"org.mozilla.firefox", "Firefox", 1},
     g = {"com.jetbrains.goland", "GoLand", 1},
     v = {"com.microsoft.VSCode", "Visual Studio Code", 1},
     m = {"com.wails.NoteBeam", "NoteBeam", 1},
