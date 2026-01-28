@@ -49,6 +49,7 @@
 
       # === Web Browsers ===
       "google-chrome"
+      "google-chrome@canary"
       "firefox"
       "vivaldi"
 
