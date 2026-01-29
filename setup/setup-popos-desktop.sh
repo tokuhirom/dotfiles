@@ -2,7 +2,7 @@
 
 sudo apt install -y neovim zsh git-lfs docker vim silversearcher-ag
 sudo apt install -y tmux ripgrep bvi jq tree w3m curl
-sudo apt install -y valgrind cmake nodejs
+sudo apt install -y valgrind cmake nodejs zsh
 
 # desktop
 sudo apt install -y xsel gnome-tweaks slack
