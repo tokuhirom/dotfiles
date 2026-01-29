@@ -198,16 +198,20 @@ apply_config() {
         print_info "Applying home-manager configuration..."
         echo
 
-        # First time setup - install home-manager and apply config
+        # Get absolute path to flake
+        FLAKE_PATH="$(pwd)"
+
+        # First time setup - build activation package and apply config
         if ! command -v home-manager &> /dev/null; then
-            print_info "Installing and activating home-manager..."
+            print_info "Building and activating home-manager..."
             print_info "This will download packages - progress will be shown below"
             echo
-            nix run home-manager/master --impure --print-build-logs -- switch --flake ".#$USERNAME@$HOSTNAME" -b backup
+            nix build --impure "$FLAKE_PATH#homeConfigurations.\"$USERNAME@$HOSTNAME\".activationPackage" --out-link /tmp/hm-activate --print-build-logs
+            /tmp/hm-activate/activate
         else
             print_info "Updating home-manager configuration..."
             echo
-            home-manager switch --impure --flake ".#$USERNAME@$HOSTNAME" -b backup
+            home-manager switch --impure --flake "$FLAKE_PATH#$USERNAME@$HOSTNAME" -b backup
         fi
 
         echo
