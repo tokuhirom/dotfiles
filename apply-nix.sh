@@ -29,7 +29,21 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     fi
 else
     echo "🐧 Applying Nix configuration for Linux ($USER@$HOSTNAME)..."
-    home-manager switch --impure --flake ".#$USER@$HOSTNAME" -b backup
+
+    # Nix コマンドのパスを取得
+    NIX_BIN="/nix/var/nix/profiles/default/bin/nix"
+
+    # Nix プロファイルを PATH に追加
+    export PATH="/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:$PATH"
+
+    if command -v home-manager &> /dev/null; then
+        # home-manager コマンドが存在する場合
+        home-manager switch --impure --flake ".#$USER@$HOSTNAME" -b backup
+    else
+        # 初回セットアップ時は nix run で実行
+        echo "📦 home-manager が見つかりません。nix run で実行します..."
+        "$NIX_BIN" run home-manager/master --impure --print-build-logs -- switch --flake ".#$USER@$HOSTNAME" -b backup
+    fi
 fi
 
 echo "✅ Configuration applied successfully!"
