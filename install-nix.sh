@@ -84,7 +84,7 @@ install_nix() {
     echo
 
     print_info "Downloading installer (progress will be shown)..."
-    curl --proto '=https' --tlsv1.2 -fL --progress-bar https://install.determinate.systems/nix | sh -s -- install
+    curl --proto '=https' --tlsv1.2 -fL --progress-bar https://install.determinate.systems/nix | sh -s -- install --no-confirm
 
     print_success "Nix installed successfully!"
 }
