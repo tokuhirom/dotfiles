@@ -22,12 +22,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "🍎 Applying Nix configuration for macOS ($HOSTNAME)..."
 
     if command -v darwin-rebuild &> /dev/null; then
-        # ビルド（sudo 不要）
-        echo "🔨 Building configuration..."
-        darwin-rebuild build --impure --flake ".#$HOSTNAME"
-
-        # 適用（sudo 必要、ビルド済みなので高速）
-        echo "🔄 Switching configuration (sudo required)..."
         sudo darwin-rebuild switch --impure --flake ".#$HOSTNAME"
     else
         # 初回セットアップ時は nix run で実行
