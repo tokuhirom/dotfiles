@@ -41,11 +41,13 @@ else
 
     if command -v home-manager &> /dev/null; then
         # home-manager コマンドが存在する場合
+        echo "📦 home-manager コマンドで設定を適用します..."
         home-manager switch --impure --flake "$FLAKE_PATH#$USER@$HOSTNAME" -b backup
     else
-        # 初回セットアップ時は nix run で実行
-        echo "📦 home-manager が見つかりません。nix run で実行します..."
-        "$NIX_BIN" run home-manager/master --impure --print-build-logs -- switch --flake "$FLAKE_PATH#$USER@$HOSTNAME" -b backup
+        # 初回セットアップ時は activation package を直接ビルドして実行
+        echo "📦 activation package を直接ビルドして実行します..."
+        "$NIX_BIN" build --impure "$FLAKE_PATH#homeConfigurations.\"$USER@$HOSTNAME\".activationPackage" --out-link /tmp/hm-activate --print-build-logs
+        /tmp/hm-activate/activate
     fi
 fi
 
