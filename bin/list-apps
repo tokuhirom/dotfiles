@@ -1,0 +1,10 @@
+#!/bin/bash
+# list-apps - インストール済みアプリの bundleId とアプリ名を一覧表示
+# Hammerspoon の設定などで bundleId を調べる時に使う
+
+mdfind "kMDItemKind == 'Application'" -onlyin /Applications | while read -r app; do
+  bid=$(mdls -name kMDItemCFBundleIdentifier -raw "$app" 2>/dev/null)
+  if [ "$bid" != "(null)" ]; then
+    printf "%-50s %s\n" "$bid" "$(basename "$app" .app)"
+  fi
+done | sort

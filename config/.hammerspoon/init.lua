@@ -12,7 +12,8 @@ local modifierShift = {"ctrl", "alt", "shift"}
 -- screen: 1 = メインモニター, 2 = サブモニター, nil = 移動しない
 local apps = {
     t = {"org.alacritty", "Alacritty", 1},
-    b = {"com.google.Chrome", "Google Chrome", 1},
+    b = {"com.google.Chrome.canary", "Google Chrome Canary", 1},
+    -- b = {"com.google.Chrome", "Google Chrome", 1},
     f = {"org.mozilla.firefox", "Firefox", 1},
     g = {"com.jetbrains.goland", "GoLand", 1},
     v = {"com.microsoft.VSCode", "Visual Studio Code", 1},
