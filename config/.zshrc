@@ -216,3 +216,5 @@ fi
 
 export TODO_FILE="$HOME/todo.txt"
 
+alias difit="npx difit"
+
