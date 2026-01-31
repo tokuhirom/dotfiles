@@ -26,7 +26,6 @@
 
     # === 日本語入力 (IME) ===
     ibus  # 入力メソッドフレームワーク
-    ibus.dev  # ヘッダーファイル
     ibus-engines.mozc  # Google 日本語入力
 
     # === X11 ユーティリティ ===
@@ -66,7 +65,7 @@
     ".config/xremap/config.yml".source = ../config/.config/xremap/config.yml;
 
     # MIME type associations
-    ".config/mimeapps.list".source = ../config/.config/mimeapps.list;
+    # ".config/mimeapps.list".source = ../config/.config/mimeapps.list;
   };
 
   # Linux 固有の環境変数

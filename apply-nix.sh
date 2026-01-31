@@ -45,6 +45,7 @@ else
         home-manager switch --impure --flake "$FLAKE_PATH#$USER@$HOSTNAME" -b backup
     else
         # 初回セットアップ時は activation package を直接ビルドして実行
+	mv ~/.bashrc ~/.bashrc.bak
         echo "📦 activation package を直接ビルドして実行します..."
         "$NIX_BIN" build --impure "$FLAKE_PATH#homeConfigurations.\"$USER@$HOSTNAME\".activationPackage" --out-link /tmp/hm-activate --print-build-logs
         /tmp/hm-activate/activate

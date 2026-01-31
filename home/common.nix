@@ -27,7 +27,6 @@
     cmake
     gnumake
     automake
-    pkg-config
 
     # Version control
     mercurial
