@@ -35,13 +35,13 @@ cd ~/dotfiles
 ## 管理されている内容
 
 ### パッケージ管理
-- **macOS**: 100+ CLI ツール、47 GUI アプリ（Homebrew Casks）、10 Mac App Store アプリ
-- **クロスプラットフォーム**: 60+ CLI ツール（Git、Neovim、tmux、ripgrep、bat など）
-- **Linux**: i3、polybar、fcitx5、フォントなど
+- **macOS**: CLI ツール（Nix）、GUI アプリ（Homebrew Casks）、Mac App Store アプリ
+- **Linux**: 基本パッケージ（apt）、apt にないモダンなツール（Nix）
+- **共通**: Git、Zsh、Neovim の設定は home-manager の `programs.*` で管理
 
 ### Dotfiles
-- すべての設定ファイルが home-manager で管理
-- 22 個の bin/ スクリプトが ~/.local/bin にリンク
+- 設定ファイルは `link.sh` で素の symlink を作成（`~/dotfiles/config/` → `~/`）
+- bin/ スクリプトは PATH に追加（`.zshrc` で `$HOME/dotfiles/bin` を設定済み）
 - プラットフォーム固有の設定を自動適用
 
 ### 開発環境
@@ -69,25 +69,30 @@ dotfiles/
 │   ├── packages.nix       # CLI ツール
 │   ├── homebrew.nix       # GUI アプリ
 │   └── system-settings.nix # システムデフォルト設定
-├── home/                  # ユーザー環境（クロスプラットフォーム）
+├── home/                  # ユーザー環境（home-manager）
 │   ├── default.nix        # メイン home-manager 設定
-│   ├── common.nix         # クロスプラットフォーム設定
-│   ├── darwin.nix         # macOS 固有のユーザー設定
-│   ├── linux.nix          # Linux 固有のユーザー設定
+│   ├── common.nix         # 共通設定（imports、環境変数、xdg）
+│   ├── darwin.nix         # macOS 固有パッケージ
+│   ├── linux.nix          # Linux 固有パッケージ（apt にないもの）
 │   ├── development.nix    # 開発用ビルド依存関係
 │   └── programs/          # プログラム固有の設定
 │       ├── git.nix        # Git 設定
 │       ├── zsh.nix        # Zsh 設定（mise activation 含む）
 │       └── neovim.nix     # Neovim 設定
-├── config/                # dotfiles の実体（Nix から参照）
+├── config/                # dotfiles の実体（link.sh でシンボリックリンク）
 ├── bin/                   # カスタムスクリプト
+├── setup/                 # OS セットアップスクリプト
+├── link.sh                # dotfiles の symlink 作成スクリプト
 └── legacy/                # 廃止されたスクリプト（参照用）
 ```
 
 ## 便利なコマンド
 
 ```bash
-# 設定を適用（最も簡単な方法）
+# dotfiles の symlink を作成
+./link.sh
+
+# Nix 設定を適用
 ./apply-nix.sh
 
 # flake inputs を更新（nixpkgs、home-manager など）
@@ -187,11 +192,11 @@ nvim --version
      - アトミックロールバックが便利
      - クロスプラットフォーム（macOS と Linux で同じ設定）
 - dotfiles 管理
-  - シェルスクリプト (link.sh, setup-*.sh) -> Nix(2026)
-  - :o: Nix (nix-darwin + home-manager)
-    - すべての設定がコードで管理できる
-    - マシン間で完全に同期
-    - ロールバックが簡単
+  - シェルスクリプト (link.sh, setup-*.sh) -> Nix(2026) -> link.sh + Nix(2026)
+  - :o: link.sh（symlink） + Nix（パッケージ・プログラム設定）
+    - 設定ファイルは素の symlink で即座に反映
+    - パッケージと programs.* 設定は Nix で宣言的に管理
+    - Linux は apt + Nix（apt にないもののみ）のハイブリッド
 - ウェブブラウザ
   - chrome -> vivaldi -> chrome
   - :x: vivaldi
@@ -206,6 +211,6 @@ nvim --version
 
 ## 従来のセットアップ（廃止）
 
-古いセットアップスクリプト（link.sh、Brewfile、setup-*.sh）は `legacy/` ディレクトリに移動されました。
-新規インストールには Nix を使用してください。
+古い Brewfile などは `legacy/` ディレクトリに移動されています。
+`link.sh` と `setup/` スクリプトは現役で使用中です。
 

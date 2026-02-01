@@ -32,8 +32,8 @@
     nmap
     whois
     docker-client
-    kind
-    k9s
+    # kind
+    # k9s
     awscli2
     go-task
     just
