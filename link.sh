@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # dotfiles の symlink を作成するスクリプト
-# 旧 link.sh (commit 977754c) をベースに、home-manager の home.file から移行した内容を統合
 
 set -e
 
