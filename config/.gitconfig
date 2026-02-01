@@ -1,0 +1,77 @@
+[user]
+	name = Tokuhiro Matsuno
+	email = tokuhirom@gmail.com
+
+[alias]
+	branch-cleanup = "!git branch --merged | egrep -v \"main|master|develop\" | grep -v \\* | xargs -I % git branch -d %"
+	prowl = "!gh prowl"
+	ci = commit
+	co = checkout
+	st = status --short --branch
+	br = branch
+	tree = log --graph --pretty=oneline --abbrev-commit
+	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
+
+[color]
+	ui = true
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	fsmonitor = true
+	untrackedcache = true
+
+[init]
+	defaultBranch = main
+
+[submodule]
+	recurse = true
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+	autosetuprebase = always
+
+[tag]
+	sort = version:refname
+
+[merge]
+	ff = false
+	conflictstyle = zdiff3
+
+[diff]
+	noprefix = true
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+
+[help]
+	autocorrect = prompt
+
+[commit]
+	verbose = true
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+
+[pull]
+	rebase = true

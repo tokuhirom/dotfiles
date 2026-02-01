@@ -35,6 +35,7 @@ link .tmux.conf
 link .screenrc
 
 # Git
+link .gitconfig
 link .gitignore_global
 
 # R

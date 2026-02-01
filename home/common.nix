@@ -2,8 +2,6 @@
   # Cross-platform user environment configuration
 
   imports = [
-    ./programs/git.nix
-    ./programs/neovim.nix
     ./development.nix
   ];
 
