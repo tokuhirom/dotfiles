@@ -82,8 +82,7 @@ dotfiles/
 ├── config/                # dotfiles の実体（link.sh でシンボリックリンク）
 ├── bin/                   # カスタムスクリプト
 ├── setup/                 # OS セットアップスクリプト
-├── link.sh                # dotfiles の symlink 作成スクリプト
-└── legacy/                # 廃止されたスクリプト（参照用）
+└── link.sh                # dotfiles の symlink 作成スクリプト
 ```
 
 ## 便利なコマンド
@@ -209,8 +208,4 @@ nvim --version
 - すべての nix コマンドには `--impure` フラグが必要（~/.config/nix/machines.nix を読むため）
 - Flakes はデフォルトで有効（Determinate インストーラー使用）
 
-## 従来のセットアップ（廃止）
-
-古い Brewfile などは `legacy/` ディレクトリに移動されています。
-`link.sh` と `setup/` スクリプトは現役で使用中です。
 
