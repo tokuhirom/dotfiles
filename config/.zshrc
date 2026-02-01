@@ -75,12 +75,18 @@ if command -v direnv &> /dev/null; then
 fi
 
 # -------------------------------------------------------------------------
-# mise
+# mise - 必要な時だけ手動で有効化
+# 使用方法: mise-activate
 # -------------------------------------------------------------------------
 
-if command -v mise &> /dev/null; then
-    eval "$(mise activate zsh)"
-fi
+function mise-activate() {
+    if command -v mise &> /dev/null; then
+        eval "$(mise activate zsh)"
+        echo "mise activated"
+    else
+        echo "mise not found"
+    fi
+}
 
 # -------------------------------------------------------------------------
 # Locale
