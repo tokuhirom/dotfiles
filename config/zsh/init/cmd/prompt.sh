@@ -9,7 +9,8 @@ function _git_branch() {
 
 # プロンプト設定
 setopt PROMPT_SUBST
-PROMPT='%F{blue}%~%f$(_git_branch) %# '
+PROMPT='%F{blue}%~%f$(_git_branch)
+%# '
 
 # usacloud profile in RPROMPT
 function _usacloud_prompt() {
