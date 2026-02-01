@@ -26,9 +26,12 @@ keybinds clear-defaults=true {
         // Pane close
         bind "x" { CloseFocus; SwitchToMode "locked"; }
 
+        // Pane creation (C-t n)
+        bind "n" { NewPane; SwitchToMode "locked"; }
+
         // Tab operations
         bind "c" { NewTab; SwitchToMode "locked"; }
-        bind "n" { GoToNextTab; SwitchToMode "locked"; }
+        bind "tab" { GoToNextTab; SwitchToMode "locked"; }
         bind "p" { GoToPreviousTab; SwitchToMode "locked"; }
         bind "1" { GoToTab 1; SwitchToMode "locked"; }
         bind "2" { GoToTab 2; SwitchToMode "locked"; }
