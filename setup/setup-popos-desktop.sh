@@ -3,6 +3,7 @@
 # === 基本 CLI ツール ===
 sudo apt install -y vim tmux fzf ripgrep bat jq fd-find gh
 sudo apt install -y neovim zsh git-lfs silversearcher-ag
+sudo apt install -y zsh-autosuggestions zsh-syntax-highlighting
 
 # === 開発ツール ===
 sudo apt install -y cmake make automake mercurial

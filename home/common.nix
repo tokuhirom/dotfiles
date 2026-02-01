@@ -3,7 +3,6 @@
 
   imports = [
     ./programs/git.nix
-    ./programs/zsh.nix
     ./programs/neovim.nix
     ./development.nix
   ];
@@ -12,12 +11,7 @@
   # macOS: home/darwin.nix + darwin/packages.nix
   # Linux: home/linux.nix (Nix) + setup/setup-popos-desktop.sh (apt)
 
-  # Environment variables
-  home.sessionVariables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
-    PAGER = "less";
-  };
+  # 環境変数は .zshrc で管理
 
   # XDG Base Directory specification
   xdg.enable = true;

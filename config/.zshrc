@@ -55,6 +55,34 @@ setopt share_history                  # inter process history sharing
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # -------------------------------------------------------------------------
+# Zsh プラグイン (apt or homebrew でインストール)
+# -------------------------------------------------------------------------
+
+# zsh-autosuggestions
+[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# -------------------------------------------------------------------------
+# direnv
+# -------------------------------------------------------------------------
+
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
+# -------------------------------------------------------------------------
+# mise
+# -------------------------------------------------------------------------
+
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+fi
+
+# -------------------------------------------------------------------------
 # Locale
 # -------------------------------------------------------------------------
 
@@ -192,19 +220,6 @@ if [ -d /usr/local/go ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
 
-# mise - 必要な時だけ手動で有効化
-# 使用方法: mise-activate
-function mise-activate() {
-    if command -v mise &> /dev/null; then
-        eval "$(mise activate zsh)"
-        echo "mise activated"
-    elif [[ -e "$HOME/.local/bin/mise" ]]; then
-        eval "$(~/.local/bin/mise activate zsh)"
-        echo "mise activated"
-    else
-        echo "mise not found"
-    fi
-}
 
 export TODO_FILE="$HOME/todo.txt"
 
