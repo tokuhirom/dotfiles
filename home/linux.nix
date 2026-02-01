@@ -2,7 +2,22 @@
   # Linux-specific home-manager configuration
 
   home.packages = with pkgs; [
-    # Linux 固有のパッケージは setup/setup-popos-desktop.sh で apt 管理
+    # apt にないパッケージは Nix で管理
+    bottom
+    yq-go
+    docker-client
+    kind
+    k9s
+    awscli2
+    go-task
+    just
+    sops
+    mkcert
+    duckdb
+    nix-direnv
+    devbox
+    mise
+    zellij
   ];
 
   # Linux 固有の環境変数は config/.config/environment.d/ibus.conf で管理

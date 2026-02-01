@@ -1,8 +1,24 @@
 #!/bin/bash
 
-sudo apt install -y neovim zsh git-lfs docker vim silversearcher-ag
-sudo apt install -y tmux ripgrep bvi jq tree w3m curl
-sudo apt install -y valgrind cmake nodejs zsh vim
+# === 基本 CLI ツール ===
+sudo apt install -y vim tmux fzf ripgrep bat jq fd-find gh
+sudo apt install -y neovim zsh git-lfs silversearcher-ag
+
+# === 開発ツール ===
+sudo apt install -y cmake make automake mercurial
+sudo apt install -y python3 ipython3 ruby luajit luarocks
+
+# === CLI ユーティリティ ===
+sudo apt install -y pandoc graphviz ditaa direnv
+sudo apt install -y btop entr htop tree watch parallel
+sudo apt install -y curl wget nmap whois
+sudo apt install -y unzip gzip bzip2 xz-utils
+
+# === ビルド用ライブラリ ===
+sudo apt install -y libssl-dev zlib1g-dev libreadline-dev libncurses-dev
+
+# === その他 ===
+sudo apt install -y docker.io bvi w3m nodejs valgrind
 
 # desktop
 sudo apt install -y xsel gnome-tweaks slack
