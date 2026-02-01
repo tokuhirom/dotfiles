@@ -15,10 +15,15 @@ elif command -v pacman &>/dev/null; then
 fi
 
 # keyd のビルド・インストール
+# root 権限で動作するため、特定のコミットに固定する
+KEYD_VERSION="v2.6.0"
+KEYD_COMMIT="7c0aecb8bfd34dc8642bf4eefd2e59c89e61cec3"
+
 if ! command -v keyd &>/dev/null; then
     TMPDIR=$(mktemp -d)
     git clone https://github.com/rvaiya/keyd.git "$TMPDIR/keyd"
     cd "$TMPDIR/keyd"
+    git checkout "$KEYD_COMMIT"
     make
     sudo make install
     cd -
