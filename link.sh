@@ -72,6 +72,7 @@ if [ "$(uname)" = "Linux" ]; then
     link .config/polybar/launch.sh
     link .config/wezterm/wezterm.lua
     link .config/xremap/config.yml
+    link .config/environment.d/ibus.conf
 fi
 
 # Vim 用一時ディレクトリ
