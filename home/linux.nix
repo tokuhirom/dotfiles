@@ -11,7 +11,7 @@
     # just, go-task, mkcert はプロジェクトごとに devbox で管理
 
     # 開発ツール
-    mise         # ランタイムマネージャー (asdf 代替)
+    # mise      # devbox に移行したため不要
     devbox       # Nix ベースのポータブル開発環境
     nix-direnv   # direnv の Nix 統合
     duckdb       # 組み込み分析 DB

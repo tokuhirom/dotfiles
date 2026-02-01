@@ -76,6 +76,27 @@ nix eval nixpkgs#yq-go.meta.homepage --raw
 }
 ```
 
+## 自分専用の devbox 設定（チームのリポジトリで）
+
+チームのリポジトリに devbox.json をコミットしたくない場合、
+`.git/info/exclude` を使ってローカルだけで無視できる。
+
+```bash
+# 1. リポジトリで devbox を初期化
+devbox init
+
+# 2. 自分用のパッケージを追加
+devbox add just@latest go-task@latest mkcert@latest
+
+# 3. .git/info/exclude に追加してコミット対象外にする
+echo 'devbox.json' >> .git/info/exclude
+echo 'devbox.lock' >> .git/info/exclude
+echo '.devbox/' >> .git/info/exclude
+```
+
+`.git/info/exclude` は `.gitignore` と同じ書式だが、
+ローカルにしか効かずリポジトリにコミットされない。
+
 ## Tips
 
 - `@latest` で最新バージョン
