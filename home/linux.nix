@@ -2,50 +2,7 @@
   # Linux-specific home-manager configuration
 
   home.packages = with pkgs; [
-    # === クリップボード ===
-    xclip  # X11 クリップボードサポート
-    wl-clipboard  # Wayland クリップボードサポート
-
-    # === ウィンドウ管理 ===
-    i3  # タイル型ウィンドウマネージャー
-    i3status  # i3 ステータスバー
-    i3lock  # スクリーンロック
-    rofi  # アプリケーションランチャー
-    polybar  # ステータスバー
-    dunst  # 通知デーモン
-    xss-lock  # スクリーンセーバーロック
-
-    # === フォント ===
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-color-emoji
-    source-han-sans
-    source-han-serif
-    font-awesome  # アイコンフォント
-
-    # === 日本語入力 (IME) ===
-    ibus  # 入力メソッドフレームワーク
-    ibus-engines.mozc  # Google 日本語入力
-
-    # === X11 ユーティリティ ===
-    xorg.xev  # X イベント表示
-    xorg.xdpyinfo  # ディスプレイ情報
-    xorg.xrandr  # ディスプレイ設定
-    xorg.xmodmap  # キーマップ設定
-    arandr  # xrandr の GUI フロントエンド
-
-    # === キーリマップ ===
-    xremap  # 高度なキーリマッパー（X11/Wayland 対応）
-
-    # === スクリーンショット ===
-    scrot  # スクリーンショットツール
-    maim  # スクリーンショットツール（高機能）
-    flameshot  # GUI スクリーンショットツール（注釈機能付き）
-
-    # === システムモニタ ===
-    htop  # プロセスビューア
-    btop  # リソースモニタ（モダン）
+    # Linux 固有のパッケージは setup/setup-popos-desktop.sh で apt 管理
   ];
 
   # Linux 固有の環境変数
