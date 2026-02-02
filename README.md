@@ -31,7 +31,7 @@ cd ~/dotfiles
 | Linux (モダンツール) | Nix (home-manager) | `home/linux.nix` |
 | macOS (CLI) | Nix (nix-darwin + home-manager) | `darwin/packages.nix`, `home/darwin.nix` |
 | macOS (GUI) | Homebrew | `darwin/homebrew.nix` |
-| プロジェクト固有 | devbox | 各リポジトリの `devbox.json` |
+| プロジェクト固有 | mise | `config/.config/mise/config.toml`, 各リポジトリの `.mise.toml` |
 
 ### Dotfiles
 - `link.sh` で `~/dotfiles/config/` から `~/` に素の symlink を作成
@@ -82,7 +82,7 @@ dotfiles/
 
 # チートシート表示
 cheat zellij
-cheat devbox
+cheat mise
 ```
 
 ## 私の環境
@@ -96,12 +96,15 @@ cheat devbox
   - :x: ghostty
     - aerospace と相性が悪い
 - プログラミング言語・ツールの管理
-  - (plenv, nodeenv など...) -> mise(2025) -> devbox(2026)
-  - :o: devbox
-    - プロジェクトごとに devbox.json で管理
-    - Nix ベースで再現性が高い
-  - :x: mise
-    - グローバルなバージョン管理は便利だが devbox で代替可能
+  - (plenv, nodeenv など...) -> mise(2025) -> devbox(2026) -> mise(2026)
+  - :o: mise
+    - github: バックエンドで GitHub Releases から直接バイナリ取得
+    - Nix 不要で `curl https://mise.run | sh` だけで導入可能
+    - チーム導入が容易
+  - :x: devbox
+    - Nix 必須でチーム導入のハードルが高い
+    - トラブル時に Nix の知識が必要
+    - Nix ストアからのフェッチが遅い
 - メイン IDE
   - :o: goland
 - neovim 環境

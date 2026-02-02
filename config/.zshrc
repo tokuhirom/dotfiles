@@ -74,6 +74,14 @@ if command -v direnv &> /dev/null; then
     eval "$(direnv hook zsh)"
 fi
 
+# -------------------------------------------------------------------------
+# mise
+# -------------------------------------------------------------------------
+
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+fi
+
 
 # -------------------------------------------------------------------------
 # Locale
@@ -217,4 +225,9 @@ fi
 export TODO_FILE="$HOME/todo.txt"
 
 alias difit="npx difit"
+
+if [ -e "$HOME/.config/colima/default/docker.sock" ]; then
+    export DOCKER_HOST=unix://$HOME/.config/colima/default/docker.sock
+fi
+
 

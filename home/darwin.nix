@@ -45,7 +45,7 @@
     direnv
     nix-direnv
     devbox
-    # mise      # devbox に移行したため不要
+    mise
     zellij
     tree
     htop

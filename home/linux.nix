@@ -8,11 +8,11 @@
     bottom       # システムモニタ (btop の Rust 代替)
     yq-go        # YAML プロセッサ
     zellij       # ターミナルマルチプレクサ (tmux 代替)
-    # just, go-task, mkcert はプロジェクトごとに devbox で管理
+    # just, go-task, mkcert はプロジェクトごとに mise で管理
 
     # 開発ツール
-    # mise      # devbox に移行したため不要
-    devbox       # Nix ベースのポータブル開発環境
+    mise
+    devbox
     nix-direnv   # direnv の Nix 統合
     duckdb       # 組み込み分析 DB
 
