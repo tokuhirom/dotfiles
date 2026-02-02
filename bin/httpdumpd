@@ -1,67 +1,56 @@
-#!/usr/bin/env yaegi
-package main
-// vim: set filetype=go noexpandtab tabstop=4 shiftwidth=4:
+#!/usr/bin/env python3
+"""httpdumpd - リクエスト内容をダンプするシンプルな HTTP サーバー"""
 
-import (
-	"flag"
-	"fmt"
-	"log"
-	"net/http"
-	"os"
-	"strings"
-)
+import argparse
+import sys
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
-func main() {
-	// Define command-line flags
-	port := flag.Int("port", 5000, "Port to listen on")
-	help := flag.Bool("help", false, "Display this help message")
-	flag.Parse()
 
-	// Show help message if requested
-	if *help {
-		fmt.Println("httpdumpd - Simple HTTP server to dump request details")
-		fmt.Println("\nUsage:\n")
-		fmt.Println("  httpdumpd [options]")
-		fmt.Println("\nOptions:\n")
-		fmt.Println("  -port      Port to listen on (default: 5000)")
-		fmt.Println("  -help      Display this help message")
-		os.Exit(0)
-	}
+class DumpHandler(BaseHTTPRequestHandler):
+    def do_any(self):
+        print("------------------------------------------------>>")
+        query = f"?{self.path.split('?', 1)[1]}" if '?' in self.path else ""
+        path = self.path.split('?', 1)[0]
+        print(f"{self.command} {path}{query} {self.request_version}")
 
-	// Define HTTP handler function
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        fmt.Println("------------------------------------------------>>")
-		requestLine := fmt.Sprintf("%s %s%s %s", r.Method, r.URL.Path, formatQueryString(r.URL.RawQuery), r.Proto)
-		fmt.Println(requestLine)
+        print("Request Headers:")
+        for name, value in self.headers.items():
+            print(f"{name}: {value}")
 
-		fmt.Println("Request Headers:")
-		for name, values := range r.Header {
-			for _, value := range values {
-				fmt.Printf("%s: %s\n", name, value)
-			}
-		}
+        content_length = int(self.headers.get("Content-Length", 0))
+        if content_length > 0:
+            body = self.rfile.read(content_length)
+            print()
+            print(body.decode("utf-8", errors="replace"))
 
-		// Print the request body
-		fmt.Println("\n")
-		body := make([]byte, r.ContentLength)
-		r.Body.Read(body)
-		fmt.Println(string(body))
+        self.send_response(200)
+        self.send_header("Content-Type", "text/plain")
+        self.end_headers()
+        self.wfile.write(b"OK")
+        print("<<------------------------------------------------")
 
-		// Respond with "OK"
-		w.Header().Set("Content-Type", "text/plain")
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("OK"))
-        fmt.Println("<<------------------------------------------------")
-	})
+    do_GET = do_any
+    do_POST = do_any
+    do_PUT = do_any
+    do_DELETE = do_any
+    do_PATCH = do_any
+    do_HEAD = do_any
+    do_OPTIONS = do_any
 
-	// Start the server
-	log.Printf("Listening on port %d...\n", *port)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
-}
 
-func formatQueryString(query string) string {
-	if query != "" {
-		return "?" + query
-	}
-	return ""
-}
+def main():
+    parser = argparse.ArgumentParser(description="httpdumpd - Simple HTTP server to dump request details")
+    parser.add_argument("-p", "--port", type=int, default=5000, help="Port to listen on (default: 5000)")
+    args = parser.parse_args()
+
+    server = HTTPServer(("", args.port), DumpHandler)
+    print(f"Listening on port {args.port}...")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nShutting down.")
+        server.server_close()
+
+
+if __name__ == "__main__":
+    main()

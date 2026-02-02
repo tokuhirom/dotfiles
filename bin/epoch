@@ -1,68 +1,52 @@
-#!/usr/bin/env yaegi
-package main
-// vim: set filetype=go noexpandtab tabstop=4 shiftwidth=4:
+#!/usr/bin/env python3
+"""epoch - epoch 秒と日時の相互変換"""
 
-import (
-	"fmt"
-	"os"
-	"strconv"
-	"strings"
-	"time"
-)
+import sys
+import time
+from datetime import datetime, timezone, timedelta
 
-func main() {
-	if len(os.Args) <= 2 {
-		// No arguments provided, output current epoch seconds
-		fmt.Println(time.Now().Unix())
-		return
-	}
+JST = timezone(timedelta(hours=9))
 
-	input := os.Args[2]
-	length := len(input)
 
-	switch {
-	case isInteger(input) && length <= 10:
-		// Epoch seconds
-		epochSeconds, _ := strconv.ParseInt(input, 10, 64)
-		t := time.Unix(epochSeconds, 0)
-		fmt.Println(t.Format(time.RFC3339))
-	case isInteger(input) && length <= 13:
-		// Epoch milliseconds
-		epochMilliseconds, _ := strconv.ParseInt(input, 10, 64)
-		t := time.Unix(0, epochMilliseconds*int64(time.Millisecond))
-		fmt.Println(t.Format(time.RFC3339))
-	case length == 8 && isDate(input):
-		// YYYYMMDD
-		t, err := time.Parse("20060102", input)
-		if err == nil {
-			fmt.Println(t.Unix())
-		} else {
-			fmt.Println("Invalid date format.")
-		}
-	case length == 12 && isDateTime(input):
-		// YYYYMMDDhhmm
-		t, err := time.Parse("200601021504", input)
-		if err == nil {
-			fmt.Println(t.Unix())
-		} else {
-			fmt.Println("Invalid date-time format.")
-		}
-	default:
-		fmt.Println("Invalid input format.")
-	}
-}
+def print_time(t):
+    """UTC と JST を併記して出力"""
+    print(f"UTC: {t.isoformat()}")
+    print(f"JST: {t.astimezone(JST).isoformat()}")
 
-func isInteger(s string) bool {
-	_, err := strconv.Atoi(s)
-	return err == nil
-}
 
-func isDate(s string) bool {
-	_, err := time.Parse("20060102", s)
-	return err == nil
-}
+def main():
+    if len(sys.argv) <= 1:
+        print(int(time.time()))
+        return
 
-func isDateTime(s string) bool {
-	_, err := time.Parse("200601021504", s)
-	return err == nil
-}
+    input_str = sys.argv[1]
+    length = len(input_str)
+
+    if length == 8 and input_str.isdigit():
+        # YYYYMMDD
+        try:
+            t = datetime.strptime(input_str, "%Y%m%d").replace(tzinfo=timezone.utc)
+            print(int(t.timestamp()))
+        except ValueError:
+            print("Invalid date format.")
+    elif length == 12 and input_str.isdigit():
+        # YYYYMMDDhhmm
+        try:
+            t = datetime.strptime(input_str, "%Y%m%d%H%M").replace(tzinfo=timezone.utc)
+            print(int(t.timestamp()))
+        except ValueError:
+            print("Invalid date-time format.")
+    elif input_str.isdigit() and length <= 10:
+        # Epoch seconds
+        t = datetime.fromtimestamp(int(input_str), tz=timezone.utc)
+        print_time(t)
+    elif input_str.isdigit() and length <= 13:
+        # Epoch milliseconds
+        t = datetime.fromtimestamp(int(input_str) / 1000, tz=timezone.utc)
+        print_time(t)
+    else:
+        print("Invalid input format.")
+
+
+if __name__ == "__main__":
+    main()
