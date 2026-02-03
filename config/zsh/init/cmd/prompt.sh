@@ -12,18 +12,3 @@ setopt PROMPT_SUBST
 PROMPT='%F{blue}%~%f$(_git_branch)
 %# '
 
-# usacloud profile in RPROMPT
-function _usacloud_prompt() {
-    local usacloud_current_file="$HOME/.usacloud/current"
-    if [[ -f "$usacloud_current_file" ]]; then
-        local profile=$(cat "$usacloud_current_file" 2>/dev/null | tr -d '[:space:]')
-        if [[ -n "$profile" ]]; then
-            RPROMPT="%F{cyan}usacloud:${profile}%f"
-        else
-            RPROMPT=""
-        fi
-    else
-        RPROMPT=""
-    fi
-}
-precmd_functions+=(_usacloud_prompt)
