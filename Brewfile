@@ -146,8 +146,6 @@ brew "tree"
 brew "htop"
 brew "parallel"
 brew "xz"
-brew "direnv"
-
 # === Libraries ===
 brew "coreutils"
 brew "libedit"
