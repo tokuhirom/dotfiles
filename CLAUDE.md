@@ -39,19 +39,28 @@ dotfiles/
 
 ## パッケージ管理
 
+**ADR-0015: macOS では Homebrew を優先する**
+
 ### パッケージの追加場所
 
 | 種類 | 追加先 | 例 |
 |------|--------|-----|
-| CLI ツール（共通） | `home/common.nix` | fzf, ripgrep, bat |
-| CLI ツール（macOS 専用） | `darwin/packages.nix` | colima, mas |
-| GUI アプリ（Cask） | `darwin/homebrew.nix` の `casks` | wezterm, 1password |
-| Homebrew formula | `darwin/homebrew.nix` の `brews` | sketchybar, borders |
-| Mac App Store | `darwin/homebrew.nix` の `masApps` | Xcode, LINE |
+| CLI ツール | `Brewfile` の `brew` | fzf, ripgrep, bat |
+| GUI アプリ（Cask） | `Brewfile` の `cask` | wezterm, 1password |
+| Mac App Store | `Brewfile` の `mas` | Xcode, LINE |
+| Homebrew にないもの | `darwin/packages.nix` | （現在なし） |
+
+### Homebrew の適用
+
+```bash
+# Brewfile を同期（インストール + 不要パッケージ削除）
+bin/brew-sync
+```
 
 ### 注意事項
 
-- **zsh/bash はログインシェルなので homebrew で管理**（nix だと壊れた時にログインできなくなる）
+- **macOS では Homebrew を優先**（Nix は Homebrew にないパッケージのみ）
+- nix-darwin はシステム設定と dotfiles リンクの管理に使用
 - `programs/` 配下で `programs.xxx.enable = true` を使うとより詳細な設定が可能
 
 ## 主要な設定ファイルのパス
@@ -99,6 +108,7 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 
 便利なコマンドは `bin/` に追加する:
 - `app-toggle <bundle-id> <app-name>` - アプリを workspace 1/9 間でトグル
+- `brew-sync` - Brewfile を同期（インストール + 不要パッケージ削除）
 - `cheat <name>` - 設定ファイルのチートシート表示
 
 ## Git 運用

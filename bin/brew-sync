@@ -1,0 +1,44 @@
+#!/bin/bash
+# Brewfile を使って Homebrew パッケージを同期
+# - Brewfile にあるパッケージをインストール
+# - Brewfile にないパッケージを削除
+#
+# Usage:
+#   brew-sync      # 実行
+#   brew-sync -c   # 確認のみ（変更しない）
+
+set -e
+
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+BREWFILE="$DOTFILES_DIR/Brewfile"
+
+DRY_RUN=false
+if [[ "$1" == "-c" ]]; then
+  DRY_RUN=true
+fi
+
+if [[ ! -f "$BREWFILE" ]]; then
+  echo "Error: Brewfile not found at $BREWFILE"
+  exit 1
+fi
+
+echo "==> Brewfile: $BREWFILE"
+echo
+
+if $DRY_RUN; then
+  echo "==> [DRY-RUN] インストールが必要なパッケージ:"
+  brew bundle check --file="$BREWFILE" --verbose || true
+  echo
+  echo "==> [DRY-RUN] 削除されるパッケージ:"
+  brew bundle cleanup --file="$BREWFILE" || echo "    (なし)"
+else
+  echo "==> Homebrew パッケージをインストール中..."
+  brew bundle --file="$BREWFILE"
+
+  echo
+  echo "==> 不要なパッケージを削除中..."
+  brew bundle cleanup --force --file="$BREWFILE"
+
+  echo
+  echo "==> 完了!"
+fi
