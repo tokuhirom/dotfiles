@@ -134,6 +134,20 @@ brew "vim"
 brew "neovim"
 brew "emacs"
 
+# === Build Tools ===
+brew "make"
+
+# === Programming Languages ===
+brew "python@3"
+brew "ruby"
+
+# === CLI Utilities ===
+brew "tree"
+brew "htop"
+brew "parallel"
+brew "xz"
+brew "direnv"
+
 # === Libraries ===
 brew "coreutils"
 brew "libedit"
