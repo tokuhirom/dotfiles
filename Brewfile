@@ -38,6 +38,7 @@ brew "actionlint"
 
 # === Container & Cloud Tools ===
 brew "docker"
+brew "docker-compose"
 brew "colima"
 brew "kind"
 brew "lazydocker"
@@ -244,6 +245,10 @@ cask "aqua-voice"
 
 # GitHub Tools
 cask "jasper-app"
+
+# AI
+cask "codex"
+cask "codex-app"
 
 # Fonts
 cask "font-cica"

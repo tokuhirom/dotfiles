@@ -4,7 +4,7 @@
 
 ### ドキュメント言語
 - **すべてのドキュメントは日本語で記述すること**
-- README.md、NIX_README.md、各種設定ファイルの説明文など、すべて日本語で書く
+- README.md、各種設定ファイルの説明文など、すべて日本語で書く
 - コード内のコメントも日本語を推奨
 
 ### 設定ファイルの保持
@@ -13,28 +13,17 @@
 
 ## プロジェクト構造
 
-このプロジェクトは **nix-darwin** と **home-manager** で管理されている。
+このプロジェクトは **Homebrew** と **link.sh** で管理されている。
 
 ```
 dotfiles/
-├── flake.nix              # Nix flake 設定（エントリポイント）
-├── apply-nix.sh           # 設定適用スクリプト
-├── install-nix.sh         # 初回インストールスクリプト
-├── darwin/                # macOS (nix-darwin) 設定
-│   ├── default.nix        # nix-darwin メイン設定
-│   ├── homebrew.nix       # Homebrew casks/brews（GUI アプリ等）
-│   ├── packages.nix       # CLI パッケージ（nixpkgs）
-│   └── system-settings.nix # macOS システム設定
-├── home/                  # home-manager 設定
-│   ├── common.nix         # 共通パッケージ・dotfiles
-│   ├── darwin.nix         # macOS 固有設定
-│   ├── linux.nix          # Linux 固有設定
-│   └── programs/          # プログラム別設定
-│       ├── git.nix
-│       ├── neovim.nix
-│       └── zsh.nix
-├── config/                # 設定ファイル（home-manager でリンク）
-└── bin/                   # カスタムスクリプト
+├── link.sh                # dotfiles の symlink 作成
+├── Brewfile               # Homebrew パッケージ定義（CLI, GUI, Mac App Store）
+├── config/                # dotfiles の実体（link.sh でリンク）
+├── bin/                   # カスタムスクリプト
+├── setup/                 # OS セットアップスクリプト
+├── cheat/                 # チートシート（cheat コマンド用）
+└── docs/adr/              # 設計判断の記録
 ```
 
 ## パッケージ管理
@@ -48,7 +37,6 @@ dotfiles/
 | CLI ツール | `Brewfile` の `brew` | fzf, ripgrep, bat |
 | GUI アプリ（Cask） | `Brewfile` の `cask` | wezterm, 1password |
 | Mac App Store | `Brewfile` の `mas` | Xcode, LINE |
-| Homebrew にないもの | `darwin/packages.nix` | （現在なし） |
 
 ### Homebrew の適用
 
@@ -57,12 +45,6 @@ dotfiles/
 bin/brew-sync
 ```
 
-### 注意事項
-
-- **macOS では Homebrew を優先**（Nix は Homebrew にないパッケージのみ）
-- nix-darwin はシステム設定と dotfiles リンクの管理に使用
-- `programs/` 配下で `programs.xxx.enable = true` を使うとより詳細な設定が可能
-
 ## 主要な設定ファイルのパス
 
 - **aerospace**: `config/.config/aerospace/aerospace.toml`
@@ -70,7 +52,7 @@ bin/brew-sync
 - **zellij**: `config/.config/zellij/config.kdl`
 - **wezterm**: `config/.config/wezterm/wezterm.lua`
 - **zsh**: `config/.zshrc`
-- **neovim**: `home/programs/neovim.nix` で管理
+- **neovim**: `config/.config/nvim/`
 
 ## ショートカットキーの設定
 
@@ -118,20 +100,17 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 ## 設定の適用
 
 ```bash
-# 設定を適用（ログは ~/.local/share/nix-logs/ に保存）
-./apply-nix.sh
+# dotfiles の symlink を作成
+./link.sh
 
-# 初回セットアップ
-./install-nix.sh
+# Homebrew パッケージを同期
+bin/brew-sync
 ```
 
 ### 設定変更後のアナウンス
 
-`config/` 以下の設定ファイルを変更した場合、ユーザーに `./apply-nix.sh` の実行を促すこと。
-
-```
-設定を反映するには `./apply-nix.sh` を実行してください。
-```
+`config/` 以下の設定ファイルは symlink なので変更は即座に反映される。
+新しいパッケージを `Brewfile` に追加した場合は `bin/brew-sync` の実行を促すこと。
 
 ## macOS 設定
 
