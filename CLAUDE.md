@@ -135,7 +135,12 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 
 ## macOS 設定
 
-macOS のシステム設定は `darwin/system-settings.nix` で宣言的に管理。
+macOS のシステム設定は `setup/setup-mac-settings.sh` で管理。
+
+```bash
+# macOS 設定を適用
+./setup/setup-mac-settings.sh
+```
 
 ## ADR (Architecture Decision Records)
 

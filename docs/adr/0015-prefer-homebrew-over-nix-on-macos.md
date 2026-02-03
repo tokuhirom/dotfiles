@@ -27,4 +27,5 @@ macOS 環境では Homebrew を優先して使用する。
 - Homebrew パッケージは `Brewfile` で管理
 - `bin/brew-sync` で宣言的に同期（インストール + 不要パッケージ削除）
 - nix-darwin の homebrew モジュールは無効化
-- nix-darwin はシステム設定と dotfiles リンクの管理に使用
+- macOS システム設定は `setup/setup-mac-settings.sh` で管理
+- nix-darwin は dotfiles リンクの管理に使用
