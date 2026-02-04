@@ -26,6 +26,9 @@ brew "ant"
 brew "bison"
 brew "re2c"
 
+# diagrams
+brew "d2"
+
 # Version control
 brew "git"
 brew "git-lfs"
@@ -37,6 +40,10 @@ brew "gh"
 brew "actionlint"
 
 # === Container & Cloud Tools ===
+# colima 使う場合でも docker/docker-compose は必要
+#
+# docker-compose は以下の設定必要｡brew-sync の中でついでにやってる｡
+# https://github.com/abiosoft/colima/discussions/874#discussioncomment-7695803
 brew "docker"
 brew "docker-compose"
 brew "colima"

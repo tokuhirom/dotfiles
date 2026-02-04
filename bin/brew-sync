@@ -42,3 +42,11 @@ else
   echo
   echo "==> 完了!"
 fi
+
+# docker-compose 有効化
+# https://github.com/abiosoft/colima/discussions/874#discussioncomment-7695803
+if [[ ! -e ~/.docker/cli-plugins/docker-compose ]]; then
+    mkdir -p ~/.docker/cli-plugins
+    ln -sfn $HOMEBREW_PREFIX/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+fi
+
