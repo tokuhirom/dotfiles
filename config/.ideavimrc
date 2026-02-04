@@ -105,9 +105,9 @@ nmap u <Action>($Undo)
 nmap <C-l> <Action>(NextSplitter)
 nmap <C-h> <Action>(PrevSplitter)
 
-map <Leader>pf <action>(com.mituuz.fuzzier.Fuzzier)
-map <Leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
-map <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
-map <Leader>ff <action>(com.mituuz.fuzzier.FuzzyGrep)
+map <Leader>pf <action>(com.mituuz.fuzzier.search.Fuzzier)
+map <Leader>mf <action>(com.mituuz.fuzzier.operation.FuzzyMover)
+map <Leader>gf <action>(com.mituuz.fuzzier.search.FuzzierVCS)
+map <Leader>ff <action>(com.mituuz.fuzzier.grep.FuzzyGrep)
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
