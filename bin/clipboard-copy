@@ -1,0 +1,9 @@
+#!/bin/sh
+# 環境に応じてクリップボードにコピーする
+if [ "$(uname)" = "Darwin" ]; then
+    pbcopy
+elif [ -n "$WAYLAND_DISPLAY" ]; then
+    wl-copy
+else
+    xclip -selection clipboard
+fi
