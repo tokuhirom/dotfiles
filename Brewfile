@@ -26,18 +26,15 @@ brew "ant"
 brew "bison"
 brew "re2c"
 
-# diagrams
-brew "d2"
-
 # Version control
 brew "git"
 brew "git-lfs"
 brew "mercurial"
-brew "lefthook"
+# brew "lefthook" # lefthook は mise で入れる
 
 # GitHub tools
 brew "gh"
-brew "actionlint"
+# brew "actionlint" # actionlint も mise で入れる
 
 # === Container & Cloud Tools ===
 # colima 使う場合でも docker/docker-compose は必要
@@ -57,23 +54,23 @@ brew "buildpacks/tap/pack"
 brew "awscli"
 
 # === Infrastructure as Code ===
-brew "ansible"
-brew "opentofu"
-brew "ariga/tap/atlas"
+# brew "ansible"         # 使うときは uv run のほうがバージョン固定されて良い
+# brew "opentofu"        # 使ってない
+# brew "ariga/tap/atlas" # 使ってない｡必要になったら mise.toml で管理すればいい
 
 # === Databases & Data Tools ===
-brew "postgresql@14"
+# brew "postgresql@14"   # docker run でいい
 brew "duckdb"
 
 # === Programming Languages & Tools ===
 # Python
 brew "ipython"
-brew "cython"
+# brew "cython"         # cython 別にいらない
 brew "uv"
 
 # Lua
-brew "luarocks"
-brew "luacheck"
+# brew "luarocks"       # 使ってない
+# brew "luacheck"
 
 # Perl
 brew "perl"
@@ -129,13 +126,14 @@ brew "sops-sakura-kms"
 
 # === S3 & Cloud Storage ===
 brew "s3cmd"
-brew "s5cmd"
+# brew "s5cmd" # 使ってない:w
 
 # === Documentation & Diagrams ===
 brew "doxygen"
 brew "sphinx-doc"
 brew "ditaa"
 brew "graphviz"
+brew "d2"               # diagrams
 
 # === Text Editors ===
 brew "vim"
@@ -154,15 +152,9 @@ brew "tree"
 brew "htop"
 brew "parallel"
 brew "xz"
+
 # === Libraries ===
 brew "coreutils"
-brew "libedit"
-brew "libxml2"
-brew "nss"
-brew "pkgconf"
-brew "protobuf"
-brew "icu4c"
-brew "jpeg"
 brew "imagemagick"
 
 # === Terminal Multiplexers ===
@@ -173,18 +165,19 @@ brew "tmux"
 brew "mise"
 
 # === macOS Specific ===
-brew "borders"
+# brew "borders"            # ウィンドウの周りにボーダーつけるやつ｡
 brew "terminal-notifier"
 
 # === SAKURA Cloud & Custom Tools ===
+
 brew "usacloud"
 brew "crush"
 brew "dcv"
 brew "opencode"
-brew "sqldef/sqldef/psqldef"
+# brew "sqldef/sqldef/psqldef" # 使ってない｡使う場合でも mise で入れた方がいい
 
 # AI
-brew "ollama"
+# brew "ollama"            # 今使ってない
 
 # Mac 関連
 brew "mas" # コマンドラインで mac app store アプリを操作
@@ -196,7 +189,7 @@ cask "1password"
 cask "1password-cli"
 
 # Window Management
-cask "aerospace"
+# cask "aerospace"       # 今使ってない
 cask "alt-tab"
 cask "raycast"
 cask "karabiner-elements"
@@ -216,7 +209,7 @@ cask "tokuhirom/tap/sakpilot"
 cask "google-chrome"
 cask "google-chrome@canary"
 cask "firefox"
-cask "vivaldi"
+# cask "vivaldi" # 使ってない
 
 # Communication
 cask "slack"
@@ -238,13 +231,13 @@ cask "cleanshot"
 cask "caffeine"
 cask "meetingbar"
 cask "jordanbaird-ice"
-cask "cyberduck"
+# cask "cyberduck"        # 使ってない
 cask "ddpm"
-cask "wireshark-app"
+# cask "wireshark-app"    # 使ってない
 cask "uhk-agent"
 
 # Cloud & Virtualization
-cask "multipass"
+cask "multipass"        # ubuntu 専用 VM 管理くん
 
 # Japanese Input (IME)
 cask "atok"
