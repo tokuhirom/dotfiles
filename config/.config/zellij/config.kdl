@@ -67,6 +67,15 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
 
+        // Help
+        bind "?" {
+            LaunchOrFocusPlugin "configuration" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "locked"
+        }
+
         // Cancel
         bind "esc" { SwitchToMode "locked"; }
         bind "Ctrl t" { SwitchToMode "locked"; }
