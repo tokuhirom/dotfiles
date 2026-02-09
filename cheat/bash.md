@@ -11,3 +11,8 @@
 
     BASEDIR=$(dirname "$0")
     echo "$BASEDIR"
+
+# SCRIPTDIR
+
+    SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
