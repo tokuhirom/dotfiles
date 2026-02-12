@@ -56,6 +56,8 @@ link .config/topydo
 link .config/aerospace/aerospace.toml
 link .config/sketchybar
 
+link .claude/skills/tagpr/SKILL.md
+
 # Hammerspoon
 link .hammerspoon/init.lua
 

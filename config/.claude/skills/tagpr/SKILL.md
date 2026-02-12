@@ -1,0 +1,42 @@
+---
+name: tagpr
+description: setup tagpr
+---
+
+## tagpr workflow
+
+When setting up tagpr, always use GitHub App token pattern:
+
+```yaml
+name: tagpr
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  tagpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.TAGPR_APP_ID }}
+          private-key: ${{ secrets.TAGPR_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - uses: Songmu/tagpr@v1
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+```
+
+After creating the workflow, run `pinact run` to pin action versions.
+

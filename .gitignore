@@ -13,3 +13,4 @@ akaza/
 result
 
 .claude/
+!config/.claude/skills/tagpr/SKILL.md
