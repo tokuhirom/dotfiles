@@ -25,6 +25,7 @@ brew "automake"
 brew "ant"
 brew "bison"
 brew "re2c"
+brew "rakudo"
 
 # Version control
 brew "git"
@@ -201,7 +202,7 @@ cask "ghostty"
 cask "wezterm"
 
 # AI & Coding Assistants
-cask "claude-code"
+# cask "claude-code" # native install のほうがよさそう
 cask "tokuhirom/tap/notebeam"
 cask "tokuhirom/tap/sakpilot"
 
