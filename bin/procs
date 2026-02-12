@@ -1,0 +1,72 @@
+#!/bin/bash
+# プロセス一覧をプロセス名、ユーザー名、CPU使用率、メモリ使用率、作業ディレクトリ付きで表示
+
+set -euo pipefail
+
+usage() {
+    echo "Usage: procs [OPTIONS]"
+    echo ""
+    echo "プロセス一覧を表示（プロセス名、ユーザー、CPU、メモリ、作業ディレクトリ）"
+    echo ""
+    echo "Options:"
+    echo "  -s SORT   ソート順: cpu (default), mem, name, user"
+    echo "  -n NUM    表示件数 (default: 全件)"
+    echo "  -u USER   指定ユーザーのプロセスのみ表示"
+    echo "  -h        ヘルプ表示"
+    exit 0
+}
+
+SORT_KEY="cpu"
+LIMIT=""
+FILTER_USER=""
+
+while getopts "s:n:u:h" opt; do
+    case $opt in
+        s) SORT_KEY="$OPTARG" ;;
+        n) LIMIT="$OPTARG" ;;
+        u) FILTER_USER="$OPTARG" ;;
+        h) usage ;;
+        *) usage ;;
+    esac
+done
+
+case "$SORT_KEY" in
+    cpu)  PS_SORT="-pcpu" ;;
+    mem)  PS_SORT="-pmem" ;;
+    name) PS_SORT="comm" ;;
+    user) PS_SORT="user" ;;
+    *)    echo "Error: unknown sort key '$SORT_KEY'" >&2; exit 1 ;;
+esac
+
+get_cwd() {
+    local pid=$1
+    if [[ -d /proc/$pid ]]; then
+        # Linux
+        readlink "/proc/$pid/cwd" 2>/dev/null || echo "-"
+    else
+        # macOS
+        lsof -d cwd -a -p "$pid" -Fn 2>/dev/null | grep '^n' | sed 's/^n//' || echo "-"
+    fi
+}
+
+# ヘッダー出力
+printf "%-10s %-15s %6s %6s  %s\n" "USER" "COMMAND" "%CPU" "%MEM" "CWD"
+printf "%-10s %-15s %6s %6s  %s\n" "----------" "---------------" "------" "------" "---"
+
+# ps でプロセス情報取得（カーネルスレッドを除外）
+ps_args=(ax --no-headers -o "pid,user:10,pcpu,pmem,comm:15" --sort="$PS_SORT")
+if [[ -n "$FILTER_USER" ]]; then
+    ps_args=(-u "$FILTER_USER" --no-headers -o "pid,user:10,pcpu,pmem,comm:15" --sort="$PS_SORT")
+fi
+
+ps "${ps_args[@]}" 2>/dev/null | while read -r pid user cpu mem comm; do
+    # カーネルスレッド([kworker] 等)をスキップ
+    [[ "$comm" == \[* ]] && continue
+    # CPU/MEM が 0.0 のプロセスをスキップ（ノイズ軽減）
+    if [[ "$cpu" == "0.0" && "$mem" == "0.0" ]]; then
+        continue
+    fi
+
+    cwd=$(get_cwd "$pid")
+    printf "%-10s %-15s %6s %6s  %s\n" "$user" "$comm" "$cpu" "$mem" "$cwd"
+done | if [[ -n "$LIMIT" ]]; then head -n "$LIMIT"; else cat; fi
