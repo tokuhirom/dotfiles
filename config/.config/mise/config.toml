@@ -17,6 +17,10 @@ terraform = "1.14.3"
 packer = "1.14.3"
 "github:anomalyco/opencode" = "latest"
 dotenvx = "1.51.4"
+zellij = "0.43.1"
+duckdb = "1.4.4"
+codex = "0.101.0"
+fd = "10.3.0"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
