@@ -6,17 +6,6 @@
 #   zprof
 # を追加｡
 
-# -------------------------------------------------------------------------
-# Nix
-# -------------------------------------------------------------------------
-
-# Determinate Nix daemon
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-
-# Nix paths (Determinate Nix + user profile)
-export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
 
 # -------------------------------------------------------------------------
 # Key binding
@@ -70,17 +59,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # direnv
 # -------------------------------------------------------------------------
 
-if command -v direnv &> /dev/null; then
-    eval "$(direnv hook zsh)"
-fi
-
-# -------------------------------------------------------------------------
-# mise
-# -------------------------------------------------------------------------
-
-if command -v mise &> /dev/null; then
-    eval "$(mise activate zsh)"
-fi
+# if command -v direnv &> /dev/null; then
+#     eval "$(direnv hook zsh)"
+# fi
 
 
 # -------------------------------------------------------------------------
@@ -231,4 +212,12 @@ if [ -e "$HOME/.config/colima/default/docker.sock" ]; then
     export DOCKER_HOST=unix://$HOME/.config/colima/default/docker.sock
 fi
 
+
+# -------------------------------------------------------------------------
+# mise
+# -------------------------------------------------------------------------
+
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+fi
 
