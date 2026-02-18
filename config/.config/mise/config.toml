@@ -22,6 +22,7 @@ zellij = "0.43.1"
 duckdb = "1.4.4"
 codex = "0.101.0"
 fd = "10.3.0"
+tmux = "3.6a"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
