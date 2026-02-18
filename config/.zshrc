@@ -189,6 +189,7 @@ source ~/dotfiles/config/zsh/init/cmd/fzf.sh
 source ~/dotfiles/config/zsh/init/cmd/prompt.sh
 source ~/dotfiles/config/zsh/init/cmd/zellij.sh
 source ~/dotfiles/config/zsh/init/cmd/cheat.sh
+source ~/dotfiles/config/zsh/init/cmd/tmux.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
