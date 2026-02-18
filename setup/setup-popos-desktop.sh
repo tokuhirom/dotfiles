@@ -21,6 +21,9 @@ sudo apt install -y libssl-dev zlib1g-dev libreadline-dev libncurses-dev
 # === その他 ===
 sudo apt install -y docker.io bvi w3m nodejs valgrind
 
+# サンドボックス・プロセス間通信
+sudo apt install -y bubblewrap socat
+
 # desktop
 sudo apt install -y xsel gnome-tweaks slack
 
@@ -49,3 +52,5 @@ sudo apt install -y libgdk-pixbuf-2.0-dev libgtk-4-dev libibus-1.0-dev libmarisa
 
 # cosmic-term don't supports ibus
 sudo apt purge cosmic-term
+
+sudo apt install expect
