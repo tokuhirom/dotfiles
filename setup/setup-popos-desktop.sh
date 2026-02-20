@@ -53,4 +53,5 @@ sudo apt install -y libgdk-pixbuf-2.0-dev libgtk-4-dev libibus-1.0-dev libmarisa
 # cosmic-term don't supports ibus
 sudo apt purge cosmic-term
 
-sudo apt install expect
+sudo apt install -y expect
+sudo apt install -y nkf
