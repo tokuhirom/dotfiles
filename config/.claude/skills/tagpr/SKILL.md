@@ -40,3 +40,15 @@ jobs:
 
 After creating the workflow, run `pinact run` to pin action versions.
 
+Basic `.tagpr` file is following.
+
+```
+# config file for the tagpr in git config format
+# The tagpr generates the initial tag and release.
+[tagpr]
+	vPrefix = true
+	releaseBranch = main
+	versionFile = -
+	calendarVersioning = true
+```
+
