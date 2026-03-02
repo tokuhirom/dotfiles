@@ -241,7 +241,7 @@ cask "uhk-agent"
 cask "multipass"        # ubuntu 専用 VM 管理くん
 
 # Japanese Input (IME)
-cask "atok"
+# cask "atok" # mac-akaza にするため不要となった
 cask "aqua-voice"
 
 # GitHub Tools
@@ -250,6 +250,7 @@ cask "jasper-app"
 # AI
 cask "codex"
 cask "codex-app"
+cask "kiro"
 
 # Fonts
 cask "font-cica"
