@@ -250,7 +250,7 @@ cask "jasper-app"
 # AI
 cask "codex"
 cask "codex-app"
-cask "kiro"
+# cask "kiro"
 
 # Fonts
 cask "font-cica"
