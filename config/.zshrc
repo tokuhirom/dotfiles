@@ -212,6 +212,8 @@ fi
 # -------------------------------------------------------------------------
 # mise
 # -------------------------------------------------------------------------
+# mise は rust も管理しており、RUSTUP_TOOLCHAIN 環境変数をグローバルに設定する。
+# Rust のバージョンは ~/.config/mise/config.toml の [tools] で管理すること。
 
 if command -v mise &> /dev/null; then
     eval "$(mise activate zsh)"
