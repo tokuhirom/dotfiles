@@ -77,7 +77,7 @@ brew "uv"
 brew "perl"
 
 # Rust (cargo 含む)
-brew "rust"
+# brew "rust" # rust は cargo で入れないと、mise が RUSTUP_TOOLCHAIN を設定するため、わけわからんことになる。
 
 # Swift
 brew "swiftlint"
