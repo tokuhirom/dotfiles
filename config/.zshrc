@@ -172,10 +172,6 @@ source ~/dotfiles/config/zsh/init/cmd/zellij.sh
 source ~/dotfiles/config/zsh/init/cmd/cheat.sh
 source ~/dotfiles/config/zsh/init/cmd/tmux.sh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # JetBrains Toolbox scripts (goland, idea, etc.)
 export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
 
