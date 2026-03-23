@@ -13,6 +13,7 @@ tap "sqldef/sqldef"         # psqldef
 tap "ariga/tap"             # atlas
 tap "buildpacks/tap"        # pack
 
+
 # === Shell ===
 # ログインシェルは nix ではなく homebrew で管理
 brew "zsh"
@@ -27,11 +28,17 @@ brew "bison"
 brew "re2c"
 brew "rakudo"
 
+brew "playwright-cli"
+
 # Version control
 brew "git"
 brew "git-lfs"
 brew "mercurial"
 # brew "lefthook" # lefthook は mise で入れる
+
+# ai
+brew "lm-studio"
+brew "pchuri/tap/confluence-cli"
 
 # GitHub tools
 brew "gh"
@@ -99,7 +106,7 @@ brew "bvi"
 # System monitoring
 brew "bottom"
 brew "btop"
-brew "entr"
+brew "entr" # Run arbitrary commands when files change
 brew "multitail"
 
 # File managers & viewers
@@ -219,6 +226,7 @@ cask "discord"
 # Development Tools
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
+# cask "zed"
 
 # Text Editors
 cask "coteditor"
