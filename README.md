@@ -136,4 +136,5 @@ cheat mise
   - chrome -> vivaldi -> chrome
   - :x: vivaldi
     - そんなにすごく便利っていう感じの機能が特になかった。
-    - chrome に縦タブ来るらしいし
+    - chrome に縦タブ来たし
+
