@@ -7,16 +7,16 @@ function _prompt_git_branch() {
     [[ -n "$branch" ]] && echo " %F{yellow}($branch)%f"
 }
 
-# ホスト名のハッシュからディレクトリ表示の色を決定
-function _prompt_dir_color() {
-    local colors=(blue green cyan magenta red yellow white)
-    local hash=$(echo -n "$HOST" | cksum | awk '{print $1}')
+# ホスト名のハッシュから色(256色)を決定
+function _prompt_host_color() {
+    local colors=(1 2 3 4 5 6 9 10 11 12 13 14 25 33 37 61 67 71 97 105 131 136 166 172 208)
+    local hash=$(printf '%d' "0x$(echo -n "$HOST" | md5sum | cut -c1-8)")
     echo "${colors[$((hash % ${#colors[@]} + 1))]}"
 }
-_PROMPT_DIR_COLOR=$(_prompt_dir_color)
+_PROMPT_HOST_COLOR=$(_prompt_host_color)
 
 # プロンプト設定
 setopt PROMPT_SUBST
-PROMPT='%F{${_PROMPT_DIR_COLOR}}%~%f$(_prompt_git_branch)
+PROMPT='%F{${_PROMPT_HOST_COLOR}}%m%f:%~$(_prompt_git_branch)
 %# '
 
