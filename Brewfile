@@ -11,6 +11,8 @@ tap "tokuhirom/tap"         # dcv, notebeam, sakpilot
 brew "zsh"
 brew "bash"
 
+
+
 # === Development Tools ===
 # Build systems & compilers
 brew "cmake"
@@ -19,6 +21,8 @@ brew "ant"
 brew "bison"
 brew "re2c"
 brew "rakudo"
+
+brew "mashiike/tap/actionspin"
 
 # Version control
 brew "git"
