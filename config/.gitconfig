@@ -23,6 +23,7 @@
 
 [init]
 	defaultBranch = main
+	templateDir = /Users/to-matsuno/.git-templates
 
 [submodule]
 	recurse = true
@@ -76,8 +77,16 @@
 [pull]
 	rebase = true
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
+
+# 業務用
+[includeIf "gitdir:~/work/"]
+  path = ~/.gitconfig-work
+
+[includeIf "gitdir:~/oss/"]
+  path = ~/.gitconfig-oss
+

@@ -21,6 +21,7 @@ brew "ant"
 brew "bison"
 brew "re2c"
 brew "rakudo"
+brew "gitleaks"
 
 brew "mashiike/tap/actionspin"
 
