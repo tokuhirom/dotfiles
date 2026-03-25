@@ -36,6 +36,7 @@ duckdb = "1.4.4"
 codex = "0.118.0"
 fd = "10.3.0"
 tmux = "3.6a"
+crush = "0.43.4"
 gemini-cli = "0.30.0"
 ruby = "4.0.2"
 
