@@ -4,6 +4,7 @@
 
 # === Taps ===
 tap "tokuhirom/tap"         # dcv, notebeam, sakpilot
+tap "use-tusk/tap"          # fence
 
 
 # === Shell ===
@@ -32,6 +33,9 @@ brew "git-lfs"
 
 # ai
 brew "pchuri/tap/confluence-cli"
+
+# https://github.com/Use-Tusk/fence
+brew "use-tusk/tap/fence"
 
 # GitHub tools
 brew "gh"
@@ -146,7 +150,7 @@ cask "karabiner-elements"
 cask "hammerspoon"
 
 # Terminal Emulators
-cask "alacritty"
+# cask "alacritty" # alacritty が cask からきえるぽい。
 cask "ghostty"
 cask "wezterm"
 

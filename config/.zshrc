@@ -33,6 +33,8 @@ bindkey "^[[F"  end-of-line
 # kitty keyboard protocol (CSI u) 対応
 # ghostty などのモダンターミナルで Ctrl+M が効くように
 bindkey '^[[109;5u' accept-line
+# Ctrl+I を Tab として扱う
+bindkey '^[[105;5u' expand-or-complete
 
 # -------------------------------------------------------------------------
 # History
@@ -229,3 +231,4 @@ if command -v mise &> /dev/null; then
     eval "$(mise activate zsh)"
 fi
 
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock

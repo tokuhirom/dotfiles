@@ -1,16 +1,18 @@
 [user]
 	name = Tokuhiro Matsuno
 	email = tokuhirom@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPogYMvIO0VThkylTurcdQA38k+ZDIKBSWkT31RXQYVB to-matsuno@PC107836
 
 [alias]
 	branch-cleanup = "!git branch --merged | egrep -v \"main|master|develop\" | grep -v \\* | xargs -I % git branch -d %"
 	prowl = "!gh prowl"
-	ci = commit
+	ci = "commit -s -S"
 	co = checkout
 	st = status --short --branch
 	br = branch
 	tree = log --graph --pretty=oneline --abbrev-commit
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
+	commit = commit -s -S
 
 [color]
 	ui = true
@@ -64,6 +66,7 @@
 
 [commit]
 	verbose = true
+	gpgsign = true
 
 [rerere]
 	enabled = true
@@ -89,4 +92,20 @@
 
 [includeIf "gitdir:~/oss/"]
   path = ~/.gitconfig-oss
+
+[gpg]
+	format = ssh
+
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIInDzOZj0+ZYcRIb35F0agCZo2ts4zuIVWXsowfdDYXo
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	allowedSignersFile = /Users/to-matsuno/.ssh/allowed_signers
+
+[commit]
+  gpgsign = true
 
