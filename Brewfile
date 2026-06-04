@@ -152,7 +152,7 @@ cask "hammerspoon"
 # Terminal Emulators
 # cask "alacritty" # alacritty が cask からきえるぽい。
 cask "ghostty"
-cask "wezterm"
+# cask "wezterm"
 
 # AI & Coding Assistants
 # cask "claude-code" # native install のほうがよさそう
@@ -161,7 +161,7 @@ cask "tokuhirom/tap/sakpilot"
 
 # Web Browsers
 cask "google-chrome"
-cask "google-chrome@canary"
+# cask "google-chrome@canary"
 cask "firefox"
 # cask "vivaldi" # 使ってない
 
@@ -179,7 +179,7 @@ cask "coteditor"
 
 # Productivity & Note-taking
 cask "obsidian"
-cask "logseq"
+# cask "logseq"
 
 # Utilities
 cask "cleanshot"
@@ -196,14 +196,14 @@ cask "multipass"        # ubuntu 専用 VM 管理くん
 
 # Japanese Input (IME)
 # cask "atok" # mac-akaza にするため不要となった
-cask "aqua-voice"
+# cask "aqua-voice"
 
 # GitHub Tools
-cask "jasper-app"
+# cask "jasper-app"
 
 # AI
 cask "codex"
-cask "codex-app"
+# cask "codex-app"
 # cask "kiro"
 
 # Fonts

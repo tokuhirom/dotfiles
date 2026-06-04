@@ -6,13 +6,13 @@
 [alias]
 	branch-cleanup = "!git branch --merged | egrep -v \"main|master|develop\" | grep -v \\* | xargs -I % git branch -d %"
 	prowl = "!gh prowl"
-	ci = "commit -s -S"
+	ci = "commit -s"
 	co = checkout
 	st = status --short --branch
 	br = branch
 	tree = log --graph --pretty=oneline --abbrev-commit
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
-	commit = commit -s -S
+	commit = commit -s
 
 [color]
 	ui = true
