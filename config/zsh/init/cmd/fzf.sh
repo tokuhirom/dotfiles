@@ -7,11 +7,13 @@
 if which fzf &> /dev/null; then
 
     # fzf history
+    # 新しい順を維持したまま awk で dedup することで、
+    # 直近に実行したコマンドが必ず上に来るようにする
     function fzf-select-history() {
-        # BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
-        # -e: exact match
+        # 他ターミナルで実行された履歴を取り込む（share_history と整合させる）
+        fc -RI 2>/dev/null
         local selected
-        selected=$(history -n -r 1 | tac | awk '!seen[$0]++' | tac | fzf --no-sort +m -e --query "$LBUFFER" --prompt="History > ")
+        selected=$(history -n -r 1 | awk '!seen[$0]++' | fzf --no-sort +m -e --query "$LBUFFER" --prompt="History > ")
         if [[ -n "$selected" ]]; then
             # Convert escaped \n back to actual newlines
             BUFFER=${selected//\\n/$'\n'}
