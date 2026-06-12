@@ -15,7 +15,7 @@ fi
 
 ./setup/setup-git.sh
 ./setup/setup-plenv.sh
-./setup/setup-vimplug.sh
+# vim-plug は vendoring 済みのため link.sh で symlink される (ADR-0017)
 ./setup/setup-tmux.sh
 ./setup/setup-alacritty.sh
 ./setup/setup-go.sh
