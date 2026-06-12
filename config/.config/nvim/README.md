@@ -19,6 +19,19 @@ ln -s ~/dotfiles/config/.config/nvim ~/.config/nvim
 nvim
 ```
 
+## プラグインの pin と更新運用
+
+supply chain risk 低減のため、全プラグインを `lazy-lock.json` で commit 固定
+している (ADR-0020)。lazy.nvim 本体も `lazy-bootstrap.lua` が lockfile の
+commit を checkout するため、ハッシュの二重管理はない。
+
+- 新マシンでは lockfile の commit でインストールされる。ずれが疑われる場合は
+  `:Lazy restore` で lockfile の状態に戻す
+- プラグインを更新する場合は `:Lazy update` 後、`lazy-lock.json` の diff を
+  レビューしてからコミットする。意図しない更新は `:Lazy restore` で巻き戻す
+- 例外: mason がインストールする LSP サーバーと treesitter のパーサーは
+  lockfile の管轄外 (ADR-0021 参照)
+
 ## プラグイン一覧
 
 ### プラグインマネージャー
