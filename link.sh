@@ -51,7 +51,6 @@ link .config/ghostty
 link .config/starship.toml
 link .config/alacritty
 link .config/fish/config.fish
-link .config/fish/fish_plugins
 link .config/mise/config.toml
 link .config/zellij/config.kdl
 link .config/ranger
