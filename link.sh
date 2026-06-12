@@ -30,6 +30,9 @@ link .vimrc
 link .ideavimrc
 link .emacs.d
 
+# vim-plug 本体 (リポジトリに vendoring 済み、ADR-0017)
+link .vim/autoload/plug.vim
+
 # ターミナルマルチプレクサ
 link .tmux.conf
 link .screenrc

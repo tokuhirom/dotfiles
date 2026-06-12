@@ -40,5 +40,6 @@ Plug 'rhysd/clever-f.vim', { 'commit': '6a3ac5e3688598af9411ab741737f98c47370c22
 - 自動的に最新版へ追従しなくなるため、セキュリティ修正も自動では入らない。
   必要に応じて手動で更新する
 - 今後の課題: vim-plug 本体 (`~/.vim/autoload/plug.vim`) は curl で
-  master から取得する手順のままなので、リポジトリへの vendoring を検討する。
+  master から取得する手順のままなので、リポジトリへの vendoring を検討する
+  (→ ADR-0017 で対応済み)。
   また、使っていないプラグインの削減も別途検討する

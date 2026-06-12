@@ -1,10 +1,9 @@
 " *************************************************************************
 " tokuhirom's .vimrc file.
 "
-" Install VimPlug:
-"
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"
+" vim-plug 本体は dotfiles に vendoring 済み (config/.vim/autoload/plug.vim)。
+" link.sh で ~/.vim/autoload/plug.vim に symlink される。
+" 更新手順は config/.vim/README.md を参照 (ADR-0017)。
 "
 " :e ++enc=cp932
 " :e ++enc=euc-jp
