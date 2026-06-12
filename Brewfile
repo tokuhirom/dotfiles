@@ -2,9 +2,19 @@
 # 適用: bin/brew-sync
 # ADR-0015: macOS では Homebrew を優先
 
+# 原則として、開発ツールなどは apple containers の中で動かすものとし、OS 側を保護するものとする。
+
 # === Taps ===
-tap "tokuhirom/tap"         # dcv, notebeam, sakpilot
-tap "use-tusk/tap"          # fence
+# tap "nikitabobko/tap"       # aerospace
+# tap "felixkratz/formulae"   # borders, sketchybar
+# tap "sacloud/usacloud"      # usacloud
+# tap "k1low/tap"             # runn, tbls
+# tap "charmbracelet/tap"     # crush
+# tap "tokuhirom/tap"         # sops-sakura-kms, dcv, taskeru
+# tap "sqldef/sqldef"         # psqldef
+# tap "ariga/tap"             # atlas
+# tap "buildpacks/tap"        # pack
+# tap "use-tusk/tap"
 
 
 # === Shell ===
@@ -16,46 +26,73 @@ brew "bash"
 
 # === Development Tools ===
 # Build systems & compilers
-brew "cmake"
-brew "automake"
-brew "ant"
-brew "bison"
-brew "re2c"
+# brew "cmake"
+# brew "automake"
+# brew "ant"
+# brew "bison"
+# brew "re2c"
 brew "rakudo"
 brew "gitleaks"
 
-brew "mashiike/tap/actionspin"
+brew "playwright-cli"
+
+# brew "mashiike/tap/actionspin"
 
 # Version control
 brew "git"
-brew "git-lfs"
+# brew "git-lfs"
+# brew "mercurial"
 # brew "lefthook" # lefthook は mise で入れる
 
 # ai
-brew "pchuri/tap/confluence-cli"
+# brew "lm-studio"
+# brew "pchuri/tap/confluence-cli"
 
 # https://github.com/Use-Tusk/fence
-brew "use-tusk/tap/fence"
+# brew "use-tusk/tap/fence"
 
 # GitHub tools
 brew "gh"
 # brew "actionlint" # actionlint も mise で入れる
 
+# === Container & Cloud Tools ===
+# colima 使う場合でも docker/docker-compose は必要
+#
+# docker-compose は以下の設定必要｡brew-sync の中でついでにやってる｡
+# https://github.com/abiosoft/colima/discussions/874#discussioncomment-7695803
+# brew "docker"
+# brew "docker-compose"
+# brew "colima"
+# brew "kind"
+# brew "lazydocker"
+# brew "crane"
+# brew "skopeo"
+# brew "buildpacks/tap/pack"
+
+# Cloud CLIs
+# brew "awscli"
+
 # === Infrastructure as Code ===
 # brew "ansible"         # 使うときは uv run のほうがバージョン固定されて良い
 # brew "opentofu"        # 使ってない
+# brew "ariga/tap/atlas" # 使ってない｡必要になったら mise.toml で管理すればいい
 
 # === Databases & Data Tools ===
 # brew "postgresql@14"   # docker run でいい
+# brew "duckdb"
 
 # === Programming Languages & Tools ===
 # Python
 brew "ipython"
 # brew "cython"         # cython 別にいらない
+brew "uv"
 
 # Lua
 # brew "luarocks"       # 使ってない
 # brew "luacheck"
+
+# Perl
+brew "perl"
 
 # Rust (cargo 含む)
 # brew "rust" # rust は cargo で入れないと、mise が RUSTUP_TOOLCHAIN を設定するため、わけわからんことになる。
@@ -65,23 +102,27 @@ brew "swiftlint"
 
 # === CLI Utilities ===
 # File & text processing
+brew "fd"
 brew "ripgrep"
 brew "the_silver_searcher"
 brew "bat"
 brew "fzf"
 brew "jq"
 brew "yq"
-brew "pandoc"
+# brew "pandoc"
 brew "nkf"
+brew "lv"
 brew "bvi"
 
 # System monitoring
-brew "bottom"
-brew "btop"
-brew "multitail"
+# brew "bottom"
+# brew "btop"
+# brew "entr" # Run arbitrary commands when files change
+# brew "multitail"
 
 # File managers & viewers
-brew "w3m"
+# brew "ranger"
+# brew "w3m"
 
 # Networking tools
 brew "curl"
@@ -91,19 +132,32 @@ brew "ngrep"
 brew "whois"
 brew "inetutils"
 
+# === Task Runners & Build Tools ===
+# brew "go-task"
+# brew "just"
+
 # === Certificates ===
-brew "mkcert"
+# brew "mkcert"
+
+# === Security & Secrets ===
+# brew "sops"
+# brew "sops-sakura-kms"
 
 # === S3 & Cloud Storage ===
+# brew "s3cmd"
 # brew "s5cmd" # 使ってない:w
 
 # === Documentation & Diagrams ===
-brew "doxygen"
-brew "sphinx-doc"
+# brew "doxygen"
+# brew "sphinx-doc"
+# brew "ditaa"
+# brew "graphviz"
+# brew "d2"               # diagrams
 
 # === Text Editors ===
 brew "vim"
-brew "neovim"
+# brew "neovim"
+# brew "emacs"
 
 # === Build Tools ===
 brew "make"
@@ -114,22 +168,32 @@ brew "ruby"
 
 # === CLI Utilities ===
 brew "tree"
-brew "htop"
-brew "parallel"
-brew "xz"
+# brew "htop"
+# brew "parallel"
+# brew "xz"
 
 # === Libraries ===
-brew "coreutils"
-brew "imagemagick"
+# brew "coreutils"
+# brew "imagemagick"
+
+# === Terminal Multiplexers ===
+# brew "zellij"
+# brew "tmux"
 
 # === Runtime Manager ===
-brew "mise"
+# brew "mise"
 
 # === macOS Specific ===
-brew "terminal-notifier"
+# brew "borders"            # ウィンドウの周りにボーダーつけるやつ｡
+# brew "terminal-notifier"
 
 # === SAKURA Cloud & Custom Tools ===
-brew "dcv"
+
+# brew "usacloud"
+# brew "crush"
+# brew "dcv"
+# brew "opencode"
+# brew "sqldef/sqldef/psqldef" # 使ってない｡使う場合でも mise で入れた方がいい
 
 # AI
 # brew "ollama"            # 今使ってない
@@ -144,6 +208,7 @@ cask "1password"
 cask "1password-cli"
 
 # Window Management
+# cask "aerospace"       # 今使ってない
 cask "alt-tab"
 cask "raycast"
 cask "karabiner-elements"
@@ -156,8 +221,8 @@ cask "ghostty"
 
 # AI & Coding Assistants
 # cask "claude-code" # native install のほうがよさそう
-cask "tokuhirom/tap/notebeam"
-cask "tokuhirom/tap/sakpilot"
+# cask "tokuhirom/tap/notebeam"
+# cask "tokuhirom/tap/sakpilot"
 
 # Web Browsers
 cask "google-chrome"
@@ -182,17 +247,17 @@ cask "obsidian"
 # cask "logseq"
 
 # Utilities
-cask "cleanshot"
-cask "caffeine"
+# cask "cleanshot"
+# cask "caffeine"
 cask "meetingbar"
-cask "jordanbaird-ice"
+# cask "jordanbaird-ice"
 # cask "cyberduck"        # 使ってない
 cask "ddpm"
 # cask "wireshark-app"    # 使ってない
 cask "uhk-agent"
 
 # Cloud & Virtualization
-cask "multipass"        # ubuntu 専用 VM 管理くん
+# cask "multipass"        # ubuntu 専用 VM 管理くん
 
 # Japanese Input (IME)
 # cask "atok" # mac-akaza にするため不要となった
@@ -202,20 +267,20 @@ cask "multipass"        # ubuntu 専用 VM 管理くん
 # cask "jasper-app"
 
 # AI
-cask "codex"
+# cask "codex"
 # cask "codex-app"
 # cask "kiro"
 
 # Fonts
-cask "font-cica"
-cask "font-fira-code-nerd-font"
-cask "font-hack-nerd-font"
-cask "font-hackgen-nerd"
-cask "font-jetbrains-mono"
-cask "font-jetbrains-mono-nerd-font"
-cask "font-noto-sans-cjk-jp"
-cask "font-noto-sans-mono"
-cask "font-noto-serif-cjk-jp"
+# cask "font-cica"
+# cask "font-fira-code-nerd-font"
+# cask "font-hack-nerd-font"
+# cask "font-hackgen-nerd"
+# cask "font-jetbrains-mono"
+# cask "font-jetbrains-mono-nerd-font"
+# cask "font-noto-sans-cjk-jp"
+# cask "font-noto-sans-mono"
+# cask "font-noto-serif-cjk-jp"
 
 # === Mac App Store ===
 mas "Get Plain Text", id: 508368068

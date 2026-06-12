@@ -2,16 +2,17 @@
 use strict;
 use warnings;
 
-use FindBin;
 use File::Spec;
 use File::Copy;
 use File::Path qw(make_path);
+use File::Basename;
 
-my $dir = File::Spec->basename($FindBin::RealBin);
-my $report = File::Spec->catfile($FindBin::RealBin, 'REPORT.md');
+my $cwd = File::Spec->rel2abs(File::Spec->curdir());
+my $dir = basename($cwd);
+my $report = File::Spec->catfile($cwd, 'REPORT.md');
 
 # REPORT.md の存在確認
-die "missing REPORT.md" unless -e $report;
+die "missing $report" unless -e $report;
 
 # 出力先ディレクトリ
 my $dest_dir = File::Spec->catdir(
@@ -24,7 +25,8 @@ my $dest_dir = File::Spec->catdir(
 );
 
 # ディレクトリ作成
-make_path($dest_dir) or die "Failed to create directory $dest_dir: $!";
+make_path($dest_dir) unless -d $dest_dir;
+die "Failed to create directory $dest_dir" unless -d $dest_dir;
 
 # ファイルコピー
 copy($report, $dest_dir) or die "Failed to copy REPORT.md: $!";
