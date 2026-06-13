@@ -51,7 +51,8 @@ link .config/ghostty
 link .config/starship.toml
 link .config/alacritty
 link .config/fish/config.fish
-link .config/mise/config.toml
+# mise.lock も含めてディレクトリごと管理する (ADR-0023)
+link .config/mise
 link .config/zellij/config.kdl
 link .config/ranger
 link .config/topydo

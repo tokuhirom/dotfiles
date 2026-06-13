@@ -85,6 +85,7 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 - `cheat zellij` / `cheat zj` - zellij
 - `cheat wezterm` - wezterm
 - `cheat xremap` - xremap (Linux)
+- `cheat mise` - mise (lockfile の更新手順など)
 
 ## bin/ コマンド
 
