@@ -29,8 +29,8 @@ commit を checkout するため、ハッシュの二重管理はない。
   `:Lazy restore` で lockfile の状態に戻す
 - プラグインを更新する場合は `:Lazy update` 後、`lazy-lock.json` の diff を
   レビューしてからコミットする。意図しない更新は `:Lazy restore` で巻き戻す
-- 例外: mason がインストールする LSP サーバーと treesitter のパーサーは
-  lockfile の管轄外 (ADR-0021 参照)
+- 例外: treesitter のパーサーは lockfile の管轄外 (ADR-0021 参照)。
+  LSP サーバーは外部インストールに移行済み (ADR-0022)
 
 ## プラグイン一覧
 
@@ -49,8 +49,6 @@ commit を checkout するため、ハッシュの二重管理はない。
   - ファイル検索、grep、バッファ一覧など
 
 ### LSP・補完
-- **mason.nvim** - LSP サーバー管理
-- **mason-lspconfig.nvim** - mason と lspconfig の連携
 - **nvim-lspconfig** - LSP クライアント設定
 - **neodev.nvim** - Neovim Lua API の補完・型情報
 - Neovim 0.11 ネイティブ補完 - nvim-cmp の代わりに使用
@@ -147,17 +145,18 @@ commit を checkout するため、ハッシュの二重管理はない。
 
 ## LSP サーバー
 
-自動インストールされる言語サーバー：
-- **lua_ls** - Lua
-- **ts_ls** - TypeScript/JavaScript
-- **pyright** - Python
-- **rust_analyzer** - Rust
-- **gopls** - Go
+LSP サーバーは mason を使わず、外部 (mise / brew / rustup / npm など) で
+インストールする (ADR-0022)。PATH 上に実体があるものだけが有効化される。
 
-追加でサーバーをインストールする場合：
-```vim
-:Mason
-```
+| サーバー | 言語 | 必要なコマンド | インストール例 |
+|---------|------|--------------|--------------|
+| lua_ls | Lua | `lua-language-server` | `brew install lua-language-server` |
+| ts_ls | TypeScript/JavaScript | `typescript-language-server` | `npm i -g typescript-language-server typescript` |
+| pyright | Python | `pyright-langserver` | `npm i -g pyright` |
+| rust_analyzer | Rust | `rust-analyzer` | `rustup component add rust-analyzer` |
+| gopls | Go | `gopls` | `go install golang.org/x/tools/gopls@latest` |
+
+サーバーを追加する場合は `lua/plugins/lsp.lua` の `servers` テーブルに追記する。
 
 ## Telescope の使い方
 
@@ -193,10 +192,8 @@ commit を checkout するため、ハッシュの二重管理はない。
 ```
 
 ### LSP が動かない
-```vim
-:Mason
-# サーバーをインストール
-```
+LSP サーバーのコマンドが PATH 上にあるか確認する (`:checkhealth lsp` や
+`which gopls` など)。なければ上記の表に従ってインストールする。
 
 ### 設定を再読み込み
 ```vim

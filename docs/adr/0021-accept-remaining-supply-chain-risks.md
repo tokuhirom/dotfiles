@@ -26,6 +26,9 @@ supply chain risk の棚卸し (ADR-0016〜0020) で、commit 固定や撤去を
 
 ### mason の LSP サーバーと treesitter のパーサー
 
+(mason は ADR-0022 で撤去した。以下の記述のうち現在も有効なのは
+treesitter パーサーの部分のみ)
+
 lazy-lock.json (ADR-0020) の管轄外で、mason-registry や各言語の公式リリースから
 バイナリ・パーサーを取得する。インストールは `:Mason` や `:TSInstall` による
 明示的な操作時のみで、勝手に更新はされない。エコシステムの標準的な配布経路

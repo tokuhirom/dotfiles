@@ -1,40 +1,26 @@
 return {
-  -- Mason for LSP installer
   {
-    'williamboman/mason.nvim',
-    cmd = 'Mason',
-    config = function()
-      require('mason').setup()
-    end,
-  },
-
-  {
-    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      'williamboman/mason.nvim',
-      'neovim/nvim-lspconfig',
       'folke/neodev.nvim',
     },
     config = function()
-      require('mason-lspconfig').setup({
-        ensure_installed = {
-          'lua_ls',
-          'ts_ls',
-          'pyright',
-          'rust_analyzer',
-          'gopls',
-        },
-        automatic_installation = true,
-      })
-      -- neodev will automatically configure lua_ls
-    end,
-  },
+      -- LSP サーバーは mason ではなく外部 (mise / brew / rustup / npm など) で
+      -- インストールする (ADR-0022)。PATH 上に実体があるものだけを有効化する。
+      local servers = {
+        lua_ls = 'lua-language-server',
+        ts_ls = 'typescript-language-server',
+        pyright = 'pyright-langserver',
+        rust_analyzer = 'rust-analyzer',
+        gopls = 'gopls',
+      }
+      for name, bin in pairs(servers) do
+        if vim.fn.executable(bin) == 1 then
+          vim.lsp.enable(name)
+        end
+      end
 
-  {
-    'neovim/nvim-lspconfig',
-    lazy = true,
-    config = function()
       -- Setup LspAttach autocmd for keybindings
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
