@@ -80,23 +80,6 @@
 
     call plug#begin('~/.vim/plugged')
 
-    Plug 'bling/vim-airline', { 'commit': 'b03fdc542f5155b54959102a2aecaf6c792dce01' }
-
-    " for kkc
-    Plug 'arrufat/vala.vim', { 'commit': '44b2dfde07fb65e75e8b3a87b57f0c771efbbb13' }
-
-    " mattn-san recommend to use this. This plugin enables c/c++ completions.
-    Plug 'justmao945/vim-clang', { 'commit': '999b182e0cf8b3f41339400311b044857e991dee' }
-    " auto format c/c++ code.
-    Plug 'rhysd/vim-clang-format', { 'commit': '6b791825ff478061ad1c57b21bb1ed5a5fd0eb29' }
-
-    " snippets
-    "Plug 'SirVer/ultisnips'
-    " vim-snippets repo contains snipMate & UltiSnip Snippets.
-    Plug 'honza/vim-snippets', { 'commit': 'ededcf7581962ee616cadab360d5966f3307f11a' }
-
-    Plug 'LeafCage/yankround.vim', { 'commit': '9dca96ed35b09de9fe5474de40da323d75fa3204' }
-
     " ctrlp
     Plug 'ctrlpvim/ctrlp.vim', { 'commit': '86872f021c4e245e3c583054fda82fb820a2faee' }
 
@@ -108,37 +91,17 @@
 
     Plug 'osyo-manga/vim-anzu', { 'commit': '45566dffd29612a763239abadd3ab2cd78bd5638' }
 
-    Plug 'kien/rainbow_parentheses.vim', { 'commit': 'eb8baa5428bde10ecc1cb14eed1d6e16f5f24695' }
-
-    " Plug 'fuenor/qfixhowm'
-
     " language support
     Plug 'fatih/vim-go', { 'commit': 'fc429c8e2c70c7964065a7e9631cca6da46a8f15' }
-    Plug 'dgryski/vim-godef', { 'commit': 'a679733999fce6a566704a4df15f6813a900e8a9' }
-    Plug 'kelan/gyp.vim', { 'commit': '96a5b8d691d2fbc3fd60f471d0f1e01669536011' }
-    Plug 'groenewege/vim-less', { 'commit': '6e818d5614d5fc18d95a48c92b89e6db39f9e3d6' }
     Plug 'tokuhirom/vim-markdown', { 'commit': '40091fc12ce3188978d13c464f84b946b29f6345' }
-    Plug 'cespare/vim-toml', { 'commit': '1b63257680eeb65677eb1ca5077809a982756d58' }
     Plug 'vim-perl/vim-perl', { 'commit': '25ecb0061a3558d242a471b162aad20e4308815d' }
-    Plug 'mattn/vim-p6doc', { 'commit': 'b9629024c9878b52ee8608d7377ef97b4b871af5' }
-    Plug 'pangloss/vim-javascript', { 'commit': 'b26c9edb3563e02f5c0b20580f7cf9743e95b157' }
     Plug 'moznion/vim-cpanfile', { 'commit': 'd69eb9aee5c60da6ff68b8fc3058b69bf5a4f6d9' }
-    " Plug "juvenn/mustache.vim"
-    Plug 'cakebaker/scss-syntax.vim', { 'commit': 'a6515bad76259f34d885d1f54cdd82c1dd98d91a' }
-    Plug 'aklt/plantuml-syntax', { 'commit': '9d4900aa16674bf5bb8296a72b975317d573b547' }
-    Plug 'derekwyatt/vim-scala', { 'commit': '7657218f14837395a4e6759f15289bad6febd1b4' }
-    Plug 'pearofducks/ansible-vim', { 'commit': '6718ff81fe36f5f4fbf6675d95b16e4a74814827' }
 
     " quickfix の該当箇所にカーソルを移動させるとエラー内容がコマンドウィンドウに出力される
     Plug 'dannyob/quickfixstatus', { 'commit': 'fd3875b914fc51bbefefa8c4995588c088163053' }
 
     " Perl thing
     Plug 'y-uuki/perl-local-lib-path.vim', { 'commit': '5cdf5f22f86893ac9559b74eeaf759a3c7d32809' }
-
-    Plug 'Shougo/vimproc.vim', { 'do': 'make', 'commit': '63a4ce0768c7af434ac53d37bdc1e7ff7fd2bece' }
-
-    " Show xterm 256 color table.
-    Plug 'guns/xterm-color-table.vim', { 'on': 'XtermColorTable', 'commit': '8785bb47a38a8bce3f5e452c083907e1a9b32763' }
 
     Plug 'fholgado/minibufexpl.vim', { 'commit': 'ad72976ca3df4585d49aa296799f14f3b34cf953' }
 
@@ -198,13 +161,6 @@
    set tags+=tags;
 
 " -------------------------------------------------------------------------
-"  scss
-" -------------------------------------------------------------------------
-    au BufRead,BufNewFile *.scss set filetype=scss
-
-    set expandtab
-
-" -------------------------------------------------------------------------
 " ruby
 " -------------------------------------------------------------------------
     autocmd FileType ruby setlocal ts=2 sw=2 sts=0
@@ -214,36 +170,6 @@
 " ------------------------------------------------------------------------- 
    let $PATH="/usr/bin/:/usr/local/bin/:" . $PATH
    set path = "lib,/usr/local/bin/,."
-
-"---------------------------------------------------------------------------
-" rainbow_parentheses
-" ------------------------------------------------------------------------- 
-
-    let g:rbpt_colorpairs = [
-        \ ['brown',       'RoyalBlue3'],
-        \ ['Darkblue',    'SeaGreen3'],
-        \ ['darkgray',    'DarkOrchid3'],
-        \ ['darkgreen',   'firebrick3'],
-        \ ['darkcyan',    'RoyalBlue3'],
-        \ ['darkred',     'SeaGreen3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['brown',       'firebrick3'],
-        \ ['gray',        'RoyalBlue3'],
-        \ ['black',       'SeaGreen3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['Darkblue',    'firebrick3'],
-        \ ['darkgreen',   'RoyalBlue3'],
-        \ ['darkcyan',    'SeaGreen3'],
-        \ ['darkred',     'DarkOrchid3'],
-        \ ['red',         'firebrick3'],
-        \ ]
-    let g:rbpt_max = 16
-    let g:rbpt_loadcmd_toggle = 0
-
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
 
 "---------------------------------------------------------------------------
 " html
@@ -393,8 +319,6 @@
 
     au BufNewFile,BufRead cpanfile set filetype=cpanfile
     au BufNewFile,BufRead cpanfile set syntax=perl.cpanfile
-    au BufNewFile,BufRead *.nqp setf perl6
-    au BufNewFile,BufRead *.psgi6 setf perl6
     autocmd FileType perl PerlLocalLibPath
 
     " folding
@@ -408,23 +332,6 @@
     " set fdm=syntax
 
     set iskeyword+=:  " make tags with :: in them useful
-
-
-    "check for Perl 6 code
-    function! LooksLikePerl6 ()
-    if getline(1) =~# '^#!.*/bin/.*perl6'
-        set filetype=perl6
-    else
-        for i in [1,2,3,4,5]
-        if getline(i) == 'use v6;'
-            set filetype=perl6
-            break
-        endif
-        endfor
-    endif
-    endfunction
-
-    au bufRead *.pm,*.t,*.pl call LooksLikePerl6()
 
     augroup filetypedetect
         autocmd! BufNewFile,BufRead *.psgi setf perl
@@ -500,10 +407,4 @@
     nnoremap <silent> gd :<C-u>bdelete<CR>
     nnoremap <silent> gn :<C-u>bnext<CR>
     nnoremap <silent> gp :<C-u>bprevious<CR>
-
-" -------------------------------------------------------------------------
-" UltiSnips
-" -------------------------------------------------------------------------
-
-    let g:UltiSnipsSnippetDirectories = ["UltiSnips"] 
 
