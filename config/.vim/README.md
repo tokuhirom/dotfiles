@@ -1,5 +1,10 @@
 # .vim
 
+## プラグインのセキュリティ監査
+
+commit 固定している全 vim プラグインのソースコード監査記録は
+[AUDIT.md](AUDIT.md) を参照 (ADR-0025)。
+
 ## autoload/plug.vim (vim-plug 本体)
 
 supply chain risk 低減のため、vim-plug 本体をこのリポジトリに vendoring している
