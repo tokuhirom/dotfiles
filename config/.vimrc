@@ -87,10 +87,6 @@
     " Plug 'w0ng/vim-hybrid'
     Plug 'morhetz/gruvbox', { 'commit': '697c00291db857ca0af00ec154e5bd514a79191f' }
 
-    Plug 'rhysd/clever-f.vim', { 'commit': '6a3ac5e3688598af9411ab741737f98c47370c22' }
-
-    Plug 'osyo-manga/vim-anzu', { 'commit': '45566dffd29612a763239abadd3ab2cd78bd5638' }
-
     " language support
     Plug 'fatih/vim-go', { 'commit': 'fc429c8e2c70c7964065a7e9631cca6da46a8f15' }
     Plug 'tokuhirom/vim-markdown', { 'commit': '40091fc12ce3188978d13c464f84b946b29f6345' }
@@ -122,22 +118,11 @@
     colorscheme gruvbox
 
 "---------------------------------------------------------------------------
-" vim-anzu
-" display "n/m" in search result
+" search
 "---------------------------------------------------------------------------
 
-    " mapping
-    nmap n <Plug>(anzu-n-with-echo)
-    nmap N <Plug>(anzu-N-with-echo)
-    nmap * <Plug>(anzu-star-with-echo)
-    nmap # <Plug>(anzu-sharp-with-echo)
-
-    " clear status
-    nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-
-
-    " statusline
-    set statusline=%{anzu#search_status()}
+    " 検索時に "[3/17]" 形式で件数を表示する (vim 標準機能。anzu の代替)
+    set shortmess-=S
 
 " -------------------------------------------------------------------------
 " matchit(jump between html open tag and html close tag)
