@@ -1,0 +1,7 @@
+# macOS 固有の設定 (ADR-0027)
+# `mise bootstrap -E macos` または ./setup.sh (Darwin で自動選択) のときに読み込まれる。
+# link.sh の `if [ "$(uname)" = "Darwin" ]` ブロックに相当。
+
+[dotfiles]
+"~/.yabairc" = {}
+"~/.skhdrc" = {}

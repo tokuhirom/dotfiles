@@ -1,0 +1,12 @@
+# Linux 固有の設定 (ADR-0027)
+# `mise bootstrap -E linux` または ./setup.sh (Linux で自動選択) のときに読み込まれる。
+# link.sh の `if [ "$(uname)" = "Linux" ]` ブロックに相当。
+
+[dotfiles]
+"~/.xinitrc" = {}
+"~/.config/i3/config" = {}
+"~/.config/polybar/config" = {}
+"~/.config/polybar/launch.sh" = {}
+"~/.config/wezterm/wezterm.lua" = {}
+"~/.config/xremap/config.yml" = {}
+"~/.config/environment.d/ibus.conf" = {}

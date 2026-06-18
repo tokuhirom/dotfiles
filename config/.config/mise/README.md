@@ -8,6 +8,31 @@
 - `config.toml` - ツールとバージョンの定義
 - `mise.lock` - 各ツールのダウンロード URL と sha256 checksum を全プラットフォーム分固定
 
+なお、マシンセットアップ (dotfiles の symlink・OS パッケージ) はリポジトリ直下の
+`mise.toml` / `mise.{macos,linux}.toml` が担当する。詳細は後述の「bootstrap」と ADR-0027 を参照。
+
+## bootstrap (マシンセットアップ)
+
+ADR-0027 で、dotfiles の symlink と OS セットアップを `mise bootstrap` に一本化した。
+
+```bash
+cd ~/dotfiles
+
+# OS を検出して bootstrap (dotfiles symlink + tools + OS パッケージ)
+./setup.sh
+
+# dotfiles だけ適用 / 状態確認 / プレビュー
+mise dotfiles apply  -E macos   # または -E linux
+mise dotfiles status -E linux
+mise bootstrap       -E linux --dry-run
+```
+
+- 共通 dotfiles は `mise.toml`、OS 固有は `mise.macos.toml` / `mise.linux.toml` の `[dotfiles]`。
+  `dotfiles.root = "~/dotfiles/config"` で、source 省略時に `config/` 配下をミラーする。
+- OS 固有ファイルは `-E macos` / `-E linux` のときだけマージされる (`MISE_AUTO_ENV=1` でも自動選択可)。
+- `[dotfiles]` / `bootstrap` は experimental のため `mise.toml` で `experimental = true` を有効化済み。
+- 初回はリポジトリの `mise trust` が必要 (`setup.sh` が自動実行)。
+
 mise の `lockfile` 設定はデフォルトで有効なので、インストール時に
 `mise.lock` の checksum と照合される。バージョンを上げただけで lock を
 更新し忘れた場合は、インストール時に lockfile とずれてエラーになるか

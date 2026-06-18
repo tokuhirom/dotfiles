@@ -13,18 +13,25 @@
 
 ## プロジェクト構造
 
-このプロジェクトは **Homebrew** と **link.sh** で管理されている。
+このプロジェクトは **mise bootstrap** と **Homebrew** で管理されている (ADR-0027)。
 
 ```
 dotfiles/
-├── link.sh                # dotfiles の symlink 作成
+├── setup.sh               # セットアップの入口（mise bootstrap -E <os> を呼ぶ）
+├── mise.toml              # bootstrap / 共通 dotfiles 定義（ADR-0027）
+├── mise.macos.toml        # macOS 固有 dotfiles
+├── mise.linux.toml        # Linux 固有 dotfiles
 ├── Brewfile               # Homebrew パッケージ定義（CLI, GUI, Mac App Store）
-├── config/                # dotfiles の実体（link.sh でリンク）
+├── config/                # dotfiles の実体（mise [dotfiles] でリンク）
 ├── bin/                   # カスタムスクリプト
-├── setup/                 # OS セットアップスクリプト
+├── setup/                 # OS セットアップスクリプト（bootstrap タスクから呼ぶ）
 ├── cheat/                 # チートシート（cheat コマンド用）
 └── docs/adr/              # 設計判断の記録
 ```
+
+dotfiles の symlink 定義を追加・変更したら、`config/` 配下に実体を置いた上で
+`mise.toml`（共通）または `mise.{macos,linux}.toml`（OS 固有）の `[dotfiles]` に
+エントリを追加する。`mise dotfiles status -E <os>` で適用状態を確認できる。
 
 ## パッケージ管理
 
@@ -101,8 +108,11 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 ## 設定の適用
 
 ```bash
-# dotfiles の symlink を作成
-./link.sh
+# セットアップ全体（dotfiles symlink + tools + OS パッケージ）
+./setup.sh
+
+# dotfiles の symlink だけを適用
+mise dotfiles apply -E macos   # または -E linux
 
 # Homebrew パッケージを同期
 bin/brew-sync

@@ -1,0 +1,93 @@
+# mise bootstrap / dotfiles 設定 (ADR-0027)
+#
+# このファイルはマシンセットアップ用。`~/dotfiles` で次のいずれかを実行する:
+#   ./setup.sh                 # OS を検出して `mise bootstrap -E <os>` を呼ぶラッパ
+#   mise bootstrap -E macos    # macOS で直接実行する場合
+#   mise bootstrap -E linux    # Linux で直接実行する場合
+#
+# ツールのバージョン定義は別ファイル config/.config/mise/config.toml
+# (グローバル設定として ~/.config/mise に symlink 済み, ADR-0023)。
+# こちらは dotfiles の symlink と OS セットアップだけを担当する。
+#
+# OS 固有の dotfiles は mise.macos.toml / mise.linux.toml に分け、
+# `-E macos` / `-E linux` で読み込まれる (link.sh の uname 分岐に相当)。
+
+[settings]
+# dotfiles / bootstrap はまだ experimental なので有効化が必要
+experimental = true
+# source 省略時に target を root 配下にミラーする。
+# 例: "~/.zshrc" = {} は ~/dotfiles/config/.zshrc を指す。
+# 相対パスだと壊れた相対 symlink になるため絶対パス (~ 展開) にすること。
+dotfiles.root = "~/dotfiles/config"
+dotfiles.default_mode = "symlink"
+
+# === 全プラットフォーム共通の dotfiles (link.sh の共通ブロックと対応) ===
+[dotfiles]
+# シェル設定
+"~/.bashrc" = {}
+"~/.zshrc" = {}
+# エディタ設定
+"~/.vimrc" = {}
+"~/.ideavimrc" = {}
+"~/.emacs.d" = {}
+# vim-plug 本体 (リポジトリに vendoring 済み, ADR-0017)
+"~/.vim/autoload/plug.vim" = {}
+# ターミナルマルチプレクサ
+"~/.tmux.conf" = {}
+"~/.screenrc" = {}
+# Git
+"~/.gitconfig" = {}
+"~/.gitignore_global" = {}
+# R
+"~/.Rprofile" = {}
+# XDG config
+"~/.config/nvim" = {}
+"~/.config/bat/config" = {}
+"~/.config/ghostty" = {}
+"~/.config/starship.toml" = {}
+"~/.config/alacritty" = {}
+"~/.config/fish/config.fish" = {}
+# mise.lock も含めてディレクトリごと管理する (ADR-0023)
+"~/.config/mise" = {}
+"~/.config/zellij/config.kdl" = {}
+"~/.config/ranger" = {}
+"~/.config/topydo" = {}
+"~/.config/aerospace/aerospace.toml" = {}
+"~/.config/sketchybar" = {}
+# Claude skills (個別ファイル)
+"~/.claude/skills/tagpr/SKILL.md" = {}
+"~/.claude/skills/deprecate-cpan-module/SKILL.md" = {}
+# Hammerspoon
+"~/.hammerspoon/init.lua" = {}
+
+# === OS パッケージ・個別ツールの導入 (bootstrap の最後に毎回実行される) ===
+# Phase 1 (ADR-0027): 既存の setup スクリプトを束ねるだけで中身は書き換えない。
+# 将来フェーズで [bootstrap.packages] / [bootstrap.macos.defaults] へ順次移す。
+[tasks.bootstrap]
+description = "OS パッケージ・個別ツール導入 (既存 setup スクリプトを呼ぶ)"
+run = """
+set -eu
+cd ~/dotfiles
+
+# --- 全プラットフォーム共通 ---
+mkdir -p ~/.vim/tmp/
+./setup/setup-plenv.sh
+./setup/setup-alacritty.sh
+./setup/setup-go.sh
+./setup/setup-claude.sh
+
+# --- OS 固有のパッケージ ---
+case "$(uname -s)" in
+Darwin)
+    ./setup/setup-mac-settings.sh
+    ./setup/setup-mac.sh
+    ;;
+Linux)
+    if [ -e /etc/arch-release ]; then
+        ./setup/setup-arch.sh
+    elif [ -e /etc/pop-os/lsb-release ]; then
+        ./setup/setup-popos-desktop.sh
+    fi
+    ;;
+esac
+"""

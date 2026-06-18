@@ -1,22 +1,28 @@
 # tokuhirom の dotfiles
 
 macOS / Linux 向けの開発環境設定。
-dotfiles は `link.sh` で symlink、パッケージは Homebrew (macOS) / apt (Linux) で管理。
+セットアップは `mise bootstrap` に一本化 (ADR-0027)。dotfiles の symlink は mise の
+`[dotfiles]`、ツールは mise の `[tools]`、OS パッケージは Homebrew (macOS) / apt (Linux)。
 
 ## クイックスタート
 
 ```bash
 cd ~/dotfiles
 
-# dotfiles の symlink を作成
-./link.sh
+# OS を検出して mise bootstrap を実行 (dotfiles symlink + tools + OS パッケージ)
+./setup.sh
 
-# macOS: Homebrew パッケージをインストール
-bin/brew-sync
+# dotfiles の symlink だけを適用したいとき
+mise dotfiles apply -E macos   # macOS
+mise dotfiles apply -E linux   # Linux
 
-# Linux: apt でパッケージをインストール
-./setup/setup-popos-desktop.sh
+# 適用状態の確認 / プレビュー
+mise dotfiles status -E linux
+mise bootstrap -E linux --dry-run
 ```
+
+> 真っさらなマシンでツールが入りきらない場合は `./setup.sh` をもう一度実行するか
+> `mise install` を実行する (ADR-0027 参照)。
 
 ## 管理方針
 
@@ -28,22 +34,27 @@ bin/brew-sync
 | macOS (GUI) | Homebrew cask | `Brewfile` |
 | Mac App Store | mas | `Brewfile` |
 | Linux | apt | `setup/setup-popos-desktop.sh` |
-| プロジェクト固有 | mise | `config/.config/mise/config.toml`, 各リポジトリの `.mise.toml` |
+| ツール (言語・CLI) | mise | `config/.config/mise/config.toml`, 各リポジトリの `.mise.toml` |
 
 ### Dotfiles
-- `link.sh` で `~/dotfiles/config/` から `~/` に素の symlink を作成
-- 設定変更は即座に反映
+- mise の `[dotfiles]` で `~/dotfiles/config/` から `~/` に symlink を作成 (ADR-0027)
+  - 共通: `mise.toml`、OS 固有: `mise.macos.toml` / `mise.linux.toml`
+- `mise dotfiles status` で適用状態を確認できる
+- 設定変更は symlink なので即座に反映
 - `bin/` スクリプトは `.zshrc` で PATH に追加済み
 
 ## ディレクトリ構造
 
 ```
 dotfiles/
-├── link.sh                # dotfiles の symlink 作成
+├── setup.sh               # セットアップの入口 (mise bootstrap -E <os> を呼ぶ)
+├── mise.toml              # bootstrap / 共通 dotfiles 定義 (ADR-0027)
+├── mise.macos.toml        # macOS 固有 dotfiles
+├── mise.linux.toml        # Linux 固有 dotfiles
 ├── Brewfile               # Homebrew パッケージ定義
-├── config/                # dotfiles の実体（link.sh でリンク）
+├── config/                # dotfiles の実体（mise [dotfiles] でリンク）
 ├── bin/                   # カスタムスクリプト
-├── setup/                 # OS セットアップスクリプト
+├── setup/                 # OS セットアップスクリプト (bootstrap タスクから呼ぶ)
 ├── cheat/                 # チートシート（cheat コマンド用）
 └── docs/adr/              # 設計判断の記録
 ```
@@ -51,8 +62,12 @@ dotfiles/
 ## 便利なコマンド
 
 ```bash
-# dotfiles の symlink を作成
-./link.sh
+# セットアップ (dotfiles + tools + OS パッケージ)
+./setup.sh
+
+# dotfiles の symlink だけ適用 / 状態確認
+mise dotfiles apply -E linux
+mise dotfiles status -E linux
 
 # Homebrew パッケージを同期
 bin/brew-sync
@@ -112,10 +127,11 @@ cheat mise
     - Brewfile で宣言的に管理
     - GUI アプリも cask で管理可能
 - dotfiles 管理
-  - シェルスクリプト (link.sh, setup-*.sh) -> Nix(2026) -> link.sh(2026)
-  - :o: link.sh（symlink）
-    - 設定ファイルは素の symlink で即座に反映
-    - シンプルで理解しやすい
+  - シェルスクリプト (link.sh, setup-*.sh) -> Nix(2026) -> link.sh(2026) -> mise bootstrap(2026)
+  - :o: mise bootstrap（mise の [dotfiles]）
+    - ツールが既に mise 管理なのでセットアップの入口を 1 つにできる
+    - 設定ファイルは symlink で即座に反映、`mise dotfiles status` で状態確認できる
+    - OS 別設定ファイル (mise.{macos,linux}.toml) でクロスプラットフォーム維持
 - ウェブブラウザ
   - chrome -> vivaldi -> chrome
   - :x: vivaldi
