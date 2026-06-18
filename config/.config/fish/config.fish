@@ -78,11 +78,6 @@ if status is-interactive
     # abbr -a vim nvim
     # end
 
-    if test -d ~/.plenv
-        fish_add_path ~/.plenv/bin
-        eval "$(plenv init -)"
-    end
-
     fish_add_path ~/dotfiles/bin/
 
     if test -d /opt/homebrew/opt/mysql@8.4/bin/

@@ -71,7 +71,6 @@ cd ~/dotfiles
 
 # --- 全プラットフォーム共通 ---
 mkdir -p ~/.vim/tmp/
-./setup/setup-plenv.sh
 ./setup/setup-alacritty.sh
 ./setup/setup-go.sh
 ./setup/setup-claude.sh
