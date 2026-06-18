@@ -19,6 +19,3 @@ vim.keymap.set('n', 'gf', '<C-i>', { desc = 'Go forward' })
 vim.keymap.set('n', '[q', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
 vim.keymap.set('n', ']q', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
 
--- File tree toggle
-vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<CR>", { noremap = true, silent = true })
-

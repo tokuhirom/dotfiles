@@ -2,9 +2,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
-    dependencies = {
-      'folke/neodev.nvim',
-    },
     config = function()
       -- LSP サーバーは mason ではなく外部 (mise / brew / rustup / npm など) で
       -- インストールする (ADR-0022)。PATH 上に実体があるものだけを有効化する。
