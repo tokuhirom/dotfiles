@@ -1,7 +1,7 @@
 # ADR-0015: macOS では Homebrew を Nix より優先する
 
 ## ステータス
-採用
+採用（「Nix を部分的に残す」前提は ADR-0028 で更新。Nix は完全廃止済み）
 
 ## コンテキスト
 これまで CLI ツールは主に Nix (nix-darwin) で管理し、GUI アプリは Homebrew (casks) で管理していた。
