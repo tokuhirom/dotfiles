@@ -1,0 +1,35 @@
+# ~/.gitconfig.local のテンプレート (ADR-0032)
+#
+# このファイルは「このマシン限定」のコミット署名設定。
+# dotfiles には入れず（symlink しない）、各マシンで ~/.gitconfig.local として置く。
+# config/.gitconfig が末尾で `[include] path = ~/.gitconfig.local` している。
+#
+# セットアップ:
+#   setup/setup-git-sign.sh           # OS を判定して雛形を ~/.gitconfig.local に生成
+#   その後 signingkey を自分の鍵に書き換える（手動）
+#
+# 1Password の SSH 署名鍵の公開鍵は 1Password アプリの該当アイテム、または
+#   ssh-add -L         # 1Password SSH agent が出す公開鍵一覧
+# から取得できる。
+
+[user]
+	# このマシン/アカウントで使う署名用の公開鍵（1Password 管理の鍵）
+	signingkey = ssh-ed25519 AAAA...ここを自分の公開鍵に書き換える...
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	# op-ssh-sign のパスは OS 依存（setup-git-sign.sh が自動で埋める）
+	#   macOS: /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	#   Linux: /opt/1Password/op-ssh-sign
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	# 署名検証 (git log --show-signature) 用。不要なら消してよい。
+	allowedSignersFile = ~/.config/git/allowed_signers
+
+# 署名はこのファイルが置かれたマシンでのみ有効化する（未設定マシンでは commit が壊れない）
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true

@@ -1,7 +1,7 @@
 [user]
 	name = Tokuhiro Matsuno
 	email = tokuhirom@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPogYMvIO0VThkylTurcdQA38k+ZDIKBSWkT31RXQYVB to-matsuno@PC107836
+	# signingkey はマシン固有のため ~/.gitconfig.local へ (ADR-0032)
 
 [alias]
 	branch-cleanup = "!git branch --merged | egrep -v \"main|master|develop\" | grep -v \\* | xargs -I % git branch -d %"
@@ -25,7 +25,7 @@
 
 [init]
 	defaultBranch = main
-	templateDir = /Users/to-matsuno/.git-templates
+#templateDir = /Users/to-matsuno/.git-templates
 
 [submodule]
 	recurse = true
@@ -66,7 +66,6 @@
 
 [commit]
 	verbose = true
-	gpgsign = true
 
 [rerere]
 	enabled = true
@@ -86,26 +85,10 @@
 	helper =
 	helper = !/usr/bin/gh auth git-credential
 
-# 業務用
-[includeIf "gitdir:~/work/"]
-  path = ~/.gitconfig-work
-
-[includeIf "gitdir:~/oss/"]
-  path = ~/.gitconfig-oss
-
-[gpg]
-	format = ssh
-
-[user]
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIInDzOZj0+ZYcRIb35F0agCZo2ts4zuIVWXsowfdDYXo
-
-[gpg]
-  format = ssh
-
-[gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-	allowedSignersFile = /Users/to-matsuno/.ssh/allowed_signers
-
-[commit]
-  gpgsign = true
-
+# === コミット署名 (1Password の SSH 署名) ===
+# 署名鍵・OS 依存の op-ssh-sign パス・gpgsign はマシン固有のため
+# ~/.gitconfig.local に切り出している (ADR-0032)。
+# テンプレート: config/.gitconfig.local.example / 生成: setup/setup-git-sign.sh
+# 未設定のマシンでは下の include が黙って無視され、署名は行われない。
+[include]
+	path = ~/.gitconfig.local
