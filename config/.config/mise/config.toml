@@ -52,6 +52,9 @@ aws-nuke = "3.65.0"
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
 install_before = "7d"  # only install versions released more than 7 days ago
+# プロンプト/status 行でアクティブなツールと env を表示する
+status.show_tools = true
+status.show_env = true
 
 [settings.ruby]
 compile = false
