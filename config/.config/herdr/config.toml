@@ -1,0 +1,63 @@
+# herdr 設定 — AI コーディングエージェント向けターミナルワークスペースマネージャ
+#
+# キーバインドは ~/.tmux.conf を踏襲している (config/.tmux.conf 参照)。
+# 用語対応: tmux の "window" ≒ herdr の "tab"、"pane" は共通。
+#
+# 反映: 設定変更後は `herdr server reload-config` か prefix+r (reload) で反映。
+# 全キー一覧は `herdr config reset-keys` でデフォルトに戻せる。
+
+onboarding = false
+
+[keys]
+# --- prefix ---
+# tmux と同じく Ctrl+t を prefix にする (tmux: set-option -g prefix C-t)
+prefix = "ctrl+t"
+
+# --- 設定リロード / ヘルプ ---
+reload_config = "prefix+r"       # tmux: bind r source-file ~/.tmux.conf
+help = "prefix+?"
+
+# --- tab 操作 (tmux の window に相当) ---
+new_tab      = "prefix+c"        # tmux: bind ^C new-window / 既定の c
+previous_tab = "prefix+p"        # tmux: bind ^p previous-window / 既定の p
+next_tab     = "prefix+n"        # tmux: bind ^N next-window / 既定の n
+close_tab    = "prefix+shift+x"
+rename_tab   = "prefix+shift+t"
+switch_tab   = "prefix+1..9"     # prefix+数字 で該当 tab へ
+last_pane    = "prefix+t"        # tmux: bind ^T last-window の代替 (直前の pane へ戻る)
+
+# --- pane 分割 (tmux: bind - / bind |) ---
+split_horizontal = "prefix+minus"  # tmux: bind - split-window   (上下に分割)
+split_vertical   = "prefix+v"      # tmux: bind | split-window -h (左右に分割)
+                                   # ※ '|' は端末依存で不安定なため v(ertical) を割当
+
+# --- pane フォーカス移動 (tmux: bind h/j/k/l select-pane) ---
+focus_pane_left  = "prefix+h"
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
+cycle_pane_next     = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+
+# --- pane 操作 ---
+close_pane  = "prefix+x"           # tmux 既定の kill-pane (x)
+zoom        = "prefix+z"           # tmux: 一時的な最大化 (resize-pane -Z 相当)
+resize_mode = "prefix+shift+r"     # tmux の C-h/j/k/l リサイズの代替 (モードに入り h/j/k/l)
+rename_pane = "prefix+shift+p"
+edit_scrollback = "prefix+e"       # tmux: bind [ copy-mode の代替 (スクロールバック閲覧)
+
+# --- workspace 操作 (tmux にはない herdr 固有機能) ---
+workspace_picker = "prefix+w"
+new_workspace    = "prefix+shift+n"
+rename_workspace = "prefix+shift+w"
+close_workspace  = "prefix+shift+d"
+new_worktree     = "prefix+shift+g"
+
+# --- その他 ---
+detach        = "prefix+q"
+toggle_sidebar = "prefix+b"
+goto          = "prefix+g"
+open_notification_target = "prefix+o"
+
+[ui]
+agent_panel_sort = "spaces"

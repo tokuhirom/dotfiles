@@ -93,6 +93,7 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 - `cheat wezterm` - wezterm
 - `cheat xremap` - xremap (Linux)
 - `cheat mise` - mise (lockfile の更新手順など)
+- `cheat herdr` - herdr (AI エージェント向けターミナルワークスペースマネージャ)
 
 ## bin/ コマンド
 

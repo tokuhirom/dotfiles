@@ -50,6 +50,8 @@ dotfiles.default_mode = "symlink"
 # mise.lock も含めてディレクトリごと管理する (ADR-0023)
 "~/.config/mise" = {}
 "~/.config/zellij/config.kdl" = {}
+# herdr はソケット/ログを ~/.config/herdr に書くため config.toml だけをリンク
+"~/.config/herdr/config.toml" = {}
 "~/.config/ranger" = {}
 "~/.config/topydo" = {}
 "~/.config/aerospace/aerospace.toml" = {}
