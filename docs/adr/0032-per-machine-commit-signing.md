@@ -10,8 +10,7 @@
 - **op-ssh-sign のパス**が OS 依存
   - macOS: `/Applications/1Password.app/Contents/MacOS/op-ssh-sign`
   - Linux: `/opt/1Password/op-ssh-sign`
-- **署名公開鍵**がマシン/アカウント依存（過去に `to-matsuno@PC107836` / `root@dev` /
-  `id_ed25519_work` など機械ごとに別の鍵を使ってきた）
+- **署名公開鍵**がマシン/アカウント依存
 
 一方 `config/.gitconfig` は全マシンで共有される symlink。ここにマシン固有の
 署名設定を書くと、別マシンで誤った鍵・パスを参照してしまう。

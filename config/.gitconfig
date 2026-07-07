@@ -25,7 +25,6 @@
 
 [init]
 	defaultBranch = main
-#templateDir = /Users/to-matsuno/.git-templates
 
 [submodule]
 	recurse = true
