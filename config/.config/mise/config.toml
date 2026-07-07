@@ -37,12 +37,17 @@ packer = "1.15.1"
 dotenvx = "1.51.4"
 zellij = "0.43.1"
 duckdb = "1.4.4"
-codex = "0.121.0"
+codex = "0.139.0"
 fd = "10.3.0"
 tmux = "3.6a"
 crush = "0.43.4"
 gemini-cli = "0.30.0"
 ruby = "4.0.2"
+
+pi = "0.80.2"
+
+# aws の環境をおそうじするやつ
+aws-nuke = "3.65.0"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
