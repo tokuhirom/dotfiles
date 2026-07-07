@@ -49,6 +49,9 @@ pi = "0.80.2"
 # aws の環境をおそうじするやつ
 aws-nuke = "3.65.0"
 
+# AI コーディングエージェント向けターミナルワークスペースマネージャ (ADR-0033)
+herdr = "0.7.1"
+
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
 install_before = "7d"  # only install versions released more than 7 days ago
