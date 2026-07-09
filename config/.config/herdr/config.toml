@@ -41,7 +41,6 @@ cycle_pane_previous = "prefix+shift+tab"
 
 # --- pane 操作 ---
 close_pane  = "prefix+x"           # tmux 既定の kill-pane (x)
-zoom        = "prefix+z"           # tmux: 一時的な最大化 (resize-pane -Z 相当)
 resize_mode = "prefix+shift+r"     # tmux の C-h/j/k/l リサイズの代替 (モードに入り h/j/k/l)
 rename_pane = "prefix+shift+p"
 edit_scrollback = "prefix+e"       # tmux: bind [ copy-mode の代替 (スクロールバック閲覧)
@@ -58,6 +57,14 @@ detach        = "prefix+q"
 toggle_sidebar = "prefix+b"
 goto          = "prefix+g"
 open_notification_target = "prefix+o"
+
+# --- カスタムコマンド ([[keys.command]]) ---
+# type = "shell": バックグラウンドでデタッチ実行 (GUI アプリ向き)
+# type = "pane" : 一時 pane を開きコマンド終了時に閉じる (TUI 向き)
+[[keys.command]]
+key = "prefix+z"                    # 旧 zoom を廃し zed 起動に割当
+type = "shell"
+command = "zed ."                  # カレントディレクトリを zed で開く
 
 [ui]
 agent_panel_sort = "spaces"
