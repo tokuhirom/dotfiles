@@ -1,0 +1,16 @@
+#!/bin/bash
+# tmux の各ウィンドウのカレントディレクトリ（アクティブペインの pane_current_path）を一覧表示する
+# 使い方:
+#   tmux-cwd        # 現在のセッションのウィンドウを表示
+#   tmux-cwd -a     # 全セッションのウィンドウを表示
+set -euo pipefail
+
+TAB=$(printf '\t')
+
+if [[ "${1:-}" == "-a" ]]; then
+    FORMAT="#{session_name}:#{window_index}#{?window_active,*, }${TAB}#{window_name}${TAB}#{s|^${HOME}|~|:pane_current_path}"
+    tmux list-windows -a -F "$FORMAT"
+else
+    FORMAT="#{window_index}#{?window_active,*, }${TAB}#{window_name}${TAB}#{s|^${HOME}|~|:pane_current_path}"
+    tmux list-windows -F "$FORMAT"
+fi | column -t -s "$TAB"
