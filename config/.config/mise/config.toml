@@ -1,6 +1,6 @@
 [tools]
 
-"github:tokuhirom/ashron" = "v2026.309.0"
+"github:tokuhirom/ashron" = "v2026.309.2"
 
 # pipx バックエンドだと python のバージョン 3.13 で削除された audioop に依存しているために動かない。
 # uv でもだめ。
@@ -8,49 +8,50 @@
 # "uv:aider-chat" = "0.86.2"
 
 "github:yagi-agent/yagi" = "v0.0.44"
-"github:tokuhirom/logcmd" = "v2026.403.0"
+"github:tokuhirom/logcmd" = "v2026.407.0"
 
-"github:k1LoW/mo" = "v1.5.5"
+"github:k1LoW/mo" = "v1.6.3"
 
-golangci-lint = "2.11.4"
-awscli = "2.34.28"
-go = '1.26.1'
-node = '24.12.0'
-python = '3.14.2'
-perl = '5.42.0'
-uv = '0.10.8'
-rust = "1.92.0"
+golangci-lint = "2.12.2"
+awscli = "2.35.22"
+go = '1.26.4'
+# 26.x はまだ Current で LTS ではないので 24 系 (LTS) を維持する
+node = '24.18.0'
+python = '3.14.6'
+perl = '5.42.2'
+uv = '0.11.27'
+rust = "1.96.1"
 # https://github.com/asdf-community/asdf-php?tab=readme-ov-file#macos
 # brew install gmp libsodium imagemagick
 # php = "8.3.17"
 # gradle が問題起こしがちなので最新の LTS をつかうこと
-java = "25.0.1"
-ghq = "1.9.4"
+java = "25.0.2"
+ghq = "1.10.1"
 # vim = "9.1.1825"
-watchexec = "2.3.2"
-bun = "1.3.5"
-terraform = "1.14.3"
-packer = "1.15.1"
+watchexec = "2.5.1"
+bun = "1.3.14"
+terraform = "1.15.7"
+packer = "1.15.4"
 # opencode は更新頻度高いので brew によせる。。と思ったが、opencode がぶっ壊れてるケースの絞り込みとかもしたいので難しい。
 # opencode = "1.14.20"
-"github:k1LoW/git-wt" = "v0.25.0"
-dotenvx = "1.51.4"
-zellij = "0.43.1"
-duckdb = "1.4.4"
-codex = "0.139.0"
-fd = "10.3.0"
-tmux = "3.6a"
-crush = "0.43.4"
-gemini-cli = "0.30.0"
-ruby = "4.0.2"
+"github:k1LoW/git-wt" = "v0.29.0"
+dotenvx = "2.1.5"
+zellij = "0.44.3"
+duckdb = "1.5.4"
+codex = "0.142.5"
+fd = "10.4.2"
+tmux = "3.7b"
+crush = "0.81.0"
+gemini-cli = "0.49.0"
+ruby = "4.0.5"
 
-pi = "0.80.2"
+pi = "0.80.3"
 
 # aws の環境をおそうじするやつ
 aws-nuke = "3.65.0"
 
 # AI コーディングエージェント向けターミナルワークスペースマネージャ (ADR-0033)
-herdr = "0.7.1"
+herdr = "0.7.3"
 
 # Raku (Rakudo)。registry に無いので asdf プラグイン経由（下の [plugins] 参照）
 raku = "2026.06"
