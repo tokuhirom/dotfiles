@@ -16,7 +16,8 @@ sudo apt install -y curl wget nmap whois
 sudo apt install -y unzip gzip bzip2 xz-utils
 
 # === ビルド用ライブラリ ===
-sudo apt install -y libssl-dev zlib1g-dev libreadline-dev libncurses-dev
+# libyaml-dev は ruby の psych 拡張のビルドに必須 (無いと mise の ruby インストールが失敗する)
+sudo apt install -y libssl-dev zlib1g-dev libreadline-dev libncurses-dev libyaml-dev
 
 # === その他 ===
 sudo apt install -y docker.io bvi w3m nodejs valgrind
