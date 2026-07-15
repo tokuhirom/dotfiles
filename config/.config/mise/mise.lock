@@ -425,6 +425,65 @@ url = "https://github.com/x-motemen/ghq/releases/download/v1.10.1/ghq_windows_am
 checksum = "sha256:a526da44d5f67250598fa95e5654815e9f672b2c05d1d98c28bce0e60d3cfa6c"
 url = "https://github.com/x-motemen/ghq/releases/download/v1.10.1/ghq_windows_amd64.zip"
 
+[[tools."github:can1357/oh-my-pi"]]
+version = "16.5.2"
+backend = "github:can1357/oh-my-pi"
+
+[tools."github:can1357/oh-my-pi"."platforms.linux-arm64"]
+checksum = "sha256:1b5e1cc5b1df565bdc9c68a84cd98932a880b2bb2a5afbc28105e29aee52cf11"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-linux-arm64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230781"
+
+[tools."github:can1357/oh-my-pi"."platforms.linux-arm64-musl"]
+checksum = "sha256:1b5e1cc5b1df565bdc9c68a84cd98932a880b2bb2a5afbc28105e29aee52cf11"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-linux-arm64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230781"
+
+[tools."github:can1357/oh-my-pi"."platforms.linux-x64"]
+checksum = "sha256:cc2c8a958e09adc3432860555174d70f1cbce0be8a86af413ffdcf2ec18cb10e"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-linux-x64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230780"
+
+[tools."github:can1357/oh-my-pi"."platforms.linux-x64-baseline"]
+checksum = "sha256:cc2c8a958e09adc3432860555174d70f1cbce0be8a86af413ffdcf2ec18cb10e"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-linux-x64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230780"
+
+[tools."github:can1357/oh-my-pi"."platforms.linux-x64-musl"]
+checksum = "sha256:cc2c8a958e09adc3432860555174d70f1cbce0be8a86af413ffdcf2ec18cb10e"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-linux-x64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230780"
+
+[tools."github:can1357/oh-my-pi"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:cc2c8a958e09adc3432860555174d70f1cbce0be8a86af413ffdcf2ec18cb10e"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-linux-x64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230780"
+
+[tools."github:can1357/oh-my-pi"."platforms.macos-arm64"]
+checksum = "sha256:7e5d4787c8555729bcb9e0405e06b4d772dc4b21e40330b3b3719ef22618ccb1"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-darwin-arm64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230784"
+
+[tools."github:can1357/oh-my-pi"."platforms.macos-x64"]
+checksum = "sha256:76fecec5ac9de0c6e51b7535b2b0f128facfdcfeb64a2af96630439ad1e782fd"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-darwin-x64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230783"
+
+[tools."github:can1357/oh-my-pi"."platforms.macos-x64-baseline"]
+checksum = "sha256:76fecec5ac9de0c6e51b7535b2b0f128facfdcfeb64a2af96630439ad1e782fd"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-darwin-x64"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230783"
+
+[tools."github:can1357/oh-my-pi"."platforms.windows-x64"]
+checksum = "sha256:005276d30ba2f9ec949084c1acdb0ba9a476408dd2167c50bbb2c46cd8064dbc"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-windows-x64.exe"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230782"
+
+[tools."github:can1357/oh-my-pi"."platforms.windows-x64-baseline"]
+checksum = "sha256:005276d30ba2f9ec949084c1acdb0ba9a476408dd2167c50bbb2c46cd8064dbc"
+url = "https://github.com/can1357/oh-my-pi/releases/download/v16.5.2/omp-windows-x64.exe"
+url_api = "https://api.github.com/repos/can1357/oh-my-pi/releases/assets/477230782"
+
 [[tools."github:k1LoW/git-wt"]]
 version = "0.29.0"
 backend = "github:k1LoW/git-wt"
@@ -632,6 +691,16 @@ checksum = "sha256:06efabd2784456df14b2b9162633e6964b394e39efe048d24bdd68a7a7de4
 url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_linux_arm64.tar.gz"
 url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/390543992"
 
+[tools."github:tokuhirom/logcmd"."platforms.linux-arm64-musl"]
+checksum = "sha256:06efabd2784456df14b2b9162633e6964b394e39efe048d24bdd68a7a7de4557"
+url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/390543992"
+
+[tools."github:tokuhirom/logcmd"."platforms.linux-x64"]
+checksum = "sha256:eda7c6461a8fd777e064b0a33eec212e98591768f7933a3c930951af90962c41"
+url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/390543986"
+
 [tools."github:tokuhirom/logcmd"."platforms.linux-x64-baseline"]
 checksum = "sha256:eda7c6461a8fd777e064b0a33eec212e98591768f7933a3c930951af90962c41"
 url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_linux_amd64.tar.gz"
@@ -651,6 +720,11 @@ url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/3905439
 checksum = "sha256:8ece83829a82b1e6ce4083de6123e8c08b1b91e7f75e813f9a7181cb45fb52b9"
 url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/390543990"
+
+[tools."github:tokuhirom/logcmd"."platforms.macos-x64"]
+checksum = "sha256:424dc7ece2893d2c22779f3f1e80b90c231e75fefa25108a485e290186b8dfd2"
+url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/390543987"
 
 [tools."github:tokuhirom/logcmd"."platforms.macos-x64-baseline"]
 checksum = "sha256:424dc7ece2893d2c22779f3f1e80b90c231e75fefa25108a485e290186b8dfd2"
@@ -1226,9 +1300,11 @@ version = "4.0.5"
 backend = "core:ruby"
 
 [tools.ruby."platforms.windows-x64"]
+checksum = "sha256:74e31613fc71e6e23431dfc4d8b6ec2818a4dc1fd16e0983b074144c16719c8b"
 url = "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.5-1/rubyinstaller-4.0.5-1-x64.7z"
 
 [tools.ruby."platforms.windows-x64-baseline"]
+checksum = "sha256:74e31613fc71e6e23431dfc4d8b6ec2818a4dc1fd16e0983b074144c16719c8b"
 url = "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.5-1/rubyinstaller-4.0.5-1-x64.7z"
 
 [[tools.rust]]
@@ -1291,6 +1367,56 @@ backend = "github:tmux/tmux-builds"
 checksum = "sha256:b2955782695283fbc3682a2f77d65616f53b986ee3cf3d80618d3b1cb95b91a6"
 url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-linux-arm64.tar.gz"
 url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072868"
+
+[tools.tmux."platforms.linux-arm64-musl"]
+checksum = "sha256:b2955782695283fbc3682a2f77d65616f53b986ee3cf3d80618d3b1cb95b91a6"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072868"
+
+[tools.tmux."platforms.linux-x64"]
+checksum = "sha256:f85e6c1c412750a774eb3f370f33bad05fc726fb8b6a0b174ad6f0b6d954df58"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-linux-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072866"
+
+[tools.tmux."platforms.linux-x64-baseline"]
+checksum = "sha256:f85e6c1c412750a774eb3f370f33bad05fc726fb8b6a0b174ad6f0b6d954df58"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-linux-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072866"
+
+[tools.tmux."platforms.linux-x64-musl"]
+checksum = "sha256:f85e6c1c412750a774eb3f370f33bad05fc726fb8b6a0b174ad6f0b6d954df58"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-linux-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072866"
+
+[tools.tmux."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:f85e6c1c412750a774eb3f370f33bad05fc726fb8b6a0b174ad6f0b6d954df58"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-linux-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072866"
+
+[tools.tmux."platforms.macos-arm64"]
+checksum = "sha256:ee66dbcd49613eb41dc6b2f3abc5cd39d9135d67b7dfef1fdb180a3dbdc01f1e"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-macos-arm64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072864"
+
+[tools.tmux."platforms.macos-x64"]
+checksum = "sha256:ea90f0d8e8998cf5a3a5921e985685844a13a7c3b5779f36870bd98b7f147fe6"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-macos-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072865"
+
+[tools.tmux."platforms.macos-x64-baseline"]
+checksum = "sha256:ea90f0d8e8998cf5a3a5921e985685844a13a7c3b5779f36870bd98b7f147fe6"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/tmux-3.7b-macos-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072865"
+
+[tools.tmux."platforms.windows-x64"]
+checksum = "sha256:aeeb2143751b8fb1defcf93224b85dcf84ce68c3a9d7aed4945b9552c57b311f"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/LICENSES.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072867"
+
+[tools.tmux."platforms.windows-x64-baseline"]
+checksum = "sha256:aeeb2143751b8fb1defcf93224b85dcf84ce68c3a9d7aed4945b9552c57b311f"
+url = "https://github.com/tmux/tmux-builds/releases/download/v3.7b/LICENSES.tar.gz"
+url_api = "https://api.github.com/repos/tmux/tmux-builds/releases/assets/465072867"
 
 [[tools.uv]]
 version = "0.11.27"
