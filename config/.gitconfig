@@ -12,7 +12,8 @@
 	br = branch
 	tree = log --graph --pretty=oneline --abbrev-commit
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
-	commit = commit -s
+	# NOTE: 組み込みコマンドはエイリアスで上書きできないため commit = commit -s は無効。
+	# Signed-off-by は core.hooksPath の prepare-commit-msg で付ける (ADR-0034)。
 
 [color]
 	ui = true
@@ -22,6 +23,10 @@
 	excludesfile = ~/.gitignore_global
 	fsmonitor = true
 	untrackedcache = true
+	# DCO の Signed-off-by を全コミットに自動付与する (ADR-0034)。
+	# グローバル hooksPath は各リポジトリの .git/hooks を無視するため、
+	# hook-dispatch がローカル hook へチェーンする作りになっている。
+	hooksPath = ~/.config/git/hooks
 
 [init]
 	defaultBranch = main

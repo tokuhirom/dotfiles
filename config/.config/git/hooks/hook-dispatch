@@ -1,0 +1,39 @@
+#!/bin/sh
+# グローバル git hook ディスパッチャ (ADR-0034)
+#
+# core.hooksPath をグローバルに設定すると、git は各リポジトリの .git/hooks を
+# 一切見なくなる。そのままだとリポジトリ固有の hook が黙って無効化されるため、
+# このスクリプトが
+#   1. グローバルで実行したい処理 (DCO の Signed-off-by 付与) を行い
+#   2. リポジトリの .git/hooks/<hook 名> があればそれに委譲する
+# という順で動く。
+#
+# 各 hook 名はこのファイルへの symlink になっており、呼ばれた名前で分岐する。
+set -eu
+
+hook_name=$(basename "$0")
+
+# --- DCO: Signed-off-by を自動で付ける ---
+# git commit -s と同じ trailer を、コミット経路 (git commit / gh / エディタ等)
+# に関係なく付与する。既に Signed-off-by があれば何もしない。
+if [ "$hook_name" = "prepare-commit-msg" ]; then
+    # "Name <mail> 1720000000 +0900" から末尾のタイムスタンプ 2 語を落とす。
+    # git var なら GIT_COMMITTER_NAME/EMAIL の上書きもそのまま反映される。
+    ident=$(git var GIT_COMMITTER_IDENT)
+    ident=${ident% *}
+    ident=${ident% *}
+
+    git interpret-trailers --in-place \
+        --if-exists doNothing \
+        --trailer "Signed-off-by: $ident" \
+        "$1"
+fi
+
+# --- リポジトリ固有の hook へ委譲 ---
+# worktree では --git-dir が worktree 側を指すので --git-common-dir を使う。
+local_hook="$(git rev-parse --git-common-dir)/hooks/$hook_name"
+if [ -x "$local_hook" ]; then
+    exec "$local_hook" "$@"
+fi
+
+exit 0

@@ -38,6 +38,8 @@ dotfiles.default_mode = "symlink"
 # Git
 "~/.gitconfig" = {}
 "~/.gitignore_global" = {}
+# グローバル hooks (core.hooksPath から参照, ADR-0034)
+"~/.config/git/hooks" = {}
 # R
 "~/.Rprofile" = {}
 # XDG config
