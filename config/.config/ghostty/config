@@ -34,6 +34,8 @@ confirm-close-surface = false
 macos-option-as-alt = true
 # 入力中はマウスカーソルを非表示
 mouse-hide-while-typing = true
+# mac-akaza (IME) 使用時に secure input の警告が誤検知で出るため無効化
+macos-secure-input-indication = false
 
 # === クリップボード ===
 # 選択時に自動でクリップボードにコピー
