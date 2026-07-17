@@ -71,6 +71,7 @@ url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.35.22.zip"
 url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.35.22.zip"
 
 [tools.awscli."platforms.macos-arm64"]
+checksum = "blake3:2d75b3518742fe94d8055645c98121142766d34a0c30d1db66adaea5ca725e70"
 url = "https://awscli.amazonaws.com/AWSCLIV2-2.35.22.pkg"
 
 [tools.awscli."platforms.macos-x64"]
@@ -156,8 +157,9 @@ checksum = "sha256:e5b8480c1cc4a5f0c61c928871a7ae18dcf6d554df33fa033f10956d88a93
 url = "https://github.com/openai/codex/releases/download/rust-v0.142.5/codex-x86_64-unknown-linux-musl.zst"
 
 [tools.codex."platforms.macos-arm64"]
-checksum = "sha256:f1c5a525498a5292e6547910542630ba0516dc411e8f93b7bebb14b232d408bb"
-url = "https://github.com/openai/codex/releases/download/rust-v0.142.5/codex-aarch64-apple-darwin.zst"
+checksum = "sha256:187b030c9f5f7641d996c68ac2de261147181fce031b8f1725e52c5dc03e43fb"
+url = "https://github.com/openai/codex/releases/download/rust-v0.142.5/codex-package-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/openai/codex/releases/assets/462701109"
 
 [tools.codex."platforms.macos-x64"]
 checksum = "sha256:6a9a69b761333f25f2f028da229d5264666b8a5d09d80a1aa16cb523ee69322e"
@@ -1280,6 +1282,7 @@ url = "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.5.tar.gz"
 [tools.ruby."platforms.macos-arm64"]
 checksum = "sha256:7d6149079a63f8ae1d326c9fa65c6019ba2dc3155eae7b39159817911c88958e"
 url = "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.5.tar.gz"
+provenance = "github-attestations"
 
 [tools.ruby."platforms.macos-x64"]
 checksum = "sha256:7d6149079a63f8ae1d326c9fa65c6019ba2dc3155eae7b39159817911c88958e"
