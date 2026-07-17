@@ -215,9 +215,8 @@ cask "karabiner-elements"
 cask "hammerspoon"
 
 # Terminal Emulators
-# cask "alacritty" # alacritty が cask からきえるぽい。
-cask "ghostty"
-# cask "wezterm"
+# cask "alacritty" # Gatekeeper 非対応 (fails_gatekeeper_check) で deprecated。2026-09-01 に disable 予定 https://formulae.brew.sh/cask/alacritty
+cask "wezterm"
 
 # AI & Coding Assistants
 # cask "claude-code" # native install のほうがよさそう

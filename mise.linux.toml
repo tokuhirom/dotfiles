@@ -7,6 +7,5 @@
 "~/.config/i3/config" = {}
 "~/.config/polybar/config" = {}
 "~/.config/polybar/launch.sh" = {}
-"~/.config/wezterm/wezterm.lua" = {}
 "~/.config/xremap/config.yml" = {}
 "~/.config/environment.d/ibus.conf" = {}

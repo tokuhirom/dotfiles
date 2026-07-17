@@ -45,7 +45,7 @@ dotfiles.default_mode = "symlink"
 # XDG config
 "~/.config/nvim" = {}
 "~/.config/bat/config" = {}
-"~/.config/ghostty" = {}
+"~/.config/wezterm/wezterm.lua" = {}
 "~/.config/starship.toml" = {}
 "~/.config/alacritty" = {}
 "~/.config/fish/config.fish" = {}
