@@ -58,6 +58,12 @@ toggle_sidebar = "prefix+b"
 goto          = "prefix+g"
 open_notification_target = "prefix+o"
 
+# --- agent 選択 (prefix なしの直接キー) ---
+# Shift+Opt(=Alt)+↑/↓ で agent パネル上の agent を上下に選ぶ。
+# ※ prefix なしのグローバルバインドなので常に herdr が横取りする点に注意。
+previous_agent = "shift+alt+up"    # 上の agent へ
+next_agent     = "shift+alt+down"  # 下の agent へ
+
 # --- カスタムコマンド ([[keys.command]]) ---
 # type = "shell": バックグラウンドでデタッチ実行 (GUI アプリ向き)
 # type = "pane" : 一時 pane を開きコマンド終了時に閉じる (TUI 向き)
