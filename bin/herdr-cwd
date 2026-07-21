@@ -1,0 +1,43 @@
+#!/bin/bash
+# herdr の各 pane のカレントディレクトリ（cwd）を一覧表示する。
+# tmux-cwd の herdr 版。`herdr pane list` の JSON を整形して出す。
+#
+# 使い方:
+#   herdr-cwd              # 全 workspace の pane を表示
+#   herdr-cwd -w <id>      # 指定 workspace の pane だけ表示（例: -w w6）
+#   herdr-cwd -t           # agent のタスクタイトルも表示
+#
+# 列: pane_id  [*=focused]  agent(status)  cwd  [title(-t 指定時)]
+set -euo pipefail
+
+TAB=$(printf '\t')
+WORKSPACE=""
+SHOW_TITLE=0
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -w|--workspace) WORKSPACE="$2"; shift 2 ;;
+        -t|--title)     SHOW_TITLE=1; shift ;;
+        -h|--help)      sed -n '2,10p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        *) echo "unknown option: $1" >&2; exit 1 ;;
+    esac
+done
+
+ARGS=()
+[[ -n "$WORKSPACE" ]] && ARGS=(--workspace "$WORKSPACE")
+
+# HOME を ~ に短縮するため jq へ渡す
+herdr pane list "${ARGS[@]}" \
+    | jq -r --arg home "$HOME" --argjson title "$SHOW_TITLE" '
+        .result.panes[]
+        | ( if (.cwd | length) > 0 then .cwd else "-" end ) as $cwd_raw
+        | ( if ($cwd_raw | startswith($home)) then "~" + ($cwd_raw[($home | length):]) else $cwd_raw end ) as $cwd
+        | [ .pane_id,
+            (if .focused then "*" else "" end),
+            ((.agent // "-") + (if .agent_status then "(" + .agent_status + ")" else "" end)),
+            $cwd
+          ]
+          + (if $title == 1 then [ (.terminal_title_stripped // "") ] else [] end)
+        | @tsv
+    ' \
+    | column -t -s "$TAB"
