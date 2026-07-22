@@ -25,6 +25,16 @@ return {
     use_ime = true,
     font_size = 14.0,
 
+    -- カーソルの点滅を止める
+    -- opencode など TUI が escape sequence で点滅カーソルを要求してくるため、
+    -- cursor_blink_rate = 0 で点滅そのものを無効化する（アプリの要求より優先される）
+    cursor_blink_rate = 0,
+    -- 点滅のフェードアニメーションも無効化（保険）
+    cursor_blink_ease_in = 'Constant',
+    cursor_blink_ease_out = 'Constant',
+    animation_fps = 1,
+    default_cursor_style = 'SteadyBlock',
+
     -- タイリングWM (aerospace) との相性改善
     window_decorations = "RESIZE",  -- タイトルバーを消す
     native_macos_fullscreen_mode = false,  -- ネイティブフルスクリーンを使わない
