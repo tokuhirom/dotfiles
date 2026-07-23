@@ -56,9 +56,6 @@ aws-nuke = "3.65.0"
 # AI コーディングエージェント向けターミナルワークスペースマネージャ (ADR-0033)
 herdr = "0.7.4"
 
-# マウス操作前提のターミナルエディタ (ADR-0036)。バイナリ名は spiceedit
-"github:cloudmanic/spice-edit" = "v0.0.41"
-
 # Raku (Rakudo)。registry に無いので asdf プラグイン経由（下の [plugins] 参照）
 raku = "2026.06"
 

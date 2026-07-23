@@ -1,7 +1,7 @@
 # ADR-0036: spiceedit (マウス操作前提のターミナルエディタ) を試験導入する
 
 ## ステータス
-採用（試用）
+廃止（2026-07-23 に試用して即撤去。理由は末尾の「撤去 (2026-07-23)」を参照）
 
 ## コンテキスト
 
@@ -55,3 +55,32 @@ mise の github バックエンドで導入する。
   (設定ファイルを `config/.config/` に置かないため、残骸が出ない)。
 - 更新時は「バージョン更新の手順」(`cheat mise`) に従い、
   `config.toml` を書き換えてから lockfile を更新する。
+
+## 撤去 (2026-07-23)
+
+導入当日に試用したところ、**日本語が正しく表示されず実用にならなかった**ため撤去した。
+
+原因は East Asian Width の扱いで、全角文字を 1 カラム幅として計算しているために
+描画が 1 文字ずつずれ、結果として 1 文字おきに欠落して見える。ファイルツリーの
+ファイル名・バッファ内のテキストの両方で発生する。
+
+upstream にも同じ内容の issue が上がっているが、報告から 2 ヶ月経っても
+コメント 0 件・open のままで、修正の見込みが立っていない:
+
+- [cloudmanic/spice-edit#39 CJK (Chinese/Japanese/Korean) characters display incorrectly - missing characters](https://github.com/cloudmanic/spice-edit/issues/39)
+  (2026-05-20 報告)
+
+「エージェントが書いたコードをざっと見て手直しする」という当初の用途では
+日本語のコメントや文字列を読む場面が普通にあるため、この状態では使えない。
+
+撤去内容:
+
+- `config/.config/mise/config.toml` から `"github:cloudmanic/spice-edit"` の行を削除
+- `config/.config/mise/mise.lock` から該当エントリを削除
+- `mise uninstall github:cloudmanic/spice-edit@0.0.41`
+
+### 再検討する場合の条件
+
+issue #39 が解消され、go-runewidth 相当の幅計算が入ったバージョンが出たら
+再度試す価値はある。ツール自体のコンセプト (マウス駆動・単一バイナリ・SSH 前提) は
+当初の想定どおり有用だった。
