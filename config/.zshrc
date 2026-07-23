@@ -100,7 +100,7 @@ fi
 # Alias - ls
 # -------------------------------------------------------------------------
 
-alias ls="ls -lF --color"
+alias ls="ls -F --color"
 alias s=ls
 alias l=ls
 alias sl=ls
