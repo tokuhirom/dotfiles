@@ -1,0 +1,18 @@
+#!/bin/sh
+# DCO の Signed-off-by を自動付与する (ADR-0037)
+#
+# init.templateDir 経由で git init / git clone のときに .git/hooks/ へ
+# コピーされる。core.hooksPath を使わないので、lefthook / husky のように
+# .git/hooks を使うツールと共存できる。
+set -eu
+
+# "Name <mail> 1720000000 +0900" から末尾のタイムスタンプ 2 語を落とす。
+# git var なら GIT_COMMITTER_NAME/EMAIL の上書きもそのまま反映される。
+ident=$(git var GIT_COMMITTER_IDENT)
+ident=${ident% *}
+ident=${ident% *}
+
+git interpret-trailers --in-place \
+    --if-exists doNothing \
+    --trailer "Signed-off-by: $ident" \
+    "$1"

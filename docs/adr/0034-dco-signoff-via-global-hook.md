@@ -1,7 +1,11 @@
 # ADR-0034: DCO の Signed-off-by をグローバル hook で自動付与する
 
 ## ステータス
-採用
+廃止（ADR-0037 で置き換え）
+
+グローバル `core.hooksPath` が lefthook / husky と衝突し、それらのツールに
+dotfiles 自身を書き換えさせる経路になっていたため、`init.templateDir` 方式へ移行した。
+決定の背景として以下を残す。
 
 ## コンテキスト
 

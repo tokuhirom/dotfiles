@@ -1,37 +1,43 @@
-# git のグローバル hooks
+# git の hook テンプレート
 
-`~/.gitconfig` の `core.hooksPath = ~/.config/git/hooks` から参照される、
-全リポジトリ共通の hook 置き場 (ADR-0034)。
+`~/.gitconfig` の `init.templateDir = ~/.config/git/template` から参照される、
+新しいリポジトリに配られる hook の置き場 (ADR-0037)。
 
 ## 何をしているか
 
 - **DCO**: すべてのコミットに `Signed-off-by: Name <mail>` を自動で付ける。
   `git commit` / `git ci` / gh / エディタ経由 / Claude Code など、経路を問わず付く。
   すでに `Signed-off-by` がある場合は重複させない。
-- **ローカル hook のチェーン**: グローバル `core.hooksPath` を設定すると git は
-  各リポジトリの `.git/hooks` を見なくなるため、`hook-dispatch` が
-  `.git/hooks/<hook 名>` を見つけたら実行を引き継ぐ。
+- **配り方**: `git init` / `git clone` のときに `template/` の中身が
+  そのリポジトリの `.git/` へ**コピー**される。`core.hooksPath` は使わない。
 
 ## 構成
 
 ```
-hooks/
-├── hook-dispatch          # 実体。呼ばれた hook 名で分岐する
-├── prepare-commit-msg -> hook-dispatch   # DCO の付与はここ
-├── pre-commit         -> hook-dispatch   # 以下はローカル hook 委譲のためだけの symlink
-├── commit-msg         -> hook-dispatch
-└── ...
+template/
+└── hooks/
+    └── prepare-commit-msg   # DCO の付与
 ```
+
+## 既存リポジトリへ配る
+
+`init.templateDir` は `git init` / `git clone` のときしか効かない。
+すでに手元にあるリポジトリには `bin/git-template-apply` で配る
+（内部で `git init` を再実行する。既存のコミットや設定は壊れない）。
+
+```bash
+git-template-apply                  # カレントのリポジトリ
+git-template-apply ~/foo ~/bar      # 指定したリポジトリ
+ghq list -p | xargs git-template-apply
+```
+
+すでに `.git/hooks/prepare-commit-msg` があるリポジトリでは上書きされない。
+hook を更新したときに配り直したい場合は、その hook を消してから実行する。
 
 ## hook を追加したいとき
 
-1. `hook-dispatch` に処理を足す（`$hook_name` で分岐）
-2. その hook 名の symlink がなければ張る
-
-```bash
-cd config/.config/git/hooks
-ln -s hook-dispatch pre-push
-```
+`template/hooks/` にその名前で実行可能なファイルを置くだけ。
+既存リポジトリには上記のとおり `git-template-apply` で配る。
 
 ## Signed-off-by を付けたくないコミット
 
@@ -43,7 +49,12 @@ git commit --amend   # エディタで Signed-off-by 行を削除して保存
 
 ## 注意点
 
-- husky / lefthook のようにリポジトリ側で `core.hooksPath` をローカル設定する
-  ツールを入れると、そちらが優先されてこの hook は動かない（＝ DCO も付かない）。
+- **コピーなので更新は伝播しない**。`template/hooks/` を直しても、
+  すでに hook が入っているリポジトリは古いままになる。
+- lefthook / husky を入れたリポジトリでは、そのツールが `.git/hooks` を
+  上書きするか `core.hooksPath` をローカル設定するため DCO は付かなくなる。
+  必要ならそのリポジトリの hook 側に sign-off を足すか `git commit -s` を使う。
+- `init.templateDir` を設定すると git 標準のテンプレート
+  (`*.sample` や `description`) はコピーされなくなる。実害はない。
 - 名前とメールは `git var GIT_COMMITTER_IDENT` から取るので、リポジトリごとに
   `user.email` を変えていればその値が入る。

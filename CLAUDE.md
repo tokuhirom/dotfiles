@@ -101,6 +101,7 @@ ln -s ../config/.config/zellij/README.md cheat/zellij.md
 - `app-toggle <bundle-id> <app-name>` - アプリを workspace 1/9 間でトグル
 - `brew-sync` - Brewfile を同期（インストール + 不要パッケージ削除）
 - `cheat <name>` - 設定ファイルのチートシート表示
+- `git-template-apply [dir...]` - 既存リポジトリに git hook テンプレートを配る (ADR-0037)
 
 ## Git 運用
 

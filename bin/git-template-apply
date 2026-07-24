@@ -1,0 +1,60 @@
+#!/bin/sh
+# init.templateDir の hook を既存リポジトリへ配る (ADR-0037)
+#
+# init.templateDir は git init / git clone のときにしか効かないため、
+# すでに手元にあるリポジトリには hook が入らない。git init は既存リポジトリで
+# 再実行しても安全 (設定・オブジェクト・ref はそのまま) で、template だけが
+# 再適用されるので、それを使って配る。
+#
+# 使い方:
+#   git-template-apply                 # カレントディレクトリのリポジトリ
+#   git-template-apply ~/foo ~/bar     # 指定したリポジトリ
+#   ghq list -p | xargs git-template-apply
+#   find ~/work -name .git -not -path '*/.git/*' | xargs -n1 dirname | xargs git-template-apply
+set -eu
+
+if [ $# -eq 0 ]; then
+    set -- .
+fi
+
+for dir in "$@"; do
+    if [ ! -d "$dir" ]; then
+        echo "skip (not a directory): $dir" >&2
+        continue
+    fi
+    if ! git -C "$dir" rev-parse --git-dir >/dev/null 2>&1; then
+        echo "skip (not a git repository): $dir" >&2
+        continue
+    fi
+
+    git_dir=$(git -C "$dir" rev-parse --absolute-git-dir)
+
+    # worktree は本体と .git/hooks を共有するので、本体側で適用すれば足りる。
+    common_dir=$(git -C "$dir" rev-parse --git-common-dir)
+    case "$common_dir" in
+        /*) ;;
+        *) common_dir=$(cd "$dir" && cd "$common_dir" && pwd) ;;
+    esac
+    if [ "$git_dir" != "$common_dir" ]; then
+        echo "skip (worktree of $common_dir): $dir" >&2
+        continue
+    fi
+
+    # core.hooksPath を持つリポジトリ (lefthook / husky など) は .git/hooks を
+    # 見ないので、hook を置いても無駄なうえ紛らわしい。ただし値が .git/hooks
+    # そのものを指している場合はデフォルトと等価なので、通常どおり適用する。
+    hooks_path=$(git -C "$dir" config --local --get core.hooksPath || true)
+    if [ -n "$hooks_path" ]; then
+        case "$hooks_path" in
+            /*) abs_hooks_path=$hooks_path ;;
+            *) abs_hooks_path=$(cd "$dir" && cd "$(dirname "$hooks_path")" && pwd)/$(basename "$hooks_path") ;;
+        esac
+        if [ "$abs_hooks_path" != "$git_dir/hooks" ]; then
+            echo "skip (core.hooksPath=$hooks_path): $dir" >&2
+            continue
+        fi
+    fi
+
+    git -C "$dir" init -q
+    echo "applied: $dir"
+done
