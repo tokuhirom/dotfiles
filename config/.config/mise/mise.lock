@@ -733,6 +733,55 @@ checksum = "sha256:424dc7ece2893d2c22779f3f1e80b90c231e75fefa25108a485e290186b8d
 url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_darwin_amd64.tar.gz"
 url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/390543987"
 
+[[tools."github:tokuhirom/mutsu"]]
+version = "0.17.1"
+backend = "github:tokuhirom/mutsu"
+
+[tools."github:tokuhirom/mutsu"."platforms.linux-arm64"]
+checksum = "sha256:4298c59cc7b31e1c96d4c4133e6c3552f8ae6e0319710668b5037dc6a9d06e2a"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896039"
+
+[tools."github:tokuhirom/mutsu"."platforms.linux-arm64-musl"]
+checksum = "sha256:4298c59cc7b31e1c96d4c4133e6c3552f8ae6e0319710668b5037dc6a9d06e2a"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896039"
+
+[tools."github:tokuhirom/mutsu"."platforms.linux-x64"]
+checksum = "sha256:dcf9aa8304e50743f8b3f7a9f82549d455db45028c81ab2fcee15bf506b91075"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896043"
+
+[tools."github:tokuhirom/mutsu"."platforms.linux-x64-baseline"]
+checksum = "sha256:dcf9aa8304e50743f8b3f7a9f82549d455db45028c81ab2fcee15bf506b91075"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896043"
+
+[tools."github:tokuhirom/mutsu"."platforms.linux-x64-musl"]
+checksum = "sha256:dcf9aa8304e50743f8b3f7a9f82549d455db45028c81ab2fcee15bf506b91075"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896043"
+
+[tools."github:tokuhirom/mutsu"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:dcf9aa8304e50743f8b3f7a9f82549d455db45028c81ab2fcee15bf506b91075"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896043"
+
+[tools."github:tokuhirom/mutsu"."platforms.macos-arm64"]
+checksum = "sha256:3fabc492782681d96647d066aeefd1a6d52db904ce8959347df83d7b87bc7ec3"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-macos-arm64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896041"
+
+[tools."github:tokuhirom/mutsu"."platforms.macos-x64"]
+checksum = "sha256:b980041b494f2722518dec4210607c8fe57c15ca5bd546b2e99ac49a9bb565e0"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-macos-x64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896042"
+
+[tools."github:tokuhirom/mutsu"."platforms.macos-x64-baseline"]
+checksum = "sha256:b980041b494f2722518dec4210607c8fe57c15ca5bd546b2e99ac49a9bb565e0"
+url = "https://github.com/tokuhirom/mutsu/releases/download/v0.17.1/mutsu-v0.17.1-macos-x64.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mutsu/releases/assets/488896042"
+
 [[tools."github:yagi-agent/yagi"]]
 version = "0.0.44"
 backend = "github:yagi-agent/yagi"

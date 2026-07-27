@@ -1,6 +1,7 @@
 [tools]
 
 "github:tokuhirom/ashron" = "v2026.309.2"
+"github:tokuhirom/mutsu" = "v0.17.1"
 
 # pipx バックエンドだと python のバージョン 3.13 で削除された audioop に依存しているために動かない。
 # uv でもだめ。
