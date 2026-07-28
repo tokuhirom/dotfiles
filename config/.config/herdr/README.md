@@ -77,6 +77,19 @@ prefix なしのグローバルバインドなので、これらのキーは常�
 | `prefix g` | goto |
 | `prefix o` | 通知ターゲットを開く |
 
+## 実験的機能（`[experimental]`）
+
+| 設定 | 値 | 内容 |
+|------|----|------|
+| `kitty_graphics` | `true` | Kitty graphics protocol による画像描画を有効化 |
+
+`kitty_graphics` が false（既定）だと pane に画像を出す API（`pane.graphics`）が
+`pane graphics require experimental.kitty_graphics` で拒否される。
+ホスト端末側も Kitty graphics protocol に対応している必要がある（WezTerm / kitty / Ghostty など）。
+
+公式ドキュメントでは実験的機能として「端末の画像描画挙動を検証するときのみ有効にする」
+と案内されているので、描画がおかしいときはまず false に戻して切り分けること。
+
 ## メモ
 
 - `|`（パイプ）は端末依存で不安定なため、左右分割は `v`(ertical) に割り当てている。

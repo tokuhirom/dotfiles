@@ -74,3 +74,10 @@ command = "zed ."                  # カレントディレクトリを zed で�
 
 [ui]
 agent_panel_sort = "spaces"
+
+[experimental]
+# attach 中のローカルクライアントで Kitty graphics protocol による画像描画を有効にする。
+# 実験的機能で既定は false。pane 内に画像を出す API (pane.graphics) はこれが true でないと
+# 使えない。公式ドキュメント上は「端末の画像描画挙動を検証するときのみ有効に」とされている。
+# https://github.com/ogulcancelik/herdr/blob/main/website/src/content/docs/configuration.mdx
+kitty_graphics = true
