@@ -1,7 +1,7 @@
 [tools]
 
 "github:tokuhirom/ashron" = "v2026.309.2"
-"github:tokuhirom/mutsu" = "v0.17.1"
+"github:tokuhirom/mutsu" = "v0.20.0"
 # ターミナル用 Markdown ビューア (mermaid 図は mmdc = mermaid-cli にフォールバック)
 "github:tokuhirom/mdroll" = "v0.3.0"
 
