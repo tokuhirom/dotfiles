@@ -733,6 +733,55 @@ checksum = "sha256:424dc7ece2893d2c22779f3f1e80b90c231e75fefa25108a485e290186b8d
 url = "https://github.com/tokuhirom/logcmd/releases/download/v2026.407.0/logcmd_2026.407.0_darwin_amd64.tar.gz"
 url_api = "https://api.github.com/repos/tokuhirom/logcmd/releases/assets/390543987"
 
+[[tools."github:tokuhirom/mdroll"]]
+version = "0.3.0"
+backend = "github:tokuhirom/mdroll"
+
+[tools."github:tokuhirom/mdroll"."platforms.linux-arm64"]
+checksum = "sha256:5dc912f31bbebbf9b87082b76bc254e97a86ce899d063fb8be0e790beab615e3"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494683592"
+
+[tools."github:tokuhirom/mdroll"."platforms.linux-arm64-musl"]
+checksum = "sha256:5dc912f31bbebbf9b87082b76bc254e97a86ce899d063fb8be0e790beab615e3"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494683592"
+
+[tools."github:tokuhirom/mdroll"."platforms.linux-x64"]
+checksum = "sha256:e6a64d8b0155178dbf14157b2e607ff75770c4ffe48f37672d9f91172b943b99"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494684012"
+
+[tools."github:tokuhirom/mdroll"."platforms.linux-x64-baseline"]
+checksum = "sha256:e6a64d8b0155178dbf14157b2e607ff75770c4ffe48f37672d9f91172b943b99"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494684012"
+
+[tools."github:tokuhirom/mdroll"."platforms.linux-x64-musl"]
+checksum = "sha256:e6a64d8b0155178dbf14157b2e607ff75770c4ffe48f37672d9f91172b943b99"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494684012"
+
+[tools."github:tokuhirom/mdroll"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:e6a64d8b0155178dbf14157b2e607ff75770c4ffe48f37672d9f91172b943b99"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494684012"
+
+[tools."github:tokuhirom/mdroll"."platforms.macos-arm64"]
+checksum = "sha256:68a77b7b8354ef320b4bbd3bf821d294bf717a4dd4f03deb6a1401f5b30437a8"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494684000"
+
+[tools."github:tokuhirom/mdroll"."platforms.windows-x64"]
+checksum = "sha256:1964e0ad640bd9f25513ec0bd924b58ee93f83e9289b776da7d880b5bbb9664b"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494686025"
+
+[tools."github:tokuhirom/mdroll"."platforms.windows-x64-baseline"]
+checksum = "sha256:1964e0ad640bd9f25513ec0bd924b58ee93f83e9289b776da7d880b5bbb9664b"
+url = "https://github.com/tokuhirom/mdroll/releases/download/v0.3.0/mdroll-v0.3.0-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/tokuhirom/mdroll/releases/assets/494686025"
+
 [[tools."github:tokuhirom/mutsu"]]
 version = "0.17.1"
 backend = "github:tokuhirom/mutsu"
