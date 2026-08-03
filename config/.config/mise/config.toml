@@ -40,8 +40,9 @@ packer = "1.15.4"
 # opencode = "1.14.20"
 # opencode v2 (コマンド名は opencode2)。mise registry 未対応なので npm の next タグ経由で入れる。
 # 新しいバージョンは `npm view @opencode-ai/cli dist-tags` の next を見て手で上げる。
-# postinstall でプラットフォーム別バイナリを取得するので --ignore-scripts=false が必須。
-"npm:@opencode-ai/cli" = { version = "0.0.0-next-16694", npm_args = "--ignore-scripts=false" }
+# postinstall でプラットフォーム別バイナリを取得するので allow_builds が必須。
+# (npm_args = "--ignore-scripts=false" だと、mise 内蔵の aube でインストールされる環境で効かない)
+"npm:@opencode-ai/cli" = { version = "0.0.0-next-16694", allow_builds = ["@opencode-ai/cli"] }
 "github:k1LoW/git-wt" = "v0.29.0"
 dotenvx = "2.1.5"
 zellij = "0.44.3"

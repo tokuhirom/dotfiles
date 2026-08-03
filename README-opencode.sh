@@ -15,9 +15,11 @@ npm の `next` タグから mise の npm バックエンドで入れている (A
 
 定義は `config/.config/mise/config.toml`:
 
-    "npm:@opencode-ai/cli" = { version = "0.0.0-next-16694", npm_args = "--ignore-scripts=false" }
+    "npm:@opencode-ai/cli" = { version = "0.0.0-next-16694", allow_builds = ["@opencode-ai/cli"] }
 
-- postinstall でプラットフォーム別バイナリを取得するため `--ignore-scripts=false` が必要。
+- postinstall でプラットフォーム別バイナリを取得するため `allow_builds` が必要。
+  `npm_args = "--ignore-scripts=false"` は npm CLI にしか効かず、
+  mise が内蔵の aube でインストールする環境 (mac 側がそうだった) では無視される。
 - バージョンを上げるときは `npm view @opencode-ai/cli dist-tags` の `next` を見て手で書き換える。
   すでに入っているバージョンを入れ直す場合は `mise uninstall npm:@opencode-ai/cli@<version>` してから
   `mise install npm:@opencode-ai/cli`。

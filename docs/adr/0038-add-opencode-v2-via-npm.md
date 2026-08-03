@@ -24,7 +24,7 @@ mise の npm バックエンドで、実バージョンを pin して入れる�
 `config/.config/mise/config.toml`:
 
 ```toml
-"npm:@opencode-ai/cli" = { version = "0.0.0-next-16694", npm_args = "--ignore-scripts=false" }
+"npm:@opencode-ai/cli" = { version = "0.0.0-next-16694", allow_builds = ["@opencode-ai/cli"] }
 ```
 
 - v1 (`setup/setup-opencode.sh` の公式インストーラ経由) はそのまま残す。
@@ -38,11 +38,15 @@ mise の npm バックエンドで、実バージョンを pin して入れる�
 - **`@next` ではなく実バージョンを pin**: supply chain 方針 (ADR-0016〜0021) に沿って、
   何が入るかを dotfiles 側で固定する。`mise.lock` にも記録される。
   `next` タグは日に数回動くので、タグ指定だと再現性がない。
-- **`npm_args = "--ignore-scripts=false"`**: このパッケージは postinstall で
-  プラットフォーム別バイナリを取得する。mise はデフォルトで `--ignore-scripts=true`
-  なので、それだと起動時に「postinstall script was not run」で落ちる。
+- **`allow_builds = ["@opencode-ai/cli"]`**: このパッケージは postinstall で
+  プラットフォーム別バイナリを取得する。mise はデフォルトでインストールスクリプトを
+  無効にするので、それだと起動時に「postinstall script was not run」で落ちる。
   スクリプト実行を許可する分だけ supply chain 上のリスクは上がるが、
-  バージョンを pin しているので、入るコードは固定されている。
+  バージョンを pin しており、許可するパッケージも配列で明示している。
+
+  最初は `npm_args = "--ignore-scripts=false"` にしていたが、これは npm CLI に
+  引数を渡すオプションで、mise が内蔵の aube でインストールする環境では効かなかった
+  (Linux 側は npm CLI、mac 側は aube になっていた)。`allow_builds` はどちらでも効く。
 - **v1 を残す**: バイナリ名が違うので衝突しない。v2 が壊れているときの
   切り分けにも v1 が残っていた方がよい (ADR-0029 で opencode を mise に寄せたのと同じ動機)。
 

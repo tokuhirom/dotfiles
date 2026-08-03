@@ -1212,7 +1212,7 @@ version = "0.0.0-next-16694"
 backend = "npm:@opencode-ai/cli"
 
 [tools."npm:@opencode-ai/cli".options]
-npm_args = "--ignore-scripts=false"
+allow_builds = '["@opencode-ai/cli"]'
 
 [[tools.packer]]
 version = "1.15.4"
