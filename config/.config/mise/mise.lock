@@ -1207,6 +1207,13 @@ url = "https://nodejs.org/dist/v24.18.0/node-v24.18.0-win-x64.zip"
 version = "11.16.0"
 backend = "npm:@mermaid-js/mermaid-cli"
 
+[[tools."npm:@opencode-ai/cli"]]
+version = "0.0.0-next-16694"
+backend = "npm:@opencode-ai/cli"
+
+[tools."npm:@opencode-ai/cli".options]
+npm_args = "--ignore-scripts=false"
+
 [[tools.packer]]
 version = "1.15.4"
 backend = "aqua:hashicorp/packer"
