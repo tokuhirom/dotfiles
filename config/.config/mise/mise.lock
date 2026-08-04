@@ -1214,6 +1214,10 @@ backend = "npm:@opencode-ai/cli"
 [tools."npm:@opencode-ai/cli".options]
 allow_builds = '["@opencode-ai/cli"]'
 
+[[tools."npm:@playwright/cli"]]
+version = "0.1.17"
+backend = "npm:@playwright/cli"
+
 [[tools.packer]]
 version = "1.15.4"
 backend = "aqua:hashicorp/packer"

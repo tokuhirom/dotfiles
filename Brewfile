@@ -34,8 +34,6 @@ brew "bash"
 brew "rakudo"
 brew "gitleaks"
 
-brew "playwright-cli"
-
 # brew "mashiike/tap/actionspin"
 
 # Version control
