@@ -1116,6 +1116,55 @@ checksum = "sha256:3fe50c4a63dc8102306b1322178628ddb3655cd3ae56d784f094153408d69
 url = "https://github.com/ogulcancelik/herdr/releases/download/v0.7.5/herdr-macos-x86_64"
 url_api = "https://api.github.com/repos/ogulcancelik/herdr/releases/assets/484992541"
 
+[[tools.hunk]]
+version = "0.17.7"
+backend = "aqua:modem-dev/hunk"
+
+[tools.hunk."platforms.linux-arm64"]
+checksum = "sha256:fd9be9ad507c909352424c677f8a4045f3a03bec7d0248ec3d84d7606a1aaa05"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434272"
+
+[tools.hunk."platforms.linux-arm64-musl"]
+checksum = "sha256:fd9be9ad507c909352424c677f8a4045f3a03bec7d0248ec3d84d7606a1aaa05"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434272"
+
+[tools.hunk."platforms.linux-x64"]
+checksum = "sha256:69d4788ce57d4872c812b7f22b2e2ddfff287117339c336e9556dca8260e4c4f"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434277"
+
+[tools.hunk."platforms.linux-x64-baseline"]
+checksum = "sha256:69d4788ce57d4872c812b7f22b2e2ddfff287117339c336e9556dca8260e4c4f"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434277"
+
+[tools.hunk."platforms.linux-x64-musl"]
+checksum = "sha256:69d4788ce57d4872c812b7f22b2e2ddfff287117339c336e9556dca8260e4c4f"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434277"
+
+[tools.hunk."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:69d4788ce57d4872c812b7f22b2e2ddfff287117339c336e9556dca8260e4c4f"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434277"
+
+[tools.hunk."platforms.macos-arm64"]
+checksum = "sha256:7bf5ab4e625a51a8d9e7b92c703ff2c412a434ba136c2d447626173195083f81"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434271"
+
+[tools.hunk."platforms.macos-x64"]
+checksum = "sha256:a2a3f0645857338e494398e077544a06f04d73a26c48fc20a774697eb93c7111"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-darwin-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434274"
+
+[tools.hunk."platforms.macos-x64-baseline"]
+checksum = "sha256:a2a3f0645857338e494398e077544a06f04d73a26c48fc20a774697eb93c7111"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-darwin-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/493434274"
+
 [[tools.java]]
 version = "25.0.2"
 backend = "core:java"
@@ -1488,52 +1537,52 @@ version = "1.96.1"
 backend = "core:rust"
 
 [[tools.terraform]]
-version = "1.15.7"
+version = "1.15.8"
 backend = "aqua:hashicorp/terraform"
 
 [tools.terraform."platforms.linux-arm64"]
-checksum = "sha256:7a9e92105ede978cf9049a2fbe53dfe67c6a8da4b4d7f613d89e7dd7c63ec40d"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_arm64.zip"
+checksum = "sha256:8891e9dcedc9e3b8950bc6af9d4d8af1f4cfade3062f53b9dc403a89f6ce8c9c"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_arm64.zip"
 
 [tools.terraform."platforms.linux-arm64-musl"]
-checksum = "sha256:7a9e92105ede978cf9049a2fbe53dfe67c6a8da4b4d7f613d89e7dd7c63ec40d"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_arm64.zip"
+checksum = "sha256:8891e9dcedc9e3b8950bc6af9d4d8af1f4cfade3062f53b9dc403a89f6ce8c9c"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_arm64.zip"
 
 [tools.terraform."platforms.linux-x64"]
-checksum = "sha256:73bbb8f5188ad75d4fb853fd100ae4d7e146ef7af7db18776109642fdb7759d2"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_amd64.zip"
+checksum = "sha256:d25ce7b6902013ad905db3d2eab0be4cd905887fe88b81a6171b8d5503c31f3d"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip"
 
 [tools.terraform."platforms.linux-x64-baseline"]
-checksum = "sha256:73bbb8f5188ad75d4fb853fd100ae4d7e146ef7af7db18776109642fdb7759d2"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_amd64.zip"
+checksum = "sha256:d25ce7b6902013ad905db3d2eab0be4cd905887fe88b81a6171b8d5503c31f3d"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip"
 
 [tools.terraform."platforms.linux-x64-musl"]
-checksum = "sha256:73bbb8f5188ad75d4fb853fd100ae4d7e146ef7af7db18776109642fdb7759d2"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_amd64.zip"
+checksum = "sha256:d25ce7b6902013ad905db3d2eab0be4cd905887fe88b81a6171b8d5503c31f3d"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip"
 
 [tools.terraform."platforms.linux-x64-musl-baseline"]
-checksum = "sha256:73bbb8f5188ad75d4fb853fd100ae4d7e146ef7af7db18776109642fdb7759d2"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_linux_amd64.zip"
+checksum = "sha256:d25ce7b6902013ad905db3d2eab0be4cd905887fe88b81a6171b8d5503c31f3d"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip"
 
 [tools.terraform."platforms.macos-arm64"]
-checksum = "sha256:711791bf41365137a9a4adbf3e4c4a18dd7389d45c6a3039e3c6946bc750080e"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_darwin_arm64.zip"
+checksum = "sha256:f210110c5698b94d803a7a63cdb0251b5455c150841478808e2bbb343f95ed68"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_darwin_arm64.zip"
 
 [tools.terraform."platforms.macos-x64"]
-checksum = "sha256:7f7a055e4d0c9dddb19cb14058fc885df139fdd4e987fffff6bf82993ac6a1a3"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_darwin_amd64.zip"
+checksum = "sha256:e2e812e783771159bf758fd4e55d6dc9bb08f63e2af2c63d212721807a02c5dc"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_darwin_amd64.zip"
 
 [tools.terraform."platforms.macos-x64-baseline"]
-checksum = "sha256:7f7a055e4d0c9dddb19cb14058fc885df139fdd4e987fffff6bf82993ac6a1a3"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_darwin_amd64.zip"
+checksum = "sha256:e2e812e783771159bf758fd4e55d6dc9bb08f63e2af2c63d212721807a02c5dc"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_darwin_amd64.zip"
 
 [tools.terraform."platforms.windows-x64"]
-checksum = "sha256:1644891f1d02dea989daed9a39c564ebdc80e13c9a7e42e713fba84d7f53b8f6"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_windows_amd64.zip"
+checksum = "sha256:2ff41d2129afb1982733c132c61a8d6ef038f879f3aeede7fc28b8b8b24acf02"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_windows_amd64.zip"
 
 [tools.terraform."platforms.windows-x64-baseline"]
-checksum = "sha256:1644891f1d02dea989daed9a39c564ebdc80e13c9a7e42e713fba84d7f53b8f6"
-url = "https://releases.hashicorp.com/terraform/1.15.7/terraform_1.15.7_windows_amd64.zip"
+checksum = "sha256:2ff41d2129afb1982733c132c61a8d6ef038f879f3aeede7fc28b8b8b24acf02"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_windows_amd64.zip"
 
 [[tools.tmux]]
 version = "3.7b"

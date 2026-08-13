@@ -34,7 +34,7 @@ ghq = "1.10.1"
 # vim = "9.1.1825"
 watchexec = "2.5.1"
 bun = "1.3.14"
-terraform = "1.15.7"
+terraform = "1.15.8"
 packer = "1.15.4"
 # opencode は更新頻度高いので brew によせる。。と思ったが、opencode がぶっ壊れてるケースの絞り込みとかもしたいので難しい。
 # opencode = "1.14.20"
@@ -72,6 +72,9 @@ raku = "2026.06"
 # Playwright CLI (コマンド名は playwright-cli)。mise registry 未対応なので npm 経由 (ADR-0039)。
 # 更新は `npm view @playwright/cli version` を見て手で上げる。
 "npm:@playwright/cli" = "0.1.17"
+
+# hunk: AI エージェントが生成した diff をレビューするための TUI diff viewer
+hunk = "0.17.7"
 
 [plugins]
 # rakudo.org のプレビルドバイナリを入れる asdf プラグイン。supply chain 方針により commit pin
