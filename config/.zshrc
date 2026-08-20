@@ -231,4 +231,10 @@ if command -v mise &> /dev/null; then
     eval "$(mise activate zsh)"
 fi
 
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+# 1PasswordのSSHエージェント(macOSのみ)。ソケットが無い環境(Linux等)では
+# デスクトップセッションのデフォルトエージェント(gnome-keyring)をそのまま使う。
+_op_agent_sock=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+if [[ -S $_op_agent_sock ]]; then
+    export SSH_AUTH_SOCK=$_op_agent_sock
+fi
+unset _op_agent_sock
