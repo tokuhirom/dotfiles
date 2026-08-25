@@ -81,3 +81,7 @@ agent_panel_sort = "spaces"
 # 使えない。公式ドキュメント上は「端末の画像描画挙動を検証するときのみ有効に」とされている。
 # https://github.com/ogulcancelik/herdr/blob/main/website/src/content/docs/configuration.mdx
 kitty_graphics = true
+
+[theme]
+name = "gruvbox"
+auto_switch = false

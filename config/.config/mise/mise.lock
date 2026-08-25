@@ -695,6 +695,10 @@ url = "https://github.com/k1LoW/mo/releases/download/v1.6.3/mo_v1.6.3_windows_am
 url_api = "https://api.github.com/repos/k1LoW/mo/releases/assets/458521703"
 provenance = "github-attestations"
 
+[[tools."github:sacloud/usacloud"]]
+version = "1.22.8"
+backend = "github:sacloud/usacloud"
+
 [[tools."github:tokuhirom/ashron"]]
 version = "2026.309.2"
 backend = "github:tokuhirom/ashron"
