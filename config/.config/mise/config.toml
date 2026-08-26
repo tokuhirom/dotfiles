@@ -77,6 +77,7 @@ raku = "2026.06"
 hunk = "0.17.7"
 pinact = "latest"
 goreleaser = "latest"
+just = "latest"
 
 # Go の既知脆弱性チェッカー
 "go:golang.org/x/vuln/cmd/govulncheck" = "1.6.0"

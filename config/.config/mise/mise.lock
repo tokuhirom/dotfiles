@@ -699,6 +699,61 @@ provenance = "github-attestations"
 version = "1.22.8"
 backend = "github:sacloud/usacloud"
 
+[tools."github:sacloud/usacloud"."platforms.linux-arm64"]
+checksum = "sha256:e26f8ddefda4c6fc3296907cf82172110f216eb9da2d9e447c02cad7a538c4fe"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_linux-arm64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977296"
+
+[tools."github:sacloud/usacloud"."platforms.linux-arm64-musl"]
+checksum = "sha256:e26f8ddefda4c6fc3296907cf82172110f216eb9da2d9e447c02cad7a538c4fe"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_linux-arm64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977296"
+
+[tools."github:sacloud/usacloud"."platforms.linux-x64"]
+checksum = "sha256:36f3f322702d3008261c68059082fcf3baa7bfe821ea347b32c082e836ed26dd"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_linux-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977344"
+
+[tools."github:sacloud/usacloud"."platforms.linux-x64-baseline"]
+checksum = "sha256:36f3f322702d3008261c68059082fcf3baa7bfe821ea347b32c082e836ed26dd"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_linux-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977344"
+
+[tools."github:sacloud/usacloud"."platforms.linux-x64-musl"]
+checksum = "sha256:36f3f322702d3008261c68059082fcf3baa7bfe821ea347b32c082e836ed26dd"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_linux-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977344"
+
+[tools."github:sacloud/usacloud"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:36f3f322702d3008261c68059082fcf3baa7bfe821ea347b32c082e836ed26dd"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_linux-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977344"
+
+[tools."github:sacloud/usacloud"."platforms.macos-arm64"]
+checksum = "sha256:bf56db732ff5fd2bb3c4e45e4190a48e615d6d816ee83dba1394cd79aaa841ed"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_darwin-arm64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977380"
+
+[tools."github:sacloud/usacloud"."platforms.macos-x64"]
+checksum = "sha256:eab7e93c8a83dbaeaae44b52ed59ff1e1ebd1423f476e2fd5cd14e8c8887bbc3"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_darwin-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977297"
+
+[tools."github:sacloud/usacloud"."platforms.macos-x64-baseline"]
+checksum = "sha256:eab7e93c8a83dbaeaae44b52ed59ff1e1ebd1423f476e2fd5cd14e8c8887bbc3"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_darwin-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977297"
+
+[tools."github:sacloud/usacloud"."platforms.windows-x64"]
+checksum = "sha256:d7c904e537f2be934704f0d2225de3bbdb24739c2d16b6e8a19f797d6a65de7f"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_windows-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977378"
+
+[tools."github:sacloud/usacloud"."platforms.windows-x64-baseline"]
+checksum = "sha256:d7c904e537f2be934704f0d2225de3bbdb24739c2d16b6e8a19f797d6a65de7f"
+url = "https://github.com/sacloud/usacloud/releases/download/v1.22.8/usacloud_windows-amd64.zip"
+url_api = "https://api.github.com/repos/sacloud/usacloud/releases/assets/487977378"
+
 [[tools."github:tokuhirom/ashron"]]
 version = "2026.309.2"
 backend = "github:tokuhirom/ashron"
@@ -1291,6 +1346,65 @@ url = "https://download.java.net/java/GA/jdk25.0.2/b1e0dfa218384cb9959bdcb897162
 [tools.java."platforms.windows-x64-baseline"]
 checksum = "sha256:74784a0c07258f32d36e9224dd79187c566d831c30d47dc06888d4212087331d"
 url = "https://download.java.net/java/GA/jdk25.0.2/b1e0dfa218384cb9959bdcb897162d4e/10/GPL/openjdk-25.0.2_windows-x64_bin.zip"
+
+[[tools.just]]
+version = "1.58.0"
+backend = "aqua:casey/just"
+
+[tools.just."platforms.linux-arm64"]
+checksum = "sha256:748237128c4c40cbdabc65e841d05ceba13cc23a91eaba395495894c1d9764df"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500510099"
+
+[tools.just."platforms.linux-arm64-musl"]
+checksum = "sha256:748237128c4c40cbdabc65e841d05ceba13cc23a91eaba395495894c1d9764df"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500510099"
+
+[tools.just."platforms.linux-x64"]
+checksum = "sha256:4a5cc2f53e6f0f8c59092a6cc38291eb729d46a7dd95d3ae582008881b84931d"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500509978"
+
+[tools.just."platforms.linux-x64-baseline"]
+checksum = "sha256:4a5cc2f53e6f0f8c59092a6cc38291eb729d46a7dd95d3ae582008881b84931d"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500509978"
+
+[tools.just."platforms.linux-x64-musl"]
+checksum = "sha256:4a5cc2f53e6f0f8c59092a6cc38291eb729d46a7dd95d3ae582008881b84931d"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500509978"
+
+[tools.just."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:4a5cc2f53e6f0f8c59092a6cc38291eb729d46a7dd95d3ae582008881b84931d"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500509978"
+
+[tools.just."platforms.macos-arm64"]
+checksum = "sha256:50ae3e996c974a0bf32ea7d10f495070df33f1b43e0616b2769e3d4821ed8f48"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500509965"
+
+[tools.just."platforms.macos-x64"]
+checksum = "sha256:9a09cfef66aaa79da58203970103a0684307716caaabd3e9844cacc4dc0f4023"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500510084"
+
+[tools.just."platforms.macos-x64-baseline"]
+checksum = "sha256:9a09cfef66aaa79da58203970103a0684307716caaabd3e9844cacc4dc0f4023"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500510084"
+
+[tools.just."platforms.windows-x64"]
+checksum = "sha256:759f16fb7aa17c5c8b9594b6d4a8c1a6630dfd042cf2b3ff84841454d3d188dc"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500511374"
+
+[tools.just."platforms.windows-x64-baseline"]
+checksum = "sha256:759f16fb7aa17c5c8b9594b6d4a8c1a6630dfd042cf2b3ff84841454d3d188dc"
+url = "https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/casey/just/releases/assets/500511374"
 
 [[tools.node]]
 version = "24.18.0"
