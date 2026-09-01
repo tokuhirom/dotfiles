@@ -1746,7 +1746,7 @@ url = "https://github.com/astral-sh/python-build-standalone/releases/download/20
 provenance = "github-attestations"
 
 [[tools.raku]]
-version = "2026.06"
+version = "2026.07"
 backend = "asdf:https://github.com/m-dango/asdf-raku#dd8c1ef91f2b9805f94c4165d6b3029b3fbf2a06"
 
 [[tools.ruby]]
