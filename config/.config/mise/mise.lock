@@ -1020,52 +1020,52 @@ url = "https://github.com/yagi-agent/yagi/releases/download/v0.0.44/yagi_v0.0.44
 url_api = "https://api.github.com/repos/yagi-agent/yagi/releases/assets/368046189"
 
 [[tools.go]]
-version = "1.26.4"
+version = "1.27.0"
 backend = "core:go"
 
 [tools.go."platforms.linux-arm64"]
-checksum = "sha256:ef758ae7c6cf9267c9c0ef080b8965f453d89ab2d25d9eb22de4405925238768"
-url = "https://dl.google.com/go/go1.26.4.linux-arm64.tar.gz"
+checksum = "sha256:51798d2c42d0e1c6ed7fd9f48728b4193abac9e8aad6dbac2fe96a81f5909bda"
+url = "https://dl.google.com/go/go1.27.0.linux-arm64.tar.gz"
 
 [tools.go."platforms.linux-arm64-musl"]
-checksum = "sha256:ef758ae7c6cf9267c9c0ef080b8965f453d89ab2d25d9eb22de4405925238768"
-url = "https://dl.google.com/go/go1.26.4.linux-arm64.tar.gz"
+checksum = "sha256:51798d2c42d0e1c6ed7fd9f48728b4193abac9e8aad6dbac2fe96a81f5909bda"
+url = "https://dl.google.com/go/go1.27.0.linux-arm64.tar.gz"
 
 [tools.go."platforms.linux-x64"]
-checksum = "sha256:1153d3d50e0ac764b447adfe05c2bcf08e889d42a02e0fe0259bd47f6733ad7f"
-url = "https://dl.google.com/go/go1.26.4.linux-amd64.tar.gz"
+checksum = "sha256:675c26c449cbb18fc24b74650de1eabbae6e16f64326fd85a283fb3b58280685"
+url = "https://dl.google.com/go/go1.27.0.linux-amd64.tar.gz"
 
 [tools.go."platforms.linux-x64-baseline"]
-checksum = "sha256:1153d3d50e0ac764b447adfe05c2bcf08e889d42a02e0fe0259bd47f6733ad7f"
-url = "https://dl.google.com/go/go1.26.4.linux-amd64.tar.gz"
+checksum = "sha256:675c26c449cbb18fc24b74650de1eabbae6e16f64326fd85a283fb3b58280685"
+url = "https://dl.google.com/go/go1.27.0.linux-amd64.tar.gz"
 
 [tools.go."platforms.linux-x64-musl"]
-checksum = "sha256:1153d3d50e0ac764b447adfe05c2bcf08e889d42a02e0fe0259bd47f6733ad7f"
-url = "https://dl.google.com/go/go1.26.4.linux-amd64.tar.gz"
+checksum = "sha256:675c26c449cbb18fc24b74650de1eabbae6e16f64326fd85a283fb3b58280685"
+url = "https://dl.google.com/go/go1.27.0.linux-amd64.tar.gz"
 
 [tools.go."platforms.linux-x64-musl-baseline"]
-checksum = "sha256:1153d3d50e0ac764b447adfe05c2bcf08e889d42a02e0fe0259bd47f6733ad7f"
-url = "https://dl.google.com/go/go1.26.4.linux-amd64.tar.gz"
+checksum = "sha256:675c26c449cbb18fc24b74650de1eabbae6e16f64326fd85a283fb3b58280685"
+url = "https://dl.google.com/go/go1.27.0.linux-amd64.tar.gz"
 
 [tools.go."platforms.macos-arm64"]
-checksum = "sha256:b62ad2b6d7d2464f12a5bcad7ff47f19d08325773b5efd21610e445a05a9bf53"
-url = "https://dl.google.com/go/go1.26.4.darwin-arm64.tar.gz"
+checksum = "sha256:90493b3bbd5e10f91d12153198bf1994fd756399b4fec93b49b0c6e2acdeeb3e"
+url = "https://dl.google.com/go/go1.27.0.darwin-arm64.tar.gz"
 
 [tools.go."platforms.macos-x64"]
-checksum = "sha256:05dc9b5f9997744520aaebb3d5deaa7c755371aebbfb7f97c2511a9f3367538d"
-url = "https://dl.google.com/go/go1.26.4.darwin-amd64.tar.gz"
+checksum = "sha256:d3314e25496e4381d71a5c51d2907e7af655d199f6780b549f015bd85fef4986"
+url = "https://dl.google.com/go/go1.27.0.darwin-amd64.tar.gz"
 
 [tools.go."platforms.macos-x64-baseline"]
-checksum = "sha256:05dc9b5f9997744520aaebb3d5deaa7c755371aebbfb7f97c2511a9f3367538d"
-url = "https://dl.google.com/go/go1.26.4.darwin-amd64.tar.gz"
+checksum = "sha256:d3314e25496e4381d71a5c51d2907e7af655d199f6780b549f015bd85fef4986"
+url = "https://dl.google.com/go/go1.27.0.darwin-amd64.tar.gz"
 
 [tools.go."platforms.windows-x64"]
-checksum = "sha256:3ca8fb4630b07c419cbdd51f754e31363cfcfb83b3a5354d9e895c90be2cc345"
-url = "https://dl.google.com/go/go1.26.4.windows-amd64.zip"
+checksum = "sha256:f0c0a0d33ba94f4d2c5dbc887334ce678b21813504ddb3aafcb06e60a5a667c4"
+url = "https://dl.google.com/go/go1.27.0.windows-amd64.zip"
 
 [tools.go."platforms.windows-x64-baseline"]
-checksum = "sha256:3ca8fb4630b07c419cbdd51f754e31363cfcfb83b3a5354d9e895c90be2cc345"
-url = "https://dl.google.com/go/go1.26.4.windows-amd64.zip"
+checksum = "sha256:f0c0a0d33ba94f4d2c5dbc887334ce678b21813504ddb3aafcb06e60a5a667c4"
+url = "https://dl.google.com/go/go1.27.0.windows-amd64.zip"
 
 [[tools."go:golang.org/x/vuln/cmd/govulncheck"]]
 version = "1.6.0"
