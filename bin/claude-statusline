@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+# Claude Code の statusline を生成する。
+#
+# stdin に Claude Code から JSON が渡ってくる。主に使うのは:
+#   .model.display_name      - モデル名 (例: "Opus 5 (1M)")
+#   .rate_limits.seven_day   - { used_percentage, resets_at } 週次(7日)のレート制限
+#   .rate_limits.five_hour   - { used_percentage, resets_at } 5時間ウィンドウ
+#   .context_window          - { used_percentage, ... } コンテキストウィンドウ使用率
+#   .workspace.current_dir   - カレントディレクトリ
+#
+# 週次の表示は「現時点の使用率」と「このペースで使い続けた場合のリセット時点の予測値」
+# を並べる。予測値が 100% を超えていたら使いすぎ、というのが一目で分かる。
+#
+# 設定: ~/.claude/settings.json の statusLine.command から呼ぶ (ADR-0040)
+
+set -uo pipefail
+
+input=$(cat)
+
+cwd=$(printf '%s' "$input" | jq -r '.workspace.current_dir // .cwd // ""')
+
+branch=""
+if [ -n "$cwd" ] && [ -d "$cwd" ]; then
+    branch=$(git -C "$cwd" --no-optional-locks symbolic-ref --quiet --short HEAD 2>/dev/null) ||
+        branch=$(git -C "$cwd" --no-optional-locks rev-parse --short HEAD 2>/dev/null) ||
+        branch=""
+fi
+
+printf '%s' "$input" | jq -r --arg branch "$branch" --arg home "$HOME" '
+  def esc: "\u001b[";
+  def paint($c): esc + $c + "m" + . + esc + "0m";
+  def dim: paint("2");
+  def pct: (. + 0.5) | floor | tostring;
+
+  # 秒数を "3d4h" / "5h12m" / "42m" 形式にする
+  def duration:
+    (if . < 0 then 0 else . end | floor) as $s
+    | ($s / 86400 | floor) as $d
+    | (($s % 86400) / 3600 | floor) as $h
+    | (($s % 3600) / 60 | floor) as $m
+    | if $d > 0 then "\($d)d\($h)h"
+      elif $h > 0 then "\($h)h\($m)m"
+      else "\($m)m" end;
+
+  # 使用率に応じた色。100% 超え = 赤、80% 超え = 黄、それ以外 = 緑
+  def usage_color:
+    if . >= 100 then "31" elif . >= 80 then "33" else "32" end;
+
+  # モデル名を詰める。"Claude Opus 5 (1M context)" -> "Opus5(1M)"
+  #   1. 先頭の "Claude " を落とす
+  #   2. カッコ内の " context" を落とす ("(1M context)" -> "(1M)")
+  #   3. 数字と "(" の前のスペースを削る
+  def compact_model:
+    sub("^Claude ";"")
+    | gsub(" context\\)"; ")")
+    | gsub(" (?=[0-9(])"; "");
+
+  # ホームディレクトリを ~ に縮める
+  def shortdir:
+    if startswith($home + "/") then "~" + .[($home | length):]
+    elif . == $home then "~"
+    else . end;
+
+  # コンテキストウィンドウの使用率。auto-compact が走る前に気付けるよう
+  # レート制限より低めのしきい値 (70/90) で色を付ける。
+  def context:
+    .context_window as $c
+    | if $c == null or $c.used_percentage == null then null else
+        ("ctx " + ($c.used_percentage | pct) + "%"
+         | paint(if $c.used_percentage >= 90 then "31"
+                 elif $c.used_percentage >= 70 then "33"
+                 else "32" end))
+      end;
+
+  # 週次(7日)のレート制限。使用率とペース予測を出す。
+  def weekly:
+    .rate_limits.seven_day as $w
+    | if $w == null then null else
+        (7 * 86400) as $window
+        | (($window - ($w.resets_at - now)) / $window) as $elapsed
+        # ウィンドウ開始直後は予測が発散するので下限でクランプする
+        | (if $elapsed < 0.02 then 0.02 elif $elapsed > 1 then 1 else $elapsed end) as $elapsed
+        | $w.used_percentage as $used
+        | ($used / $elapsed) as $projected
+        | ("7d " + ($used | pct) + "%" | paint("1;" + ($used | usage_color)))
+          + (" →" + ($projected | pct) + "%" | paint($projected | usage_color))
+          + (" (" + (($w.resets_at - now) | duration) + ")" | dim)
+      end;
+
+  [
+    (.workspace.current_dir // .cwd // "" | shortdir | paint("36")),
+    (if $branch == "" then null else ($branch | paint("35")) end),
+    (.model.display_name | compact_model | paint("1;34")),
+    context,
+    weekly
+  ]
+  | map(select(. != null))
+  | join(" " + ("│" | dim) + " ")
+'
