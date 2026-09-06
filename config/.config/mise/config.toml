@@ -63,7 +63,7 @@ pi = "0.80.3"
 aws-nuke = "3.65.0"
 
 # AI コーディングエージェント向けターミナルワークスペースマネージャ (ADR-0033)
-herdr = "0.7.5"
+herdr = "0.8.2"
 
 # Raku (Rakudo)。registry に無いので asdf プラグイン経由（下の [plugins] 参照）
 raku = "2026.07"
