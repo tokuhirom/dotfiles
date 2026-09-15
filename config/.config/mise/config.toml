@@ -42,7 +42,7 @@ packer = "1.15.4"
 # 新しいバージョンは `npm view @opencode-ai/cli dist-tags` の next を見て手で上げる。
 # postinstall でプラットフォーム別バイナリを取得するので allow_builds が必須。
 # (npm_args = "--ignore-scripts=false" だと、mise 内蔵の aube でインストールされる環境で効かない)
-"npm:@opencode-ai/cli" = { version = "0.0.0-next-16694", allow_builds = ["@opencode-ai/cli"] }
+"npm:@opencode-ai/cli" = { version = "0.0.0-beta-17823", allow_builds = ["@opencode-ai/cli"] }
 "github:k1LoW/git-wt" = "v0.29.0"
 dotenvx = "2.1.5"
 zellij = "0.44.3"
