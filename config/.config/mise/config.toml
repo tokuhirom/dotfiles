@@ -91,7 +91,8 @@ raku = "https://github.com/m-dango/asdf-raku#dd8c1ef91f2b9805f94c4165d6b3029b3fb
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
-install_before = "7d"  # only install versions released more than 7 days ago
+# リリースから 7 日以上経過したバージョンだけを入れる (旧名 install_before)
+minimum_release_age = "7d"
 # プロンプト/status 行でアクティブなツールと env を表示する
 status.show_tools = true
 status.show_env = true
