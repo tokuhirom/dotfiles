@@ -1850,7 +1850,7 @@ checksum = "sha256:74e31613fc71e6e23431dfc4d8b6ec2818a4dc1fd16e0983b074144c16719
 url = "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.5-1/rubyinstaller-4.0.5-1-x64.7z"
 
 [[tools.rust]]
-version = "1.96.1"
+version = "1.99.0"
 backend = "core:rust"
 
 [[tools.terraform]]
